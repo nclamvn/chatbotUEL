@@ -30,6 +30,10 @@ Bật đường LLM thật rồi lặp lại các bằng chứng vốn mới có
 4. Bật EMBEDDINGS=e5, re-ingest, so sánh retrieval trên 10 câu diễn giải:
    với mỗi câu ghi top-3 chunk của hash và của e5, đánh dấu bên nào trúng ý
    hơn. Kết luận một đoạn.
+5. (Verify REQ-08 mở rộng, 12/07) Liếc lại reflow ở bề rộng 1100 đến 1200:
+   khi SSE stream từng từ làm bubble cao dần trong lúc evidence panel đang
+   mở và đẩy cột chat, xem cột có giật không. Giao điểm của hai thứ mới
+   chưa từng chạy cùng nhau, một dòng kiểm tra bằng mắt.
 
 ## ACCEPTANCE CRITERIA
 - Given key hợp lệ, When smoke 12 câu, Then 12/12 đúng trạng thái và P95 < 6s.
