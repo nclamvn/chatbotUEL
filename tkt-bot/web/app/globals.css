@@ -1,0 +1,102 @@
+/* Token lấy nguyên từ mockup đã duyệt. Đổi token là đổi khế ước. */
+:root {
+  --paper: #fbfaf7;
+  --ink: #181a1f;
+  --muted: #6b6f78;
+  --hairline: #e6e3db;
+  --accent: #144e8c;
+  --accent-ink: #0e3a6a;
+  --accent-soft: #eaf1fa;
+  --card: #ffffff;
+  --user: #144e8c;
+  --user-ink: #f4f8fe;
+  --warn-bg: #fdf7e7;
+  --warn-line: #e7d9ab;
+  --warn-ink: #7a611c;
+  --null-bg: #f3f2ee;
+  --null-ink: #565a62;
+  --tierA: #144e8c;
+  --tierB: #4d5a6b;
+  --tierC: #8a8f98;
+  --radius: 16px;
+  --shadow: 0 1px 2px rgba(20, 30, 50, 0.06), 0 8px 28px rgba(20, 30, 50, 0.08);
+  /* token layout cho desktop, không thuộc khế ước màu */
+  --chat-max: 760px;
+  --panel-w: 380px;
+}
+
+.dark {
+  --paper: #101318;
+  --ink: #e9eaee;
+  --muted: #9aa0ab;
+  --hairline: #242a33;
+  --accent: #6fa4dd;
+  --accent-ink: #a9c8ec;
+  --accent-soft: #182636;
+  --card: #171b22;
+  --user: #1c4d85;
+  --user-ink: #eaf2fc;
+  --warn-bg: #241f10;
+  --warn-line: #4a3f1c;
+  --warn-ink: #d9be6d;
+  --null-bg: #1a1e25;
+  --null-ink: #9aa0ab;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 28px rgba(0, 0, 0, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: #d8d5cd;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.dark body {
+  background: #05070a;
+}
+
+button {
+  font-family: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* scrollbar mảnh, ăn theo token cả hai theme */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--hairline) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--hairline);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}

@@ -1,0 +1,61 @@
+domain: toan_kinh_te_uel
+entity_label: "thực thể Khoa Toán Kinh tế UEL"
+
+schema:
+  type_field: loai
+  fields:
+    - loai
+    - ten_day_du
+    - truc_thuoc
+    - chuc_vu
+    - hoc_ham_hoc_vi
+    - chuyen_mon
+    - nam_thanh_lap_bo_mon
+    - nam_len_khoa
+    - nam_mo_nganh
+    - nam_thanh_lap
+    - so_giang_vien_co_huu
+    - co_cau_hoc_vi
+    - bo_mon_truc_thuoc
+    - dinh_huong_nghien_cuu
+    - triet_ly_giao_duc
+    - tam_nhin
+    - dia_chi
+    - email
+    - dien_thoai
+    - website
+    - ma_truong
+    - ma_tuyen_sinh
+    - tin_chi
+    - so_hoc_ky
+    - chuyen_nganh_2025
+    - diem_thpt_2025_A00_A01
+    - diem_thpt_2025_D01_D07_X25_X26
+    - diem_dgnl_2025
+    - diem_utxtt_2025
+    - chi_tieu_2025
+    - hoc_phi_tieng_viet_2025_2026
+    - hoc_phi_tieng_anh_2025_2026
+
+rollup_field: loai
+
+universe:
+  estimate: 22
+  basis: >-
+    Tập thực thể lõi phục vụ cổng hỏi đáp của Khoa: 1 khoa, 1 trường chủ quản, 1 ngành,
+    3 chuyên ngành tuyển sinh 2025 và toàn bộ 16 nhân sự theo danh sách trang Nhân sự
+    của Khoa. Đợt 1 phủ 5 nhân sự lãnh đạo chủ chốt; 11 giảng viên còn lại thuộc Phase 2.
+
+refresh_days:
+  default: 180
+  diem_thpt_2025_A00_A01: 365
+  diem_dgnl_2025: 365
+  chuc_vu: 90
+  hoc_phi_tieng_viet_2025_2026: 365
+
+alias_map:
+  "Trường Đại học Kinh tế – Luật": "Trường Đại học Kinh tế - Luật"
+  "UEL": "Trường Đại học Kinh tế - Luật"
+
+ambiguous_clusters:
+  - ["Ngành Toán kinh tế", "CN Toán ứng dụng trong Kinh tế, Quản trị và Tài chính"]

@@ -1,0 +1,19 @@
+# môi trường và bí mật
+.env
+*.env.local
+
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# node / next
+node_modules/
+.next/
+next-env.d.ts
+
+# sinh tự động bởi loader (tất định, dựng lại được)
+tkt-bot/api/data/registry.json
+
+# hệ điều hành
+.DS_Store

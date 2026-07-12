@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Khoa Toán Kinh tế UEL · Cổng hỏi đáp — Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#fbfaf7; --ink:#181a1f; --muted:#6b6f78; --hairline:#e6e3db;
+  --accent:#144e8c; --accent-ink:#0e3a6a; --accent-soft:#eaf1fa;
+  --card:#ffffff; --user:#144e8c; --user-ink:#f4f8fe;
+  --warn-bg:#fdf7e7; --warn-line:#e7d9ab; --warn-ink:#7a611c;
+  --null-bg:#f3f2ee; --null-ink:#565a62;
+  --tierA:#144e8c; --tierB:#4d5a6b; --tierC:#8a8f98;
+  --radius:16px; --shadow:0 1px 2px rgba(20,30,50,.06),0 8px 28px rgba(20,30,50,.08);
+}
+.dark{
+  --paper:#101318; --ink:#e9eaee; --muted:#9aa0ab; --hairline:#242a33;
+  --accent:#6fa4dd; --accent-ink:#a9c8ec; --accent-soft:#182636;
+  --card:#171b22; --user:#1c4d85; --user-ink:#eaf2fc;
+  --warn-bg:#241f10; --warn-line:#4a3f1c; --warn-ink:#d9be6d;
+  --null-bg:#1a1e25; --null-ink:#9aa0ab;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:"Be Vietnam Pro",-apple-system,"Segoe UI",sans-serif;
+  background:#d8d5cd; display:flex; justify-content:center; align-items:stretch;
+}
+.dark body,body.dark{background:#05070a}
+.phone{
+  width:100%; max-width:420px; min-height:100dvh; background:var(--paper);
+  color:var(--ink); display:flex; flex-direction:column; position:relative;
+  transition:background .3s,color .3s;
+}
+@media(min-width:480px){
+  .phone{min-height:0;height:min(880px,94vh);margin:3vh 0;border-radius:34px;
+    box-shadow:0 24px 80px rgba(10,20,40,.35);overflow:hidden;border:1px solid rgba(0,0,0,.2)}
+}
+/* ── header ── */
+header{
+  padding:calc(env(safe-area-inset-top,0px) + 14px) 18px 12px;
+  border-bottom:1px solid var(--hairline); background:var(--paper);
+  display:flex;align-items:center;gap:12px; flex:0 0 auto;
+}
+.mark{
+  width:38px;height:38px;border-radius:11px;background:var(--accent);
+  color:#fff;display:grid;place-items:center;font-weight:700;font-size:17px;
+  letter-spacing:-.5px; flex:0 0 auto;
+}
+.h-title{flex:1;min-width:0}
+.h-title .eyebrow{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.h-title h1{font-size:15.5px;font-weight:700;letter-spacing:-.01em;line-height:1.25}
+.h-status{display:flex;align-items:center;gap:5px;font-size:10.5px;color:var(--muted);margin-top:2px}
+.dot{width:6px;height:6px;border-radius:50%;background:#2f9e63}
+.mode{
+  width:34px;height:34px;border-radius:50%;border:1px solid var(--hairline);
+  background:var(--card);color:var(--ink);font-size:15px;cursor:pointer;flex:0 0 auto;
+}
+/* ── chat ── */
+.chat{flex:1;overflow-y:auto;padding:18px 16px 10px;display:flex;flex-direction:column;gap:16px;scroll-behavior:smooth}
+.day{align-self:center;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+/* welcome cards */
+.welcome p{font-size:13.5px;color:var(--muted);line-height:1.55;margin-bottom:12px}
+.welcome b{color:var(--ink)}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{
+  background:var(--card);border:1px solid var(--hairline);border-radius:14px;
+  padding:12px;cursor:pointer;transition:transform .15s,border-color .15s;
+  -webkit-tap-highlight-color:transparent;
+}
+.card:active{transform:scale(.97)}
+.card .k{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.card .t{font-size:13px;font-weight:600;margin-top:4px;line-height:1.4}
+/* bubbles */
+.msg{max-width:88%;display:flex;flex-direction:column;gap:6px}
+.msg.user{align-self:flex-end;align-items:flex-end}
+.msg.bot{align-self:flex-start}
+.bubble{padding:11px 14px;border-radius:var(--radius);font-size:14px;line-height:1.6}
+.user .bubble{background:var(--user);color:var(--user-ink);border-bottom-right-radius:5px}
+.bot .bubble{background:var(--card);border:1px solid var(--hairline);border-bottom-left-radius:5px;box-shadow:var(--shadow)}
+.bot .bubble p+p{margin-top:8px}
+.bot .bubble .small{font-size:12.5px;color:var(--muted)}
+/* table */
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin:8px 0 2px}
+th{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;text-align:left;padding:0 8px 6px 0;border-bottom:1px solid var(--hairline)}
+th.num,td.num{text-align:right;font-variant-numeric:tabular-nums;padding-right:0}
+td{padding:7px 8px 7px 0;border-bottom:1px solid var(--hairline);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td .sub{display:block;font-size:11px;color:var(--muted)}
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 2px}
+.chip{
+  display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  color:var(--muted);background:var(--card);border:1px solid var(--hairline);
+  border-radius:999px;padding:4px 10px 4px 5px;cursor:pointer;
+  transition:border-color .15s,color .15s;-webkit-tap-highlight-color:transparent;
+}
+.chip:active{border-color:var(--accent)}
+.tier{width:17px;height:17px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:9.5px;font-weight:700}
+.tier.A{background:var(--tierA)} .tier.B{background:var(--tierB)} .tier.C{background:var(--tierC)}
+/* status blocks */
+.block{border-radius:12px;padding:10px 12px;font-size:12.5px;line-height:1.55;margin-top:8px}
+.block .bt{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;display:block;margin-bottom:5px}
+.disputed{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn-ink)}
+.disputed .v{display:flex;justify-content:space-between;gap:10px;padding:3px 0}
+.disputed .v span:last-child{white-space:nowrap;opacity:.8;font-size:11.5px}
+.nullb{background:var(--null-bg);color:var(--null-ink)}
+.contact{
+  display:inline-block;margin-top:8px;font-size:12.5px;font-weight:600;color:var(--accent);
+  border:1px solid var(--accent);border-radius:999px;padding:6px 14px;text-decoration:none;
+}
+/* followups */
+.fu{display:flex;flex-wrap:wrap;gap:6px}
+.fu button{
+  font-family:inherit;font-size:12px;font-weight:500;color:var(--accent-ink);
+  background:var(--accent-soft);border:none;border-radius:999px;padding:6px 12px;cursor:pointer;
+}
+/* input */
+.inputbar{
+  flex:0 0 auto;border-top:1px solid var(--hairline);background:var(--paper);
+  padding:10px 14px calc(env(safe-area-inset-bottom,0px) + 12px);
+  display:flex;gap:10px;align-items:center;
+}
+.inputbar input{
+  flex:1;font-family:inherit;font-size:14px;color:var(--ink);
+  background:var(--card);border:1px solid var(--hairline);border-radius:999px;
+  padding:11px 16px;outline:none;
+}
+.inputbar input::placeholder{color:var(--muted)}
+.inputbar input:focus{border-color:var(--accent)}
+.send{
+  width:42px;height:42px;border-radius:50%;border:none;background:var(--accent);
+  color:#fff;font-size:17px;cursor:pointer;flex:0 0 auto;display:grid;place-items:center;
+}
+.disclaimer{font-size:10px;color:var(--muted);text-align:center;padding:0 20px 8px;line-height:1.5}
+/* bottom sheet */
+.backdrop{
+  position:absolute;inset:0;background:rgba(10,14,20,.45);opacity:0;pointer-events:none;
+  transition:opacity .25s;z-index:20;
+}
+.sheet{
+  position:absolute;left:0;right:0;bottom:0;z-index:21;background:var(--card);
+  border-radius:22px 22px 0 0;padding:10px 20px calc(env(safe-area-inset-bottom,0px) + 22px);
+  transform:translateY(105%);transition:transform .3s cubic-bezier(.3,.9,.3,1);
+  box-shadow:0 -12px 40px rgba(10,20,40,.25);max-height:75%;overflow-y:auto;
+}
+.open .backdrop{opacity:1;pointer-events:auto}
+.open .sheet{transform:translateY(0)}
+.grab{width:38px;height:4px;border-radius:2px;background:var(--hairline);margin:4px auto 14px}
+.s-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.s-head .tier{width:26px;height:26px;font-size:12px}
+.s-src{font-size:14px;font-weight:700}
+.s-meta{font-size:11px;color:var(--muted)}
+.ev-label{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:14px 0 6px}
+.evidence{
+  font-size:13px;line-height:1.7;border-left:3px solid var(--accent);
+  padding:2px 0 2px 12px;font-style:italic;
+}
+.evidence mark{background:var(--accent-soft);color:var(--accent-ink);font-style:normal;font-weight:600;padding:0 2px;border-radius:3px}
+.s-row{display:flex;justify-content:space-between;font-size:12px;padding:9px 0;border-bottom:1px solid var(--hairline)}
+.s-row:last-of-type{border-bottom:none}
+.s-row span:first-child{color:var(--muted)}
+.s-row span:last-child{font-weight:600;text-align:right;max-width:60%;overflow-wrap:anywhere}
+.s-note{font-size:11px;color:var(--muted);margin-top:12px;line-height:1.55}
+/* toast */
+.toast{
+  position:absolute;left:50%;bottom:96px;transform:translateX(-50%) translateY(12px);
+  background:var(--ink);color:var(--paper);font-size:12px;font-weight:500;
+  padding:9px 16px;border-radius:999px;opacity:0;transition:.25s;z-index:30;white-space:nowrap;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="phone" id="phone">
+
+  <header>
+    <div class="mark">∑</div>
+    <div class="h-title">
+      <div class="eyebrow">UEL · Cổng hỏi đáp</div>
+      <h1>Khoa Toán Kinh tế</h1>
+      <div class="h-status"><span class="dot"></span>Dữ liệu kiểm chứng · cập nhật 12/07/2026</div>
+    </div>
+    <button class="mode" id="mode" aria-label="Đổi giao diện sáng tối">◐</button>
+  </header>
+
+  <main class="chat" id="chat">
+    <span class="day">Hôm nay</span>
+
+    <div class="welcome">
+      <p>Chào bạn. Mình trả lời về <b>tuyển sinh, đào tạo, nghiên cứu và học vụ</b> của Khoa Toán Kinh tế. Mỗi con số đều kèm dẫn nguồn — chạm vào nhãn nguồn để xem đoạn gốc.</p>
+      <div class="cards">
+        <div class="card" data-q="Điểm chuẩn ngành Toán kinh tế 2025?"><span class="k">Mùa tuyển sinh</span><div class="t">Điểm chuẩn 2025 ba chuyên ngành</div></div>
+        <div class="card" data-q="Học phí năm nhất bao nhiêu?"><span class="k">Chi phí</span><div class="t">Học phí 2025–2026</div></div>
+        <div class="card" data-q="Ngành có những chuyên ngành nào?"><span class="k">Đào tạo</span><div class="t">Ba chuyên ngành và mã tuyển sinh</div></div>
+        <div class="card" data-q="Liên hệ văn phòng Khoa?"><span class="k">Liên hệ</span><div class="t">Văn phòng A.205BIS</div></div>
+      </div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="msg user"><div class="bubble">Điểm chuẩn ngành Toán kinh tế 2025?</div></div>
+
+    <div class="msg bot">
+      <div class="bubble">
+        <p>Điểm chuẩn 2025 theo kết quả thi tốt nghiệp THPT của ba chuyên ngành như sau (tổ hợp A00, A01 / tổ hợp D01, D07, X25, X26):</p>
+        <table>
+          <tr><th>Chuyên ngành</th><th class="num">A00·A01</th><th class="num">D01+</th></tr>
+          <tr><td>Toán ứng dụng KT, QT&nbsp;và TC<span class="sub">7310108_413</span></td><td class="num">25,75</td><td class="num">25,00</td></tr>
+          <tr><td>Toán ứng dụng (tiếng Anh)<span class="sub">7310108_413E</span></td><td class="num">24,03</td><td class="num">23,58</td></tr>
+          <tr><td>Phân tích dữ liệu<span class="sub">7310108_419</span></td><td class="num">26,43</td><td class="num">25,63</td></tr>
+        </table>
+        <p class="small">Theo Đánh giá năng lực ĐHQG-HCM: lần lượt 892, 813 và 927 điểm. Riêng chuyên ngành tiếng Anh đạt 90,00/90 — mức cao nhất toàn trường ở phương thức ưu tiên xét tuyển thẳng.</p>
+      </div>
+      <div class="chips">
+        <button class="chip" data-ev="ev1"><span class="tier C">C</span>tuyensinh247.com</button>
+        <button class="chip" data-ev="ev2"><span class="tier A">A</span>tuyensinh.uel.edu.vn</button>
+      </div>
+      <div class="fu">
+        <button data-q="Học phí năm nhất bao nhiêu?">Học phí ra sao?</button>
+        <button data-q="Phân tích dữ liệu học gì?">Phân tích dữ liệu học gì?</button>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="msg user"><div class="bubble">Trưởng khoa là ai?</div></div>
+
+    <div class="msg bot">
+      <div class="bubble">
+        <p>Trưởng Khoa Toán Kinh tế là cô <b>Phạm Hoàng Uyên</b>, chuyên môn Toán ứng dụng. Phó trưởng Khoa là thầy <b>Nguyễn Phúc Sơn</b>.</p>
+        <div class="block disputed">
+          <span class="bt">⚠ Nguồn chưa thống nhất — học hàm, học vị</span>
+          <div class="v"><span><b>PGS.TS</b> — trang Nhân sự</span><span>maths.uel.edu.vn · A</span></div>
+          <div class="v"><span><b>TS</b> — trang Sơ đồ tổ chức</span><span>maths.uel.edu.vn · A</span></div>
+          Hai trang trên site Khoa ghi khác nhau. Mình giữ nguyên cả hai, bạn nên xác nhận qua văn phòng Khoa.
+        </div>
+      </div>
+      <div class="chips">
+        <button class="chip" data-ev="ev3"><span class="tier A">A</span>Nhân sự · maths.uel.edu.vn</button>
+        <button class="chip" data-ev="ev4"><span class="tier A">A</span>Sơ đồ tổ chức · maths.uel.edu.vn</button>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="msg user"><div class="bubble">Chỉ tiêu ngành năm 2026 là bao nhiêu?</div></div>
+
+    <div class="msg bot">
+      <div class="bubble">
+        <div class="block nullb" style="margin-top:0">
+          <span class="bt">— Khoa chưa công bố</span>
+          Chỉ tiêu tuyển sinh 2026 theo từng ngành chưa có trong nguồn đã kiểm chứng. Mình không suy đoán con số. Toàn trường năm 2025 tuyển 2.700 chỉ tiêu cho 15 ngành, để bạn tham khảo quy mô.
+        </div>
+        <a class="contact" href="mailto:khoatkt@uel.edu.vn">✉ Hỏi văn phòng Khoa</a>
+      </div>
+      <div class="chips">
+        <button class="chip" data-ev="ev5"><span class="tier C">C</span>hocmai.vn</button>
+      </div>
+    </div>
+  </main>
+
+  <div class="disclaimer">Thông tin do AI tổng hợp từ nguồn công khai, có dẫn nguồn từng câu. Quyết định quan trọng xin xác nhận với văn phòng Khoa.</div>
+
+  <div class="inputbar">
+    <input id="inp" type="text" placeholder="Hỏi về tuyển sinh, đào tạo, học vụ…" autocomplete="off">
+    <button class="send" id="send" aria-label="Gửi câu hỏi">↑</button>
+  </div>
+
+  <div class="backdrop" id="backdrop"></div>
+  <section class="sheet" id="sheet" aria-label="Chi tiết nguồn dẫn">
+    <div class="grab"></div>
+    <div class="s-head">
+      <span class="tier A" id="s-tier">A</span>
+      <div><div class="s-src" id="s-src">maths.uel.edu.vn</div><div class="s-meta" id="s-meta">Chụp lúc 10:50 · 12/07/2026</div></div>
+    </div>
+    <div class="ev-label">Đoạn gốc nguyên văn (evidence_span)</div>
+    <p class="evidence" id="s-ev">…</p>
+    <div style="margin-top:14px">
+      <div class="s-row"><span>Trạng thái</span><span id="s-status">sourced ✓</span></div>
+      <div class="s-row"><span>Trích xuất</span><span id="s-ex">normalized</span></div>
+      <div class="s-row"><span>URL nguồn</span><span id="s-url">—</span></div>
+    </div>
+    <p class="s-note">Tier A: nguồn chính chủ (site Khoa, Trường). Tier B: báo chí. Tier C: trang tổng hợp. Mọi giá trị đều dẫn được về bản chụp gốc trong kho snapshot.</p>
+  </section>
+
+  <div class="toast" id="toast">Bản mockup — luồng trả lời hoạt động ở Phase 1</div>
+</div>
+
+<script>
+const EV = {
+  ev1:{tier:"C",src:"diemthi.tuyensinh247.com",meta:"Chụp lúc 10:52 · 12/07/2026",status:"sourced ✓",ex:"normalized",url:"diemthi.tuyensinh247.com/diem-chuan/…QSK.html",
+    ev:'Toán kinh tế (Chuyên ngành Phân tích dữ liệu) · A00; A01 · <mark>26.43</mark> — dòng bảng điểm chuẩn THPT 2025, giữ nguyên cấu trúc bảng gốc trong snapshot.'},
+  ev2:{tier:"A",src:"tuyensinh.uel.edu.vn",meta:"Chụp lúc 10:53 · 12/07/2026",status:"sourced ✓A",ex:"normalized",url:"tuyensinh.uel.edu.vn/…ket-qua-trung-tuyen…2025/",
+    ev:'“…điểm chuẩn cao nhất theo phương thức này là Toán kinh tế (Chuyên ngành Toán ứng dụng trong Kinh tế, Quản trị và Tài chính – Tiếng Anh)… với <mark>90.00</mark> điểm (thang điểm 90).”'},
+  ev3:{tier:"A",src:"maths.uel.edu.vn · trang Nhân sự",meta:"Chụp lúc 10:50 · 12/07/2026",status:"disputed",ex:"normalized",url:"maths.uel.edu.vn/nhan-su26-2322/nhan-su-575",
+    ev:'“GVC, <mark>PGS.TS Phạm Hoàng Uyên</mark> — Toán ứng dụng — Trưởng Khoa”'},
+  ev4:{tier:"A",src:"maths.uel.edu.vn · Sơ đồ tổ chức",meta:"Chụp lúc 10:50 · 12/07/2026",status:"disputed",ex:"normalized",url:"maths.uel.edu.vn/so-do-to-chuc8-959/so-do-to-chuc-276",
+    ev:'“Trưởng Khoa: <mark>TS Phạm Hoàng Uyên</mark>”'},
+  ev5:{tier:"C",src:"huongnghiep.hocmai.vn",meta:"Chụp lúc 10:55 · 12/07/2026",status:"sourced ✓",ex:"normalized",url:"huongnghiep.hocmai.vn/tuyen-sinh-2025…",
+    ev:'“…trường tuyển <mark>2.700 chỉ tiêu</mark> cho 15 ngành đào tạo…” — dữ liệu năm 2025; chỉ tiêu 2026 chưa có claim.'}
+};
+const phone=document.getElementById('phone'),sheet=document.getElementById('sheet');
+function openSheet(id){
+  const d=EV[id]; if(!d)return;
+  const t=document.getElementById('s-tier');
+  t.textContent=d.tier; t.className='tier '+d.tier;
+  document.getElementById('s-src').textContent=d.src;
+  document.getElementById('s-meta').textContent=d.meta;
+  document.getElementById('s-ev').innerHTML=d.ev;
+  document.getElementById('s-status').textContent=d.status;
+  document.getElementById('s-ex').textContent=d.ex;
+  document.getElementById('s-url').textContent=d.url;
+  phone.classList.add('open');
+}
+document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>openSheet(c.dataset.ev)));
+document.getElementById('backdrop').addEventListener('click',()=>phone.classList.remove('open'));
+document.getElementById('mode').addEventListener('click',()=>{
+  document.documentElement.classList.toggle('dark');
+  document.body.classList.toggle('dark');
+});
+const toast=document.getElementById('toast');let tt;
+function showToast(){toast.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('show'),2200)}
+document.getElementById('send').addEventListener('click',showToast);
+document.getElementById('inp').addEventListener('keydown',e=>{if(e.key==='Enter')showToast()});
+document.querySelectorAll('[data-q]').forEach(el=>el.addEventListener('click',()=>{
+  document.getElementById('inp').value=el.dataset.q;
+  document.getElementById('inp').focus();
+}));
+</script>
+</body>
+</html>

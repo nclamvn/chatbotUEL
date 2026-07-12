@@ -1,0 +1,1384 @@
+
+<!doctype html>
+<html lang="vi">
+<head><title>
+	Công trình đã công bố
+</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name='viewport' content='width = device-width'><link rel = 'SHORTCUT ICON' href = '/Resources/Images/SubDomain/maths/favicon.ico'/><link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" /><link rel="icon" type="image/svg+xml" href="/favicon.svg" /><link rel="shortcut icon" href="/favicon.ico" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><meta name="apple-mobile-web-app-title" content="uel.edu.vn" /><meta name="description" content="Công trình đã công bố" /><meta property="og:title" content="Công trình đã công bố" /><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" /><link href="/CSS/search_Article.css" rel="stylesheet" /><link href="/CSS/show_img.css" rel="stylesheet" type="text/css" /><link href="/CSS/zebra_dialog.css" rel="stylesheet" /><link href="/CSS/faq.css" rel="stylesheet" /> 
+
+    <script type="text/javascript" src="/Components/bootstrap/js/jquery.min.js" ></script>  		
+    <script type="text/javascript" src="/Scripts/knockout-2.3.0.js"></script>
+    <script type="text/javascript" src="/Scripts/Common.js" ></script>
+    <script type="text/javascript" src="/Scripts/PagingContent.js" ></script>
+    <script type="text/javascript" src="/Scripts/zebra_dialog.js"></script>
+    <script type="text/javascript" src="/Scripts/countdown.js?ver=3"></script>
+    <script type="text/javascript" src="/Scripts/faq.js?ver=1.0"></script> 
+  
+    <script type="text/javascript">
+        function SearchProcess(event) {
+            if (event.keyCode == 13) {
+                OnSearch(document.getElementById('txtSearchArticle').value);
+                return false;
+            }
+            return true;
+        }
+        function OnSearch(query) {
+            PSCPortal.Services.CMS.SearchAndPaging(query, currentPage, OnSearchSuccess, OnSearchFailed);
+        }
+
+        function OnSearchSuccess(results, context, methodName) {
+            var position = results.indexOf('_');
+            totalRecords = results.substring(0, position);
+            results = results.substring(position + 1);
+            LoadContentAndPaging(results);
+        }
+        function OnSearchFailed(results, context, methodName) { }
+
+        function popunder() {
+            rwHomePage = $find("rwHomePage");
+            $('a').not('[href^="http"],[href^="https"],[href^="mailto:"],[href^="#"]').each(function () {
+                $(this).attr('href', function (index, value) {
+                    if (value != undefined) {
+                        var index = value.indexOf("Default.aspx");
+                        if (index >= 0)
+                            return value = "/" + value.substring(index, value.length);
+                    }
+                });
+            });          
+        }
+        //popup dialog
+        function showDialogInfomation(dialogId) {
+            PSCPortal.Services.CMS.GetArticleContent(dialogId, GetArticleContentCallback);
+        }
+        function GetArticleContentCallback(result) {
+            $.Zebra_Dialog({
+                source: { 'inline': result },
+                'type': false,
+                'buttons': false,
+                'animation_speed_show': 300,
+            });
+        }
+        var rwHomePage;
+        function ShowDialog(link, width, height) {
+            rwHomePage.setSize(width, height);
+            rwHomePage.setUrl(link);
+            rwHomePage.show();
+        }
+        function toggle(showHideDiv, switchImgTag) {
+            var ele = document.getElementById(showHideDiv);
+            var imageEle = document.getElementById(switchImgTag);
+            if (ele.style.display == "block") {
+                ele.style.display = "none";
+                imageEle.innerHTML = '<img src="/Resources/Images/HomePage/icons/plus.png"  valign="middle" style="border:none;width:12px;">';
+            }
+            else {
+                ele.style.display = "block";
+                imageEle.innerHTML = '<img src="/Resources/Images/HomePage/icons/minus.png"  valign="middle" style="border:none;width:12px;">';
+            }
+        }					
+</script>	
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G16S6YBBJY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G16S6YBBJY');
+</script>
+
+<script type="text/html" id="search-binding-template" >
+       <div class="container">
+        <div class="row tintuc">
+            <div class='result_lucene p-3 text-center'>
+                <a data-bind="html: 'Kết quả tìm thấy: '+Count" href='#'></a>
+            </div>
+            <div class='nd_news' style="padding: 0px 20px 0px 20px">
+                <!-- ko foreach: Data -->
+                <div style="margin: 5px 0px 5px 0px; float: left; width: 100%;">
+                    <h4><a class="title_topicdisplay" data-bind="attr: {href: '/?ArticleId='+Id}, html: Title"></a></h4>
+                    <h3 class="h3_content" data-bind="html: Highligth+'...'"></h3>
+                </div>
+                <!-- /ko -->
+                <div style="text-align:center" id='pagingContentHolder' class='ct_topic_r1'></div>
+            </div>
+        </div>
+      </div>
+</script>
+
+<style>
+.dark_theme{
+			filter: grayscale(90%);
+			filter: gray;
+			-webkit-filter: grayscale(0.9);
+			filter: grayscale(0.9);
+}
+</style>
+
+<link href="/WebResource.axd?d=ImXg7DQMo3vjogSyVyhbGNVyzYoAKmdevKteo7oh9kL95UbdDFpqKdzJZ713mQM7JLC3v0XngQpOAjsd_JNwo0nCHYhH3ahimF0b6WbZnVOqRr8QmiCerdgq6d_bbE2mVjm5LDaFBnj9iqHflfjbcQ2&amp;t=637144971000000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/WebResource.axd?d=FdPKQC_YdmbnBizxq0F9pM22wEb83RvwUFP3F2YV1bMZNQPl-8GKwjCVV-hTaJ2k9xJXxXxOevkWrqU0gRAbyiCXqXJmrdrWpMVnXB67sHY6rcXZdtKwbbx4RYNMooR98O0TFoZjvTaffZCcTmFcvO2amDkYf2SbzUhoYb36AEY1&amp;t=637144971000000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/WebResource.axd?d=BJ0Kqp7Ay3UDdLJRHm3iBlID1zBgoocSYFHV36WFfCdi_3kr-vBWIvYZm2z3Aze1V9ipbysedkGVgtu5JKqoKgbDlWkmsw3yp_IlH_jW4LV0WYWzt70zHJ2gNnmYy5BnJkuV3VTBtksbOnFIRVFThw2&amp;t=637144971000000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/WebResource.axd?d=i-F5uS-oFBFSfzE4FFqS5bJRdmMzfVNaMOe08tdD7ya13Wvi6KZj34Y-XQ3hmLdCssnvUxlrCQqhgCQvM7VrTjI7AAmbQgu3WFsFWKv3onktG-zi4pKiRpahlWhQuEa5YACkHxyrKQmPHJj4O6ZU2A2&amp;t=637144971000000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/WebResource.axd?d=nZGNMS6RDbb_6v3AIZdBUHu-DX5zWid-EjKhzWfUAJvJGunysdMDIZrr_WKB6v8qAQFF7Iy5-G_ptLjsx38Zg1xfBoyHMnilscYhtyUwPV8yJ9yBaiSvUIiMJp35p5kAIH5JfZuj98viSFT75uZ3euxvfBiDxyG7_hBEB9cvqSg1&amp;t=637144971000000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /></head>
+<body class="body" onload='popunder();'> 
+
+<div id="fb-root"></div>
+<script language="JavaScript">
+if (top.location != self.location)
+{top.location = self.location}
+</script>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '486486661551589',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v8.0'
+    });
+  };
+ (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js"></script>
+	  
+    <form method="post" action="./cong-trinh-da-cong-bo-1775" onsubmit="javascript:return WebForm_OnSubmit();" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="RadScriptManager1_TSM" id="RadScriptManager1_TSM" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPaA8FDzhkZWUwM2RmNjg2ZmJjMRgDBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WCAURUmFkV2luZG93TWFuYWdlcjEFCnJ3SG9tZVBhZ2UFOmN0bDE1JHBvcnRsZXRfYTY0NGNkY2MtNGVhMi00MWI0LThmZGYtZGRlNGMzMTIyMzAyJFJhZE1lbnUFF2N0bDE1JGN0bDAxJFJhZENhcHRjaGExBRZjdGwxNSRjdGwwMSRmY2tDb250ZW50BSNjdGwxNSRjdGwwMSRmY2tDb250ZW50JGRpYWxvZ09wZW5lcgUqY3RsMTUkY3RsMDEkZmNrQ29udGVudCRkaWFsb2dPcGVuZXIkV2luZG93BRdjdGwxNSRjdGwwMSRyd1VzZXJMb2dpbgUXY3RsMTUkY3RsMDEkUmFkQ2FwdGNoYTEPFCsAAgUkNGIyMGMyMjItZTQzOC00NDY5LWFjMDgtODcwNTUxY2MwMjBlBgAAAAAAAAAAZAUZY3RsMTUkY3RsMDEkUmFkRGF0YVBhZ2VyMQ8UKwAEZGYCCmZkHGLqCJApzzUFdpP+SMn6uB/D5rQ2iMC6LEEsrysy8YU=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=sTX78rnqLN7cYyWoeeZS3GQZeknrB3Qd0uqLLDQS03Hx84B3_jrXuJk9iFhC8aR7xSrFDXB2kbwSLfhqcKW0AsU20U9QPOikV5abXNUJth81&amp;t=638901778312636832" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=rtAdq7MBajxq7tZB7XXsck5slWs_R3przNzl4iVsZeuhNbesJ5YZj4D58EnxJd0_b-7wHMLlgKWTDHRBtMhx9n6frb-H1NV6_0uJwdUFYVDjVlLQ8ZzgbUiv8XUxFFpmeFMLLPa--fnO1bVwI6A_GYpfDuPQoVkykq_Txm7ue8I1&amp;t=40d12516" type="text/javascript"></script>
+<script src="/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=RadScriptManager1_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bSystem.Web.Extensions%2c+Version%3d4.0.0.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d31bf3856ad364e35%3avi-VN%3af8efdcae-fc88-4697-a128-23b7f470d078%3aea597d4b%3ab25378d2%3bTelerik.Web.UI%2c+Version%3d2020.1.114.40%2c+Culture%3dneutral%2c+PublicKeyToken%3d121fae78165ba3d4%3avi-VN%3a2a883c61-eb2f-4e1b-9869-daa2e00f600e%3a16e4e7cd%3a874f8ea2%3a33715776%3af7645509%3a24ee1bba%3ac128760b%3a19620875%3af46195d3%3ab2e06756%3a92fe8ea0%3a4877f69a%3afa31b949%3a490a9d4e%3abd8f85e4%3ae330518b%3a2003d0b8%3a88144a7a%3a1e771326%3ac8618e41%3a1a73651d%3a333f8d94%3a11e117d7%3a1569bb5f%3a3856fd9f%3adc7e0bd%3a63b115ed%3a30f1f089" type="text/javascript"></script>
+<script src="../Services/PortletProxy.asmx/js" type="text/javascript"></script>
+<script src="../Services/ModuleProxy.asmx/js" type="text/javascript"></script>
+<script src="../Services/CMS.asmx/js" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAeCS+4MFdWdicq+9fyrBf5/PvReHHekXTHY7dMsXTX254Y9FkG3f+CKHfRkMKUwazSbn1gw98ufqCOCSxq7HaITjYMY+WUBWFYY/kdSfSj/pC084LQkQvS04+JUrnnUqYltgmTTO1NX7x9Tqu3/Py4WigLXhojkpEvRS9H2PZ50dWsCvnd6cRNSZ47aVrD6HY0=" />
+</div>
+        <div id="RadWindowManager1" style="display:none;">
+	<!-- 2020.1.114.40 --><div id="RadWindowManager1_alerttemplate" style="display:none;">
+		<div class="rwDialogPopup radalert">			
+			<div class="rwDialogText">
+			{1}				
+			</div>
+			
+			<div>
+				<a  onclick="$find('{0}').close(true);"
+				class="rwPopupButton" href="javascript:void(0);">
+					<span class="rwOuterSpan">
+						<span class="rwInnerSpan">##LOC[OK]##</span>
+					</span>
+				</a>				
+			</div>
+		</div>
+		</div><div id="RadWindowManager1_prompttemplate" style="display:none;">
+		 <div class="rwDialogPopup radprompt">			
+			    <div class="rwDialogText">
+			    {1}				
+			    </div>		
+			    <div>
+				    <script type="text/javascript">
+				    function RadWindowprompt_detectenter(id, ev, input)
+				    {							
+					    if (!ev) ev = window.event;                
+					    if (ev.keyCode == 13)
+					    {															        
+					        var but = input.parentNode.parentNode.getElementsByTagName("A")[0];					        
+					        if (but)
+						    {							
+							    if (but.click) but.click();
+							    else if (but.onclick)
+							    {
+							        but.focus(); var click = but.onclick; but.onclick = null; if (click) click.call(but);							 
+							    }
+						    }
+					       return false;
+					    } 
+					    else return true;
+				    }	 
+				    </script>
+				    <input title="Enter Value" onkeydown="return RadWindowprompt_detectenter('{0}', event, this);" type="text"  class="rwDialogInput" value="{2}" />
+			    </div>
+			    <div>
+				    <a onclick="$find('{0}').close(this.parentNode.parentNode.getElementsByTagName('input')[0].value);"				
+					    class="rwPopupButton" href="javascript:void(0);" ><span class="rwOuterSpan"><span class="rwInnerSpan">##LOC[OK]##</span></span></a>
+				    <a onclick="$find('{0}').close(null);" class="rwPopupButton"  href="javascript:void(0);"><span class="rwOuterSpan"><span class="rwInnerSpan">##LOC[Cancel]##</span></span></a>
+			    </div>
+		    </div>				       
+		</div><div id="RadWindowManager1_confirmtemplate" style="display:none;">
+		<div class="rwDialogPopup radconfirm">			
+			<div class="rwDialogText">
+			{1}				
+			</div>						
+			<div>
+				<a onclick="$find('{0}').close(true);"  class="rwPopupButton" href="javascript:void(0);" ><span class="rwOuterSpan"><span class="rwInnerSpan">##LOC[OK]##</span></span></a>
+				<a onclick="$find('{0}').close(false);" class="rwPopupButton"  href="javascript:void(0);"><span class="rwOuterSpan"><span class="rwInnerSpan">##LOC[Cancel]##</span></span></a>
+			</div>
+		</div>		
+		</div><input id="RadWindowManager1_ClientState" name="RadWindowManager1_ClientState" type="hidden" />
+</div>
+        <div id="rwHomePage" style="display:none;">
+	<div id="rwHomePage_C" style="display:none;">
+
+	</div><input id="rwHomePage_ClientState" name="rwHomePage_ClientState" type="hidden" />
+</div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('RadScriptManager1', 'form1', [], [], [], 90, '');
+//]]>
+</script>
+
+        
+<link href="/Resources/ImagesPortal/BoMon/bomon.css" rel="stylesheet" type="text/css" />
+<div class="pageBoMon">
+    <div class="transparent">
+        <div class="wrapper">
+            <table cellspacing="0" cellpadding="0" style="width:100%;border-collapse:collapse;">
+	<tr>
+		<td colspan="2"><div id="pnTop">
+			<div id="pnTopDisplay" style="float:left;width:1000px;">
+				<div id='ctl15_portlet_466cddeb-23af-4de5-8754-edb7c2a945e2' style="float:left;width:1000px;"><div>
+					<div class="top_BM">
+<div class="ct_top_BM">
+<a href="/?PageId=e897b6c0-c1c9-4cb6-a0ac-2d59baf1afea">English</a>
+<img alt="" src="/Resources/ImagesPortal/BoMon/line_top_BM.png" />
+<input type="text" class="bgsearch_BM" id="txtSearchArticle" /><input type="button" class="search_BM" onclick="OnSearch(document.getElementById('txtSearchArticle').value);" />
+</div>
+<!--ct_top_BM-->
+</div>
+				</div></div><div id='ctl15_portlet_4690e6bb-b837-478a-a9da-87bfe56525ba' style="float:left;width:1000px;"><div>
+					<img alt="" src="/Resources/Images/SubDomain/maths/Th%C3%AAm%20ti%C3%AAu%20%C4%91%E1%BB%81%20ph%E1%BB%A5.png" />
+				</div></div><div id='ctl15_portlet_a644cdcc-4ea2-41b4-8fdf-dde4c3122302' style="float:left;width:1000px;padding:2px 0px 0px 0px;"><div>
+					
+<link href="/Portlets/MenuRad/Menu.Green.css" rel="stylesheet" type="text/css" />
+<div tabindex="0" id="ctl15_portlet_a644cdcc-4ea2-41b4-8fdf-dde4c3122302_RadMenu" class="RadMenu RadMenu_Blue rmSized" style="height:40px;z-index: 1; width: 100%;">
+						<ul class="rmRootGroup rmHorizontal">
+							<li class="rmItem rmFirst"><a class="rmLink rmRootLink" href="/"><span class="rmText">Trang chủ</span></a></li><li class="rmItem "><a class="rmLink rmRootLink" href="../Portlets/MenuRad/#"><span class="rmText">Giới thiệu</span></a><div class="rmSlide">
+								<ul class="rmVertical rmGroup rmLevel1">
+									<li class="rmItem rmFirst"><a class="rmLink" href="../lich-su-phat-trien8-2924/lich-su-phat-trien-3155"><span class="rmText">Lịch sử phát triển</span></a></li><li class="rmItem "><a class="rmLink" href="../tam-nhin-su-mang-muc-tieu3-3170/-1063"><span class="rmText">Tầm nhìn, sứ mạng, mục tiêu</span></a></li><li class="rmItem "><a class="rmLink" href="../so-do-to-chuc8-959/so-do-to-chuc-276"><span class="rmText">Sơ đồ tổ chức</span></a></li><li class="rmItem rmLast"><a class="rmLink" href="../nhan-su26-2322/nhan-su-575"><span class="rmText">Nhân sự</span></a></li>
+								</ul>
+							</div></li><li class="rmItem "><a class="rmLink rmRootLink" href="../Portlets/MenuRad/#"><span class="rmText">Đào tạo</span></a><div class="rmSlide">
+								<ul class="rmVertical rmGroup rmLevel1">
+									<li class="rmItem rmFirst"><a class="rmLink" href="../Portlets/MenuRad/#"><span class="rmText">Đại học</span></a><div class="rmSlide">
+										<ul class="rmVertical rmGroup rmLevel2">
+											<li class="rmItem rmFirst"><a class="rmLink" href="../Portlets/MenuRad/#"><span class="rmText">Chính quy</span></a><div class="rmSlide">
+												<ul class="rmVertical rmGroup rmLevel3">
+													<li class="rmItem rmFirst rmLast"><a class="rmLink" href="../chuong-trinh-dao-tao6-881/chuong-trinh-dao-tao-nganh-toan-kinh-te"><span class="rmText">Chương trình đào tạo</span></a></li>
+												</ul>
+											</div></li><li class="rmItem "><a class="rmLink" href="../vua-lam-vua-hoc4-534"><span class="rmText">Vừa làm, vừa học</span></a></li><li class="rmItem rmLast"><a class="rmLink" href="../thong-ke-ket-qua-1043"><span class="rmText">Thống kê kết quả</span></a></li>
+										</ul>
+									</div></li><li class="rmItem "><a class="rmLink" href="../Portlets/MenuRad/#"><span class="rmText">Sau đại học</span></a><div class="rmSlide">
+										<ul class="rmVertical rmGroup rmLevel2">
+											<li class="rmItem rmFirst"><a class="rmLink" href="../cao-hoc2-1142"><span class="rmText">Cao học</span></a></li><li class="rmItem rmLast"><a class="rmLink" href="../nghien-cuu-sinh3-1643"><span class="rmText">Nghiên cứu sinh</span></a></li>
+										</ul>
+									</div></li><li class="rmItem "><a class="rmLink" href="../hoc-vu3-908"><span class="rmText">Học vụ</span></a></li><li class="rmItem "><a class="rmLink" href="../cong-khai-van-bang-chung-chi-2960"><span class="rmText">Công khai văn bằng chứng chỉ</span></a></li><li class="rmItem rmLast"><a class="rmLink" href="../chuong-trinh-lien-thong"><span class="rmText">Chương trình liên thông</span></a></li>
+								</ul>
+							</div></li><li class="rmItem "><a class="rmLink rmRootLink" href="../nghien-cuu-128"><span class="rmText">Nghiên cứu</span></a><div class="rmSlide">
+								<ul class="rmVertical rmGroup rmLevel1">
+									<li class="rmItem rmFirst"><a class="rmLink" href="../dinh-huong-nghien-cuu9-1622/dinh-huong-nghien-cuu-2629"><span class="rmText">Định hướng nghiên cứu</span></a></li><li class="rmItem "><a class="rmLink" href="cong-trinh-da-cong-bo-1775"><span class="rmText">Công trình đã công bố</span></a></li><li class="rmItem "><a class="rmLink" href="../cong-trinh-dang-thuc-hien5-1039/cong-trinh-dang-thuc-hien-2057"><span class="rmText">Công trình đang thực hiện</span></a></li><li class="rmItem rmLast"><a class="rmLink" href="../nghien-cuu-khoa-hoc-sv3-1819"><span class="rmText">Nghiên cứu khoa học SV</span></a></li>
+								</ul>
+							</div></li><li class="rmItem "><a class="rmLink rmRootLink" href="../tin-tuc-39"><span class="rmText">Tin tức</span></a><div class="rmSlide">
+								<ul class="rmVertical rmGroup rmLevel1">
+									<li class="rmItem rmFirst"><a class="rmLink" href="../Portlets/MenuRad/#"><span class="rmText">Tin tức của trường</span></a></li><li class="rmItem "><a class="rmLink" href="../Portlets/MenuRad/#"><span class="rmText">Tin tức bộ môn</span></a></li><li class="rmItem rmLast"><a class="rmLink" href="../Portlets/MenuRad/#"><span class="rmText">Tin tức học bổng</span></a></li>
+								</ul>
+							</div></li><li class="rmItem rmLast"><a class="rmLink rmRootLink" href="../lien-he34-37/lien-he-3213"><span class="rmText">Liên hệ</span></a></li>
+						</ul><input id="ctl15_portlet_a644cdcc-4ea2-41b4-8fdf-dde4c3122302_RadMenu_ClientState" name="ctl15_portlet_a644cdcc-4ea2-41b4-8fdf-dde4c3122302_RadMenu_ClientState" type="hidden" />
+					</div>
+
+
+				</div></div>
+			</div>
+		</div></td>
+	</tr><tr id="ctl15_rowCenter" valign="top">
+		<td><div id="pnCenter">
+			<div id="pnCenterDisplay" style="padding:5px 5px 0px 0px;width:695px;float:left">
+				
+<link href="/Modules/CMS/TopicArticleDisplay.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+    .title_topicdisplay {
+        color: #074c95;
+        text-align: justify;
+        font-weight: bold;
+        font-size: 14px;
+    }
+    .title_topicdisplay:hover {
+        text-decoration: underline;
+    }
+    .article_content {
+        font-family: Arial;
+        font-size: 13px;
+        text-align: justify;
+        line-height: 150%;
+    }
+    .article_content ol, .article_content ul {
+            padding-left: 40px;
+    }
+    .article_content a, .article_content p, .article_content span, .article_content h1, .article_content h2,
+        .article_content h3, .article_content h4, .article_content h5, .article_content h6,
+        .article_content div, .article_content ul, .article_content li, .article_content table,
+        .article_content th, .article_content tr, .article_content td {
+            font-family: Arial;
+            font-size: 13px;
+            text-align: justify;
+            line-height: 150%;
+    }
+	.article_content img {
+	    max-width:660px;
+	}
+    .RadDataPager .rdpNumPart a {
+        padding: 0px 5px 3px 0px;
+    }
+
+    .Link_Unselected {
+        font-family: Tahoma;
+        font-size: 12px;
+        color: #056796;
+        padding: 0px 5px 0px 5px;
+        text-decoration: underline;
+    }
+    .Link_Unselected:hover {
+            color: #000;
+    }
+    .Link_Selected {
+        font-family: Tahoma;
+        font-size: 12px;
+        color: #056796;
+        padding: 0px 5px 0px 5px;
+        font-weight: bolder;
+    }
+	
+	.orthersArticle {
+		margin-bottom:20px;
+	}
+</style>
+<script type="text/javascript">
+    function OnSendArticle() {
+        var result = window.showModalDialog("/Modules/CMS/SendArticle.aspx", document.URL, "dialogHeight: 320px; dialogWidth: 450px;");
+    }
+    function OnBack() {
+        window.history.back();
+    }
+    function OnGoToHead() {
+        window.moveTo(0, 0);
+    }
+
+    $(document).ready(function () {
+
+        $(".slidingDiv").hide();
+        $(".show_hide").show();
+
+        $('.show_hide').click(function () {
+            $(".slidingDiv").slideToggle();
+        });
+
+    });
+	
+
+
+</script>
+<div class="content_detail">
+    <div class="tieude"> <a style='color:#666;' href='/cong-trinh-da-cong-bo3-1837' >Công trình đã công bố </a> </div>
+    <div class="line_tt" style="clear: both;">
+        <img src="/Resources/ImagesPortal/HomePage/line.jpg">
+    </div>
+    <div class="nd_detail">
+        <div style="float: left; width: 100%;">
+            <h4 style="clear: both; padding-bottom: 10px;">
+                <a class="title_topicdisplay" href="/cong-trinh-da-cong-bo3-1837/cong-trinh-da-cong-bo-1775" >Công trình đã công bố</a> 
+            </h4>
+            <div class="article_content">
+                <table border="1" cellpadding="0" align="right" width="630" style="width: 472.3pt; border: 1pt solid windowtext; margin-left: 6.75pt; margin-right: 6.75pt;">
+    <tbody>
+        <tr>
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><strong><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Tác giả (UEL)&nbsp;</span></strong> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><strong><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Đ&ocirc;̀ng tác giả (UEL)</span></strong> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><strong><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Tựa đ&ecirc;̀</span></strong> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><strong><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Tạp chí/h&ocirc;̣i nghị</span></strong> </p>
+            </td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><strong><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Năm&nbsp;</span></strong> </p>
+            </td>
+        </tr>
+        <tr style="height: 29.2pt;">
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">&nbsp;Phạm Ho&agrave;ng Uy&ecirc;n<span style="white-space: pre;">	</span></td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">&nbsp;L&ecirc; Thanh Hoa, Phạm Ho&agrave;ng Uy&ecirc;n, Nguyễn Thanh Nguy&ecirc;n, Phạm Thế Bảo</td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;"><a href="http://https://link.springer.com/article/10.1007/s10479-017-2487-2">&nbsp;</a><a href="/Resources/Docs/SubDomain/maths/NghienCuu/Congtrinhdacongbo/TapchiBioStast122017.pdf">Statistical Methods of Handling Noise in Data Processing</a></td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">&nbsp;</td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">&nbsp;2017</td>
+        </tr>
+        <tr style="height: 29.2pt;">
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">&nbsp;Phạm Ho&agrave;ng Uy&ecirc;n, L&yacute; Sel, Trần Duy Hi&ecirc;n</td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">&nbsp;</td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">&nbsp;<a href="https://link.springer.com/article/10.1007/s10479-017-2487-2">Extraction dependence structure of distorted&nbsp;<br />
+            copulas via a measure of dependence</a><br />
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">&nbsp;</td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">&nbsp;2016</td>
+        </tr>
+        <tr style="height: 29.2pt;">
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">L&ecirc; Anh Vũ</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">H&agrave; Văn Hiếu, Nguyễn Anh Tuấn, Cao Trần Tứ Hải, Nguyễn Thị Mộng Tuyền</span> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Classification of real solvable lie algebraswhose simply connected lie groups have onlyzero or maximal dimensional coadjoint orbits</span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">REVISTA DE LA</span> </p>
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">UNI_ON MATEM_ATICA ARGENTINA</span> </p>
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Vol. 57, No. 2, 2016, Pages 119{143</span> </p>
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Published online: September 14, 2016</span> </p>
+            </td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2016</span> </p>
+            </td>
+        </tr>
+        <tr style="height: 29.2pt;">
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Nguyễn Ph&uacute;c Sơn</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;"></td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">A very quick introduction to game theory</span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;"></td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2016</span> </p>
+            </td>
+        </tr>
+        <tr style="height: 29.2pt;">
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">L&ecirc; Anh Vũ</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Đo&agrave;n Hồng Chương, Phạm Ho&agrave;ng Uy&ecirc;n</span> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&Aacute;p dung m&ocirc; h&igrave;nh IRT 3 tham số v&agrave;o đo lường</span> </p>
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">v&agrave; ph&acirc;n t&iacute;ch độ kh&oacute;, độ ph&acirc;n biệt v&agrave; mức độ dự đo&aacute;n của c&aacute;c c&acirc;u hỏi trong đề thi trăc nghiệm kh&aacute;ch quan</span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">TapChiKH_ĐHSPHCM_No.7</span> </p>
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">(85)</span> </p>
+            </td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2016</span> </p>
+            </td>
+        </tr>
+        <tr style="height: 29.2pt;">
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Đo&agrave;n Hồng Chương</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;"></td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Some second-order sufficient</span> </p>
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">conditions for non-smooth</span> </p>
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">constrained multi-ojective optimization</span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">East-West J. of Mathematics: Vol. 17, No 1 (2015) pp. 85-100</span> </p>
+            </td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2015</span> </p>
+            </td>
+        </tr>
+        <tr style="height: 47.9pt;">
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt; height: 47.9pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Phạm Ho&agrave;ng Uy&ecirc;n</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt; height: 47.9pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Tran D. Hien, Ly Sel, T. Vo Duy.</span> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt; height: 47.9pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;"><a href="https://link.springer.com/chapter/10.1007/978-3-319-25135-6_13">A New Measure of Monotone Dependence byUsing Sobolev Norms for Copula</a></span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt; height: 47.9pt;"></td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt; height: 47.9pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2015</span> </p>
+            </td>
+        </tr>
+        <tr style="height: 47.9pt;">
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt; height: 47.9pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Phạm Văn Chững</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt; height: 47.9pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Đo&agrave;n Hồng Chương</span> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt; height: 47.9pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Generalized Method of Moments</span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt; height: 47.9pt;"></td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt; height: 47.9pt;"></td>
+        </tr>
+        <tr style="height: 47.9pt;">
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt; height: 47.9pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Nguyễn Ph&uacute;c Sơn</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt; height: 47.9pt;"></td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt; height: 47.9pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">G&oacute;c nh&igrave;n To&aacute;n đối với mạng t&agrave;i ch&iacute;nh</span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt; height: 47.9pt;"></td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt; height: 47.9pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2015</span> </p>
+            </td>
+        </tr>
+        <tr style="height: 103.85pt;">
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt; height: 103.85pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">L&ecirc; Anh Vũ</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt; height: 103.85pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Phạm Văn Chững</span> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt; height: 103.85pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Giảng dạy Thống k&ecirc; v&agrave; To&aacute;n học v&agrave; ứng dụng tại trường đại học Kinh tế - Luật: Thực trạng v&agrave; một số giải ph&aacute;p gắn giảng dạy với việc hướng dẫn sinh vi&ecirc;n tập dượt nghi&ecirc;n cứu c&aacute;c vấn đề thực tiễn.</span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt; height: 103.85pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Hội thảo: Nội dung v&agrave; phương ph&aacute;p giảng dạy Thống k&ecirc; to&aacute;n học</span> </p>
+            </td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt; height: 103.85pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2015</span> </p>
+            </td>
+        </tr>
+        <tr style="height: 29.2pt;">
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">L&ecirc; Anh Vũ</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Nguyen Anh Tuan, Duong Qung Hoa</span> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">On some geometric characteristics of the orbit foliations of the co-adjoint action of some 5-dimensional solvable Lie groups</span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Tạp ch&iacute; ph&aacute;t triển KH&amp;CN, tập 18-số K4</span> </p>
+            </td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt; height: 29.2pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2015</span> </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">L&ecirc; Anh Vũ</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;</span> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;K-thoery for the Leaf Space of Foliations Formed by the Generic K-orbits of a class of Solvable Lie Groups</span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;Vol.38, No 3, pp. 1-21.&nbsp;Southeast Asian Bulletin of Mathematics</span> </p>
+            </td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;2014</span> </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;L&ecirc; Anh Vũ</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;</span> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Về một lớp c&aacute;c đại số Lie thực giải được m&agrave; c&aacute;c K-quỹ đạo hoặc 0-chiều hoặc 4-chiều</span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Số 02 03/2014 pp. 33-37.&nbsp;Tạp ch&iacute; Khoa học Đại học Văn Hiến</span> </p>
+            </td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2014</span> </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">L&ecirc; Anh Vũ</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Hà Văn Hi&ecirc;́u</span> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">On a Special Subclass of the Class of Solvable Real Lie Algebras</span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">International Conference on Mathematical Research, Education and Applications</span> </p>
+            </td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2013</span> </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">L&ecirc; Anh Vũ</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;</span> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Foliations Formaed by the Generic Co-adjoint Orbits of a Class of Solvable Real Lie Groups and Their C*-algebras</span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">International Conference on Mathematical Research, Education and Applications</span> </p>
+            </td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2013</span> </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;Phạm Văn Chững</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;</span> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">An Application of Copula and Quantile Regression to Analyse the Dependence of Some Returns of Share on Vietnam Stock Market</span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;Vol.2 No 2 (2013), pp. 1-15.&nbsp;Southeast-Asian Journal of Sciences</span> </p>
+            </td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2013&nbsp;</span> </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Phạm Hoàng Uy&ecirc;n</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;</span> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;"><a href="https://www.tandfonline.com/doi/abs/10.1080/00036811.2013.800974?journalCode=gapa20">Calibration of the purely T-dependent Black-Scholes implied volatility</a></span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Applicable Analysis: An International Journal, DOI: 10.1080/00036811.2013.800974</span> </p>
+            </td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2013</span> </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Phạm Hoàng Uy&ecirc;n</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;</span> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;"><a href="https://link.springer.com/article/10.1007/s10479-011-0848-9">On Some Claims Related to Choquet Integral Risk Measures</a></span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Annals of Operation Research</span> </p>
+            </td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="margin-bottom: 12pt; text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2011</span> </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Phạm Hoàng Uy&ecirc;n</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;</span> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">CONTRIBUTIONS TO STATISTICAL ANALYSIS OF FINANCIAL RISKS</span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"> </p>
+            </td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="margin-bottom: 12pt; text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2010</span> </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;Phạm Văn Chững</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;</span> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">On the stability of Distributions of the Composed Random Variable based on the Stability of the Solution of the Differential Equations for Characteristic Functions&nbsp;</span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Studia Universitatis Babes-Bolyai Mathematics&nbsp;</span> </p>
+            </td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2010&nbsp;</span> </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;Nguy&ecirc;̃n Phúc Sơn</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;</span> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Calculations towards connective K theory of QS^0</span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Doctor Thesis&nbsp;</span> </p>
+            </td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2009</span> </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Phạm Văn Chững&nbsp;</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;</span> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Đặc trưng ph&acirc;n ph&ocirc;́i của bi&ecirc;́n ng&acirc;̃u nhi&ecirc;n phúc hợp&nbsp;</span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Đ&ecirc;̀ tài c&acirc;́p b&ocirc;̣&nbsp;</span> </p>
+            </td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2008 -2009&nbsp;</span> </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;Phạm Văn Chững</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;</span> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">L&iacute; thuyết x&aacute;c suất v&agrave; thống k&ecirc; to&aacute;n&nbsp;</span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Sách (Nhà xu&acirc;́t bản GTVT)&nbsp;</span> </p>
+            </td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2008&nbsp;</span> </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;Phạm Văn Chững</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;</span> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">On the characterizations and their stabilities of the Composed Random Variables by constant-regression</span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;Vietnam Journal of Mathematics, Volume 35, Number 3</span> </p>
+            </td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2007&nbsp;</span> </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;Phạm Văn Chững</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;</span> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;Đặc trưng ph&acirc;n phối của đại lượng ngẫu nhi&ecirc;n phức hợp</span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;Tạp ch&iacute; Kinh tế v&agrave; Ph&aacute;t triển, Số đặc sn Khoa to&aacute;n kinh tế</span> </p>
+            </td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2007&nbsp;</span> </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;Phạm Văn Chững</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;</span> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">On the characterization of the geometric composed variables by constant regression&nbsp;</span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Kỷ yếu hội nghị x&aacute;c suất thống k&ecirc; to&agrave;n quốc lần thứ III, Ba V&igrave;, H&agrave; T&acirc;y.&nbsp;</span> </p>
+            </td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2006&nbsp;</span> </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Phạm Văn Chững&nbsp;</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;</span> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Ổn định đặc trưng c&aacute;c biến ngẫu nhi&ecirc;n phức hợp h&igrave;nh học</span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Tạp ch&iacute; &nbsp;khoa học kỹ thuật Thủy lợi v&agrave; m&ocirc;i trường, Số 7, pp.142-144.&nbsp;</span> </p>
+            </td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2004&nbsp;</span> </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 83.4pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;Phạm Văn Chững</span> </p>
+            </td>
+            <td style="width: 66.95pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">&nbsp;</span> </p>
+            </td>
+            <td style="width: 121.9pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">T&iacute;nh ổn định của một số đặc trưng của biến ngẫu nhi&ecirc;n phức hợp h&igrave;nh học&nbsp;</span> </p>
+            </td>
+            <td style="width: 159.85pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">Tạp ch&iacute; nghi&ecirc;n cứu khoa học kỹ v&agrave; c&ocirc;ng nghệ qu&acirc;n sự, số 6, pp.67-70&nbsp;</span> </p>
+            </td>
+            <td style="width: 31.2pt; border: 1pt solid windowtext; padding: 0.75pt;">
+            <p style="text-align: center;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif;">2004&nbsp;</span> </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;times new roman&quot;, serif; color: black;">&nbsp;</span> </p>
+<p style="text-align: justify;"><span style="font-size: 10pt; font-family: arial, sans-serif; color: black;">&nbsp;</span></p>
+<div id="radePasteHelper" style="position: absolute; left: -10000px; border: 0px solid red; top: 200px; width: 1px; height: 1px; overflow: hidden;">
+<table border="1" cellpadding="0" align="right" width="630" style="border: 1pt solid windowtext; width: 472.3pt; margin-left: 6.75pt; margin-right: 6.75pt;">
+    <tbody>
+        <tr style="height: 29.2pt;">
+            <td style="padding: 0.75pt; border: 1pt solid windowtext; width: 121.9pt; height: 29.2pt;">&nbsp;Extraction dependence structure of distorted&nbsp;<br />
+            copulas via a measure of dependence</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<div id="radePasteHelper" style="position: absolute; left: -10000px; border: 0px solid red; top: 100px; width: 1px; height: 1px; overflow: hidden;">
+<table border="1" cellpadding="0" align="right" width="630" style="border: 1pt solid windowtext; width: 472.3pt; margin-left: 6.75pt; margin-right: 6.75pt;">
+    <tbody>
+        <tr style="height: 29.2pt;">
+            <td style="padding: 0.75pt; border: 1pt solid windowtext; width: 121.9pt; height: 29.2pt;">&nbsp;Extraction dependence structure of distorted&nbsp;<br />
+            copulas via a measure of dependence</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+            </div>
+        </div>
+
+        <div style="clear: both; padding-top: 15px; float: right; padding-right: 5px;">
+            <div id="ctl15_ctl01_pnPager" style="color:Black;">
+					
+            
+				</div>
+        </div>
+    </div>
+
+    <br/>
+	<!--
+	<br/>
+	<div style="width:100%;text-align:left;clear:both;padding:10px;">
+    <div class="fb-like" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+    </div>
+	-->
+
+    	
+</div>
+
+
+<div id="ctl15_ctl01_ValidationSummary1" style="display:none;">
+
+				</div>
+
+<div class="gopy" style="display: none;">
+    <div style="float: left; width: 100%;">
+        <div style="background: url(/Resources/ImagesPortal/HomePage/guigopy.png) no-repeat; width: 76px; height: 24px; float: left;">
+            <div style="font-weight: bold; font: 13px Verdana; color: #fff; padding-top: 3px; text-align: center"
+                class="show_hide">
+                Góp ý
+            </div>
+        </div>
+    </div>
+    <div style="font-family: Verdana; font-size: small; color: #FF0000; float: left; width: 100%;">
+        
+    </div>
+
+    <div class="slidingDiv" style="float: left;">
+        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
+            <tr>
+                <td align="right" style="font-family: Verdana; font-size: 11px; color: #333; font-weight: bold; padding: 5px"
+                    width="80px">
+                    Họ và tên:
+                </td>
+                <td align="left" style="width: 230px;">
+                    <input name="ctl15$ctl01$txtFullName" type="text" id="ctl15_ctl01_txtFullName" style="width:200px;" />
+                    <span style="color: Red">*</span><span id="ctl15_ctl01_RequiredFieldValidator1" title="Không được trống" style="display:none;"></span>
+                </td>
+                <td align="left">&nbsp;
+                
+                </td>
+            </tr>
+            <tr>
+                <td align="right" style="font-family: Verdana; color: #333; font-size: 11px; font-weight: bold; padding: 5px"
+                    width="80px">Email:
+                </td>
+                <td align="left" style="width: 230px;">
+                    <input name="ctl15$ctl01$txtEmail" type="text" id="ctl15_ctl01_txtEmail" style="width:200px;" />
+                    <span style="color: Red">*</span><span id="ctl15_ctl01_RequiredFieldValidator3" title="Không được trống" style="display:none;"></span>
+                    <span id="ctl15_ctl01_RegularExpressionValidator3" title="Email không hợp lệ" style="display:none;"></span>
+                </td>
+                <td align="left">&nbsp;
+                
+                </td>
+            </tr>
+            <tr>
+                <td align="right" style="font-family: Verdana; font-size: 11px; color: #333; font-weight: bold; padding: 5px"
+                    width="80px">
+                    Tiêu đề:
+                </td>
+                <td align="left" style="width: 230px;">
+                    <input name="ctl15$ctl01$txtTitle" type="text" id="ctl15_ctl01_txtTitle" style="width:200px;" />
+                    <span style="color: Red">*</span><span id="ctl15_ctl01_RequiredFieldValidator4" title="Không được trống" style="display:none;"></span>
+                </td>
+                <td align="left">&nbsp;
+                
+                </td>
+            </tr>
+            <tr>
+                <td align="right" style="font-family: Verdana; font-size: 11px; color: #333; font-weight: bold; padding: 5px"
+                    width="80px">
+                    Mã xác nhận:
+                </td>
+                <td align="left" style="width: 250px;">
+                    <div id="ctl15_ctl01_RadCaptcha1" class="RadCaptcha RadCaptcha_Default" style="float: left;">
+					<span id="ctl15_ctl01_RadCaptcha1_ctl00" style="visibility:hidden;"></span><div id="ctl15_ctl01_RadCaptcha1_SpamProtectorPanel">
+						<img id="ctl15_ctl01_RadCaptcha1_CaptchaImage" alt="" src="../Telerik.Web.UI.WebResource.axd?type=rca&amp;isc=true&amp;guid=4b20c222-e438-4469-ac08-870551cc020e" style="height:50px;width:150px;display:block;" />
+					</div><input id="ctl15_ctl01_RadCaptcha1_ClientState" name="ctl15_ctl01_RadCaptcha1_ClientState" type="hidden" />
+				</div>
+                    <input name="ctl15$ctl01$txtCapCha" type="text" id="ctl15_ctl01_txtCapCha" style="width:204px;" />
+                    <span id="ctl15_ctl01_RequiredFieldValidator6" title="Mã code không hợp lệ" style="visibility:hidden;">(*)</span>
+                </td>
+            </tr>
+            <tr>
+                <td align="right" style="font-family: Verdana; font-size: 11px; font-weight: bold; color: #fff; padding: 5px"
+                    colspan="3">
+                    <div id="ctl15_ctl01_fckContent" class="RadEditor Web20 reWrapper" style="height:200px;width:380px;float: left;">
+					<div id="ctl15_ctl01_fckContent_dialogOpener" style="display:none;">
+						<div id="ctl15_ctl01_fckContent_dialogOpener_Window" style="display:none;">
+							<div id="ctl15_ctl01_fckContent_dialogOpener_Window_C" style="display:none;">
+
+							</div><input id="ctl15_ctl01_fckContent_dialogOpener_Window_ClientState" name="ctl15_ctl01_fckContent_dialogOpener_Window_ClientState" type="hidden" />
+						</div><input id="ctl15_ctl01_fckContent_dialogOpener_ClientState" name="ctl15_ctl01_fckContent_dialogOpener_ClientState" type="hidden" />
+					</div><table id="ctl15_ctl01_fckContentWrapper" class="reLayoutWrapper" style="width:100%;height:200px;">
+						<caption style="display:none;">
+							RadEditor - HTML WYSIWYG Editor. MS Word-like content editing experience thanks to a rich set of formatting tools, dropdowns, dialogs, system modules and built-in spell-check.
+						</caption><thead style="display:none;">
+							<tr>
+								<th scope="col"><span>RadEditor's components - toolbar, content area, modes and modules</span></th>
+							</tr>
+						</thead><tbody>
+							<tr>
+								<th scope="row" style="display:none;"><span></span></th><td class="reWrapper_corner reCorner_top_left">&nbsp;</td><td class="reWrapper_center reCenter_top" colspan="3">&nbsp;</td><td class="reWrapper_corner reCorner_top_right">&nbsp;</td>
+							</tr><tr>
+								<th scope="row" style="display:none;"><span>Toolbar's wrapper</span></th><td class="reLeftVerticalSide" rowspan="4">&nbsp;</td><td rowspan="4" id="ctl15_ctl01_fckContentLeft" class="reTlbVertical"></td><td id="ctl15_ctl01_fckContentTop" class="reToolCell" style="width:100%;"><div class="Web20 reToolbarWrapper">
+									<ul class="reToolbar Web20">
+										<li class="reGrip grip_first">&nbsp;</li><li class="reToolFirstItem"><a title="Bold" class="reTool" href="#"><span class="Bold">&nbsp;</span></a></li><li><a title="Italic" class="reTool" href="#"><span class="Italic">&nbsp;</span></a></li><li><a title="Align Left" class="reTool" href="#"><span class="JustifyLeft">&nbsp;</span></a></li><li><a title="Align Right" class="reTool" href="#"><span class="JustifyRight">&nbsp;</span></a></li><li><a title="Align Center" class="reTool" href="#"><span class="JustifyCenter">&nbsp;</span></a></li><li class="reToolLastItem"><a title="Justify" class="reTool" href="#"><span class="JustifyFull">&nbsp;</span></a></li><li class="reGrip grip_last">&nbsp;</li>
+									</ul>
+								</div></td><td rowspan="4" id="ctl15_ctl01_fckContentRight" class="reTlbVertical"></td><td rowspan="4" class="reRightVerticalSide">&nbsp;</td>
+							</tr><tr>
+								<th scope="row" style="display:none;"><span>Content area wrapper</span></th><td id="ctl15_ctl01_fckContentCenter" class="reContentCell" style="height:100%;"><label for="ctl15_ctl01_fckContentContentHiddenTextarea" style="display:none;">RadEditor hidden textarea</label><textarea id="ctl15_ctl01_fckContentContentHiddenTextarea" name="ctl15$ctl01$fckContent" rows="4" cols="20" style="display:none;"></textarea></td>
+							</tr><tr>
+								<th scope="row" style="display:none;"><span>RadEditor's bottom area: Design, Html and Preview modes, Statistics module and resize handle.</span></th><td class="reToolZone"><table class="reBottomTable" id="ctl15_ctl01_fckContent_BottomTable" style="width:100%;">
+									<caption style="display:none;">
+										It contains RadEditor's Modes/views (HTML, Design and Preview), Statistics and Resizer
+									</caption><thead style="display:none;">
+										<tr>
+											<th scope="col"><span>Editor Mode buttons</span></th><th scope="col"><span>Statistics module</span></th><th scope="col"><span>Editor resizer</span></th>
+										</tr>
+									</thead><tbody>
+										<tr>
+											<td class="reEditorModesCell"><div class="reEditorModes" id="ctl15_ctl01_fckContent_ModesWrapper">
+												<ul>
+													<li><a href="javascript:void(0);" title="Design" class="reMode_design reMode_selected"><span>Design</span></a></li><li><a href="javascript:void(0);" title="HTML" class="reMode_html"><span>HTML</span></a></li><li><a href="javascript:void(0);" title="Preview" class="reMode_preview"><span>Preview</span></a></li>
+												</ul>
+											</div></td><td class="reBottomZone" id="ctl15_ctl01_fckContentBottom">&nbsp;</td><td class="reResizeCell" style="width:15px;"><div id="ctl15_ctl01_fckContentBottomResizer">
+												&nbsp;
+											</div></td>
+										</tr>
+									</tbody>
+								</table><noscript>
+									<p>RadEditor - please enable JavaScript to use the rich text editor.</p>
+								</noscript></td>
+							</tr><tr>
+								<th scope="row" style="display:none;"><span>RadEditor's Modules - special tools used to provide extra information such as Tag Inspector, Real Time HTML Viewer, Tag Properties and other.</span></th><td id="ctl15_ctl01_fckContentModule" class="reToolZone"></td>
+							</tr><tr>
+								<th scope="row" style="display:none;"><span></span></th><td class="reWrapper_corner reCorner_bottom_left">&nbsp;</td><td class="reWrapper_center reCenter_bottom" colspan="3">&nbsp;</td><td class="reWrapper_corner reCorner_bottom_right">&nbsp;</td>
+							</tr>
+						</tbody>
+					</table><input id="ctl15_ctl01_fckContent_ClientState" name="ctl15_ctl01_fckContent_ClientState" type="hidden" />
+				</div>
+                    <span style="color: Red; font-size: 12px;">&nbsp;* </span>
+                    <span id="ctl15_ctl01_RequiredFieldValidator2" title="Không được trống" style="display:none;"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center" height="25px">
+                    <input type="submit" name="ctl15$ctl01$btnSend" value="Gửi" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl15$ctl01$btnSend&quot;, &quot;&quot;, true, &quot;Feedback&quot;, &quot;&quot;, false, false))" id="ctl15_ctl01_btnSend" style="height:25px;width:50px;" />
+                    <input type="submit" name="ctl15$ctl01$btnCancel" value="Hủy" id="ctl15_ctl01_btnCancel" style="height:25px;width:50px;" />
+                </td>
+            </tr>
+
+
+        </table>
+    </div>
+</div>
+
+<div id="ctl15_ctl01_rwUserLogin" style="display:none;">
+					<div id="ctl15_ctl01_rwUserLogin_C" style="display:none;">
+
+					</div><input id="ctl15_ctl01_rwUserLogin_ClientState" name="ctl15_ctl01_rwUserLogin_ClientState" type="hidden" />
+				</div>
+<script language="javascript" type="text/javascript">
+    var dialogMethod;
+    function CallWebMethodSuccess(results, context, methodName) {
+        switch (methodName) {
+            case "AllowWatchArticle":
+                {
+                    CheckUserWatchCallback(results, context, methodName);
+                }
+            break;
+        }
+    }
+
+    function CallWebMethodFailed(results, context, methodName) {
+        alert(results._message);
+    }
+
+    // check user login
+    function getQuerystringNameValue(name) {
+        // For example... passing a name parameter of "name1" will return a value of "100", etc.
+        // page.htm?name1=100 or page.htm/name1/100
+        var articleId;
+        var winURL = window.location.href;
+        var index = winURL.indexOf(name);
+        if (index > -1) {
+            winURL = winURL.substr(index, winURL.length);
+            var arr = winURL.indexOf("/") > -1 ? winURL.split("/") : winURL.split("=");;
+            articleId = arr[1];
+        }
+        return articleId;
+    }
+    function CheckUserWatchArticle() {
+        PSCPortal.Services.CMS.AllowWatchArticle('7121ea6a-82c7-46f2-a54b-8be27383d63d', CallWebMethodSuccess);
+    }
+    var dialogMethod;
+    function CheckUserWatchCallback(results, context, methodName) {
+        if (!results) {
+            dialogMethod = "CheckUserWatchArticle";
+            var oWnd = $find("ctl15_ctl01_rwUserLogin");
+            oWnd.setSize(380, 180);
+            oWnd.setUrl("/Modules/CMS/UserLogin.aspx");
+            oWnd.set_title("Login");
+            oWnd.show();
+        }
+    }
+    function RadCheckUserWatchClose(sender, args) {
+        switch (dialogMethod) {           
+            case "CheckUserWatchArticle":
+                {
+                    PSCPortal.Services.CMS.CheckUserWatchArticle(CallCheckUserWatchWebMethodSuccess);
+                }
+                break;
+        }
+    }
+    function CallCheckUserWatchWebMethodSuccess(results, context, methodName) {
+        if (!results)
+        {
+            if (document.referrer == window.location.href)
+                window.location = "/";
+            else
+                window.history.back();
+        }
+            
+    }
+    //end check user login
+    function pageLoad() {
+        CheckUserWatchArticle();
+    }
+</script>
+<style type="text/css">
+    .TelerikModalOverlay {
+        filter: alpha(opacity=100) !important; /*for IE 5.5+*/
+        opacity: 1 !important; /*for FF 2x, Opera 9x*/
+        -moz-opacity: 1 !important; /*for FF 1x*/
+        background-color: #666666 !important;
+    }
+</style>
+
+			</div>
+		</div></td><td><div id="pnRight">
+			<div id="pnRightDisplay" style="width:300px;float:left;padding:5px 0px 0px 0px;">
+				<div id='ctl15_portlet_56ea54f6-8be0-49ce-b13a-1f1b5d7ecf7f' style="float:left;width:300px;"><div>
+					
+<div class="thongbao_BM">
+    <div class="chuyenmuc_BM">
+        <div class="left"><a href="/thong-bao2-18">Thông báo</a></div>
+    </div>
+    <div class="ndchuyenmuc_BM">
+        
+                <div class="list_BM">
+                    <p>23/06/2023</p>
+                    <a href="/thong-bao2-18/workshop-optimal-transport-for-statistics">WORKSHOP "OPTIMAL TRANSPORT FOR STATISTICS"</a>
+                </div>
+            
+                <div class="list_BM">
+                    <p>17/06/2023</p>
+                    <a href="/thong-bao2-18/kien-tap-2023">KIẾN TẬP 2023</a>
+                </div>
+            
+                <div class="list_BM">
+                    <p>10/05/2023</p>
+                    <a href="/thong-bao2-18/hoi-dong-nghiem-thu-de-tai-khoa-luan-tot-nghiep-sinh-vien-khoa-toan-kinh-te-2023">HỘI ĐỒNG NGHIỆM THU ĐỀ TÀI KHÓA LUẬN TỐT NGHIỆP SINH VIÊN KHOA TOÁN KINH TẾ 2023</a>
+                </div>
+            
+                <div class="list_BM">
+                    <p>25/03/2023</p>
+                    <a href="/thong-bao2-18/hoi-dong-nghiem-thu-de-tai-nghien-cuu-khoa-hoc-sinh-vien-khoa-toan-kinh-te-nam-hoc-2022-2023">HỘI ĐỒNG NGHIỆM THU ĐỀ TÀI NGHIÊN CỨU KHOA HỌC SINH VIÊN KHOA TOÁN KINH TẾ, NĂM HỌC 2022 – 2023</a>
+                </div>
+            
+    </div>
+</div>
+
+				</div></div><div id='ctl15_portlet_18b57a3f-3e5e-4fc9-b2f7-370883750f94' style="width:300px;float:left;padding:5px 0px 0px 0px;"><div>
+					<div class="tailieu_BM">
+<br />
+<a href="/TopicId/a55eec83-f019-4d15-95fc-fd1e13ce87ca/tai-lieu-hoc-tap" target="_blank"><img alt="" src="/Resources/ImagesPortal/BoMon/tailieu_BM.jpg" style="border-width: 0px; border-style: solid;" /></a>
+</div>
+				</div></div>
+			</div>
+		</div></td>
+	</tr><tr>
+		<td colspan="2"><div id="pnBottom">
+			<div id="pnBottomDisplay" style="float:left;width:1000px;padding:10px 0px 0px 0px;">
+				<div id='ctl15_portlet_8ff0a307-252d-4f59-9cd1-803fdcccfd32' style="width:865px;height:89px;float:left;clear:both"><div>
+					<link type="text/css" rel="stylesheet" href="/Lightbox/resource/lightbox.css" />
+<script src="/Lightbox/resource/lightbox_plus.js" type="text/javascript"></script>
+<div class="footer_BM">
+<div class="Add_BM">
+<p><strong>Khoa To&aacute;n Kinh tế</strong></p>
+<p>Ph&ograve;ng A.205BIS, Trường Đại học Kinh tế - Luật (ĐHQG-HCM)</p>
+<p>Địa chỉ: số 669 Đỗ Mười, khu phố 13, Phường Linh Xu&acirc;n, TP.HCM </p>
+<p>Email: khoatkt@uel.edu.vn     Điện thoại: (028) 3724 4555 (6601)</p>
+</div>
+</div>
+				</div></div><div id='ctl15_portlet_79ac3a95-1767-4f33-87d6-12fa08d9a7bd' style="float:left;width:135px;padding-top:5px;"><div>
+					<div class="truycap">
+<a href="#">
+<img alt="" src="/Resources/ImagesPortal/HomePage/logo_small.png" /></a>
+</div>
+				</div></div>
+			</div>
+		</div></td>
+	</tr>
+</table>
+        </div>
+    </div>
+</div>
+
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_ValidationSummaries =  new Array(document.getElementById("ctl15_ctl01_ValidationSummary1"));
+var Page_Validators =  new Array(document.getElementById("ctl15_ctl01_RequiredFieldValidator1"), document.getElementById("ctl15_ctl01_RequiredFieldValidator3"), document.getElementById("ctl15_ctl01_RegularExpressionValidator3"), document.getElementById("ctl15_ctl01_RequiredFieldValidator4"), document.getElementById("ctl15_ctl01_RadCaptcha1_ctl00"), document.getElementById("ctl15_ctl01_RequiredFieldValidator6"), document.getElementById("ctl15_ctl01_RequiredFieldValidator2"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var ctl15_ctl01_ValidationSummary1 = document.all ? document.all["ctl15_ctl01_ValidationSummary1"] : document.getElementById("ctl15_ctl01_ValidationSummary1");
+ctl15_ctl01_ValidationSummary1.showmessagebox = "True";
+ctl15_ctl01_ValidationSummary1.showsummary = "False";
+ctl15_ctl01_ValidationSummary1.validationGroup = "Feedback";
+var ctl15_ctl01_RequiredFieldValidator1 = document.all ? document.all["ctl15_ctl01_RequiredFieldValidator1"] : document.getElementById("ctl15_ctl01_RequiredFieldValidator1");
+ctl15_ctl01_RequiredFieldValidator1.controltovalidate = "ctl15_ctl01_txtFullName";
+ctl15_ctl01_RequiredFieldValidator1.errormessage = "Không được trống";
+ctl15_ctl01_RequiredFieldValidator1.display = "None";
+ctl15_ctl01_RequiredFieldValidator1.validationGroup = "Feedback";
+ctl15_ctl01_RequiredFieldValidator1.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl15_ctl01_RequiredFieldValidator1.initialvalue = "";
+var ctl15_ctl01_RequiredFieldValidator3 = document.all ? document.all["ctl15_ctl01_RequiredFieldValidator3"] : document.getElementById("ctl15_ctl01_RequiredFieldValidator3");
+ctl15_ctl01_RequiredFieldValidator3.controltovalidate = "ctl15_ctl01_txtEmail";
+ctl15_ctl01_RequiredFieldValidator3.errormessage = "Không được trống";
+ctl15_ctl01_RequiredFieldValidator3.display = "None";
+ctl15_ctl01_RequiredFieldValidator3.validationGroup = "Feedback";
+ctl15_ctl01_RequiredFieldValidator3.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl15_ctl01_RequiredFieldValidator3.initialvalue = "";
+var ctl15_ctl01_RegularExpressionValidator3 = document.all ? document.all["ctl15_ctl01_RegularExpressionValidator3"] : document.getElementById("ctl15_ctl01_RegularExpressionValidator3");
+ctl15_ctl01_RegularExpressionValidator3.controltovalidate = "ctl15_ctl01_txtEmail";
+ctl15_ctl01_RegularExpressionValidator3.errormessage = "Email không hợp lệ";
+ctl15_ctl01_RegularExpressionValidator3.display = "None";
+ctl15_ctl01_RegularExpressionValidator3.validationGroup = "Feedback";
+ctl15_ctl01_RegularExpressionValidator3.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl15_ctl01_RegularExpressionValidator3.validationexpression = "\\w+([-+.\']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+var ctl15_ctl01_RequiredFieldValidator4 = document.all ? document.all["ctl15_ctl01_RequiredFieldValidator4"] : document.getElementById("ctl15_ctl01_RequiredFieldValidator4");
+ctl15_ctl01_RequiredFieldValidator4.controltovalidate = "ctl15_ctl01_txtTitle";
+ctl15_ctl01_RequiredFieldValidator4.errormessage = "Không được trống";
+ctl15_ctl01_RequiredFieldValidator4.display = "None";
+ctl15_ctl01_RequiredFieldValidator4.validationGroup = "Feedback";
+ctl15_ctl01_RequiredFieldValidator4.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl15_ctl01_RequiredFieldValidator4.initialvalue = "";
+var ctl15_ctl01_RadCaptcha1_ctl00 = document.all ? document.all["ctl15_ctl01_RadCaptcha1_ctl00"] : document.getElementById("ctl15_ctl01_RadCaptcha1_ctl00");
+ctl15_ctl01_RadCaptcha1_ctl00.validationGroup = "Feedback";
+ctl15_ctl01_RadCaptcha1_ctl00.evaluationfunction = "CustomValidatorEvaluateIsValid";
+var ctl15_ctl01_RequiredFieldValidator6 = document.all ? document.all["ctl15_ctl01_RequiredFieldValidator6"] : document.getElementById("ctl15_ctl01_RequiredFieldValidator6");
+ctl15_ctl01_RequiredFieldValidator6.controltovalidate = "ctl15_ctl01_txtCapCha";
+ctl15_ctl01_RequiredFieldValidator6.errormessage = "Mã code không hợp lệ";
+ctl15_ctl01_RequiredFieldValidator6.validationGroup = "Feedback";
+ctl15_ctl01_RequiredFieldValidator6.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl15_ctl01_RequiredFieldValidator6.initialvalue = "";
+var ctl15_ctl01_RequiredFieldValidator2 = document.all ? document.all["ctl15_ctl01_RequiredFieldValidator2"] : document.getElementById("ctl15_ctl01_RequiredFieldValidator2");
+ctl15_ctl01_RequiredFieldValidator2.controltovalidate = "ctl15_ctl01_fckContent";
+ctl15_ctl01_RequiredFieldValidator2.errormessage = "Không được trống";
+ctl15_ctl01_RequiredFieldValidator2.display = "None";
+ctl15_ctl01_RequiredFieldValidator2.validationGroup = "Feedback";
+ctl15_ctl01_RequiredFieldValidator2.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl15_ctl01_RequiredFieldValidator2.initialvalue = "";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+window.__TsmHiddenField = $get('RadScriptManager1_TSM');
+(function(id) {
+    var e = document.getElementById(id);
+    if (e) {
+        e.dispose = function() {
+            Array.remove(Page_ValidationSummaries, document.getElementById(id));
+        }
+        e = null;
+    }
+})('ctl15_ctl01_ValidationSummary1');
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadWindowManager, {"clientStateFieldID":"RadWindowManager1_ClientState","formID":"form1","iconUrl":"","minimizeIconUrl":"","name":"RadWindowManager1","skin":"Web20","windowControls":"[]"}, null, null, $get("RadWindowManager1"));
+});
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadWindow, {"_dockMode":false,"clientStateFieldID":"rwHomePage_ClientState","formID":"form1","iconUrl":"","minimizeIconUrl":"","modal":true,"name":"rwHomePage","skin":"Web20","visibleStatusbar":false}, null, null, $get("rwHomePage"));
+});
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadMenu, {"_childListElementCssClass":null,"_skin":"Blue","attributes":{},"clientStateFieldID":"ctl15_portlet_a644cdcc-4ea2-41b4-8fdf-dde4c3122302_RadMenu_ClientState","collapseAnimation":"{\"duration\":450}","expandAnimation":"{\"duration\":450}","itemData":[{"navigateUrl":"/"},{"items":[{"navigateUrl":"~/lich-su-phat-trien8-2924/lich-su-phat-trien-3155"},{"navigateUrl":"~/tam-nhin-su-mang-muc-tieu3-3170/-1063"},{"navigateUrl":"~/so-do-to-chuc8-959/so-do-to-chuc-276"},{"navigateUrl":"~/nhan-su26-2322/nhan-su-575"}],"navigateUrl":"#"},{"items":[{"items":[{"items":[{"navigateUrl":"~/chuong-trinh-dao-tao6-881/chuong-trinh-dao-tao-nganh-toan-kinh-te"}],"navigateUrl":"#"},{"navigateUrl":"~/vua-lam-vua-hoc4-534"},{"navigateUrl":"~/thong-ke-ket-qua-1043"}],"navigateUrl":"#"},{"items":[{"navigateUrl":"~/cao-hoc2-1142"},{"navigateUrl":"~/nghien-cuu-sinh3-1643"}],"navigateUrl":"#"},{"navigateUrl":"~/hoc-vu3-908"},{"navigateUrl":"~/cong-khai-van-bang-chung-chi-2960"},{"navigateUrl":"~/chuong-trinh-lien-thong"}],"navigateUrl":"#"},{"items":[{"navigateUrl":"~/dinh-huong-nghien-cuu9-1622/dinh-huong-nghien-cuu-2629"},{"navigateUrl":"~/cong-trinh-da-cong-bo3-1837/cong-trinh-da-cong-bo-1775"},{"navigateUrl":"~/cong-trinh-dang-thuc-hien5-1039/cong-trinh-dang-thuc-hien-2057"},{"navigateUrl":"~/nghien-cuu-khoa-hoc-sv3-1819"}],"navigateUrl":"~/nghien-cuu-128"},{"items":[{"navigateUrl":"#"},{"navigateUrl":"#"},{"navigateUrl":"#"}],"navigateUrl":"~/tin-tuc-39"},{"navigateUrl":"~/lien-he34-37/lien-he-3213"}]}, null, null, $get("ctl15_portlet_a644cdcc-4ea2-41b4-8fdf-dde4c3122302_RadMenu"));
+});
+
+document.getElementById('ctl15_ctl01_RequiredFieldValidator1').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl15_ctl01_RequiredFieldValidator1'));
+}
+
+document.getElementById('ctl15_ctl01_RequiredFieldValidator3').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl15_ctl01_RequiredFieldValidator3'));
+}
+
+document.getElementById('ctl15_ctl01_RegularExpressionValidator3').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl15_ctl01_RegularExpressionValidator3'));
+}
+
+document.getElementById('ctl15_ctl01_RequiredFieldValidator4').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl15_ctl01_RequiredFieldValidator4'));
+}
+
+document.getElementById('ctl15_ctl01_RadCaptcha1_ctl00').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl15_ctl01_RadCaptcha1_ctl00'));
+}
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadCaptcha, {"_audioUrl":"/Telerik.Web.UI.WebResource.axd?type=cah\u0026isc=true\u0026guid=4b20c222-e438-4469-ac08-870551cc020e","_enableAudio":false,"_persistCode":false,"clientStateFieldID":"ctl15_ctl01_RadCaptcha1_ClientState"}, null, null, $get("ctl15_ctl01_RadCaptcha1"));
+});
+
+document.getElementById('ctl15_ctl01_RequiredFieldValidator6').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl15_ctl01_RequiredFieldValidator6'));
+}
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadWindow, {"_dockMode":false,"clientStateFieldID":"ctl15_ctl01_fckContent_dialogOpener_Window_ClientState","formID":"form1","iconUrl":"","minimizeIconUrl":"","name":"Window","showContentDuringLoad":false,"skin":"Web20"}, null, null, $get("ctl15_ctl01_fckContent_dialogOpener_Window"));
+});
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadDialogOpener, {"_dialogDefinitions":{"ImageManager":{"SerializedParameters":"03692B7D6B5681A357A8B71DF44C89BD21C31C103EC8522CC7F42ED441118F5970ABE85535B8E3753AFE3A16B1CC4C9E26038F448E42A331AB8D57775C6773121C8C4B111DCC7E7AEC1E68B28B7EDCCF166F5C331947EB7B0FBA98BD42DD7F6C7F82776932F6083EF676F8485A056CE4C8D0DC3FC66F570B4EA315EDA902F555E0CDECF806C0875449564AAF26546E50E472F9D6E83C06F32D25E12FE84851C254EF69F928CD785CD80FCF0DAF497D79B2426E4ECFCBC9095598A29D0ACF90449248E08E3C42C7C93896235BE1256696DF96B3827A4E27A9EC134B8D2CE152A3FA0BA82FD842490995E6D153697F2C6636AB228CD66422C2D0F6D543BB3CD2C07848AB1E97FE98B4DC4FC5582CF6822097BA3610B88E1B25DF14A5E4360165E37D6E34BBD71EDD70402E0C97B347C23B65A60002C923CBB85106B06C8F3B132A023D64BA42EA095E024D279586C20EFC3651156469C1857DEB63837AFE7756471939A96BCCE10D7EFB284A971B0BADCD9AFC53316B7D8401AE5E9FDA24BCE42D8BFD270D6F11D0002E7BDDA67C262BB96659123CA839304E5709FD4685E162368A4D41F4933E0D39308C532F6469608441270769786DCFB813EF47A3463110EE143F398B3031E8CA2D60C7744439F2090A96EB74624D7B64409BE1D3BBF1180D6BEFF977847C369CB75189D67CB659DBB5A6D0FFC2A44E8E597DBB2B4363B60C5212EE47FC334352C6CF136DDE8C84C281DAE379665D58964390BF1FAE934C42E18C96AF867E8A18FC7BDC3E840232F8B0AB31AB4706790BEB5F30F83BB55F0DBB12196891EDE85B3FE19018D75241337A6BEDE1C988F2CBF8AA86364FE42D02F8D5D0C721F9E0B240B14B76B65F1ABB20138395598219682262D7BC1B24F44634AE778ADEA2A67AB2C90E4508CEAF0BE639BDD5A59A263B1F6961D441531AB4E05A5E94764CF98745C3C5D147DE4DE10DDC4279DA1548FB12FC3C599B04D6C66B1EE2607B1461FE271D46D4B46995F2165308B675D056D46C62FB192BAD29AC7210047E07B1805811686A8E79327430A025141CDEDDD5CC6E18DA349AEDED6657F93F1A1A35264063E79CA3F8A07BB9F971380E27AF2B79B4440349D3FE1C63577C05546707CE277E85B0CC44A0D0215C9D7D7A234F6226E99E2787C820AEEADC82119A5BDC654B2BD20DCAF5B457FE2CFCE9B4A3FCA220A6DDD67DEAD8C04BC8D5E94D588EEC8F5F48BCC953AB7DF0648A603088BC6A589E2C7F5F48DEDBE4FCCC15596D2941FA93C4B6CDD2B883498A894402C675CC270DB03F83155EE9BE434F8950F1BA8766A80CFA88D52DE9AE149C6352A10845AA171031F0796BF856428A52EF696E319978AEF313066C6218A16B026C4C41CD5132148F6B028D27BE609A38ADF15D7614AF093E18F12132B7CACF2587330BBA8AB49B81E88F07E5DBB86113A2BD893E6FC02A5F9536B905B77AA0D175DAC06DC4689C5BB2A5BB610ACB24541876710C9061D854535D85F7278DE0318B36E8BAC9BED1E0C1858CC99000E8237EF78F443031A1F15D648705F92AE12251BBA97780E8E8486BA912674364C9F9FB7166B53D2D2A4BC64420D0BDEC4C017DFD7227552BA54160F7CCC2C55A1E51155A8917336D411342E0453DE278A0993CA88B65E775297B4DC484DF8EFE8303F6EFEBAB8F324978BE07D9B8F3637C61F930F45DFAF7BD1835200ED5F0117EA95102A4FB8E35EE62B415D7C911A7C5F16D32DBC16A3FB8362E1187983ECE55D0CF8FEC9D9C9E0F6FE517A8A71A64DAACCF19A89DE29827D4E88C458065RroKXuQWyEEIo3kxZfyQkqptE4W3BDGLEPyUMNr0huo=","Width":"770px","Height":"588px","Title":"Image Manager"},"DocumentManager":{"SerializedParameters":"C81777EA75FE100981C9C229CD6B18670F2F5A659AE40B767F9E7DBF86914A6026DA52B9D81490ACD80E23E73315D65F3B7578D1C15EE4449A4DF21C21F86B6EEB67790B8AE31D877B50EED5564CA83BFE55A768114835DDE51A50D55CE84C7826E98B8BA23B5433D810331EB05FC4BD4A85AED2B62A4A7567E42F217BCA726F856E889FBB2028F9A5E7F3647B9BB9F41A40BFCB60D95F42E0D304741F0D42B713976C4B843FCB83B03D1B7E908842DEF539790B17ED64514486E87958AE0083309F6D129232247A4FFCB56F373E194D4DDC933D2440E73710D1D4FA70DC15750107C520021CA78724B64381B65AF2CF77359072FD286E0B7568E8B4A21507793C5243FF0E58AF2CA06A51D3DDE2413FA4D5B8A0599F42D5286720D1D95C94CB6E22AD7715A2512B9187E498C8816E9CC241E359C9554861F8FB3106629AC28738A7328C0D5E682CAADEEA6F365C6268377A219CE5C617AD14EA31822F969C4E782A42938FD95071B69A466634827311497D222ECD4D9390537C7115801410D5B3177447F8210742305904444455F85F1812949F44CBB2C7E9CA33B64F8E9CD5BA0F08681F32C292A9C4333CCA945342B80C0ADD56AFCE7957381759E034D956970C53B823BAA4835A0472DF3DD1AA5133EAF9E7975A82985C80B2E6AC33EFEF9AB7EEC4D118764E86BA0DA610DB24E4FBC026DC27CBB7E0AFF1FA55DA99CBF679B31919BCAEFF3772F35B5EC66A8457FEE655BEEB61EE62EE80D3074841FAA1B6DE06C9AE67BA6807BEC57936454AD77919F68436DCA4C4E3E12BF9D5CE30456F6C4853FA63991DA2B9072CC2CBBE13D134946DE2AE0360F763BC848E289B3A9981A96BC221A5AD6FB9449D122EC79FC19191CD7BC32FCFA859FBD594704B03EB43203458E26ECA2F53C4E6F76342D258F8A30F1442DD3F8F9CE69185340947B887D07129A1937CB5322FCE478869DB986F51E69FF12432A69EFA1E4EE905B2CFF29B22383511AA20D10CE3349A36160272D7AE926BC7CB5E08AE6D32A48E8846FF22A4C9B42FDF18DE789323D7899D74106F9D836DEE2364863865845A3DCE0A3FE4022BC9FE2D56FA0340FB72D99F7DF648A8F4BA3B8DCAD42F73E88C38E5ABE6A5FFAC30B4506DDE6D5592FBE27A175B14D645DDDAF7BF004B03B94ED09AA0D1490BA301F0A9B913580EF4A931DB4AF67791686F72EB4CB982B56A9A8C2815985334F23C3772CFD909C4896882B31C6F32ACF65BD196C036135034B2EE508864D08E97E88ED21E9769244A30A8765529AD08076E7BFFEBAAFC222D67565CF9625CCC8E2F4BDF23EF53E490B8E3710D76BBA5ED7178713FEACFF0AB378CCEA0CAEFDEEBC72C76474826B1FF93D15FF22FD4F4EFAB2AAB4AB0BC5AE573D73285E1DDB43236CA8DBDA07CFABBD4E3737ED159C5A090808F3D686BE8822405D35155E0D4A979CEA4EBBBC3964A1933F951385F3798A623942A387683A5B8BD9535598BC41D5DFFF9DBB858CD615C9F36m7WXuzSxC5F4yoadmiv2fq+BaLmy7mfASFZdTKNV2pE=","Width":"690px","Height":"490px","Title":"Document Manager"},"LinkManager":{"SerializedParameters":"6BA4D4F519C260B0734F49EDF1D127F72AC006B72723C1EF0F71CDFDECFF68A85B009B1323F1F6CE95F711F32E31206110C582D5848A461C99C726228738A843B7D4722D64D4F749B20CFCFAE1B41EB3C9BA0DEBA6F6EC548539C7B39EFF15B266591968F56C93EAB71BA6523269D4A40A0D02F98E63A61D77541A74080FC470E5250D201C4D3221DC687451AD86A67C05973161594454B05E1517BDCA8059BD714FEA79505A3503003AA71DB40E89D2FA28C193ED8306A7AE765E3C3AD9A32133FD16EBF724A26EAEF2D2A21BBBDD51624451BA4DF4322DA29E533F6B6FFF4E3777BFCA926A8AF99F823D38D7A0EAE037F7256A64A9C83ABD1C05BEEE1FBC167296A5F514BF3646C9A608BE25652F9673597EFEA340643938EDF8E08BAC7E2DFFEA400D50C1F41823BA042409F37968DF28F469B002348B9FF1E2D3B8B88646C68D0FFC3BF740F571EB2F0C9A6D1D82851D5458389FD5AA843605F2F0F43A57D7BB64933E5A22496532BF1AC1085CDC54D82DE267C00CFDE145A795925E8BD65871727F74EE7263FF3F6318DE8B862003E70BE1DE72619A4008DF2918F6B8B96C4BE69A079A9E7B8598D4F5CBF5762435BC202C251AF188BB4386D9A6AE49D19F0B92C53499421198E709056996BF42A103F38851817E06726F6199465E916D1348E65B5648B50411607C7F7FE6CA13B96FB04ADA613531A26E9EE9A7CDE1A1F132CBC35E40320F16F633E605D8510CAB4B412A11597C0434623B6743D4A9AE03F70D0FD81AADF34C7E10DA1506AE201E294ED9E856B3D77ABF924E9B0EAD99654AE29EBEEA66A0B9469F75B136076F6C93B4074084CFCAE691C9B43EDD0523DCC7DE11F28E47123734B8FDF52D5802AA897365E2BF6310AA430EFBC109C880837FDF24D035C441D2C9A9B2B736E7EA59ADA9A1E210874B710A4E1EC191F3CAA01C8D34ECAA95AB4C5D0F179AD91DE69955D66A1EF937CC1FA13953107E1CD4C22CC328E644FFC11F9FFB774F54840C8B0F5EDEEA72F8EC964419036D77653ElyF+4hFxv8eCksImb37+TZtIJjdxUrdLGLknQcV5WuY=","Width":"408px","Height":"340px","Title":"Hyperlink Manager"},"TableWizard":{"SerializedParameters":"17B091185472A3F80AFD0F2B27473C7916498418B0D482C08FE40DB0EAC8B7F76DF521DC3865B552B3CB37DF89FA49F6A219E3FBCD0B7C79508FE61E7A9626FA34C2D54D290DF80DE8F6EC624B58B35DCF9C49D726E9506F97428525227B40E7058509BCCCBD00D917BC4E9012E54B9BBC94C965D7B6D36F4FCDDB38C4C92CD1A7E3383F2FCA31170C5B221A2CB7F4F0B8B03C027B01C5B3994B6633B3E217179E7198620C76B9B65A0A5261A8D26A57D3F7F1BBB8181622E5C84BDD7D9FD4C1C09990B27E9C1750F5D7BBD125238B585FF47794154FAC7071C07A1D531A0C4F7CBF285BBFB75DCFCAA82E0763B7EB2A9185EFC101EF492BFF49F59723485F3818E1D564D6391A6B845B556436AC340F1245D1E353DFBD6D900AE0B1445649C76E24067A67563BD3F9D9305542933B76650D09496248804C39A3766451F73C372E6316D5AFE2A96278ED3DF643EB514A8CEEB4C626A179B61562231DC3AFF09DEC27A2BDB22F1EA1F33C02729EFCC1C9D5AC6C270C467D5011FA1ADCF67A2FC84AE1DFE3C62008E9953D10604DFC91651353423D749E8B2BC0C0082B9CB3C994802179B45B72E380E26E2DF055F5F21375496463CC5C0BCCDB3DD07F5B60D9AA6250FABEA141641C5D45708E5783DC07957A0D0E12DA7B1F1023EB319394FC247423ECA55BDE5C01C2A42538D87CB333311A31E755CE5EF64F6E233961F300A744BFBA6D39AAAF79E34203D99D6A82973D21E4F40714F7A796955709E19CEB5B22D7D6882CF0D2D718165B1746680757B7F0C61FDAE244008377CD9705E032FEE94F9964ED597DD22460C706A15078E7BA9807A1F742314CA50B17AF563D52671AE3D5A2B9A8211FE2497092744984EE1AAB6079F47D8CF3D60F0A8205F36EA377B40581F3CCC3A061508BD9989CA9033C80DEF23F1120B83A4993A6C17E15E3CB8FB6704D8EED39FDFA81F7072352C82A98EB7C5CAF6BD8D0A291E4F7C77860DA02427669EE6FF0AF8D326A834FEC675FC302D62334CB28A9DF1C29A42DEDC6VITSp9+OLIuFsVnRU8cJAVJX4OG5+FCxqkQdfNAnNMQ=","Width":"720px","Height":"500px","Title":"Table Wizard"},"CleanPasteHtmlContent":{"SerializedParameters":"ADD06DD8194F9B8B76B00FC0509AD0ED9DA60FC879BC423784918713E05E16EA62BE3DDC1EB7282A6884EC14E90EC85BBDB43F259BA0962624B26D8B4CD66CF44510E7FA2587FEFC64397FB46B278A5B039EAEBB5B2A471955DF991C2D321515C41E54916708D5B13A5769892D0AEA2AF49489F3A8E7F4371BCB345DDC92B0EFB01AA01F26F26B20DACF6B41A3B27875A552A2A82B65BF6C23BE9F1DD61D359C6EFBCA9F849EB03A7C26B88D7403E226FC4B4333928FFBAFA740DF61FCB4F9287773E7A7EF29C7E6E73D24396BBBE70A6448A1F956E72A7358E7A93614D8AA257B3E31D7E424ED69EEA6E08CAA6469D85C84EA15FB1BCECCE74E08F6EECBC676FFC2D9966608D03404F1FD85E3A6F088DCB361C15F637EE7FC8146A5CEE7C44FC3AFF2512053C66A28381754D611B13B97318969922A2F56510D979B699406674380AF62EDD1240856332077F15AD145B5E621701E228C7F50BEB0CD54CC3B3EAEE8672C2BF794AE5E1CD534440A19F41573B72476D43C3D6B0C75578F7E7F09CE78E2300DE98D0E524F58FDE04D5CB7A1B5FB01D97DACBEAEBD45B1F299E2C9AB583E9AB5497260B8BEC2A717BEC0C87FB6A98F1AC5E1BD624E079C62FDA147A237BA49429A900980DA83E74FEF143FB49F239813E277FDE45174C494A0CD1FD3305E68CD32312A5935B7928BE624397F8C15BB6ED8AC12907819C8A241CF03AB39EA230452C07FA04534267F9B10836FF39D11BF9E878E65A7BBB59C75537F4AAF8747B15EB2F8AAEC9AA0ECA771765BE80B0831C4F22F2025DDD2EB9194DA010052D3635242F095ED0FE33A1526942CC1914BE551D21DFCB1C487EF52ACDFD5493D23734F17A66FB45598F4BC9EF5C66F9A6DD3457EDE08B92458967DCF7CEC98BF1636F53FDAEA4290D592682A8BE92EB659E2B1F7B59F886173D6AE0BFC0E4885F2A71DE533C1340F8DB0B14637A2ADD00B08D3E35B529C7EA1726CD872E560FDA1DB6E473064897B13F2BEBFEFF6C9F3275A750098C951E5A2FB39A6A3qDejyqrTqrRhT63Bm7hQyfrc/FrQ1qc9S1dorewjLKs=","Width":"517px","Height":"300px","Title":"Paste As Html"},"PasteMarkdown":{"SerializedParameters":"50F3E1D283D922118A2CEC3935DA604708F396EBE3D928DF7106A7CBAA89BF6B9BCA53D48CFF9F92C6CEEE57F0A1222AEBBA7397A3A531C19BCEFF97B041E7B015563A55E5C5499FEBD6F5536BDC1833FBF1FF1F923650E09EE94876274EAC8D5F6245F0AF4F27C5B0A0CF17968DE5E409C73C8446273E007DAD95C6F70099193E9A2E90FCDC75111D00738F66C88723D8A9BF8493364CC6248EF4E3D51CBE336A1390147FA39875886E4A160D95B010995A48B03DC835F5BC767B396C085534613AA6602DA900F29D89B7E4C40158F7601945EAC193BA53E01A58EFE7A54AC2C31B949631DA83918D9190D6A2ECAE480FDBB267C8AFC0FC97064950728BB5E8C9BD19AE5019F60F950545729F77D9A26E5369C59C41E8DF150B9C6F5C18D223E9679F9B023EFD055BA972778619B4E834CA34E3A767600DF399F7642C48908611BEE1D997C415B873A10E8E1694DEF4ACED1C8070731DFA8BEA91847388526DDFE34F41C22246C77B94CD989886BF3FC00B0427406454A73D7A4BC518FF0A8DE3F5BCD54DA647BFC453DFA6E8198A32D7884721AB732D461FE4FDC2A82966A41AD5C3D07E585C8108B0B0A265A3CA224581058DFEAE6F5D44C5BC8429153DCE7DE1505962944FE9A92EC6705B7CCF9ADBD6461EEA21C9F3C0335B0819BB3782BB418F84A414B316D473AE6FD6210EC943FD14FA75798CFC1A56337528707C4B247A582A2F92A65C997DFCB1D920C3DA62EBC85AA071C3FD881C78B08D29F74A5D724E8D22E54B14AD1CE0FA08861C92B56300BF38ADC801605B4D2C0E52E3EEBC0CCBCA684A6CCF3AA7A5B6C1B342F57038D45ADBF6A0EB72F3B916DC1771BA28B063B56C8B3E0174656B2346E7A1123B4302BF189E873E1432A4752F2556BD26A0C48157FC2778E8156A1C947CBD8D37C2AE3BE202EF74DB4B02B6EADAF082818336C784C192A343633B92CE018B967278669FE9311D39A99B3CC1D803761F83930FFB31BFABCDEEEBB3714CB815FC8F5E24CEAE0DC81DC16024A2B7F38FE5ucXWYgp/b6DsMTABwM/NTXr9iZZ4qpvHG//AFG80yV4=","Width":"517px","Height":"300px","Title":"Paste Markdown"},"PasteHtml":{"SerializedParameters":"3AF470C191FBF9BFCAC787752DC7FFE40986BACED23397181546203A0FFADF0A57476452645FF5B84E8A39CE9227FA4987DE3602EBD3673A567B81E58B1E87AF9656C073C031FBA87B33C6AAD7652FF36A3050E0809D3CF69F3B107E4C60B0145A9A6E86BE6708BC27A58B9C03D5D8F342899EFB39CB84A4F7BD6126E75D5E3E532B823EF2976833B5E4D1558B73567A5C5DC35D3F986EC7394B56946691EC0679706F25849664C76D2AF677A0B9FEA02C3AC6D35B2BE034A9D6B3A3A575F684A2F94270A7F02AEBFE4EB6AE14173BBA09517BE6967FE1ABFB8B90526CF727D658BC6DC03CA02E5AD8C04690662BFAD01FF0FCAD2B57EC22633032C31D0B2EC7CDA71F7CBD307230D6FC56AD0476F3936B541AB96D4CF78D2B3B02FCBCF35B96F2CDEEED1D5FD43FF83B1A185BD296DC20F492BC9F16235B11AA48F5AEA7B86A55415B223CC3BDF60BA1D59C33F8318EB46519DC9FBAB13526BAF9183E71847C9BC2E4CD71C8185C3E5A0C9C880A30173A1BAB605F4C3B0D0DB28821BE6E7FE0F8A05D2BBBD6FC914D7F1E383BFE163E9F26BFF7A7D12FA68062B2FE2050817F8BE0A667B31C377C46FC815CFED27FFDD4FDD234DC38E21F793C7899FAC62670DBCAF3BF3FC374AAEC753C94BF66B78778261BC75D6C5851C9F183D139E797E5569E918D9A6EF104603AC15E07A6890B8A90D5061CE2004B58D24668C67E5FC8430EB52AA7BCD3B6B0151DA1D38811E32630654CB43B4BA3D383EBCA6257F887D3DF6E49DCAA0F2E23A4A6E39935DC34C47EDCB0BC4993527E2A913828A8551481082B14B628961DF030886766BF892A43802D8AE145C4139BA396F32E32ADC4E7F86B1C71072EBD5FB1748C1A691B40FD52F6E6DABCED0A53ACA9BBEE52823D7C90C8CC10277CE160113454470119CC1CC3C173BC6E33154A46F3567E0059182E86D0A590A8CBEBB6BE765467E15730BA4A82822E99840749B540BCC239070A77E7C05E6A3E8A056433F329599378A5234E26E989009E16BA70B23BFF262C9Exzs7MRFlf3SH38/Iozw1Z4hskyFBb/TeiMpzr6L4LR0=","Width":"517px","Height":"300px","Title":"Paste Html"},"CleanPasteTextContent":{"SerializedParameters":"0E410F974F91409BFBAAA6BB5063D79D495CE64FCC357A14F3B3FCEABF53F5E4295021793CCF394312CCF1FAD4FA40EC8860CCF716658B8DBCE61A9DF4E713662C6EBFFF6AA46B193DDFBD5BBD70627992EA47D7B24FC221F64D9580FC09CE422D86A08DA1FD872B2E311CAC84EFD6525B967F3A3603576049FCD652377A85DE6B28DD7237D231ACD41A869BE93CAAD3FF8F2544AEE358A30B583345B97BFE1C2248C70CC713F1C8BFFD498BF007B29AA223D15CA339879D7DF0EEC03A662929658B8AC7C393F7200105319338FEEA75289B63B2BE16A6784763AB59A1E21221614DCF4F4C3D452F82BF7900085C1EC881126C6386177FF19B63D97A58220DB651D1B57FC50178411AA54EB700F1886353D415B4D891174C3652FEB95A0DAA3E1E0118F2CF94CEFDB9DEDB5EDB441320D488FD29B493DE7E3792761A6662A154781E6B3A6C82551187A4D642DFE28070082994B2E4ACD98BD6656274778D9DC717854FF28C17DB51EBA6F0BE74088FC2779A8D39158B2AF973355E25223F61B6C5452A8269425CC3C5BF088A1AC6F2159078F61BB9D91FC2E4D88583DEC89A9050212CF7703BC625DB85F2CDCA7E8F487EA6E6F7D260293E3965BFF097C185A76339B0AA92F7F3E8BF78D080CED8F93875C5745E9261CFA7D98564D7424B1C8F92D18D22C8C434E5BB384868F917F7DEA613344589BD9E2EEF9359DEDF085D37EFFBFB36CEA09293B78B384A2C0EA2D884F3BB27BC7A72DA0D8EDF3C7147B4BFE59C1BE24A1148A49AD08F45977110DAFC19E84CBF528051C23B5C4F07F5D5B3A7F7D2B22C9683DA4545D196E6F786A03205C444E088505724EB4939364AF8A1A4B7872D5ED18F08549678CF5AF9805E043D8A7C0C970D66D3132443AA538DC560956533E62394624FA40DD4FFF6ADBB926D1AF61DDAB4710D2A728AB50486461B91785CBEABFB5BFE6580F6AC812E8FF222FD248A03C53A9BAB7F61671AD90D30F039E5F66F03A5C77130E6C60E85B40237E9D43C1FA620AE2F53C557883B15IP0gUHxsKTB2RgyD3XKAfdh4q5iWjAiaM+ECPNy48DE=","Width":"517px","Height":"300px","Title":"Paste Plain Text"},"ImageEditor":{"SerializedParameters":"ADCF7D77F11A94DC92F46AACA2A8A8E2B8CE08EAD784F506E1FCC09C521436ADBB8F431A323370BFDFB8812DB40CC9834C1B5A7422DB2E041D211D602538FC21E02DBB71E55DE01F695923B988C2A2F4D4E4D261943A91581699B52D15891824B7043E9487C2B7159525AE60660FDC7058C6A7FE4F51A0F92FCDA483E79C2F7B5C0800ED5E85307E6F045AFC1A1D3F157A378CEE35F8C34E428B42E14958EF489D5E2F4E8DBC1C8AB6BBF47373FDAB12B969999310EBD70168BFEEA2AC2D7E80AEFFE92C82EDB4B743216DE36CEE136461E8EAE13B478123188FB3F8B7277892558F9FBFB4BBFBE9178894F12EE519B04303C3D8A68CB4608E298D2E4F7EA32D6A9DFEF34A85774130777E6DDB98FF04071F8FB876BED02DF7A87B5091649F025322A03C759F2F2A75233C4A5F6E956C49DC0E949D0ED88F950562AF8CC5BD7D40D57704B17F33F51B636A29DAA4E1DC728C55A3CBCAA7F444AF1DA7D910F6E59CEED4F0726257259B4513D2E44421AD255AE8A5A9ECBE65CEB80BB2027582F095724696D2664CD3700A0669DC416023DEB5E65998E1A380A0B94BA57AB27ACDA58EFBAD31784444F6D67AB11B5AA53003C8866BED14087D4E2EA93A00E17855A1BA7D24EB63BC7DD32B55E628B00AF13629BB0339AD938550804D70B77202AEB614CABC77CC46E02B454ED322CE2BCD28B3DE823E25971B6CFEAF0CE57643288C30AB81ECB74DCB7C269A905218B585E008B8E61FB4E5908B926ADE14E480D696C2A1F037D36A10C0EC388F8DB12B1202D4470E8E7E9EC387F7F0D0DA65CCCD5F37880D185FE199CDDE159346EBB83B62BEBD21F22ED9416DCF006DE6BBAD8FE274594B3DDA54D0CB88A32643543EBF959DFF14A2F1A20151DBEB025A1B1BE5FAD07CD39D7CAE11BFF489BA18516C7E9D5CE439838A2862C3D0F363AF5066FD6579C2E4C657DE8BBA5CA4943370562E7EC29B31F18573658E7DDB09BDEBCCFD75BEC293ED1D0EB338C9DD71D4A979DC3F4F88C9D5319D515FDC2106A038E151D9F50B4A5ED88626BE33F48F8CA15C40DDDE51D65CB4194D69376F2BF8F4EB25909BA0911D4492A5E0A6D4A77C1E5AD7C1144B9EB0326A7FBC35E86557894CB84B73C01C42706DE21D0278BF227DAEA54F7FC3B090C1FD1371D6D3D86C6968CD9D70FB9287D4ECC5419926FA8312FF8D4953E497537D30A7AAAA725DE9C3059EB3909E1AAF7169A63F5B1CA8DFFEDC1192F0FDA0AFCE2980D2084FC2966EF07B030D371F8EE23AD5446B0CF2B549E0D75679AC9696C25E132AE969AADEF4167A6C74B99C1EB9C8F53EC993DBB80E314EC16CE8FBD665C9961F32AB343E90B6C770A74B352237819894F09617FB39C407C8B0595FE9A22B580E03420562CF256F3322C522C10D1E935594E05255B9427763ADBE691DCC065DF2BBB7B88B84DC2CFB0A9D0AD58EB4E0A7F31ABE1421895881FC0BE1ECF872179D62B600DD7C9FEBCF713D0A276B049CDC342DEC0A6827123991254C4E801C90EFB1840F30EA60F55069337DF9EB6179D708A2D4D0014139313515BA574BA336705E0C70F2D7B5A77AAE5F0FC1349BFB9CA9A54F38A2018E942E44653AC4831FDCBEACF7DF12CAE482BAA31A7FDC8CEF6E8EF2D0E12B09AF1641BE5BE800ACC5D97FB8102BA422B6F2E4E9EA738DED6DC147E8879D4804AD588C070EC5AD9C45C7E207B1384F0CD07D8C55780B8813C1D20A8262E77CD1F1D641C877EECA84B4E9D3FB59002182CB0BBFB45BE7057767E89FFB0CA5D993764A4703DA49F0E25AE1FBB6E0AD1CE7F6HuiRIAbJ1mkeHGIfNzXT9BYgjV8TYsyQDq0Y+AVVRuQ=","Width":"832px","Height":"520px","Title":"Image Editor"},"ImageProperties":{"SerializedParameters":"D92B6E3AEFB20D74C8FBBF3618B60BB3343692C91E72BAECD588E5DB8FFA71548EC532DB768085D07E17D14D5AE73A964EB4F214A437B851A2CEAF3125F818468D97A2880910530909D83F0B1FFC971474743C9BF11D6698E091CC5CCC645A252592060FBEF518F2F39B7AF352DE017F8630BB273C821B5B696C776EF7FAA8912D6CCC8C4FDF00261D1D204ADB017F8DDA34964369E81CCB617CD61F7D3E0E0B6760EBF2406BECA07206CAB0AAEF96E8828936196390BA6C3626D1FFC2301603BA5368C3597A2CBBA8C6050384D851ED5B8C29CFBAE65618FC89C3EBE5CB3053E1D8F9A1F64379B8E5C5537519F9A4F267E49D1D3A7CB6077AAB172AE76425D576B1DC4D21D2AD3042DF9AF75EF5D9D6AC14C038A7C60F65D17D3064259FB09DAF958951DB367E1ED871DCA8476412D370B9F148CE4FBF5AD820258D299FD5A0BAE63EB4807FE336A0D5581D93834EDFB9A117B249AA35EAB786893C237BC34B34649CF3E7A032AEED84C557986AA752C4CF3897319F923144D278EB0F5193F33711834166BC564052CD2650187A0D64271DBDC83E5B1175DFAA5BF1F327478534166BB5BAF8E0CC246529B69F383D2ECA8EE95D266E976101FD3ECF357DE10BBD9DF38482EEEDD055E1B65DBC336AB337A6A680068601FE5ED0DA3B3A985459315416B919B1A486E93C101BAC4428792D78FD7170C01D8608022C6EFDAFD3EA5CBA308A56035CCA64542713516F78D63BE521302A6EF46B2FBD422986B2D6B0D5E93A3E9ACB4ACA792CA854088027D1AA5D3ED412151DBFE6B868B3D308FBF3D7B98B44929371217CC0B5F318688F958D5C7B17144FE56B184429F5240E38C5EB0F22B5A7A6DF83F0DDBC606147E6DDF75B01F27CFE7978466FC98CC1607D34C5913AC965B1710400F5B71482B0BC0B394224F768DE2889418820409788C81F335E3FBB9289E6AE54EF1D42CAD3B3ACC3EEB64FED2944A28CD5B25FDC0B5A44AA8BB3D7FA0D56B4FF6C564F223093B7105241F7FCED4626C9FC48DDD87A9E0EJZbDBqgtxwk/PioomXzYCsf74s0fo6vf9HAjJZn982c=","Width":"430px","Height":"432px","Title":"Properties..."},"ImageMapDialog":{"SerializedParameters":"9BBC1711A27B41062B2597F218DDA7A1DBAED00BD761FE2E532808C12AF3D48FDF6C0C63CB7ED5778B935C284EECE458BC12065AE2540006F3121EB2FA9DB0AFE2B3E6A7CFF6EF8CF8356AF55D72D7043464DF116637D9BF60132ECD9ACD3D76B0BD816E1F0AAF67471AEE60CC59111462A55B70ADA826C0E0534E35A7D38D8A636402D79F52890E743E7746ABA37E88C72175B77952B715F1DD7E4D1BD60F6B632370DA1FD762B180BE037D3F3477CB1FA34E06C641239F115D4C0E762F8AD7EC837B6536BB632210DCAEFB744524BB8246F0AD2CD32C9B2CEF9CDECDC95AB32957F63BF9A026CE669B3FB37957F68315D8FA2A15D00B26AB2EFD4201ABBF82EE74F8D60A6F89809A50103C0B3F2F281AAA729C031860212D2EC34CCBBD12CEC5566EA15808031D6FFDA29BDC612B38122F26D0425B5A75BAD62F1744927E09AB11974CB8BDF3D1E810D0FDBC90E3ECC1D2291E42D7D0442AFEEA0477F33D7B62BEA0C80D6C95CE70899F3294A610F0C8D395C5045071757F15BE3AD3383108B9B6566B5F3EFE9CCE341492CB0379C0839D45EE13CCD34E59968F3AF130064B6EFFAEA78A8B196BA061ABC72E84BA528CA19A9C87EE569C063500F77852A9050D831BE1986FF2544E7DE68321C9156199E3A557B004727BCC4225ACFE038BB16EA65C67D221708A82A57AC799D012A3689C54613A0F5BDA4482889AA5855135831A37A501594CC447B5014B1002E563C575069502A66DB9291D50BBE83B37A33D1AC1B637CD7255FC76830F39757F1F87812403C08DBBFD643E87F4E115753015AF11EB268874C7C2060517101A474E3C773BD5801C47DDAEAA70DDB336B1035CA66F453C66CA3154501F278A414C7060AA335B0C4B0935A6BEDF0A5651BCE422C5AD883E7494F6C46038921E26C0004CB471946B7ED6951A8CEF6BB99F9CD44DD72F7D64DCF61587CBD7C21BE39286A668E804F7E55C024EA60AE32F6CDE60CE81D45C4AD27021D4C5C308B08F0BEAY3a1U/A0k119JAt7mKFd2T/SyED60LchybJ4vhcezpU=","Width":"700px","Height":"430px","Title":"Image Map Editor","ReloadOnShow":true},"StyleBuilder":{"SerializedParameters":"2856CCD56A582292F3BD0C7C17B6346C7397F45A778372BDA3554197DD993D2627B0EA8B01BB37BD2214F00DA810E3467B82617B183F6A8AD760ADD9C4CF7960BF51B1D31F55762A52F0957601A1F0DBAFDD39B37ACBCB9A4A245AADBAAC3AFA935F2B6E5C148C93D0C57BDEA0B63D995183A1E33C3937B63C609299EA61EB5009BADC4AF330503704D119ACE7EE6CB0C3E579238A35B5C80E2ADD44B5949CEB17A2541FCF6012960BE9F8B2FD9F95FC70A83B7F70FD4E7C60B8D1EAA7A37AA742EE6B6D5A123D3B936B00E6C9BD69141DEF8F8ED1758D0EBE48BDB06C68A778F0D8AF0E74936E99266E0D7C7EB501BD74C712695DD78FED0C8B66F683874573A48C5E2FCD104DA84ACD796D37435CECB5FF73EDA8B2EDFB6A38CC663A04F983A6EF0CF1D148222944C9FE8297A662F83BE90FDA3099820DC7984D0DC34D6943C355E0A219D33A84B7F00E2132EC92DC6EC23E342DA98B5DEDC8BC734FA81BC6971284A37B9EF328888661C3EE277194E326B1452464C689C424A4B876E635204964813B12B21344222641C57FA8167D7AD2ED1FF3798D873C4B09DD17FF40FCBB1E15D77A730105EA30D5D2C391A580039523C9BE3A8EE794B7E9C277510917F72A05F71BCF70FFEF96D73BA5B457C343A7213A87C30B6075D7522F0F6C4CDF295A850BA18231A2E7CC80ECDEF655066FB168538FBD98BD90A627580D664974BEDCB07F3B3432ECF11171B0111B6720F6730F66F333567FF3747854D80EE85FCA19F782BDB2E67DF0EB9D8413E73793F9199C6FB8619D669994175A5DA43F6ECE97D3A1955DB7F22E2A49FC5570869CE0982E7DEC1DEE1D2DA832C0254B8DB37677BF1A111787AFBB5EDD573CBE4625931F137D866917AB5CE1C59C0DFC4EF0C1B6A2B190B1DC61C555A983B9C11993C932062B29716095C48A8723CA6275A6FFB6752C9AE2E6B7505894B46648B3EAA987799F6CF31BB7687A0B7A8494FE88673F21F51261E92904148AB7C2A2305F8BRFi6KGfXJfpOEdrQLS0ndTc51MF3PnS3IR+03AQ6E=","Width":"620px","Height":"530px","Title":"Style Builder"},"InsertExternalVideo":{"SerializedParameters":"8B2C7E93A18292B29A34330CC005D61D268CFDD2BCE6AA826F4BEF06744B114585ECCD5B623D7F6E847401F7110A0049D078353193A9B872FCCC12DA7ECA356CCB467B69916BAC4B9B6A34C3D76473814E9B0A9CB8D1ABF01B6139ECD8273C25C1794ABB69B2631F71CA085C80B0F99487260C5A458982812C7B70AFBB42BF28381F54B0C7AC03DDAB780011F929205BE17E122858433227D86E6315765FC5FFC18563EC527D503289C7CF794D8B4E7BFD92D04045DBBCE73803104BC5E5B764D193AD2024B907A0EEFE68145CF669E2525C311FBF7B327E1BB8B5E120FA38EC54848EEA741F5816FF2BB9C461B10A72E80DBD45800A1B04555D73E1904472F1DCABF831B35D1332679578FCD87F5544A54B66D0A60E84740D2C159A75A4EFB5B71F05B066811F595F082A33BFD765CF8A97609585AA78A616DBE96CC36BC8F5003DE645993438B4747D414FEBD146D5123551EA0E51A395169B2F043C5ACBD436CAF8C5A81357A6DBD357F96DC4845DABEE05D6DAD5712C52CA5F5087C6798C8A344F8707BB42E91DB3D875109084FA574664BE31CF6732EB2D487B1003C522C2D0619CA73C717EC2863E5F93465C175F9BA1B474D7ED60F391D577268F52A6511A74BA959DE6C605C1FFEBD7E8A847C7D25F4301F61382EE8A1FE7A7E23456CC80E8BFF870DA8537C8BF4BB689F211D9C1D9688B6612F3388B714D65CDD2792278F9BD6749833988D6E0F78F0D8B92A4ABA62FA7884E0B57295FA0DB213EFA84D602BAB08424F431AB23A7199B6A05F341939F63E840F848EBBAB3AAC20E99A1FD766060EC2103029469A9B7BE0D7FA2FE7BA6F1BD2F7C678F13FDB714123B1E32C359711543D5A58578AB13AFD30730A3252AE9F148EDF6A548A67564DB4E8C3D93297D76FEAF36B5338C96D9896CE506EEC8DF5A4434C196D4B39CAAE9D5682C84BE19140087D034AFA830F6BEF9E0B3FB56AC37F984C995CD303A6E51649182581AF85560FDFD47DB7990250C87E9405AC80A079387123154C1422633B4lyEHGLayuPuS71XRSOG6CNJYdh5F2+qiNGhgdTDpGzE=","Width":"770px","Height":"610px","Title":"Insert External Video"},"InsertSelectDialog":{"SerializedParameters":"F42E0200A648AA4706AF44ABED84D572169132FDCEE4F9D659B44D760291069B9D9F86D054CA191EBA620F7D71CA9785FCA286814C99AB2DE85CFACD50BF358DA1F79B20FB57D33F227ECE03C63FA2A8A472E10EF8EC3DE0FAA0F08E6F4F4B0E98934DB864D52D6D9DF039A210F53E5BE56524BF2280FF4E70BCE2A742D5914806C76A05B1160938DE60E7B2E3AAE2FD185329AE6F01E16DF304B3C9A1BF97097EC43AE9F6954147EF6462D00F6F4B2C945C21E0F40C0A8BD79A83D03D6316D0538682867AE80B74049E1358E2920F672900E55DD95818B578A617E415D1600C1E4A81F9C27A2DD274C3BEC9B61F54BCAC3A77D1B0F23980AB98C6E08CDFDC1DCFBD0605B207F72865E366FB007866A96E7A48FCC56C9D1B575F5C7061844E4E02C9AAE0F65D0C8E177DC4A85A05D7BD00BBE8646366399761E001D45F91CE3FB51226620A3568DFF23728A6AB4E76FD40C70E0835E97EBC797D2B08035599F9919F6122E76C98242F67174C2C3686613CA177D69F1927C91B80A04177F123568A1D70421EB98C36C4104ADBD1EF99E87DAEB66D4AED51A3DD7D51C5495F979ECC0C1F8375AC24041DEB68C0A402B1C32D79C06BDFF183E6117AC7E08BB1D3D1B04E88BF2F0AECF1F338B9CAC0507122FA85C035BF9178B9DCE3DCC782287558ED559E63F482ED8537A4AB99FA7054836EAC521CE9B9A7D9D41E06322BA9E8F7373A1CB4886FB7991EB45AA62860C50D1D51247F2529A264A403F4D09CC2FA05078949E1AF7EA7CB944ED7F5EBF4E260E2BB08C3665F0561B51F2F56BA06BD20A1A2434FD9D98EBFDD45A53F4BA10979208D5655869A449A941C1EA325072EE549EA154FC59D8366D5EEDC5C6EDF69F960BB995AE9B3DCD3FD07D91D469DC629E89D36ECDA9986B6C0BA54948B890A5BDB56C820AC7F24A0CF96703A48435FB7C675845A3133889376F1D36A9363EA77963647E44E14B360EA2C9EF91292ADA7C9B2836D678D8B03F17601C0CDCAB91C620FD6F77B51C195B17DC0C93C30D9A5ZDCpgd60QWqo+Zbpsk3rkE4cETgRYI0VXIAYTNk417c=","Width":"527px","Height":"410px","Title":"Insert Select"},"FindReplaceSettings":{"SerializedParameters":"DBCB980A2E8E46D37671A75C22D60D85DE790098FD328E1C5B82446C4655343AFFA532428E10E8E7B7D951E17EE5058045A91CA01B453D0AD5222FB7298C870E31FD2C394A97FDCE33901ABC16A03E367C97F42522D795931E08F8DD4325DFF811276A1D617532F04FDE76B744E9BE6165E40546AB2BA3923BADE6268C4C02435D0B6DF235467E765819061B270D35132572B2FB56A69482123EB36E7686E34A30598AD3682DE07E6C92CC319ACCF42390F9525A15F31E98DC86CBCDFC4E931F9696D359B477EC63EB12A0B58840C510D4D2E1C2A99F3A44DF9DEB3260FAE739C391DB28CE14D17510B626EC8D50778B9105D4E65A36C203017B7706A83EB69B9B64C73DA46A64772A71EC18FBBF8CC9A0B38D078E443C78F517A0F5E3A66A66F62ABF7E39A2201AC453E325B40D5A6D4B0F4B132BD3325F7A453693D23C8A1A2112C381A567F36BA2E089A4248DBEA3166AFA4298B77E2DF3F8DD61B92B7564E721233CCFED699B13286929164B9C70243C428C25C01DA32C4046B7EFE6716F2B4CFE97B7BCBFE259E345FDBD6A0D754EF1E3306322CD97EB2EDB1BA75AEAA436A226EDD9B3161ED563DC13CCB50BCF28507F2FC53FF2E6059FE0AAAA3A50E49DE3FBAE145FDEACDC381F651D9D04C4CA613C122F21E36E7B9EC8279D6D0B518B74A6260BAB4DE85835BA9799B1CBB8BE0950F0B1AB977521CE42F2396C95A42E36C5ABA8AFA7129B59F18E4B602CD177FFAA7CAC86410E49673F5385A0A40F28C9CA57E17C902D7529962BF900D450E0FFDD40B5FDE1A925EF05C0B5AED364D60568B53F3F8812D0095E5DD3154429E8F84D29CE665C08E413FCE0BE0444EAD88694C478E026B60954304EE6EAA2E20CEC5D27A33D3B0C5F7BF948DE4E2A3C4AEC6BAAB182C2B90758D4A89C79018074A0DC6E1151EA51D94C37F16E34B288062A5FF41E5EE588F52CACA0CF17C7A1ED42A8CD7355812E569DFE069DC15057EDAABCB563CC604F42FEE335188BC4E2CC9902C4334D99C6F6D465D6F76D6026183358581799771A2E8039C0188E4BD7eTSYmK/S4nPbs3vNA3h9w0tnc6pJyNxW3uK4PVujHcA=","Width":"","Height":"","Title":"FindReplaceSettings","Modal":false,"VisibleTitlebar":false},"MobileLinkManager":{"SerializedParameters":"5B406165EC34BAEEAD24F5D66E9D486108379E1CB6F088937EEB1C512877B6B3AD56A88548A3DDAE66791323FC0456976BFB4188A4A00623C40A7423A2F1BE0044CA5EDA12889F174D3448676C4D96972AA9F7C16CE4142A55B0844D36E226B53A3C1683BC73F27B8A444D049131E84DDE5B9E89F4866CF4D9AE05654CBD63926DC74AFF8185FFB36BBD36723ADA201E3D0BE9A201B0BD6E6561F62947EED3815B78643A87D9CBE2CB73BC4F7A1CE3C0523DFE978BF0E50551D942E43F757A25F7032D6288B17DD043D21143A7A85333A09FB185502C505E81DBB5993F2BE5EE730A85473311ED28D05061A2D50C1661E7119A4CADEE5649213CE6ED621692DD9D6FCC3A42CB20AFDF4859F458026EA469DC7AA7567D5942C4F50E6856FA9388475392CCC471E7EB2B60735E6D4647C9B03D2B8C5212E3E67E4A6400E4DD246961A99B92F848F9DA711C6C454B9BD2DAC2580C9B67D3E25317E3CED57CB362BF1751CEE5044603401882D3567F212A6E7B46EC398143A0795A307D31C23F298300B6AE48AE35A9D3518B531B27ECF4DA170759FA38A9596B19F44A3BBB365BB294C6B8D6E281A75BE5A71C532EE9B59CA86C1889ED3E5738070B73F3FBB36D10C904231C72CAED77E010AD070CC8B0DA886ED63317309D6AAAF071EE4F3401962E9C7FCFE8B81CB26865F1114922C7A1C239A4913747A8B00B97D93187F7C3076E24F9956A62E96E2AE9C4A4ECA49F670719FEC608449C2AE1A5BD87A1CE55188C66F7B231FB8D2F0590AA66F59F37C1E895B146FB0E61900AC74CD409C98D3A4D845FB945572E6FA7AC03CFA6C085E38B2CA4F7E2EFE5D8E9E83DAEC335A97D7C9ECBF79277804B8E87C49E490A94DD886B9003CFA8087036E211055BC641314CF143DA1D652D18E0732153106EB0BD381C7C1C6DC9C1E2DB7F895FF1535DE59C9169A1247FDBA4FB2E010D44D18AB49B180B0EE271453D434A5AE5F5D18663A63552C217ED5D84DE32C404BB241BED6ACA20A0D5CA2C308C2B850724D7544B/o5+CDWQwgTzxxnZAvEDjLEaRd5fflTcDWPBAl3Kxyw=","Width":"","Height":"","Title":"MobileLinkManager","Modal":false,"VisibleTitlebar":false},"MobileImageManager":{"SerializedParameters":"5050107F6EC19C4EBA90290A27120D81A2C860963DFFDD77C8BDC28E6FD98712658BDC8EF4475F398117F65A8BDA4F2A998438B1C206A4D2191A0ADD8ED6A4023D5B1B33E53FF10F2BEAA37A4F67FD822B92DFB8D86358C29FCE80F86E80784656A7A0F85BAD3DC9BB77A1445A32E7AB75D6F4AB45FE5430CE54CE76A08350DC25B7F083FF493D597B8C9251321965A0D6832337C1DA3A1BF3F7E5CBEED339CD89382BD626B691C640C0105756D19AD1F51FD45CAA89DB0A8C6A64160E98B94A42767CFA432C8A144DB97CD64A66D2B5D502A095B64A0225A7DB083E769A9406A92E0868171FCDFA4BD7812E7801C8D2022C8F8F25244F7F13048132A5D86D12468EF75AB821860C48B195481142C76FE4E1620E1158B95CF8EEB7C6D40B8F238D6566ACC7FCD7B1280986504C30ECA28DEB381DB37E1D8AF64B4B84D4397DE2E940FC351C88D82B0DB320610EF9984CE5DC0567913E9E6DFB52863021ADD757AA1479F9DF623711B322EAFB0B0B8D6ADFC3C9CB427E390B17FFD7D4D3AC750442463CAC9585249405474F0A38678F67DCA7F9606DA3B22ECD7149C306C4DECC50A23ED860CED0517FE5FAD1E861894336BC24E30CEF324F6ADC35B6B2443F713EA92AEAF09A65E7B292025BC053309A234D8DEEF1986BD54FFF38E1484115FB54278C8F87806EE11B3E2C34937BE8C47EF7B6E3E4CA923E41D56C0BA9AB8406D5C24DE8AD202464B2A86CAE691932F3B4EE9EDD67E9E4DC8877E30A1AC0D551AE5F796B4CD8B959AE84C4B00E0B38679FA855639EF3CB76195F7A19B491CBFDE34E1796E0790BC3740DD4C2C73CCC7B0B58283259AAAB0F96BBF46DE912C249356715819D84E4C0FC4454E71E9A25FD0F38E669CD1C921A6B466CC8C99B954F5F8412C97ACCE34BEF9B69A9864F76D05069CAE09F5A5AD17C0411F4394D94042075F0AE88B4FFEECDC397C0C498170F69F7B30A4DFA790CFADBF66DE82CA773C0E044CD65F9FC906FD076D2DB914664ACAE3899C57630B6A547A8E9977F69A3DD2C2CF14B2B1AFEF59E439A008F031BC82ED3893F38F9AC9D82C759EAE3130F4F2BAA74ED98A710C13793E643B5FCDDC47042615248957F8269F8B6131E5840C90C027E3791FCC1F07F2D78290A99464EEC082BA76E5FDCBF041BDFFE3B42D99E2D7C526738399FA373A8D41B249B55EAE89670E1BD963F1A7D0C028979C7B42E8F9696D72F4FF0A78294A6719D869D8934B44BEC5E1251D729ACC8A610EAB4FF4BA08DBA72836BEA5DF63A111E334E147EC24BB011B28182A0D272F559F998E9A761E3444569E5A86C2D3836771D39684A2D07B00661DE649723FE2B0C5344864C41E70348BCF10254632410BF14D0D17871A438CDCA817EDFC0E46BE4A4FC4B68E633336666317BC683989931CA00DD61C196149F0A9198263CBC6094CC4E2322FC04D32FCBF73B731C9A69A60F5166311C757B83A87839D14CE7A8BCB111ECCC5C27B4EF0D1FA80E0D0D482D140A342272EC512966A50FBF7960D609EA3347E4B88CC3B1D6DAE050DB13C7FF044778EE0634C059EA2CAE74F03CB5559E9505BD467757D3AB2CE6436784C63AAE5CFDD18609E2518CAE6553801DEFCC9FDFDE7F9599B60A298EFC4EB8752810EEFC5AEF9951A2D2974B373EE5DA17C926EB4BDC0A9E1F30AE7D9EB641F3FED6DF2F0AD2D6358A1DB8529026D7DC90C0D08BAC5B1CE416DDA62163E694DDD6A0E274D9B07EF8CA95FA3AAD3EDF96A150D1ECC0DC02C042D21E5CEB10606BB0DEA098D62FE2BDF87FC3128B6AACD6DEAE732CRVEuH45b3x3d8Q9jLFBlV/R7Iw2FqPN1kfFecIDS/2k=","Width":"","Height":"","Title":"MobileImageManager","Modal":false,"VisibleTitlebar":false},"InsertTable":{"SerializedParameters":"7ED451D6C974E717B2D5EA3B5FE7D21A4C3E80B9EA9C4D27CF9FAE96C705D7D003028108CB484D0EEF1E62579B6F3A4699C8A8CD560D7FE33F1A558197626FB07F459D63B2E5BCC109B3EDE43BC9B7653985B8B0CD88E4E770C3BCEE0FF0243F84F01DB141E148E1ABFA94A43B35DF304A6695CBA552DF5BE32527C88348D6619852119ADF7E2583F4F89FB013AC298C4FF4AA90F74A4E57167B388D69C2D40A046456DB042EABAC81437DE68DBCBD664CF7EC259CBF1E34DA9FC050B71246DF1868CA027A9D0C12BC69B31180BD8F00396EF96F08FB09CDC16C92CF0C97CE0B4F4F526506A58609F4E912D0BAA882A7A834A80148D01487FCEC03494E3FF17BFBC226A8AC5FAB76AC578B0B20D2BEB116672088904FB80977010EC017F4889C926C650DA906AC453C8AF7ACF3326775F5708009A56BA11B11091B689AC5AA8C7B10594EEF9E307934858777984CC2B98F1469FA28D30E20972FF7D3AC43B9FDFF5356FE8BE209C98D8BE6A4011B9D80B52B25DDD67ECCA2E06B28F825528F7240D1132691BA28807D4A689F97B562100EEA85545889F0669BAEDA8E0ACA986018DE3D548796CD9AB4AF40AC20D3C9EEEB5B7CB2FF25D88C1E1EA13DA791377953409C5B4E99A36C8AEA2D81890A3EFE86F9E23E2E61FB7606F41D2AB4C6D4B8DB503E8C033BC148DF43679363F67910FCCDD8342226929D8090DD3D79AF87361CB5352B987B7466125593563C9DE8A943A9872BAF7871D606877D93C8BFD950DD337D899012D80862ED7E70D67FCD101B3B89998FECD19CB6F8025A1D631B2ACD210CCB88EA61D1480F747BA482063A12DAE4C2C35F553564BE9DFEE53237EB36B030393332713FC3CB3D9428403AB9246DE829B7F945AA61D1BE971B81B8247112BCFBE713876CD53A0C706400B025D44ECCCB03843CCCB96B571289D52E24327F951CF965EA44F4A85D77D57385BE79832FE3CCA3E848C27C30BD68928F651BADCF169EC64FB029C05F0B908A1186928F8336F4D8AD3D6D08D79CC2112E9FhMmlET/zOhnmLDj/fJDt8TvgmXRcexIQ+xAHxJSqivQ=","Width":"","Height":"","Title":"InsertTable","Modal":false,"VisibleTitlebar":false},"MobileTableProperties":{"SerializedParameters":"AD1335EC26ECB2075756F75F88B5E926043E264638E8CEA7B12486449D7A35ECA111D73CABB8C72A545E64BCA81FAA18CA2BB53B532C79E23993388A83CBCCD3352FFD3E6626A0B1913F0BF7ABE7BE1F565F2A54BCD8F6B5765A364D1DA71743FC05E9F152754E9C4B28FE3BEBB96675B0E2E5BC25E822E5842DD2369B4280CB08E0B0D87AB78E62AB40AD625FFAA2562D7DA9B0606D60E3DEEA3988864BC8AC1C03052ABF787BCD45DEB719EC81A291005487AC02DDDD23FE96C13B78DEB6E35358F0A50558B8493196E5A4EA242794DC61B52B09337B9D52A9267F3B89EF9359138BBE5A5010C768F3156283E92DF0DA53AC1E98C8E21F3D0981B4DE8A2BE30F324E0C71EC5CEC46929DF666E78232E3F7E3F82A21090E44D15B3ED900A76E58E2D1B2F1134825091E50F843AC09E5EBDE19B51C277401771120DC9EC8E8BAC6B63F379E9D673A57DF06A14718A46EF3D2D880F202C1B9F70C861446AA9677E5BE0307B5F0FD861E10B35C8B1A40B7B19773E7C97E7FE10F2F8D68D35C1CE0595BC15DB3F12736DDBFB06286141025ADAFD354B2861BCE51102C77277091D4E2F4545EB510AF450059B9BB3B0C0E82A39E48E3A725538FCC7F744F0B82F3C1FAF22A8EC6C185D1E27F808887AD23B2FC7900B8213F0D9222BC75A56C9779EBBA1E59CEAA927E91D510BCC6CE811751320F86EED20CB366CD450913FA1A5FC3F632D2BDD0820F7EB2D54E3B28E7B705E20310B7CDB45E607CE04F38D152B332A2F832BBDE72A80402CE3B566B7C360AAED78C8F2AE408AEB7440A5743FBEBB45E251FA8D2CB8B0E572DCADCED7BFD95F8B6502B23DE137917771ACF6BCBB45666F76A070F92CA15BCAF52DA9292440E96CDF6A85E4433B254B794C993622EFD1A64676E38DD688CE2229BAB93C8CB655F3F93FC620F4CF7C502835128D82276E67378E41CBF0052B5AFC71F1AD2FEA1CFC1A0069969DFEDB02F838290E9116C6F3FC64D78F5CB74F35B5092BCC6AE17D3BF3459CA3380716D48C7068A2FA1F4B21826B190C99D59D9C32ED447DDF311nERwgaovMZRWf9anz/DxxVUkpPKyluy5baYIB0DhoDg=","Width":"","Height":"","Title":"MobileTableProperties","Modal":false,"VisibleTitlebar":false},"MobileImageProperties":{"SerializedParameters":"69606D4F61E8B24AC24E9A68A676E0F794FD41F2640A40343B602CD9D664C47B9C5FF5DC77030301C9D18820E3EB1E474F7C866254688AB8F8FB609F50BAF1BADCC4A3093678BE1075E82EFF9D4512AAA9573B929CC52FDE32780C09422F0A8ED7E303D2032C9DF02DC40AB813118CFC00B21F3DC95584142EA4754C491337F5A497CD664DAA2550315C036D1166BC74D0BB971996DF1D7BE581D2B1EFA758BA50B6F5E10F6BA69FA3CC0420B2ACB6C11FCFA9E701DEC5A72E80DDEA9C95CF774882E038CAB15C574569A90EAB74B7D0DD143A655436AEAB61FA9637CEC0DA7548E30AC3EE96E0949DC9C5627008D7A97DC6B9D46D745E33B37A3C67ECF8F608130CA3B0413FB276987ACBC3109D0EDD4D345EE55B239B3540A836D1D110A0D81BB330AA2E8A0E87F3F2A37DA72A27914EF896B2773603C45021F6024CDFE56640411BFF670F9943E5CB11E61F6F2F8176B34A7241F75C9E6C27CA35076948298CDA1E462A44D24B0B8FF14B8E61A5C85CE35340CA9F539C50D3EA8CD85F6902F2FA8A97F4828CB730B9FF592984D0CD9F5CA485F571C028812C38A424E0649F9650FCAEDEE064DE29E6A9124B910F3E0841DA244F2FD848778541F18B5C7BAC78D1A7A34E5217D59E8F976739A99B05A41D984ABB529470C71FFB8078D54DE0D28BBA121D099D324CAC4AB38740731DC8408949283E4AAB62EDA8EE3A06606F6E12CFC9D727542CB6DEECA2841C04F0D01B55B9FE47EB805C1042AD6753EF2C0E95784F087F41CE9475E9DE08F2719042739CD453736FCBD156C215D787FDFC405C34927CB0B2D59176D90191CD6C0825F645CF4F660915C2A58EE5259C2263B0B333702D4E99E2A9C017DD8EE583994082BBE0176F1050AA885CB4ADA25284F854934FA52131828C9150FFFF3481515CDA919D12C9C5ED11D9EC4B5ED01BA649C3D2AE186CB642A309C1C5FDC8F4BA70D2D9CFE71BFB6F6B004808E797DE410200948FF478DE581946B7043C2FFC30D10E25E65C0D5626FB94D3F49E7B069D1EEE858F7620692FC8251CCA632FEBF5rDWkTCUYAVR2O363sc92BpFvIofvPPvpJbVX7K7TR2Q=","Width":"","Height":"","Title":"MobileImageProperties","Modal":false,"VisibleTitlebar":false},"SizeMargins":{"SerializedParameters":"97B9B80530A599AE0FD3D9BF5684F81A86E416E80456B417D8F35B5149376304ED6528580AF734394BEB17207C497D76709B62FC8E85703B6AD0E332929443CDCDCC8896A28D9A3135C8314BE2ECA7D0ED4E9D6531D7D5993B33E639A39873A72D412423634299DF680654046CECB5006EBD7D606FAAE8F3F7FC456CAB6367AE0823BC547599B91A29CFBD88CE77F2B1068B4D3E9E922F98C6AAB2EB30CEBCFAD4686857EF702814E4DA6166E2EC957668C745FC96C7BFD247318EA1EF40E2D7EDC6F157FBD5BA3F291A9E7DD3D69E1C61E7A434F1B04F526520BD227572553116DDC553639A86B6728728896628BE9F7C91819229D4B781720E85BFAC09226CEE17B26DE16883D73D49642E86902E7CC94C81A1D1EF7EABA84AB999AB8C26058E83CF577F1FBA1C1E907F7C954F41DFEB3EA2320AA1D985DF4BB2DBE946E56DDAA3CA8AB4D12DEBC9B9FAA9CA68262A54DD9EB586045EE0E47B74071F489B214A164B47C986E2916A2938FFF8FE5D68E1C6508EF958D115DC71D2A6F82ACEE091225FCFC986CE9EA691B7A21D5E1D9D57CC8B4A948EA428C2EB39C21806480065EB3931082A42101C525A95F9321E425BF2072A91280B8336E1E93014F78BA6571498B19362B898C9FAF3114B256D3CEF2EFC0DCE9D359A389B233277FEBCEEE8125143F80DDBDCAAB65808D334C9931F7CF8BBC1AD4B45C9BEEFD8BD9ED7121BB5792C1F9C6D624ABC943B0408E52BD8F69CA989557A742AF54F8D80826D2265D0A63BCE9CC6F7382B82A3506EF1C24CFFECBF3E0F5C2C652B38B78C8F7FA2EE3D5D417E6F8BE36A93D0F1DF51B24EF2EBB0D74BC88348B833AF1BBEEF2CD69F491BFBB4A62A6BA6E958ED68FDEFCBF2F10400FB2498BA290B97C568089370F470875039B15192CAEC9700CFB9167CF71D7ED2E3AF06A7CD0D6F3D860C4A40CB626C88FDDFDF035240004C3C00BC850E1E555FBABAE37FF9176207EF4BC2BFC6699699CB2B66CB05CCC5F87CA029F519E604977A8CAEAEBEE13B492E9AF1BBJrZmy4NGK9zhE9RtfoGSEWPCLfcLIzINfxy0iaPP+D0=","Width":"","Height":"","Title":"SizeMargins","Modal":false,"VisibleTitlebar":false},"Border":{"SerializedParameters":"F5E42BD025E5BD124316C46040DE768E10071A3E437DFF631114DD539F1157CA2529FC62C713A6375127010805A1B44A10E912E74877D8D8653E46F01BDFF18E1C0995D1427945DB5572B2F00F00D56B654AB13C6A7A4593D82ECDD37735474A7CA58F80C34479ACD79732933EE249F99BCAE945B55B11629974D3E851DAB37B37D9386E0D9D51E483684BC44DE5BE75EB41F0400C8BA959D51A2F50B85A6C622608035B388E554E62829DC4BCE2D8D4DD5F89BCEB11530FDC3A8DB323361D48F37B8F0230A6EDF5628AF95DC27F9A74EC76DB187D34D437D8F4BD0AF017BADA24D13F3BEB460E64D0FD6329E3AFDDEF46BF288071303933443FB317E366248CE3B0D0D71009B0CCC57E1FC1BB016CD64BEFB4F5F588BCEC4D3260BA9BEADEE43B0915DCE8A56BDF5EEA959A6993F678523F65C55D1523F4B458563418FFBE80D9364135A542AC21DD146600D9584A8D99DF53D08D027D534CA373BE8327CFB15C4D55E53A3D4950D02AE37A06274D08807533248145FEE0A983C3718EA483258E06D42E3FA993D7C6BAAA6D4112C33988B6540770CEA6D05CF140ADA743EF01DBF5C57F561EBFF89A7C6708C928E7BF8BD53FA427685489B3ECCA8E435C222DE6F57928D8AC2AC32D11514DCAA2BC9CE506D4B7EA05A303521EC6B8A17DA28603BC1BC511B78B5068D8FCD313DB043C2E63452667216E4CE180CE4ACA485D275EF443483F3D5140C49BBAC2C56F53DCC010F5C1D32C5399442B5EA2FE15B51FA0F0AA76B5563CE61DEE5254B9AF53AEA3CD5F7C55D3AACF0150CACB3DA96D903C219BBBB9B9AB0628181351FCFE9D0C3B835FBBB5A0EA735CAA42267CEE1039645EF5723BE310C80FCAAAEAE087E113FC57E7456240746ABEB7D4084F592651761BCD631C58650F93D4EBF707C6ACCDC1031AE5D82E6F3469832CA842573ED9B61FFCF8D7E4CC30E9143D7CAA88481E74310E4AA730F0A2341FFFB5A4B10751F6B7BADE36F02248C1EA7244CAB2F31EMrPpNZjnYxyOg8imECajxpuzPuEJAzxvpJCgHyqvOv0=","Width":"","Height":"","Title":"Border","Modal":false,"VisibleTitlebar":false}},"_dialogUniqueID":"ef7d42b3-62ee-4ec7-b3b3-cf4c59b11721","_renderMode":1,"clientStateFieldID":"ctl15_ctl01_fckContent_dialogOpener_ClientState","enableTelerikManagers":true,"handlerUrl":"../Modules/CMS/Telerik.Web.UI.DialogHandler.aspx","skin":"Web20"}, null, {"container":"ctl15_ctl01_fckContent_dialogOpener_Window"}, $get("ctl15_ctl01_fckContent_dialogOpener"));
+});
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadEditor, {"_localization":{"addcustomcolor":"Add Custom Color...","addcustomhexcolor":"Add Hex Color...","addcustomwordsuccess":"successfully added to dictionary","addtodictionary":"Add to dictionary","askwordcleaning":"The content you are trying to paste has MS Word formatting.\r\nWould you like to clean it?","cancelbutton":"Cancel","canceltable":"Cancel","cellproperties":"Cell Properties","cellwarning":"Please, select a cell to set its properties!","changewordstring":"Change Manually","class":"CSS Class","clearclass":"Clear Class","clearallhtmltags":"All HTML Tags","clearcssformatting":"Cascading Style Sheets","clearfonttags":"Font Tags","clearformatting":"Clear Formatting","clearspantags":"Span Tags","clearstyle":"Clear Style","clearwordformatting":"Microsoft Word Formatting","correctspelling":"Spelling Changes","createlink":"Create Link","dialogtoolbar":"Dialogs","dropdowntoolbar":"Dropdowns","exceededhtmllength":"The added HTML code exceeded the character limit","exceededtextlength":"The added text exceeded the character limit","settoiframeforfullhtmlerror":"Error! Set EditorContentAreaMode to Iframe if you want to edit full page HTML!","formelementsaresupportedbyiframeerror":"Error! Form elements are only supported when the content area is set to Iframe!","getallsheetscalledwithnodocumenterror":"RadEditor._getAllSheets called with no document object provided!","enhancededittoolbar":"Enhanced Edit","fileopen":"Open file..","filesaveas":"Save as...","formbutton":"Button","formcheckbox":"Checkbox","formform":"Form","formhidden":"Hidden","formpassword":"Password","formradio":"Radio button","formreset":"Reset","formselect":"Select","formsubmit":"Submit","formtext":"Textbox","formtextarea":"Textarea","htmlmode":"HTML Mode","ignoreallstring":"Ignore All","ignorestring":"Ignore","imagemapwarning":"Please, select an image to set its image map properties!","indenthtml":"Indent HTML","inserttoolbar":"Insert","maintoolbar":"Main Toolbar","morethanoncemessage":"This word occurs more than once in the text. Would you like to replace all instances?","movecommand":"Move","nospellingmistakes":"No mistakes found.","nosuggestions":"(no suggestions)","promptcolor":"Please, provide the custom color HEX value:","radeditordesignmode":"Design","radeditorhtmlmode":"HTML","radeditorpreviewmode":"Preview","reducetheconentlength":"Please, reduce the content of the field","resizecommand":"Resize Object","sethtml":"Set HTML","showtoolbartooltip":"Show toolbar","spellcheckcomplete":"The Spell Check is complete!","spellcheckend":"Finish spellchecking","spellingchange":"Spelling Change","spellinginprogress":"Spell checking in progress...","spellingmode":"Spell checking mode. Misspelled words are highlighted in yellow.","table":"Table","tabletoolbar":"Table","tablewarning":"Please, select a table to set its properties!","toolbarcaption":"RadEditor Toolbar","toolnotsupportedbynetscape":"This tool is not supported by Mozilla/Netscape browsers.","typing":"Typing...","undodisabledmessage":"You cannot undo further while in spellcheck mode. Please finish spellchecking first.","updatebutton":"Update","usectrlc":"Please use Ctrl+C to Copy (Cmd+C on Mac)","usectrlv":"Please use Ctrl+V to Paste (Cmd+V on Mac)","usectrlx":"Please use Ctrl+X to Cut (Cmd+X on Mac)","radeditorgroupboxtitle":"Title","radeditorgroupboxcontent":"Content...","mobileaddcustomcolor":"Add Custom Color","mobilecurrentcolor":"Current Color","clear":"Clear","aboutdialog":"About RadEditor","absoluteposition":"Set Absolute Position","ajaxspellcheck":"AJAX Spellchecker","alignmentselector":"Alignment selector","applyclass":"Apply CSS Class","backcolor":"Background Color","bold":"Bold","tableborder":"Table Border","cellborder":"Cell Border","imageborder":"Image Border","colorpicker":"ColorPicker","csdialog":"Compliance Check","converttolower":"Convert to lower case","converttoupper":"Convert to upper case","copy":"Copy","cut":"Cut","content":"Content","clipboard":"Clipboard","decreasesize":"Decrease Size","deletecell":"Delete Cell","deletecolumn":"Delete Column","deleterow":"Delete Row","deletetable":"Delete Table","documentmanager":"Document Manager","editing":"Editing","enter":"Enter Pressed","findandreplace":"Find And Replace","flashmanager":"Flash Manager","font":"Font","fontname":"Font Name","fontsize":"Size","forecolor":"Foreground Color","formatblock":"Paragraph Style","formatsets":"Format Sets","formatcodeblock":"Format Code Block","formatpainter":"Format Painter","formatpainterapply":"Apply Format","formatpaintercopy":"Copy Format","formatpainterclear":"Clear Format","formatstripper":"Format Stripper","help":"Help","home":"Home","imageeditor":"Image Editor","imagemanager":"Image Manager","imagesizemargins":"Size and Margins","insertselectdialog":"Insert Select","imagemapdialog":"Image Map Editor","increasesize":"Increase Size","indent":"Indent","insert":"Insert","insertanchor":"Insert Anchor","insertcolumnleft":"Insert Column to the Left","insertcolumnright":"Insert Column to the Right","insertcustomlink":"Custom Links","insertdate":"Insert Date","insertemaillink":"Insert Email Link","insertformbutton":"Insert Button","insertformcheckbox":"Insert Checkbox","insertformelement":"Insert Form Element","insertformform":"Insert Form","insertformhidden":"Insert Hidden","insertformpassword":"Insert Password","insertformradio":"Insert Radio","insertformreset":"Insert Reset","insertformselect":"Insert Select","insertformsubmit":"Insert Submit","insertformtext":"Insert Textbox","insertformtextarea":"Insert Textarea","insertgroupbox":"Insert Groupbox","inserthorizontalrule":"Horizontal Rule","insertorderedlist":"Numbered List","insertparagraph":"New Paragraph","insertrowabove":"Insert Row Above","insertrowbelow":"Insert Row Below","insertsnippet":"Insert Code Snippet","insertsymbol":"Insert Symbol","inserttable":"Insert Table","inserttime":"Insert Time","insertunorderedlist":"Bullet List","italic":"Italic","justifycenter":"Align Center","justifyfull":"Justify","justifyleft":"Align Left","justifynone":"Remove alignment","justifyright":"Align Right","linkmanager":"Hyperlink Manager","insertlink":"Insert Link","links":"Links","media":"Media","mediamanager":"Media Manager","mergecolumns":"Merge Cells Horizontally","mergerows":"Merge Cells Vertically","modulemanager":"Module Manager","outdent":"Outdent","pageproperties":"Page Properties","paragraph":"Paragraph","paste":"Paste","pasteashtml":"Paste As Html","pastehtml":"Paste Html","pastemarkdown":"Paste Markdown","pastefromword":"Paste from Word","pastefromwordnofontsnosizes":"Paste from Word, strip font","pasteplaintext":"Paste Plain Text","pastestrip":"Paste Options","preferences":"Preferences","print":"Print","proofing":"Proofing","realfontsize":"Real font size","redo":"Redo","repeatlastcommand":"Repeat Last Command","review":"Review","selectall":"Select All","setcellproperties":"Cell Properties","setimageproperties":"Properties...","insertimage":"Insert Image","setlinkproperties":"Properties...","settableproperties":"Table Properties","silverlightmanager":"Silverlight Manager","sizemargins":"Size and Margins","spellcheck":"Spellchecker","splitcell":"Split Cell Vertically","splitcellhorizontal":"Split Cell Horizontally","styles":"Styles","strikethrough":"Strikethrough","stripall":"Strip All Formatting","stripcss":"Strip Css Formatting","stripfont":"Strip Font Elements","stripspan":"Strip Span Elements","stripword":"Strip Word Formatting","stylebuilder":"Style Builder","insertexternalvideo":"Insert External Video","subscript":"Subscript","superscript":"SuperScript","tables":"Tables","tablewizard":"Table Wizard","templatemanager":"Template Manager","toggledocking":"Dock all Floating Toolbars/Modules","togglescreenmode":"Toggle Full Screen Mode","toggletableborder":"Show/Hide Border","togglefloatingtoolbar":"Toggle Floating Toolbar","underline":"Underline","undo":"Undo","unlink":"Remove Link","view":"View","xhtmlvalidator":"XHTML Validator","zoom":"Zoom","mobileedit":"Edit","editcontent":"Edit Content","toggleeditmode":"Toggle Edit Mode","inserttabledialog":"Insert Table","inserttableitems":"Insert","deletetableitems":"Delete","mergesplitcells":"Merge and Split Cells","find_notfound":"The search string was not found.","find_notsupported":"The find function is not supported by this browser!","find_allreplaced":"{0} occurrences in the text have been replaced!"},"_renderMode":1,"clientStateFieldID":"ctl15_ctl01_fckContent_ClientState","contentAreaCssFile":"/WebResource.axd?d=Kv_Yi2AqxBcM9_SRkrI0UgOEr7CFN6yvcoDbXnpSM0L803lVJ7puWzAwOaezlgbnd9i-qfnJXSzr44EK9WkC_AacukFh5f7anjhJoMA_akzQMbvr8XBE9Lum9du0ofzSJGiMjFEs0qAhqDNsXGAZLxoJODE7nxCIUo00C-ziCRo1\u0026t=637144971000000000","contextMenusJSON":[{"tagName":"TABLE","tools":[{"name":"ToggleTableBorder","text":"Show/Hide Border"},{"name":"SetTableProperties","text":"Table Properties"},{"name":"DeleteTable","text":"Delete Table"}]},{"tagName":"TD","tools":[{"name":"InsertRowAbove","text":"Insert Row Above"},{"name":"InsertRowBelow","text":"Insert Row Below"},{"name":"DeleteRow","text":"Delete Row"},{"name":"InsertColumnLeft","text":"Insert Column to the Left"},{"name":"InsertColumnRight","text":"Insert Column to the Right"},{"name":"DeleteColumn","text":"Delete Column"},{"name":"MergeColumns","text":"Merge Cells Horizontally"},{"name":"MergeRows","text":"Merge Cells Vertically"},{"name":"SplitCellHorizontal","text":"Split Cell Horizontally"},{"name":"SplitCell","text":"Split Cell Vertically"},{"name":"DeleteCell","text":"Delete Cell"},{"name":"SetCellProperties","text":"Cell Properties"},{"name":"SetTableProperties","text":"Table Properties"}]},{"tagName":"IMG","tools":[{"name":"SetImageProperties","text":"Properties..."},{"name":"ImageMapDialog","text":"Image Map Editor"}]},{"tagName":"A","tools":[{"name":"SetLinkProperties","text":"Properties..."},{"name":"OpenLink","text":"OpenLink"},{"name":"Unlink","text":"Remove Link"}]},{"tagName":"SELECT","tools":[{"name":"InsertFormSelect","text":"Insert Select"}]},{"tools":[{"name":"Cut","text":"Cut"},{"name":"Copy","text":"Copy"},{"name":"Paste","text":"Paste"},{"name":"PasteFromWord","text":"Paste from Word"},{"name":"PastePlainText","text":"Paste Plain Text"},{"name":"PasteAsHtml","text":"Paste As Html"},{"name":"PasteHtml","text":"Paste Html"}]}],"enableUndoRedo":false,"headerToolsJSON":[],"headerToolsToolAdapterType":"Telerik.Web.UI.Editor.HeaderToolsToolAdapter","language":"vi-VN","modulesJSON":[],"mozillaFlashOverlayImage":"/WebResource.axd?d=EN2AkJ0TCojRQ-RId6S4JMUhcucHzvOMBjOiH7cOQQtmVX9bdXBAqTrj6Zd9uM3LTEi2f2Sy_hgaenfTGb3-_AIOmwyHcC-Qerj1v5hLGGKGcPaEnJQsLPv3y8MI_d2x9CUDMeu5J8Q5ARgpCiI2KbW4ACYfaR7AW1lAqXA5MxQ1\u0026t=637144971000000000","skin":"Web20","toolAdapterType":"Telerik.Web.UI.Editor.DefaultToolAdapter","toolJSON":[{"tools":[{"attributes":{"rendermode":"Classic"},"name":"Bold"},{"attributes":{"rendermode":"Classic"},"name":"Italic"},{"attributes":{"rendermode":"Classic"},"name":"JustifyLeft"},{"attributes":{"rendermode":"Classic"},"name":"JustifyRight"},{"attributes":{"rendermode":"Classic"},"name":"JustifyCenter"},{"attributes":{"rendermode":"Classic"},"name":"JustifyFull"}]}],"useRadContextMenu":false}, null, {"dialogOpener":"ctl15_ctl01_fckContent_dialogOpener"}, $get("ctl15_ctl01_fckContent"));
+});
+
+document.getElementById('ctl15_ctl01_RequiredFieldValidator2').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl15_ctl01_RequiredFieldValidator2'));
+}
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadWindow, {"_dockMode":false,"behaviors":36,"clientStateFieldID":"ctl15_ctl01_rwUserLogin_ClientState","formID":"form1","iconUrl":"","minimizeIconUrl":"","modal":true,"name":"rwUserLogin","skin":"Web20","visibleStatusbar":false}, {"close":RadCheckUserWatchClose}, null, $get("ctl15_ctl01_rwUserLogin"));
+});
+//]]>
+</script>
+</form>
+
+</body>
+</html>

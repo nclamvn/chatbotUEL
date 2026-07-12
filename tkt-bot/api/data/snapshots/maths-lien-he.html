@@ -1,0 +1,894 @@
+
+<!doctype html>
+<html lang="vi">
+<head><title>
+	Liên hệ
+</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name='viewport' content='width = device-width'><link rel = 'SHORTCUT ICON' href = '/Resources/Images/SubDomain/maths/favicon.ico'/><link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" /><link rel="icon" type="image/svg+xml" href="/favicon.svg" /><link rel="shortcut icon" href="/favicon.ico" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><meta name="apple-mobile-web-app-title" content="uel.edu.vn" /><meta name="description" content="Liên hệ" /><meta property="og:title" content="Liên hệ" /><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" /><link href="/CSS/search_Article.css" rel="stylesheet" /><link href="/CSS/show_img.css" rel="stylesheet" type="text/css" /><link href="/CSS/zebra_dialog.css" rel="stylesheet" /><link href="/CSS/faq.css" rel="stylesheet" /> 
+
+    <script type="text/javascript" src="/Components/bootstrap/js/jquery.min.js" ></script>  		
+    <script type="text/javascript" src="/Scripts/knockout-2.3.0.js"></script>
+    <script type="text/javascript" src="/Scripts/Common.js" ></script>
+    <script type="text/javascript" src="/Scripts/PagingContent.js" ></script>
+    <script type="text/javascript" src="/Scripts/zebra_dialog.js"></script>
+    <script type="text/javascript" src="/Scripts/countdown.js?ver=3"></script>
+    <script type="text/javascript" src="/Scripts/faq.js?ver=1.0"></script> 
+  
+    <script type="text/javascript">
+        function SearchProcess(event) {
+            if (event.keyCode == 13) {
+                OnSearch(document.getElementById('txtSearchArticle').value);
+                return false;
+            }
+            return true;
+        }
+        function OnSearch(query) {
+            PSCPortal.Services.CMS.SearchAndPaging(query, currentPage, OnSearchSuccess, OnSearchFailed);
+        }
+
+        function OnSearchSuccess(results, context, methodName) {
+            var position = results.indexOf('_');
+            totalRecords = results.substring(0, position);
+            results = results.substring(position + 1);
+            LoadContentAndPaging(results);
+        }
+        function OnSearchFailed(results, context, methodName) { }
+
+        function popunder() {
+            rwHomePage = $find("rwHomePage");
+            $('a').not('[href^="http"],[href^="https"],[href^="mailto:"],[href^="#"]').each(function () {
+                $(this).attr('href', function (index, value) {
+                    if (value != undefined) {
+                        var index = value.indexOf("Default.aspx");
+                        if (index >= 0)
+                            return value = "/" + value.substring(index, value.length);
+                    }
+                });
+            });          
+        }
+        //popup dialog
+        function showDialogInfomation(dialogId) {
+            PSCPortal.Services.CMS.GetArticleContent(dialogId, GetArticleContentCallback);
+        }
+        function GetArticleContentCallback(result) {
+            $.Zebra_Dialog({
+                source: { 'inline': result },
+                'type': false,
+                'buttons': false,
+                'animation_speed_show': 300,
+            });
+        }
+        var rwHomePage;
+        function ShowDialog(link, width, height) {
+            rwHomePage.setSize(width, height);
+            rwHomePage.setUrl(link);
+            rwHomePage.show();
+        }
+        function toggle(showHideDiv, switchImgTag) {
+            var ele = document.getElementById(showHideDiv);
+            var imageEle = document.getElementById(switchImgTag);
+            if (ele.style.display == "block") {
+                ele.style.display = "none";
+                imageEle.innerHTML = '<img src="/Resources/Images/HomePage/icons/plus.png"  valign="middle" style="border:none;width:12px;">';
+            }
+            else {
+                ele.style.display = "block";
+                imageEle.innerHTML = '<img src="/Resources/Images/HomePage/icons/minus.png"  valign="middle" style="border:none;width:12px;">';
+            }
+        }					
+</script>	
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G16S6YBBJY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G16S6YBBJY');
+</script>
+
+<script type="text/html" id="search-binding-template" >
+       <div class="container">
+        <div class="row tintuc">
+            <div class='result_lucene p-3 text-center'>
+                <a data-bind="html: 'Kết quả tìm thấy: '+Count" href='#'></a>
+            </div>
+            <div class='nd_news' style="padding: 0px 20px 0px 20px">
+                <!-- ko foreach: Data -->
+                <div style="margin: 5px 0px 5px 0px; float: left; width: 100%;">
+                    <h4><a class="title_topicdisplay" data-bind="attr: {href: '/?ArticleId='+Id}, html: Title"></a></h4>
+                    <h3 class="h3_content" data-bind="html: Highligth+'...'"></h3>
+                </div>
+                <!-- /ko -->
+                <div style="text-align:center" id='pagingContentHolder' class='ct_topic_r1'></div>
+            </div>
+        </div>
+      </div>
+</script>
+
+<style>
+.dark_theme{
+			filter: grayscale(90%);
+			filter: gray;
+			-webkit-filter: grayscale(0.9);
+			filter: grayscale(0.9);
+}
+</style>
+
+<link href="/WebResource.axd?d=ImXg7DQMo3vjogSyVyhbGNVyzYoAKmdevKteo7oh9kL95UbdDFpqKdzJZ713mQM7JLC3v0XngQpOAjsd_JNwo0nCHYhH3ahimF0b6WbZnVOqRr8QmiCerdgq6d_bbE2mVjm5LDaFBnj9iqHflfjbcQ2&amp;t=637144971000000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/WebResource.axd?d=FdPKQC_YdmbnBizxq0F9pM22wEb83RvwUFP3F2YV1bMZNQPl-8GKwjCVV-hTaJ2k9xJXxXxOevkWrqU0gRAbyiCXqXJmrdrWpMVnXB67sHY6rcXZdtKwbbx4RYNMooR98O0TFoZjvTaffZCcTmFcvO2amDkYf2SbzUhoYb36AEY1&amp;t=637144971000000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/WebResource.axd?d=BJ0Kqp7Ay3UDdLJRHm3iBlID1zBgoocSYFHV36WFfCdi_3kr-vBWIvYZm2z3Aze1V9ipbysedkGVgtu5JKqoKgbDlWkmsw3yp_IlH_jW4LV0WYWzt70zHJ2gNnmYy5BnJkuV3VTBtksbOnFIRVFThw2&amp;t=637144971000000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/WebResource.axd?d=i-F5uS-oFBFSfzE4FFqS5bJRdmMzfVNaMOe08tdD7ya13Wvi6KZj34Y-XQ3hmLdCssnvUxlrCQqhgCQvM7VrTjI7AAmbQgu3WFsFWKv3onktG-zi4pKiRpahlWhQuEa5YACkHxyrKQmPHJj4O6ZU2A2&amp;t=637144971000000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/WebResource.axd?d=nZGNMS6RDbb_6v3AIZdBUHu-DX5zWid-EjKhzWfUAJvJGunysdMDIZrr_WKB6v8qAQFF7Iy5-G_ptLjsx38Zg1xfBoyHMnilscYhtyUwPV8yJ9yBaiSvUIiMJp35p5kAIH5JfZuj98viSFT75uZ3euxvfBiDxyG7_hBEB9cvqSg1&amp;t=637144971000000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /></head>
+<body class="body" onload='popunder();'> 
+
+<div id="fb-root"></div>
+<script language="JavaScript">
+if (top.location != self.location)
+{top.location = self.location}
+</script>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '486486661551589',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v8.0'
+    });
+  };
+ (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js"></script>
+	  
+    <form method="post" action="./lien-he-3213" onsubmit="javascript:return WebForm_OnSubmit();" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="RadScriptManager1_TSM" id="RadScriptManager1_TSM" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPaA8FDzhkZWUwM2RmNTkzZDAzMhgDBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WCAURUmFkV2luZG93TWFuYWdlcjEFCnJ3SG9tZVBhZ2UFOmN0bDE1JHBvcnRsZXRfYTY0NGNkY2MtNGVhMi00MWI0LThmZGYtZGRlNGMzMTIyMzAyJFJhZE1lbnUFF2N0bDE1JGN0bDAxJFJhZENhcHRjaGExBRZjdGwxNSRjdGwwMSRmY2tDb250ZW50BSNjdGwxNSRjdGwwMSRmY2tDb250ZW50JGRpYWxvZ09wZW5lcgUqY3RsMTUkY3RsMDEkZmNrQ29udGVudCRkaWFsb2dPcGVuZXIkV2luZG93BRdjdGwxNSRjdGwwMSRyd1VzZXJMb2dpbgUXY3RsMTUkY3RsMDEkUmFkQ2FwdGNoYTEPFCsAAgUkNWViOTk4NDAtMjdlYy00ODQzLThjZmEtY2MxYTAzMDNmMDk2BgAAAAAAAAAAZAUZY3RsMTUkY3RsMDEkUmFkRGF0YVBhZ2VyMQ8UKwAEZGYCCmZkYEh2KJzGwLWL3Y/Rk/2qxjwSv29yyJ8LQhTCsZD2G1I=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=sTX78rnqLN7cYyWoeeZS3GQZeknrB3Qd0uqLLDQS03Hx84B3_jrXuJk9iFhC8aR7xSrFDXB2kbwSLfhqcKW0AsU20U9QPOikV5abXNUJth81&amp;t=638901778312636832" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=rtAdq7MBajxq7tZB7XXsck5slWs_R3przNzl4iVsZeuhNbesJ5YZj4D58EnxJd0_b-7wHMLlgKWTDHRBtMhx9n6frb-H1NV6_0uJwdUFYVDjVlLQ8ZzgbUiv8XUxFFpmeFMLLPa--fnO1bVwI6A_GYpfDuPQoVkykq_Txm7ue8I1&amp;t=40d12516" type="text/javascript"></script>
+<script src="/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=RadScriptManager1_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bSystem.Web.Extensions%2c+Version%3d4.0.0.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d31bf3856ad364e35%3avi-VN%3af8efdcae-fc88-4697-a128-23b7f470d078%3aea597d4b%3ab25378d2%3bTelerik.Web.UI%2c+Version%3d2020.1.114.40%2c+Culture%3dneutral%2c+PublicKeyToken%3d121fae78165ba3d4%3avi-VN%3a2a883c61-eb2f-4e1b-9869-daa2e00f600e%3a16e4e7cd%3a874f8ea2%3a33715776%3af7645509%3a24ee1bba%3ac128760b%3a19620875%3af46195d3%3ab2e06756%3a92fe8ea0%3a4877f69a%3afa31b949%3a490a9d4e%3abd8f85e4%3ae330518b%3a2003d0b8%3a88144a7a%3a1e771326%3ac8618e41%3a1a73651d%3a333f8d94%3a11e117d7%3a1569bb5f%3a3856fd9f%3adc7e0bd%3a63b115ed%3a30f1f089" type="text/javascript"></script>
+<script src="../Services/PortletProxy.asmx/js" type="text/javascript"></script>
+<script src="../Services/ModuleProxy.asmx/js" type="text/javascript"></script>
+<script src="../Services/CMS.asmx/js" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAe33R303HWzIxmYoerprHFYPvReHHekXTHY7dMsXTX254Y9FkG3f+CKHfRkMKUwazSbn1gw98ufqCOCSxq7HaITjYMY+WUBWFYY/kdSfSj/pC084LQkQvS04+JUrnnUqYltgmTTO1NX7x9Tqu3/Py4WPzu8CrPMARSza8UFV0z6S+PRpCSa4LB4nn43C50eB8I=" />
+</div>
+        <div id="RadWindowManager1" style="display:none;">
+	<!-- 2020.1.114.40 --><div id="RadWindowManager1_alerttemplate" style="display:none;">
+		<div class="rwDialogPopup radalert">			
+			<div class="rwDialogText">
+			{1}				
+			</div>
+			
+			<div>
+				<a  onclick="$find('{0}').close(true);"
+				class="rwPopupButton" href="javascript:void(0);">
+					<span class="rwOuterSpan">
+						<span class="rwInnerSpan">##LOC[OK]##</span>
+					</span>
+				</a>				
+			</div>
+		</div>
+		</div><div id="RadWindowManager1_prompttemplate" style="display:none;">
+		 <div class="rwDialogPopup radprompt">			
+			    <div class="rwDialogText">
+			    {1}				
+			    </div>		
+			    <div>
+				    <script type="text/javascript">
+				    function RadWindowprompt_detectenter(id, ev, input)
+				    {							
+					    if (!ev) ev = window.event;                
+					    if (ev.keyCode == 13)
+					    {															        
+					        var but = input.parentNode.parentNode.getElementsByTagName("A")[0];					        
+					        if (but)
+						    {							
+							    if (but.click) but.click();
+							    else if (but.onclick)
+							    {
+							        but.focus(); var click = but.onclick; but.onclick = null; if (click) click.call(but);							 
+							    }
+						    }
+					       return false;
+					    } 
+					    else return true;
+				    }	 
+				    </script>
+				    <input title="Enter Value" onkeydown="return RadWindowprompt_detectenter('{0}', event, this);" type="text"  class="rwDialogInput" value="{2}" />
+			    </div>
+			    <div>
+				    <a onclick="$find('{0}').close(this.parentNode.parentNode.getElementsByTagName('input')[0].value);"				
+					    class="rwPopupButton" href="javascript:void(0);" ><span class="rwOuterSpan"><span class="rwInnerSpan">##LOC[OK]##</span></span></a>
+				    <a onclick="$find('{0}').close(null);" class="rwPopupButton"  href="javascript:void(0);"><span class="rwOuterSpan"><span class="rwInnerSpan">##LOC[Cancel]##</span></span></a>
+			    </div>
+		    </div>				       
+		</div><div id="RadWindowManager1_confirmtemplate" style="display:none;">
+		<div class="rwDialogPopup radconfirm">			
+			<div class="rwDialogText">
+			{1}				
+			</div>						
+			<div>
+				<a onclick="$find('{0}').close(true);"  class="rwPopupButton" href="javascript:void(0);" ><span class="rwOuterSpan"><span class="rwInnerSpan">##LOC[OK]##</span></span></a>
+				<a onclick="$find('{0}').close(false);" class="rwPopupButton"  href="javascript:void(0);"><span class="rwOuterSpan"><span class="rwInnerSpan">##LOC[Cancel]##</span></span></a>
+			</div>
+		</div>		
+		</div><input id="RadWindowManager1_ClientState" name="RadWindowManager1_ClientState" type="hidden" />
+</div>
+        <div id="rwHomePage" style="display:none;">
+	<div id="rwHomePage_C" style="display:none;">
+
+	</div><input id="rwHomePage_ClientState" name="rwHomePage_ClientState" type="hidden" />
+</div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('RadScriptManager1', 'form1', [], [], [], 90, '');
+//]]>
+</script>
+
+        
+<link href="/Resources/ImagesPortal/BoMon/bomon.css" rel="stylesheet" type="text/css" />
+<div class="pageBoMon">
+    <div class="transparent">
+        <div class="wrapper">
+            <table cellspacing="0" cellpadding="0" style="width:100%;border-collapse:collapse;">
+	<tr>
+		<td colspan="2"><div id="pnTop">
+			<div id="pnTopDisplay" style="float:left;width:1000px;">
+				<div id='ctl15_portlet_466cddeb-23af-4de5-8754-edb7c2a945e2' style="float:left;width:1000px;"><div>
+					<div class="top_BM">
+<div class="ct_top_BM">
+<a href="/?PageId=e897b6c0-c1c9-4cb6-a0ac-2d59baf1afea">English</a>
+<img alt="" src="/Resources/ImagesPortal/BoMon/line_top_BM.png" />
+<input type="text" class="bgsearch_BM" id="txtSearchArticle" /><input type="button" class="search_BM" onclick="OnSearch(document.getElementById('txtSearchArticle').value);" />
+</div>
+<!--ct_top_BM-->
+</div>
+				</div></div><div id='ctl15_portlet_4690e6bb-b837-478a-a9da-87bfe56525ba' style="float:left;width:1000px;"><div>
+					<img alt="" src="/Resources/Images/SubDomain/maths/Th%C3%AAm%20ti%C3%AAu%20%C4%91%E1%BB%81%20ph%E1%BB%A5.png" />
+				</div></div><div id='ctl15_portlet_a644cdcc-4ea2-41b4-8fdf-dde4c3122302' style="float:left;width:1000px;padding:2px 0px 0px 0px;"><div>
+					
+<link href="/Portlets/MenuRad/Menu.Green.css" rel="stylesheet" type="text/css" />
+<div tabindex="0" id="ctl15_portlet_a644cdcc-4ea2-41b4-8fdf-dde4c3122302_RadMenu" class="RadMenu RadMenu_Blue rmSized" style="height:40px;z-index: 1; width: 100%;">
+						<ul class="rmRootGroup rmHorizontal">
+							<li class="rmItem rmFirst"><a class="rmLink rmRootLink" href="/"><span class="rmText">Trang chủ</span></a></li><li class="rmItem "><a class="rmLink rmRootLink" href="../Portlets/MenuRad/#"><span class="rmText">Giới thiệu</span></a><div class="rmSlide">
+								<ul class="rmVertical rmGroup rmLevel1">
+									<li class="rmItem rmFirst"><a class="rmLink" href="../lich-su-phat-trien8-2924/lich-su-phat-trien-3155"><span class="rmText">Lịch sử phát triển</span></a></li><li class="rmItem "><a class="rmLink" href="../tam-nhin-su-mang-muc-tieu3-3170/-1063"><span class="rmText">Tầm nhìn, sứ mạng, mục tiêu</span></a></li><li class="rmItem "><a class="rmLink" href="../so-do-to-chuc8-959/so-do-to-chuc-276"><span class="rmText">Sơ đồ tổ chức</span></a></li><li class="rmItem rmLast"><a class="rmLink" href="../nhan-su26-2322/nhan-su-575"><span class="rmText">Nhân sự</span></a></li>
+								</ul>
+							</div></li><li class="rmItem "><a class="rmLink rmRootLink" href="../Portlets/MenuRad/#"><span class="rmText">Đào tạo</span></a><div class="rmSlide">
+								<ul class="rmVertical rmGroup rmLevel1">
+									<li class="rmItem rmFirst"><a class="rmLink" href="../Portlets/MenuRad/#"><span class="rmText">Đại học</span></a><div class="rmSlide">
+										<ul class="rmVertical rmGroup rmLevel2">
+											<li class="rmItem rmFirst"><a class="rmLink" href="../Portlets/MenuRad/#"><span class="rmText">Chính quy</span></a><div class="rmSlide">
+												<ul class="rmVertical rmGroup rmLevel3">
+													<li class="rmItem rmFirst rmLast"><a class="rmLink" href="../chuong-trinh-dao-tao6-881/chuong-trinh-dao-tao-nganh-toan-kinh-te"><span class="rmText">Chương trình đào tạo</span></a></li>
+												</ul>
+											</div></li><li class="rmItem "><a class="rmLink" href="../vua-lam-vua-hoc4-534"><span class="rmText">Vừa làm, vừa học</span></a></li><li class="rmItem rmLast"><a class="rmLink" href="../thong-ke-ket-qua-1043"><span class="rmText">Thống kê kết quả</span></a></li>
+										</ul>
+									</div></li><li class="rmItem "><a class="rmLink" href="../Portlets/MenuRad/#"><span class="rmText">Sau đại học</span></a><div class="rmSlide">
+										<ul class="rmVertical rmGroup rmLevel2">
+											<li class="rmItem rmFirst"><a class="rmLink" href="../cao-hoc2-1142"><span class="rmText">Cao học</span></a></li><li class="rmItem rmLast"><a class="rmLink" href="../nghien-cuu-sinh3-1643"><span class="rmText">Nghiên cứu sinh</span></a></li>
+										</ul>
+									</div></li><li class="rmItem "><a class="rmLink" href="../hoc-vu3-908"><span class="rmText">Học vụ</span></a></li><li class="rmItem "><a class="rmLink" href="../cong-khai-van-bang-chung-chi-2960"><span class="rmText">Công khai văn bằng chứng chỉ</span></a></li><li class="rmItem rmLast"><a class="rmLink" href="../chuong-trinh-lien-thong"><span class="rmText">Chương trình liên thông</span></a></li>
+								</ul>
+							</div></li><li class="rmItem "><a class="rmLink rmRootLink" href="../nghien-cuu-128"><span class="rmText">Nghiên cứu</span></a><div class="rmSlide">
+								<ul class="rmVertical rmGroup rmLevel1">
+									<li class="rmItem rmFirst"><a class="rmLink" href="../dinh-huong-nghien-cuu9-1622/dinh-huong-nghien-cuu-2629"><span class="rmText">Định hướng nghiên cứu</span></a></li><li class="rmItem "><a class="rmLink" href="../cong-trinh-da-cong-bo3-1837/cong-trinh-da-cong-bo-1775"><span class="rmText">Công trình đã công bố</span></a></li><li class="rmItem "><a class="rmLink" href="../cong-trinh-dang-thuc-hien5-1039/cong-trinh-dang-thuc-hien-2057"><span class="rmText">Công trình đang thực hiện</span></a></li><li class="rmItem rmLast"><a class="rmLink" href="../nghien-cuu-khoa-hoc-sv3-1819"><span class="rmText">Nghiên cứu khoa học SV</span></a></li>
+								</ul>
+							</div></li><li class="rmItem "><a class="rmLink rmRootLink" href="../tin-tuc-39"><span class="rmText">Tin tức</span></a><div class="rmSlide">
+								<ul class="rmVertical rmGroup rmLevel1">
+									<li class="rmItem rmFirst"><a class="rmLink" href="../Portlets/MenuRad/#"><span class="rmText">Tin tức của trường</span></a></li><li class="rmItem "><a class="rmLink" href="../Portlets/MenuRad/#"><span class="rmText">Tin tức bộ môn</span></a></li><li class="rmItem rmLast"><a class="rmLink" href="../Portlets/MenuRad/#"><span class="rmText">Tin tức học bổng</span></a></li>
+								</ul>
+							</div></li><li class="rmItem rmLast"><a class="rmLink rmRootLink" href="lien-he-3213"><span class="rmText">Liên hệ</span></a></li>
+						</ul><input id="ctl15_portlet_a644cdcc-4ea2-41b4-8fdf-dde4c3122302_RadMenu_ClientState" name="ctl15_portlet_a644cdcc-4ea2-41b4-8fdf-dde4c3122302_RadMenu_ClientState" type="hidden" />
+					</div>
+
+
+				</div></div>
+			</div>
+		</div></td>
+	</tr><tr id="ctl15_rowCenter" valign="top">
+		<td><div id="pnCenter">
+			<div id="pnCenterDisplay" style="padding:5px 5px 0px 0px;width:695px;float:left">
+				
+<link href="/Modules/CMS/TopicArticleDisplay.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+    .title_topicdisplay {
+        color: #074c95;
+        text-align: justify;
+        font-weight: bold;
+        font-size: 14px;
+    }
+    .title_topicdisplay:hover {
+        text-decoration: underline;
+    }
+    .article_content {
+        font-family: Arial;
+        font-size: 13px;
+        text-align: justify;
+        line-height: 150%;
+    }
+    .article_content ol, .article_content ul {
+            padding-left: 40px;
+    }
+    .article_content a, .article_content p, .article_content span, .article_content h1, .article_content h2,
+        .article_content h3, .article_content h4, .article_content h5, .article_content h6,
+        .article_content div, .article_content ul, .article_content li, .article_content table,
+        .article_content th, .article_content tr, .article_content td {
+            font-family: Arial;
+            font-size: 13px;
+            text-align: justify;
+            line-height: 150%;
+    }
+	.article_content img {
+	    max-width:660px;
+	}
+    .RadDataPager .rdpNumPart a {
+        padding: 0px 5px 3px 0px;
+    }
+
+    .Link_Unselected {
+        font-family: Tahoma;
+        font-size: 12px;
+        color: #056796;
+        padding: 0px 5px 0px 5px;
+        text-decoration: underline;
+    }
+    .Link_Unselected:hover {
+            color: #000;
+    }
+    .Link_Selected {
+        font-family: Tahoma;
+        font-size: 12px;
+        color: #056796;
+        padding: 0px 5px 0px 5px;
+        font-weight: bolder;
+    }
+	
+	.orthersArticle {
+		margin-bottom:20px;
+	}
+</style>
+<script type="text/javascript">
+    function OnSendArticle() {
+        var result = window.showModalDialog("/Modules/CMS/SendArticle.aspx", document.URL, "dialogHeight: 320px; dialogWidth: 450px;");
+    }
+    function OnBack() {
+        window.history.back();
+    }
+    function OnGoToHead() {
+        window.moveTo(0, 0);
+    }
+
+    $(document).ready(function () {
+
+        $(".slidingDiv").hide();
+        $(".show_hide").show();
+
+        $('.show_hide').click(function () {
+            $(".slidingDiv").slideToggle();
+        });
+
+    });
+	
+
+
+</script>
+<div class="content_detail">
+    <div class="tieude"> <a style='color:#666;' href='/lien-he34-37' >Liên hệ </a> </div>
+    <div class="line_tt" style="clear: both;">
+        <img src="/Resources/ImagesPortal/HomePage/line.jpg">
+    </div>
+    <div class="nd_detail">
+        <div style="float: left; width: 100%;">
+            <h4 style="clear: both; padding-bottom: 10px;">
+                <a class="title_topicdisplay" href="/lien-he34-37/lien-he-3213" >Liên hệ</a> 
+            </h4>
+            <div class="article_content">
+                Thư k&yacute; bộ m&ocirc;n: Trần Nguyễn Ho&agrave;ng Sang<br />
+Email: sangtnh@uel.edu.vn<br />
+            </div>
+        </div>
+
+        <div style="clear: both; padding-top: 15px; float: right; padding-right: 5px;">
+            <div id="ctl15_ctl01_pnPager" style="color:Black;">
+					
+            
+				</div>
+        </div>
+    </div>
+
+    <br/>
+	<!--
+	<br/>
+	<div style="width:100%;text-align:left;clear:both;padding:10px;">
+    <div class="fb-like" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+    </div>
+	-->
+
+    	
+</div>
+
+
+<div id="ctl15_ctl01_ValidationSummary1" style="display:none;">
+
+				</div>
+
+<div class="gopy" style="display: none;">
+    <div style="float: left; width: 100%;">
+        <div style="background: url(/Resources/ImagesPortal/HomePage/guigopy.png) no-repeat; width: 76px; height: 24px; float: left;">
+            <div style="font-weight: bold; font: 13px Verdana; color: #fff; padding-top: 3px; text-align: center"
+                class="show_hide">
+                Góp ý
+            </div>
+        </div>
+    </div>
+    <div style="font-family: Verdana; font-size: small; color: #FF0000; float: left; width: 100%;">
+        
+    </div>
+
+    <div class="slidingDiv" style="float: left;">
+        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
+            <tr>
+                <td align="right" style="font-family: Verdana; font-size: 11px; color: #333; font-weight: bold; padding: 5px"
+                    width="80px">
+                    Họ và tên:
+                </td>
+                <td align="left" style="width: 230px;">
+                    <input name="ctl15$ctl01$txtFullName" type="text" id="ctl15_ctl01_txtFullName" style="width:200px;" />
+                    <span style="color: Red">*</span><span id="ctl15_ctl01_RequiredFieldValidator1" title="Không được trống" style="display:none;"></span>
+                </td>
+                <td align="left">&nbsp;
+                
+                </td>
+            </tr>
+            <tr>
+                <td align="right" style="font-family: Verdana; color: #333; font-size: 11px; font-weight: bold; padding: 5px"
+                    width="80px">Email:
+                </td>
+                <td align="left" style="width: 230px;">
+                    <input name="ctl15$ctl01$txtEmail" type="text" id="ctl15_ctl01_txtEmail" style="width:200px;" />
+                    <span style="color: Red">*</span><span id="ctl15_ctl01_RequiredFieldValidator3" title="Không được trống" style="display:none;"></span>
+                    <span id="ctl15_ctl01_RegularExpressionValidator3" title="Email không hợp lệ" style="display:none;"></span>
+                </td>
+                <td align="left">&nbsp;
+                
+                </td>
+            </tr>
+            <tr>
+                <td align="right" style="font-family: Verdana; font-size: 11px; color: #333; font-weight: bold; padding: 5px"
+                    width="80px">
+                    Tiêu đề:
+                </td>
+                <td align="left" style="width: 230px;">
+                    <input name="ctl15$ctl01$txtTitle" type="text" id="ctl15_ctl01_txtTitle" style="width:200px;" />
+                    <span style="color: Red">*</span><span id="ctl15_ctl01_RequiredFieldValidator4" title="Không được trống" style="display:none;"></span>
+                </td>
+                <td align="left">&nbsp;
+                
+                </td>
+            </tr>
+            <tr>
+                <td align="right" style="font-family: Verdana; font-size: 11px; color: #333; font-weight: bold; padding: 5px"
+                    width="80px">
+                    Mã xác nhận:
+                </td>
+                <td align="left" style="width: 250px;">
+                    <div id="ctl15_ctl01_RadCaptcha1" class="RadCaptcha RadCaptcha_Default" style="float: left;">
+					<span id="ctl15_ctl01_RadCaptcha1_ctl00" style="visibility:hidden;"></span><div id="ctl15_ctl01_RadCaptcha1_SpamProtectorPanel">
+						<img id="ctl15_ctl01_RadCaptcha1_CaptchaImage" alt="" src="../Telerik.Web.UI.WebResource.axd?type=rca&amp;isc=true&amp;guid=5eb99840-27ec-4843-8cfa-cc1a0303f096" style="height:50px;width:150px;display:block;" />
+					</div><input id="ctl15_ctl01_RadCaptcha1_ClientState" name="ctl15_ctl01_RadCaptcha1_ClientState" type="hidden" />
+				</div>
+                    <input name="ctl15$ctl01$txtCapCha" type="text" id="ctl15_ctl01_txtCapCha" style="width:204px;" />
+                    <span id="ctl15_ctl01_RequiredFieldValidator6" title="Mã code không hợp lệ" style="visibility:hidden;">(*)</span>
+                </td>
+            </tr>
+            <tr>
+                <td align="right" style="font-family: Verdana; font-size: 11px; font-weight: bold; color: #fff; padding: 5px"
+                    colspan="3">
+                    <div id="ctl15_ctl01_fckContent" class="RadEditor Web20 reWrapper" style="height:200px;width:380px;float: left;">
+					<div id="ctl15_ctl01_fckContent_dialogOpener" style="display:none;">
+						<div id="ctl15_ctl01_fckContent_dialogOpener_Window" style="display:none;">
+							<div id="ctl15_ctl01_fckContent_dialogOpener_Window_C" style="display:none;">
+
+							</div><input id="ctl15_ctl01_fckContent_dialogOpener_Window_ClientState" name="ctl15_ctl01_fckContent_dialogOpener_Window_ClientState" type="hidden" />
+						</div><input id="ctl15_ctl01_fckContent_dialogOpener_ClientState" name="ctl15_ctl01_fckContent_dialogOpener_ClientState" type="hidden" />
+					</div><table id="ctl15_ctl01_fckContentWrapper" class="reLayoutWrapper" style="width:100%;height:200px;">
+						<caption style="display:none;">
+							RadEditor - HTML WYSIWYG Editor. MS Word-like content editing experience thanks to a rich set of formatting tools, dropdowns, dialogs, system modules and built-in spell-check.
+						</caption><thead style="display:none;">
+							<tr>
+								<th scope="col"><span>RadEditor's components - toolbar, content area, modes and modules</span></th>
+							</tr>
+						</thead><tbody>
+							<tr>
+								<th scope="row" style="display:none;"><span></span></th><td class="reWrapper_corner reCorner_top_left">&nbsp;</td><td class="reWrapper_center reCenter_top" colspan="3">&nbsp;</td><td class="reWrapper_corner reCorner_top_right">&nbsp;</td>
+							</tr><tr>
+								<th scope="row" style="display:none;"><span>Toolbar's wrapper</span></th><td class="reLeftVerticalSide" rowspan="4">&nbsp;</td><td rowspan="4" id="ctl15_ctl01_fckContentLeft" class="reTlbVertical"></td><td id="ctl15_ctl01_fckContentTop" class="reToolCell" style="width:100%;"><div class="Web20 reToolbarWrapper">
+									<ul class="reToolbar Web20">
+										<li class="reGrip grip_first">&nbsp;</li><li class="reToolFirstItem"><a title="Bold" class="reTool" href="#"><span class="Bold">&nbsp;</span></a></li><li><a title="Italic" class="reTool" href="#"><span class="Italic">&nbsp;</span></a></li><li><a title="Align Left" class="reTool" href="#"><span class="JustifyLeft">&nbsp;</span></a></li><li><a title="Align Right" class="reTool" href="#"><span class="JustifyRight">&nbsp;</span></a></li><li><a title="Align Center" class="reTool" href="#"><span class="JustifyCenter">&nbsp;</span></a></li><li class="reToolLastItem"><a title="Justify" class="reTool" href="#"><span class="JustifyFull">&nbsp;</span></a></li><li class="reGrip grip_last">&nbsp;</li>
+									</ul>
+								</div></td><td rowspan="4" id="ctl15_ctl01_fckContentRight" class="reTlbVertical"></td><td rowspan="4" class="reRightVerticalSide">&nbsp;</td>
+							</tr><tr>
+								<th scope="row" style="display:none;"><span>Content area wrapper</span></th><td id="ctl15_ctl01_fckContentCenter" class="reContentCell" style="height:100%;"><label for="ctl15_ctl01_fckContentContentHiddenTextarea" style="display:none;">RadEditor hidden textarea</label><textarea id="ctl15_ctl01_fckContentContentHiddenTextarea" name="ctl15$ctl01$fckContent" rows="4" cols="20" style="display:none;"></textarea></td>
+							</tr><tr>
+								<th scope="row" style="display:none;"><span>RadEditor's bottom area: Design, Html and Preview modes, Statistics module and resize handle.</span></th><td class="reToolZone"><table class="reBottomTable" id="ctl15_ctl01_fckContent_BottomTable" style="width:100%;">
+									<caption style="display:none;">
+										It contains RadEditor's Modes/views (HTML, Design and Preview), Statistics and Resizer
+									</caption><thead style="display:none;">
+										<tr>
+											<th scope="col"><span>Editor Mode buttons</span></th><th scope="col"><span>Statistics module</span></th><th scope="col"><span>Editor resizer</span></th>
+										</tr>
+									</thead><tbody>
+										<tr>
+											<td class="reEditorModesCell"><div class="reEditorModes" id="ctl15_ctl01_fckContent_ModesWrapper">
+												<ul>
+													<li><a href="javascript:void(0);" title="Design" class="reMode_design reMode_selected"><span>Design</span></a></li><li><a href="javascript:void(0);" title="HTML" class="reMode_html"><span>HTML</span></a></li><li><a href="javascript:void(0);" title="Preview" class="reMode_preview"><span>Preview</span></a></li>
+												</ul>
+											</div></td><td class="reBottomZone" id="ctl15_ctl01_fckContentBottom">&nbsp;</td><td class="reResizeCell" style="width:15px;"><div id="ctl15_ctl01_fckContentBottomResizer">
+												&nbsp;
+											</div></td>
+										</tr>
+									</tbody>
+								</table><noscript>
+									<p>RadEditor - please enable JavaScript to use the rich text editor.</p>
+								</noscript></td>
+							</tr><tr>
+								<th scope="row" style="display:none;"><span>RadEditor's Modules - special tools used to provide extra information such as Tag Inspector, Real Time HTML Viewer, Tag Properties and other.</span></th><td id="ctl15_ctl01_fckContentModule" class="reToolZone"></td>
+							</tr><tr>
+								<th scope="row" style="display:none;"><span></span></th><td class="reWrapper_corner reCorner_bottom_left">&nbsp;</td><td class="reWrapper_center reCenter_bottom" colspan="3">&nbsp;</td><td class="reWrapper_corner reCorner_bottom_right">&nbsp;</td>
+							</tr>
+						</tbody>
+					</table><input id="ctl15_ctl01_fckContent_ClientState" name="ctl15_ctl01_fckContent_ClientState" type="hidden" />
+				</div>
+                    <span style="color: Red; font-size: 12px;">&nbsp;* </span>
+                    <span id="ctl15_ctl01_RequiredFieldValidator2" title="Không được trống" style="display:none;"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center" height="25px">
+                    <input type="submit" name="ctl15$ctl01$btnSend" value="Gửi" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl15$ctl01$btnSend&quot;, &quot;&quot;, true, &quot;Feedback&quot;, &quot;&quot;, false, false))" id="ctl15_ctl01_btnSend" style="height:25px;width:50px;" />
+                    <input type="submit" name="ctl15$ctl01$btnCancel" value="Hủy" id="ctl15_ctl01_btnCancel" style="height:25px;width:50px;" />
+                </td>
+            </tr>
+
+
+        </table>
+    </div>
+</div>
+
+<div id="ctl15_ctl01_rwUserLogin" style="display:none;">
+					<div id="ctl15_ctl01_rwUserLogin_C" style="display:none;">
+
+					</div><input id="ctl15_ctl01_rwUserLogin_ClientState" name="ctl15_ctl01_rwUserLogin_ClientState" type="hidden" />
+				</div>
+<script language="javascript" type="text/javascript">
+    var dialogMethod;
+    function CallWebMethodSuccess(results, context, methodName) {
+        switch (methodName) {
+            case "AllowWatchArticle":
+                {
+                    CheckUserWatchCallback(results, context, methodName);
+                }
+            break;
+        }
+    }
+
+    function CallWebMethodFailed(results, context, methodName) {
+        alert(results._message);
+    }
+
+    // check user login
+    function getQuerystringNameValue(name) {
+        // For example... passing a name parameter of "name1" will return a value of "100", etc.
+        // page.htm?name1=100 or page.htm/name1/100
+        var articleId;
+        var winURL = window.location.href;
+        var index = winURL.indexOf(name);
+        if (index > -1) {
+            winURL = winURL.substr(index, winURL.length);
+            var arr = winURL.indexOf("/") > -1 ? winURL.split("/") : winURL.split("=");;
+            articleId = arr[1];
+        }
+        return articleId;
+    }
+    function CheckUserWatchArticle() {
+        PSCPortal.Services.CMS.AllowWatchArticle('29efd43e-5c2e-414e-ae21-f85f39bd59fc', CallWebMethodSuccess);
+    }
+    var dialogMethod;
+    function CheckUserWatchCallback(results, context, methodName) {
+        if (!results) {
+            dialogMethod = "CheckUserWatchArticle";
+            var oWnd = $find("ctl15_ctl01_rwUserLogin");
+            oWnd.setSize(380, 180);
+            oWnd.setUrl("/Modules/CMS/UserLogin.aspx");
+            oWnd.set_title("Login");
+            oWnd.show();
+        }
+    }
+    function RadCheckUserWatchClose(sender, args) {
+        switch (dialogMethod) {           
+            case "CheckUserWatchArticle":
+                {
+                    PSCPortal.Services.CMS.CheckUserWatchArticle(CallCheckUserWatchWebMethodSuccess);
+                }
+                break;
+        }
+    }
+    function CallCheckUserWatchWebMethodSuccess(results, context, methodName) {
+        if (!results)
+        {
+            if (document.referrer == window.location.href)
+                window.location = "/";
+            else
+                window.history.back();
+        }
+            
+    }
+    //end check user login
+    function pageLoad() {
+        CheckUserWatchArticle();
+    }
+</script>
+<style type="text/css">
+    .TelerikModalOverlay {
+        filter: alpha(opacity=100) !important; /*for IE 5.5+*/
+        opacity: 1 !important; /*for FF 2x, Opera 9x*/
+        -moz-opacity: 1 !important; /*for FF 1x*/
+        background-color: #666666 !important;
+    }
+</style>
+
+			</div>
+		</div></td><td><div id="pnRight">
+			<div id="pnRightDisplay" style="width:300px;float:left;padding:5px 0px 0px 0px;">
+				<div id='ctl15_portlet_56ea54f6-8be0-49ce-b13a-1f1b5d7ecf7f' style="float:left;width:300px;"><div>
+					
+<div class="thongbao_BM">
+    <div class="chuyenmuc_BM">
+        <div class="left"><a href="/thong-bao2-18">Thông báo</a></div>
+    </div>
+    <div class="ndchuyenmuc_BM">
+        
+                <div class="list_BM">
+                    <p>23/06/2023</p>
+                    <a href="/thong-bao2-18/workshop-optimal-transport-for-statistics">WORKSHOP "OPTIMAL TRANSPORT FOR STATISTICS"</a>
+                </div>
+            
+                <div class="list_BM">
+                    <p>17/06/2023</p>
+                    <a href="/thong-bao2-18/kien-tap-2023">KIẾN TẬP 2023</a>
+                </div>
+            
+                <div class="list_BM">
+                    <p>10/05/2023</p>
+                    <a href="/thong-bao2-18/hoi-dong-nghiem-thu-de-tai-khoa-luan-tot-nghiep-sinh-vien-khoa-toan-kinh-te-2023">HỘI ĐỒNG NGHIỆM THU ĐỀ TÀI KHÓA LUẬN TỐT NGHIỆP SINH VIÊN KHOA TOÁN KINH TẾ 2023</a>
+                </div>
+            
+                <div class="list_BM">
+                    <p>25/03/2023</p>
+                    <a href="/thong-bao2-18/hoi-dong-nghiem-thu-de-tai-nghien-cuu-khoa-hoc-sinh-vien-khoa-toan-kinh-te-nam-hoc-2022-2023">HỘI ĐỒNG NGHIỆM THU ĐỀ TÀI NGHIÊN CỨU KHOA HỌC SINH VIÊN KHOA TOÁN KINH TẾ, NĂM HỌC 2022 – 2023</a>
+                </div>
+            
+    </div>
+</div>
+
+				</div></div><div id='ctl15_portlet_18b57a3f-3e5e-4fc9-b2f7-370883750f94' style="width:300px;float:left;padding:5px 0px 0px 0px;"><div>
+					<div class="tailieu_BM">
+<br />
+<a href="/TopicId/a55eec83-f019-4d15-95fc-fd1e13ce87ca/tai-lieu-hoc-tap" target="_blank"><img alt="" src="/Resources/ImagesPortal/BoMon/tailieu_BM.jpg" style="border-width: 0px; border-style: solid;" /></a>
+</div>
+				</div></div>
+			</div>
+		</div></td>
+	</tr><tr>
+		<td colspan="2"><div id="pnBottom">
+			<div id="pnBottomDisplay" style="float:left;width:1000px;padding:10px 0px 0px 0px;">
+				<div id='ctl15_portlet_8ff0a307-252d-4f59-9cd1-803fdcccfd32' style="width:865px;height:89px;float:left;clear:both"><div>
+					<link type="text/css" rel="stylesheet" href="/Lightbox/resource/lightbox.css" />
+<script src="/Lightbox/resource/lightbox_plus.js" type="text/javascript"></script>
+<div class="footer_BM">
+<div class="Add_BM">
+<p><strong>Khoa To&aacute;n Kinh tế</strong></p>
+<p>Ph&ograve;ng A.205BIS, Trường Đại học Kinh tế - Luật (ĐHQG-HCM)</p>
+<p>Địa chỉ: số 669 Đỗ Mười, khu phố 13, Phường Linh Xu&acirc;n, TP.HCM </p>
+<p>Email: khoatkt@uel.edu.vn     Điện thoại: (028) 3724 4555 (6601)</p>
+</div>
+</div>
+				</div></div><div id='ctl15_portlet_79ac3a95-1767-4f33-87d6-12fa08d9a7bd' style="float:left;width:135px;padding-top:5px;"><div>
+					<div class="truycap">
+<a href="#">
+<img alt="" src="/Resources/ImagesPortal/HomePage/logo_small.png" /></a>
+</div>
+				</div></div>
+			</div>
+		</div></td>
+	</tr>
+</table>
+        </div>
+    </div>
+</div>
+
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_ValidationSummaries =  new Array(document.getElementById("ctl15_ctl01_ValidationSummary1"));
+var Page_Validators =  new Array(document.getElementById("ctl15_ctl01_RequiredFieldValidator1"), document.getElementById("ctl15_ctl01_RequiredFieldValidator3"), document.getElementById("ctl15_ctl01_RegularExpressionValidator3"), document.getElementById("ctl15_ctl01_RequiredFieldValidator4"), document.getElementById("ctl15_ctl01_RadCaptcha1_ctl00"), document.getElementById("ctl15_ctl01_RequiredFieldValidator6"), document.getElementById("ctl15_ctl01_RequiredFieldValidator2"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var ctl15_ctl01_ValidationSummary1 = document.all ? document.all["ctl15_ctl01_ValidationSummary1"] : document.getElementById("ctl15_ctl01_ValidationSummary1");
+ctl15_ctl01_ValidationSummary1.showmessagebox = "True";
+ctl15_ctl01_ValidationSummary1.showsummary = "False";
+ctl15_ctl01_ValidationSummary1.validationGroup = "Feedback";
+var ctl15_ctl01_RequiredFieldValidator1 = document.all ? document.all["ctl15_ctl01_RequiredFieldValidator1"] : document.getElementById("ctl15_ctl01_RequiredFieldValidator1");
+ctl15_ctl01_RequiredFieldValidator1.controltovalidate = "ctl15_ctl01_txtFullName";
+ctl15_ctl01_RequiredFieldValidator1.errormessage = "Không được trống";
+ctl15_ctl01_RequiredFieldValidator1.display = "None";
+ctl15_ctl01_RequiredFieldValidator1.validationGroup = "Feedback";
+ctl15_ctl01_RequiredFieldValidator1.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl15_ctl01_RequiredFieldValidator1.initialvalue = "";
+var ctl15_ctl01_RequiredFieldValidator3 = document.all ? document.all["ctl15_ctl01_RequiredFieldValidator3"] : document.getElementById("ctl15_ctl01_RequiredFieldValidator3");
+ctl15_ctl01_RequiredFieldValidator3.controltovalidate = "ctl15_ctl01_txtEmail";
+ctl15_ctl01_RequiredFieldValidator3.errormessage = "Không được trống";
+ctl15_ctl01_RequiredFieldValidator3.display = "None";
+ctl15_ctl01_RequiredFieldValidator3.validationGroup = "Feedback";
+ctl15_ctl01_RequiredFieldValidator3.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl15_ctl01_RequiredFieldValidator3.initialvalue = "";
+var ctl15_ctl01_RegularExpressionValidator3 = document.all ? document.all["ctl15_ctl01_RegularExpressionValidator3"] : document.getElementById("ctl15_ctl01_RegularExpressionValidator3");
+ctl15_ctl01_RegularExpressionValidator3.controltovalidate = "ctl15_ctl01_txtEmail";
+ctl15_ctl01_RegularExpressionValidator3.errormessage = "Email không hợp lệ";
+ctl15_ctl01_RegularExpressionValidator3.display = "None";
+ctl15_ctl01_RegularExpressionValidator3.validationGroup = "Feedback";
+ctl15_ctl01_RegularExpressionValidator3.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl15_ctl01_RegularExpressionValidator3.validationexpression = "\\w+([-+.\']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+var ctl15_ctl01_RequiredFieldValidator4 = document.all ? document.all["ctl15_ctl01_RequiredFieldValidator4"] : document.getElementById("ctl15_ctl01_RequiredFieldValidator4");
+ctl15_ctl01_RequiredFieldValidator4.controltovalidate = "ctl15_ctl01_txtTitle";
+ctl15_ctl01_RequiredFieldValidator4.errormessage = "Không được trống";
+ctl15_ctl01_RequiredFieldValidator4.display = "None";
+ctl15_ctl01_RequiredFieldValidator4.validationGroup = "Feedback";
+ctl15_ctl01_RequiredFieldValidator4.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl15_ctl01_RequiredFieldValidator4.initialvalue = "";
+var ctl15_ctl01_RadCaptcha1_ctl00 = document.all ? document.all["ctl15_ctl01_RadCaptcha1_ctl00"] : document.getElementById("ctl15_ctl01_RadCaptcha1_ctl00");
+ctl15_ctl01_RadCaptcha1_ctl00.validationGroup = "Feedback";
+ctl15_ctl01_RadCaptcha1_ctl00.evaluationfunction = "CustomValidatorEvaluateIsValid";
+var ctl15_ctl01_RequiredFieldValidator6 = document.all ? document.all["ctl15_ctl01_RequiredFieldValidator6"] : document.getElementById("ctl15_ctl01_RequiredFieldValidator6");
+ctl15_ctl01_RequiredFieldValidator6.controltovalidate = "ctl15_ctl01_txtCapCha";
+ctl15_ctl01_RequiredFieldValidator6.errormessage = "Mã code không hợp lệ";
+ctl15_ctl01_RequiredFieldValidator6.validationGroup = "Feedback";
+ctl15_ctl01_RequiredFieldValidator6.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl15_ctl01_RequiredFieldValidator6.initialvalue = "";
+var ctl15_ctl01_RequiredFieldValidator2 = document.all ? document.all["ctl15_ctl01_RequiredFieldValidator2"] : document.getElementById("ctl15_ctl01_RequiredFieldValidator2");
+ctl15_ctl01_RequiredFieldValidator2.controltovalidate = "ctl15_ctl01_fckContent";
+ctl15_ctl01_RequiredFieldValidator2.errormessage = "Không được trống";
+ctl15_ctl01_RequiredFieldValidator2.display = "None";
+ctl15_ctl01_RequiredFieldValidator2.validationGroup = "Feedback";
+ctl15_ctl01_RequiredFieldValidator2.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl15_ctl01_RequiredFieldValidator2.initialvalue = "";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+window.__TsmHiddenField = $get('RadScriptManager1_TSM');
+(function(id) {
+    var e = document.getElementById(id);
+    if (e) {
+        e.dispose = function() {
+            Array.remove(Page_ValidationSummaries, document.getElementById(id));
+        }
+        e = null;
+    }
+})('ctl15_ctl01_ValidationSummary1');
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadWindowManager, {"clientStateFieldID":"RadWindowManager1_ClientState","formID":"form1","iconUrl":"","minimizeIconUrl":"","name":"RadWindowManager1","skin":"Web20","windowControls":"[]"}, null, null, $get("RadWindowManager1"));
+});
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadWindow, {"_dockMode":false,"clientStateFieldID":"rwHomePage_ClientState","formID":"form1","iconUrl":"","minimizeIconUrl":"","modal":true,"name":"rwHomePage","skin":"Web20","visibleStatusbar":false}, null, null, $get("rwHomePage"));
+});
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadMenu, {"_childListElementCssClass":null,"_skin":"Blue","attributes":{},"clientStateFieldID":"ctl15_portlet_a644cdcc-4ea2-41b4-8fdf-dde4c3122302_RadMenu_ClientState","collapseAnimation":"{\"duration\":450}","expandAnimation":"{\"duration\":450}","itemData":[{"navigateUrl":"/"},{"items":[{"navigateUrl":"~/lich-su-phat-trien8-2924/lich-su-phat-trien-3155"},{"navigateUrl":"~/tam-nhin-su-mang-muc-tieu3-3170/-1063"},{"navigateUrl":"~/so-do-to-chuc8-959/so-do-to-chuc-276"},{"navigateUrl":"~/nhan-su26-2322/nhan-su-575"}],"navigateUrl":"#"},{"items":[{"items":[{"items":[{"navigateUrl":"~/chuong-trinh-dao-tao6-881/chuong-trinh-dao-tao-nganh-toan-kinh-te"}],"navigateUrl":"#"},{"navigateUrl":"~/vua-lam-vua-hoc4-534"},{"navigateUrl":"~/thong-ke-ket-qua-1043"}],"navigateUrl":"#"},{"items":[{"navigateUrl":"~/cao-hoc2-1142"},{"navigateUrl":"~/nghien-cuu-sinh3-1643"}],"navigateUrl":"#"},{"navigateUrl":"~/hoc-vu3-908"},{"navigateUrl":"~/cong-khai-van-bang-chung-chi-2960"},{"navigateUrl":"~/chuong-trinh-lien-thong"}],"navigateUrl":"#"},{"items":[{"navigateUrl":"~/dinh-huong-nghien-cuu9-1622/dinh-huong-nghien-cuu-2629"},{"navigateUrl":"~/cong-trinh-da-cong-bo3-1837/cong-trinh-da-cong-bo-1775"},{"navigateUrl":"~/cong-trinh-dang-thuc-hien5-1039/cong-trinh-dang-thuc-hien-2057"},{"navigateUrl":"~/nghien-cuu-khoa-hoc-sv3-1819"}],"navigateUrl":"~/nghien-cuu-128"},{"items":[{"navigateUrl":"#"},{"navigateUrl":"#"},{"navigateUrl":"#"}],"navigateUrl":"~/tin-tuc-39"},{"navigateUrl":"~/lien-he34-37/lien-he-3213"}]}, null, null, $get("ctl15_portlet_a644cdcc-4ea2-41b4-8fdf-dde4c3122302_RadMenu"));
+});
+
+document.getElementById('ctl15_ctl01_RequiredFieldValidator1').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl15_ctl01_RequiredFieldValidator1'));
+}
+
+document.getElementById('ctl15_ctl01_RequiredFieldValidator3').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl15_ctl01_RequiredFieldValidator3'));
+}
+
+document.getElementById('ctl15_ctl01_RegularExpressionValidator3').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl15_ctl01_RegularExpressionValidator3'));
+}
+
+document.getElementById('ctl15_ctl01_RequiredFieldValidator4').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl15_ctl01_RequiredFieldValidator4'));
+}
+
+document.getElementById('ctl15_ctl01_RadCaptcha1_ctl00').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl15_ctl01_RadCaptcha1_ctl00'));
+}
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadCaptcha, {"_audioUrl":"/Telerik.Web.UI.WebResource.axd?type=cah\u0026isc=true\u0026guid=5eb99840-27ec-4843-8cfa-cc1a0303f096","_enableAudio":false,"_persistCode":false,"clientStateFieldID":"ctl15_ctl01_RadCaptcha1_ClientState"}, null, null, $get("ctl15_ctl01_RadCaptcha1"));
+});
+
+document.getElementById('ctl15_ctl01_RequiredFieldValidator6').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl15_ctl01_RequiredFieldValidator6'));
+}
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadWindow, {"_dockMode":false,"clientStateFieldID":"ctl15_ctl01_fckContent_dialogOpener_Window_ClientState","formID":"form1","iconUrl":"","minimizeIconUrl":"","name":"Window","showContentDuringLoad":false,"skin":"Web20"}, null, null, $get("ctl15_ctl01_fckContent_dialogOpener_Window"));
+});
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadDialogOpener, {"_dialogDefinitions":{"ImageManager":{"SerializedParameters":"E4E4FE949D3B58B758CA6CDE04534B6CDACD07276DFE4C20EE45D0B0FF0E2238AA39173185507C24B2CA61F0B0E976C97D405A4ECA30E9E24833DB145BB6445789AD3598B8B6FA7B9B1294D9F5F08671BA9368F364C2412DC4F1DE891E6E1F527EA7BEAE7122CA8B8B47E013FCFA37E68AAEF38115E84362472AF9891C31EAECA2AED6D76D6BD3BBD5011F64FC75BA407C4FC3EDA48FB15F0683EBA029EDB807137016117907590AE735AF1F6BAC7187955A00714FBFAF837A9F5E9DC4D7D4289EFDE3D9E2E94AD0D43E7A6FFE453F1FB4AD9C6CE9A701F7909CF358A73D168CE9B7235DE74364F0C215B403E6DB5B46D32E0F3E48ABEB6645CF49845FC787DF1F160AEBCB6F50B243C777746DBA93F06A9A74C3559E208441BC329D6F2A9BEB0EC49275959C23754B0ADBFFCCEB5510BFFF0A1D7AF75AE00EBCDE8DCF24019C6E576AE5A63B3A7018CD6776F9253111538D8C228579055906D19306EDC2F1C5E1E9D1AEAF1403CD68F6A46656562B690C57B3EA6704FE77352F5BBC9B93D21678C456D7EF1487D2C136DCA9E49D7140CBFD4FC492AC2DEF4B23E1B8D535155EFC64F99901EE349D482BCFE368471A0860AB0E06C1809D9E6DE5D35E3BF8736A3B096E53E322AE273675656176B3E3EF744C0A8E3D8BDADB2D9B8EA1CCDE99551AC6DD8099471EFD7B461707AEA207D9ADE139722AAA55A273ACE51A9D560C749898AC83DE5338B462DE195828B5E5578FC80897F9FD6AAF24F6F58F93CF03ED7D07577B7AFD0C694A8A6498FCBB40DD7D892BE1ED31F5D9DECC1E14E655C5ACB7ECDF99C5674283D8D23D8CEFED86C561326C8C85855E68674556F78CCBAEEC0A0F7595D5EC5E5602936AD966CCB5335473FCCB03EB31909F8ADACF5371B9AE6E06BA3F6F5F1CFAA90953D2332E9E75CA4E1E4BEFA6A8230AD982B0A872C158DA288F367F2D7451E20ACA587B024FFFBA3B2027F9AA794DCC5AEDC0B35FF4BE65234E97B864E58EE0A05DF305CA645ABCC02F3F2310629D25F45FEE0F0C6FF5FBB9F659FBBEDDCB3A8CE3BACB98258DB4901CFDEBD3445FFA69B1C4AAA242DCE1A3F52A829EC96686937D64A87155319F45B0BE98EF17CB982670477527F46BE478F7FA3FF42C03C0E999F80E86F72D732DC693C5FB69EF54BAE44FEC8980674CAFAB1F258CB51A1E460A21DD9EA250C1C1ABD92645657071363C88964163DB82FF272A0F5848E71E0101B1C304CC404BF480D9A9D14B3633F9AB072D16480B1D6A3753B9324F76A6D67BA35583155DB787E3FB5D33712D2532C877007F6EA51778F6BA0413806525B29B910FBDCD14AAD809F563C28E18B89FF83DF33A393769D18A0C71659AF8633DE04DDAE492CD5576AE7E3352353493D77CD6434EADDFA266C20A353E1CF740FB38BB2A05C6737689BA7BE217034D7E08AA978EE52BB15164CB8A9D3ADAFD8993E033419F766B8CE85AC34E8BB6CC5C604A9E7B604330DA7D72665C68F8A102956B24140FAFFDDEEEFF5E032E4DA7A5FE1364D51670011050F535C832B436E7A3EF42238954B7457488689AB06D047984B560EB4809574A3B86400D02F7CFF8691636BBA98FB02F0E229A5989D31CDF949E097513E3E0EE76E694CBA1D20B7E98853240EB0B014492288A4EC90EEAF39DA4FDCCCDBA150113CFEF90EA3F35DCD44963CDB2BCCC0B227C998C5AC85F79E7BB6E5317E46CAC2D8E103633E044028F73DF43735B2149A903AA4AE04E2FE596CF44FE03E13EF842986ABD80516860C4412AACF352D4B73FF101F471E06190F5A57619B3EB2ADwx4czDekthhekEsKTiw0q3s47I4jRdjBUmWZE8w2T0=","Width":"770px","Height":"588px","Title":"Image Manager"},"DocumentManager":{"SerializedParameters":"5646EBFCBAA2B394251989C3C7031097BA73611EBFC443139828FCC6B3DE376C3C5EF0EC8947EF0969751A67F99C21DCA65C7368B26226FDF9E06FC1993BD27108474F02B12D019E1FC837D5ECBA34CED4A104E09E022F8B08520BA063A8FCB6D4A59CAC8EC92F0E164DA188CAA6B42FE65F512D052B7ACCF1F70FC1D7EFB709FF30A016D8B74536C6BE6BFD12541F615EBCA5274C4E27CB8856AC76D9618CC262CDF8D63C8CBF732F8539A5FD415FFC9850CE0EB73B76DC1A78A63EC03061CEC2C7669E057C7FB954C191B08585D5433961B076C00BDDA573B4EB31FB040D1FC54F74BF9FCC7EBF84E32ADC1E5D8FDAA544F8C8C0B25AA239B7EA8116973693C1B8FC0914C2CAB09E7D03F1AE0F5AE89E30B390E78C2D34AADE6ACF178B20E524DDA3C3C7D85C29E53AA762E681069AC573094AFC2E4976DB952F1AFA8CB4D96EFF7BA2FE02D2E240FF14BEA5B5DB50813F4B940E474C7523883C6EB81F3CEF69232D2F4C44314C71B52D10C1C8828FFE9BCCA5A43A15FFB77135C27EF36BD3438F948C161670E5FE8DBD67C9DE8D9FA6AF681700CF881F48ECCB30FBAD34E7C3DD244D7FB918EFE809902D9FF4054AECA171A5236905C86A091F308EE556FF72DCFD50ACB96E8F7DF71EB24EA7FD869FB92D63A3BEAA30C46DBF2AADF3268A7B372370773568150501F08DC4FA81CEE474C36F05DC8C6EC0E057D8FB413D01A3ED4856495D2F8C3D744CD1F6F9D5D2B6B99EA4E6CD5F5A6FA16566B3E23ABA51D8357562E06033CC5E25D21A76F37AD9DD2723A7816BE987FF085CF10C558C9BEE73939CDE4411D7D26BC0E5C9DC29504791A26C19084D45C0E456305E5009BC5978C46E741D1AB53C050183DB25AC7FF0A0C8B5E1E5E7AF25E8A2BEE014D9B9D3F6CE88E967A912CCC7070863909635F9E7042272E5867339C38606CCE0C4909193D7A1C37347DC56ADFD072176237542A5D7323E2BCF1BC66A768A671865764A6139965B2E5BE4FDAB56C2E73FE2CA6DF6E9D7918242FA763E7D03914427E102F565E60E1E09DE7FACBE0C89AE217D733F0085FB78BB4486E3232B13EA530347E79BD213D6CE5162D3CA0F6B6A4E4EF22E32584E709AE34FE337CC08B5656425FF8CFE8A01A28CF9B18E12A860F5A4EC6FFF589FB8620474398956D34546FA833CE40484B00B3A38D6B595427663FAE5F155D604A323000140CDE976735C0FCDDE3AAD3CE1C598282209F25097A2791A2FA1ED710564BFA25A0159CD45F358DE193B19C1C7A2D4956DA59F14B12CF0E22C63843887921CE672F7E70031CABAE35D1AC99892B2DFEC1C2CA5B153C777024AA691364377E7AF01475B1F46BF9F3AE76A525B637913C690CDC34074C63727511A4D7EC210DAC42ADEC91D6249F3BD567F8D988A1377AF5EFAB027C6D606F951EA63DA13F03E909AB545C64B9F31B01844E755F82E77647484E7AD09B2F1F78FFEFF8D6EB58599971048301AF70FC43A2480759A0582CD6A35BAA26754E+S6P95VFcu8ks9r049TWu5rO2dJ0fzRhGQLrU5Do7Q=","Width":"690px","Height":"490px","Title":"Document Manager"},"LinkManager":{"SerializedParameters":"AE3340F4C8F79E7C82229FE7ECFFC6867728D163A8B3CF5C038098C47B2121A00B7A5EEC127DA13275A63F741475D856D5458C1EA73A06F90F21E167A9C6D7EBFCDE1E406F17FBEE011C75702F4F8BECBA404F923346F04B4F224FB6FF2C63BFBF508E54AB0B3BF2AB525304C80542B3045D52D285926BD6AEF217C92FEAFC6049AE3CDF4500EB93A0E8AA5FFF292AD23DFE4F05E18788EB2930031C80CE98B443D875E074EA78C4739B49DE41CDC66DE2D5A1C173D53CFDD2422B6902FA9416F02881C5C95CB1B8C91D97C324639328DF8385EF6DF4C9CB7DD47421F5D709A4486413E6FA56CFCF18DEC05A0CE1E3AABD71F7963F2E9FFD90D9F5C1BF229505386DDBADDB7EECBAC0230A4493B40F8B0C26DFF37565945745D12F3763C2951FE5B46E1E9A59A5A5CB929E4F3387CE061314DB3232806044D56B53413A19340A7642D85B39A7A2FF2FA7EC66051565E79CF058230E702EF718AB37D08871647433DE57BFAFC27301D48B6A688EBE12363B1141052F0247D294127CA9BB01385E88739C791133707BAD981EB88B2D0A6E567DEA26B1FE0CC05F3869BA62E2E53639CC1031D67DFF8D45454484DCC864E27122757B1B70F2E272917E9822ECD5F73EB6A3DD62E93DC71921BA2AEF1AFE5B54907CCD0464449596A57540862CEDACA2F91FA8AB63EE31FB8B44D75747A4FD27AB67D8C4A103EB932CED0FE1400A0EC4B4F4864F6E34A0F410E227D0EBD584BC184835E9235A103F72167859656D01A1DA2B48A5C54F67CD42529B7448DD1B1E8BD17B03405659F3D40AAF4DD16C343C539CC459F61339B714C378255AA1D745B404934899D3D10698FA91D0CD5EE483FCC580535FBA460B843A62AD576C90904BDFBCB4F3DAC7E915FB6337B1FDCEA96693742D4E21B73A51DFA080A534BDE93EF017C05EE394C3EE02D4548B9C67C064BED7CF9AECC188ACC64CA6ED1F31CEEDE802B21B88506FEB162ADC41622877CBED3F7D0F3034B9D4FD912FB7A0EDEF8C93E9A2EAC5212D278D1F85E87C91pKeZMTGHSz8QuuyokW5wVF8n3glH6pdk0uPPlUB13xo=","Width":"408px","Height":"340px","Title":"Hyperlink Manager"},"TableWizard":{"SerializedParameters":"242C5D082CA364EBD7087D3C2151C3F0FF03E441124B24BF70F5BE6B4BB6550658E0E2268352695C62A7FDE4C1185DAE11336CBA1B3557D68BB5A69F54905905976E1EFC1933ACEB8FD14F85CBD727340BE4306F57A450695DCD9411454284DAB9F37485350FCCACB8901D50F36B372CC762B154F656EAC7393B20757B635137D8DB3D8597E0E8B796DCA8A157925C478F30D55A76DF5C1BA65F08808114672372B89CFDCA5B06D31F3D69770A0382F4370B08B245887F1C0E3416D8D7049DA9A7F5DCEEABF64298B53764799D290958E20930BD95CD562FC49499A95B6B6B39D016DDB234771D80D9F7EDBB5F336D601F7AD7711463049DAA8F6A54032DD31168CBE80EF5ED128259613A6DE6361C1BC67D3F490FF7A55318B6DF557AF38E135BC56E2A0FDFEF555DE2E801A56F960AA3CA33A719EAE9C9B20D4EE657BB66D0C2B7B35F3A46200120C2F801D06B41040D39FD3DA8C5C8EEC0B1BEDBE2895CC62272472C2BF26DD82960C977D21493246CE9E8F786B4BF41C4D142876C859E62D5829800FA66C545D1B626F4AA6693C5F469DBF8EF272F96B92B3151AB2347368D9C92DB9B6487ECF6EFAC695C7C72BC3CDC2E9C090034C64DAF229820FF044D4185C43B37D9AD4ECE1D149D59024F5CAF4AB31A93ADF7C5D7FD9A3C28A2AD078F865E2D950BFA49502813EEA620B34E7F0C6DA055989FCDF11AD230DE7BA8084E2ADD73A316F5FA05A138B732D6B844957F563FDB5CE5E53B78825EA63E6ADC7E246C2464DFBB3D09C9703C0879E8D88D1D4039CDDD2CFA9DEE04D4B3E5FD27EF62404C24518D4F509947A0FC6C2B43D7FDF2A65CE85D0A7FF7DA5C2B57A6FD184F460B2D7A48CED46F913B28A513218FFC300D0E97604BC4070CDFF6C2DA3CD08106484E31037EA1E201D6EB2A227B539A23E8E9F869BE994AE5FB02C235EE7345EAD0CD9AD905702F38C322CDDBE68198660E5ECF7BF2FA9F57D49BE6F951DDC7253839CE310A7653E9E744B65C480DF71CD9C065E6C0C2ED994BCB807004F+ym6PrynNKwRzF/VcRg0LRMRuZf3onV9srzBz8gVic=","Width":"720px","Height":"500px","Title":"Table Wizard"},"CleanPasteHtmlContent":{"SerializedParameters":"72042DFDAD65B1EA796417E5BC8BA950AAE84EF3062243C0F6B50872EAE1D1EA1D32BB2FDEF6C7C1E0C93838949F8C8C4E8FA63F23F28F5C093F5E8EFA61B67089D3E584CC715B8661E7DA138FD190A58E89C5408E2F741E7BC5933BBC73CB5FC1FEEABFDE049573322F86758B4CE879A0A3EBE4C18DFF923C8C150A4CA97100D09BB30DB639B74D0D3F41435532D5B212B180585408F641AED278EDB11345682A8FC4274F5B5D766C1B0A309837DC2653386B9A0643D15E6DA0A296A6D21FD0EB065C3B5A2A7295C2F686A6BE654D23337233923257DAE10C0E98D31D1AC5FBF09B3B29626CC2BF3C53B8EA27DF511D31D43FFA3918319CC156DB11B7191BD3436846355F25190F40A9A4FD66B275E624578864CFF502198932E6526F5332FC80927753A3BA81A723C269B3B3F21258A9A251776C593553AF740975455C6B6EC17E99CEE7681635C9931FBC50CF7FF6E856BB883658326F78482C92B7195E37D7E759185D62D483017FD92EA0DEBC147A29B6A4DC831581DCFA89AD81F8CE1F35BBE94893DA48E9609838DFDF3904D734EC176C6A99D671335708CD30744E57184D86F59534A59C4A6D9D8B4246F97C1458948238EA9AD19B75A76A702561D422FA5FB7A909AC20D4017654FE9664360807F31BB5941C9B51C03EF66F0F736434E3C63EA6E7BFD620D10C64499493EED3AD6EEC990F8FAD26BCEADDF66F519571A9E3BB96F4EFDAF76E2A7DB695E3360FA6634F9AC8CCF1A6C2185D6CFBCE5ABEA7FBF401062780521EAB38F3628A1B3516741A07BA62631B630D36CB343B4FA5FE132DB51268E564666DEF34F295DC901FF9BB3A213853F878C8119253A6BF3AE52CA416986EA23CA900DCE73D3B0F102094C99777ED776FE28EC5120C9FF889B72D4603A8DF56F90E359FCF0A6DA57FE6A409202E94CA92EDA42F51890EA82D313C7356AB3A6366C447C3055B0BD559C76130A97B727193AD138380E1BF21D3BFFE319B3AACBDF8ABBC4D895402494355EC7EBF9F35170A7735FB9F63744A4sdKRevmbHYatF2UkrEGysKANqasusBruWok4PtYbSw=","Width":"517px","Height":"300px","Title":"Paste As Html"},"PasteMarkdown":{"SerializedParameters":"23E027D404D8CD9603F3059B0F153C48564D2B9A38D2516EC4C21851CB9DC6FAB4315E37FBCC906B75808264A157FB4F280DCB35E2B9FE4C681AD3F2CA6FE899945757AD1A322DF0FBB2D0DFBD6773C68D50C7B6945E8F90FBB459B6810D52223EB6253B3D7FD381B5C1E8E84D3FF027E739D57881A55AD5463F3046F1BD13BECFD316B93E282DFCA9ABB95CDF62CE01A657558DD5D971C83B6E1C876CE334042BD75DB7350D82C6562E4525184979E796AAE3CBEBA5AA89460D137B8A83E5EA234A5346802AC5AB362B0B1EF44CA2B4425358846FD42A6FE1CF9C6AC7942F487D4DC792A745C6516B817051139B09DBF352274CA714736870C4DEDF3D86D38740A3986A40327E09112DCABB41748F7A23AFC035570552FBA8126FCB0721A3FFD75D6BF32ACC5627391D8118AC2609070A7AC5E04082313E961DD24C50C0F7CC494A0AB5F4BD07ECD5D96148DA749AF0841E7246B41775E669E998A533F7E039FA4F40771490BAAF0FC6A87AD76DA750D679A4323A3DC2BF50764D15B9100973310BA13957E8369DED46F14517AD2F5D050FC3ED2D4F93A9C06AFB44FAA92AFFD09DA6EA01CAF2E57048895893E3F1B03E495DE5C0A68152D9574C5DAF43C019D39A6374D5F0DA9EA1781CD936A9F11A36119D3D8D8DA865D4617F5D2BC5110D5414189470AC3E2EF7A709F0E90BEC786A663D938281DCB4C0A9AEEF81522BAA9197B7E74E02EF2567B76021840164CAC4D98574FC9FC066808B692DB95A7A216A1E91742965C5A5D93A777ED2A101DD6CC010DBE73C1D15A6BBC0DCB52B2F2B9BB24CEF6A82C2D5CB60208FD5859957101F5DD5364B9F6B3F56DBE400BF823203FC662E4E1A68642A38734E78F2D82C01E6DA8AC31ED8320833A10460882B2188DA9A97ED397C1767130D5B5B3EEE25DE3C6657685135864FFF413A1A1AAEE2EAC3ED906B5DA453AF579515DD4DE1501A8A81C666B81913A0C90CD6FE55934F096383167D008660F07BD1CCB52B822E385F591A900669D5E1E343D635CFCBCEE5FGnnRaFdCYdyJYs1gVUn9IZmuwyac+I+n7dumYu60=","Width":"517px","Height":"300px","Title":"Paste Markdown"},"PasteHtml":{"SerializedParameters":"B6605164515B81B6AE4F6EDC182C4347347FA125F044D440555E6F1F006D048D36F7CE58E507D904A155CEAB222B9FD05CBE94D1B8B8385537873AF829B5646B4F98FDE794E65A5303B03C44C2561C3D07D2853EBFC7B2D85913CF1ABAE259AF663F8BBCA4D7575C8F43A074AA217BF9CD1CD698B5431A6F57CB91AC2B5156768C84AB08DCA243804778D9291F34DF9FDBB364BC4333801698DAD751FC5BAB0D1B7E6C9DF679822F53B95D200564501F5A93B26A578706B62655FB938FB27D6AC7BA864B1B0DC41A412C288C63578CC8AD2F07E649A68588820EAC3933A335466B657327AA9E7147744A1CF381F0F3867C3A29C4AC6051ECD72E9099A9D32C3C1126B25E6B8F440A6183F0086BF7B042D843FD6FBFB3E183430928D795CC9FC8830234ABB0E417A2C44FDEC0623C68D13B683CD73B63DEB8D16BD12A7CE9E2380E3596BAB8DAB699FEC306881854F64B87DF11DA7E6C88AC02310B213DD847F9D013BB890580F789FDC8ABA358245221919E919985338ADC15FF859EE978AD958A8961EFD811BF6D2AEF460E245AA94934F79CEF32FA5988A408FE8AD17A444EF16B7102FF04ECCCFDCF79E2FAB5F7FC65E3AED8C3AAF36C446C74AD55E59B7371B963166EBFD1468220F1BEEFEF4E87596B93AD87017B9E813A56E6B39BFE362931A368D00DFD90B7632C9D615EFA9C569AA3C9E4081388D41BF3F793B826659FF9E4F61D692B1DDF2818D2DDFDF62828B538ED567A2EEEF6915655046DB5A92740E5C517CFF4BC9A29FA4B421CFA68172CF3E375B0F89C71DD216C87EFC8C18A93A830B1462FA144BFBD25D15F4EA4DAAFA688A244D8FD021347B95464B4FB4008BB3AC28213CDC74A468EDA5B9E25CD4CB75CC31A09CCBFDAF3D9334D52E0FC9A8A8D0DEF16781CDFA5CB2C810038EBE509FE3C7A55B3E3B9D26957C6596217D79D2BA8A9CF6EAF35ACACB362FEA037841805C40336E6CA4F4E9C6418B337A0CDA7314B9AC1FA999F2C048A5B38A4E4BB05472CADCECE958E4DCE813B68A6N/wjqyPLPAieR3HG0FnAg14etpK9xKEiZlr09KIar3g=","Width":"517px","Height":"300px","Title":"Paste Html"},"CleanPasteTextContent":{"SerializedParameters":"731CD9CC20CBA87D6190BD0326DD1BE1BEE32928E762569469E7305F1E2704A92260BB775E73EEB7A6F570C6F8DF2AFA41FFFE5E0DA85C12E6A8DC75C469D7293D59EF94D3C322931A814DB6CB1720EC37189B20ECE366DF777741584D30F249319573D7F12308AA93A717D25E2A19AE03AEDD5AA3E6EB1B63965956F5A7DB2ED2E1FE05728FA4428D381DBCA7FE74BCA50A76BE4E75ACCC4134A7A2DE7559E057507B9B91496823582146FC55ADBAF3DE96BDB4C3C9E16D903C31083A09683B981EC9365A7C0457A9B9875A0EA8C07A7B78A81102628532876EDCE6406F4C70324BAF9059D12D0706E24A85A60EF4A55B6A2971AD3725AF5E19CE9F877A673708F70BE7F1CDBE10E11408CD300CAEC6A2355A682D6BBEAE58CFC528BA1B59DBB0E349B4A314ED207714B8601C09DCC8A36D5A55337A446D73120D6E960AD939533658A5ECA5DB79D88A15010CF35D613586DCA5BA196DBB09E4068473605A2574AFB010C2C555A06C7C6DC919B78D7BFC14F7033248F0A2F00D5484B25574DE999C64045FE48654EF310FAE6A2AB356AD54F52AA489CEB08AF9B767049837FC85C864F65070DFF0F272CB991C66824056CAAC5B76225A7CE82B4895455CE46A14B887A1D17B7F3D1B332540209FDAE78472948F9A2FDED2D3884C50E3720FA49ED9B12B1A25C2DB446282C093B7EA08FE8C7AEE4EF4B5DCB1754D29B8121934C6BA1670F27CE7972F9DFDF9B4929D18562E45110BAE2BA0A5320AAD547F430906A31916ADD6AA581F2F04128E5F324FBDCF6DAEB81820710A7F0B34F864F7B518C44120B5B3C7C96DD77B44F6069C0884314566B30DF31008AC2E856ABD7C7C9BAD5D3EB3D81A55BEA1B330ECE31C6A05CC908200D4DD243BC11838F92D6E20533DAE897C835F4EA6CEEF8D1AB7838114EE3C1F52C0E357A769074E33032FA20684DB75D738BD4EC62E4C2CD50ADD32D8F0505EEE94B9BCB08196251ED3A637F5074C9866440DCC0B591890BEBEF8FA2FEA91320869F7528906A050870E7B8CEqu+rZx8pAZZ7a9r78Lon+DkH+/fmJJCaY0ZvvDyZkc=","Width":"517px","Height":"300px","Title":"Paste Plain Text"},"ImageEditor":{"SerializedParameters":"32D1B255C3E488A35EF4EDC9CCD3EB6624F2EEECCDDA5C6E75F4AF677533366520DBB6F78178792E6C036ED72DAD2B6ACEA3820B154E057E5E0E280267D24E0414DB0291836AEC61E4FFC82ACDADE0CF55E21DBC2A7D549C3AEC911DFB11B0DF869EBE00A4B86E3E3B87F09A7D4DC52301C033AAAE6096C92556E9A6EFC5B09E8E85805BE2689DBCC83F5EC5877B5289EAD26DABC3776444A6F6A5844D0606CD89F5042B65B700E210AE2E6B8549D13E3E5898E32BACF0D0CAAF87CEDF56D443179D5EFA52DC4C2B42258C3FE95BBA0037D6E89443BF414343DBB1BDB5CC317516AC1887AC561C259917C793C107736B5D5FC3F7C7FCB4B247339E5D9D1B070AD9375D95C3E19F9D5393401157B5BA9F642004FE7297C8CEBEADD11ECABDBC6FCA43D024A950AF2A9C9AD174AE7B5D6A8053F439D7E6ACB3A10A064AA84B0F53946CF0E18C9D928A0B10A9A91A00185E6F35F5A0000E9E43E5216174F1E984A66370BC36E417A0B0989923FA293DB0633FB346C00CD4940D46F8F699AB51DB983AC218E59CA998BCB60F2D0C9576AE7F0E6F3530F16EEA5162E93B2860A7B3B5648E74D84150D4DEA59C31F522DC911CC4B88A51818678BCDA3BA66A5301A401F07771E64C193EB323D2E3C177A2B0BE28B0C05D653E0B9CA071FE262E7CF845BEAC979C6591010CFCEF6079661E97932F33E3ACFE4ADE2D6EE8087C41661E58FB27BCE04CA7D119C3700B0AF5E225E1DC2A39419B5783F5635194F96F498C5F7414715E87C460A800AFA8B643CDF6D8516D35F07032D1F270AD42FFA29B2E44E2FB42ED3016CF524C11F737AC560F1FB9C06798CFFB364817212C3B04FE32636CA21CD076B8EA1D6394BEFD18F7EC6E8995F1197DD4C43C56C835AE909AB6DF32003185A1559B2871111583DE9A6D536DD43E7E95D7A429A25B7B9FD2C935988D4875BDC756BE15D84BB0815658B12B8319BEA29B0A895B6AA3663D3AE7AD64618B34E312F136D58E3DB231815097497F32B9B4BCE1D2C9C6B07A3D8FFBF9200F3645C1A2112A8024E6B7F608247908A3564E591331A8EFF2E29C22EDB67E75722D23FAB3F6A4AE1DCCE25B0C24E9D78AE68C6E062E9D8042E346BE8349902150DCDF5E024C8A0D1BBD77FB6BF17830D5CE878F9144BF7C5466C518058C447B37CA9778F70F1A90FFD3BB627E31519C5C25A35D5857F024773CA8A7180C266186278EEC8431B9ED5D59E4AE9187B6271D3BA5514C68BDF2D5BB4BAD876EB8D38511E5C2080CDD35885B4275E572670AA79375413F2BE16986FB8B601FBFF55C585680D10978D57CAA392821406FF1CC742551C3DD725D875479ACBF748BD656F74B22BBD4B84409AB10A42BCD88C4BF5D30658C3A815FF3EBF206541496F3816AF58EB2F61196352FDC171CF9B839150A91FDD4062E25F368FC2261E7158BB4BDBEA3B75ACC856C599492451CA7960CE210D64DBECC6C56F9A44EA06A4C134441FF04B66E7C7799FF5763509A9E513DDE9F5E771B0573628E35135BEBAF683031B0BAF06BBE0040320A7D63BB99DF4085DFF271C5ABACB7D4ECDBD65729436359854C4140FF943841716A6836475616E8D781B8E9F74585929A1CEC98BC47FA76CA380ED7C85F03AA97EA28BA1B72C42AD298E4D639C5024EF52A6A25641D324E52AC254E340A6FA52A147163FDB1EEF4D9E87BA8E14F3AC4B3CD8485534035353B4330B68559358A04781F0177BAEF4D638A16EDF8912F1924B0372652A9FDFA764B0D6B64D2D07C040AB492569BB97E3541AED3BFD7EF013B18B6212991CClh1pGaf9xg6Ouzm26AMjkSd41AuwuEByftrj7Z/p6S4=","Width":"832px","Height":"520px","Title":"Image Editor"},"ImageProperties":{"SerializedParameters":"6B2F702B3E32B00B94E8FBAEFA3DE3C426CE0F8AD7BC4A6139392850D37BC3419EF689FDBBE96C69D4604BE7C825CF20396E9F7B91165761C102D8782D5A8BDCB861F7B4C8909C01A647E5BC7BE59F658DB391969FC134E0166370B9BA19A4BD51945AD0D29FD9EC50550289D7AF6E415FB97ECA0FFE3FFB68F358160DE81077AF342384C8AC7709220D3859BC808B0EF06623A0166D11AB1AB0754B08687E5053698C86D31EE8CFD2B4C369AAE7E0B6F59044522C36E3029418E1C653785D37981BA2F5CE60DEEC6431C5519A6A59B3B0217FB0C333CFAC563A4261E259165D8A80AE83AA0BD9F555CE4081245E126F0A195C6F3E85A48C1DDDB0589461A1B2D34504C6B1EB749FD92783515E1D68A0E9FFB7AE70F53581D64491F28B88A8C1F4BA6F080AC218072D07AF870DB4C878FC6004A0305E96978BF72E038A6E8EEC81C1F0D2BA3D66BCE1A8BAFFCA8345E830C24D908A96318D449642B2A002FA7D6D202E7F411B8C64D9B012EC3FA3B3AEF51207A17D5F7DD0A519521EEC784BC4D468C00D8FEE12E5997DC9F7E422E6E13E2AA926C337C4BFA336AD5433AD5FF6462E9FAAB4DA85CA012E9ACB4F4DEDE6802468EDA9EF69362B7D669AEA9C7A03CC276B93F0E6ADBF291A913DD14DA318432B8E93D91A5A0CD3BA0F78CE47160F6D12D15BF511C840CC1722441A3B27DD6AB36001CD489DEA415F98C98F80D233F0546DF1E6E0B52743D6FA244DCD55C3C1DB9468CF0292BC863F4B38689E6B7274F12ADBC823622D5CD6F2B381943FE666A16C713D5EA326262F40849A9AA731DF0622AAF6E9A2C57E26AA6A635DD2E94C02980D8AEDD2FB1280943674B595FD537DDAAF9BF1DC05FC39C08BE5BAF88DB544EA84E9913FB47628F7D5CC28F5A78B91D3F9AF815C684FFA071186C67C9F57CDCBDBFAB7E182D1B30C616C1621E6BA21544C57B2AF97E284FACE2300C35289D719403A5AFB7CE3C3230EF102D0DF4C79511494A92A9C2A671EF306664FCB58C85B0FCC05F612811B31C5313ED4ABnENvCBpsqbk0TIXGbhFZWlM+YXyKjhvMC3Kxo3FerLU=","Width":"430px","Height":"432px","Title":"Properties..."},"ImageMapDialog":{"SerializedParameters":"EE2E673C9E376664EEE07D43CF042EC59FFA545F91043782577009472A324310BD778C807F51ABB1363516153D2AAF5425F2AD56E7CAA9A826AAA379BC5D02BD61B8F7F5531A65BFB0ADEF76A7A9C470391129E5762491D683FDF3EC14F213FD9C1AA3A3BE40E293B07000BD7849337FB7256224837FC88037440B7F67F7986BCCA513CBFCA14C339371D236A4D298ADEE069C9292377FC6712ED6F8EB1A92F7615D226CD938B7C7C6B8F1AF629EE0F077E460F255ECCF9260DBD112A05E596D44918EB5CB66C7D3FCDD92D62E5EA6120EE02B919CCEA2258497EF655CFFE9ED6FFF201CAB6984AEE1B8CC1F674EC6A6A08E2355218B59B5358B33FE427A0F8434D37AF66979BF9ABC31EC5E0F4CCBABBE7CBA746F3FA1600CDFA713DA798C2FF29140E204DDCEC33AD2E49F43CCC73942961D25A324A80E319CA1DBF87994CC229BE0EA6081345240C8F4DFD1A1B5D5CE755C2B9A021AC19BB8FBA4C9C9845FF7FBB3968CA93EEF4F57B2D02B79FED6509B896C204488E0F5204E5617BD86F795192F10011496E6E31118D8698840EA745B1644D0EC0C24F847E1D5BF51EE810C7FA26C770C828A3960B98B45882F15F2E821FF0120970709CB185CF040D4A43C6173F32F092F30400FA96C88D985002A4789D7A06E20CC4C452F2289A21997E4D0B1C7FE030CA53EE6C2F2FC428EEF6AA548114DC2E517D2E231366FCD438BE54DF608151B5B0034BF2C690B4355BFD1AC8FD8C7AE60D3AF922D8FA17613D83ED43A421BD01D6045B2E02BC4928AC6620AD02D422ABEBD3B41753A5BF1AA8C63D525FA9E70A9DF04CADB4E851210F2CC4CA7012A2414C37B43FD9680D3887DE32D052DA64B8EB66C39C959A34839CB533B82AA8D7214E7A5BE635F61838940A2AEA459689ED652E234E2F93835EC833815A418CECAE0F2A82D949D18F500FAC7B6A4DED7B5B3DA02BEAD214CA5BCDB95A33EF4C32F8596938FA5604CC59EE8E5E5936E0EE13E87E103A3289B063C2CLEKf5hyhcEozMoSpvVc+XEY4NGhB2litrj/6/qmTGKQ=","Width":"700px","Height":"430px","Title":"Image Map Editor","ReloadOnShow":true},"StyleBuilder":{"SerializedParameters":"ECB1C75FF6EA1D626AFCE7E0002D15A7DB426950C0E5C4FE4774B288FBF01C6D1586C2B8899816BB3CD664EC05B5C8ACA13676E687FD21EC9734A254EAE8A54747B06299A7F031C86A8DF8B383DA5DCEC15E73B5F8295178BB140003327C3149ADA8EC22F7A7C9285F142FC4976F31DB9C64673537D0A81A49328C6AE60E56E0DD0BFDA6F7A2119F3AA67EB7720066DD89DED5FF541D01559116D6462D0C7B2C2B337619D5700D786E88954C2A6B12BB26A27CA6D6696C11CB9EBBD0DBD01AAB9BFC16384903B31FDC5D335C54F3C7E6A1BFE4112FD28039B07CE78ECA18E7288A043E9339246E569B375A51BDEC2DB77736693170DF3FDD51A8F592677F9212BD91620B8E088D2F54273E49F6B64794006E2A3F5958A07E8F2ED06ECA228418D6C88D7BBC6DC932F0D8215D7AF7C99D83B460D13CB993A234D6340AE865209C836F17D29198C3781CF6BC2726F30906C6CDA3A0F0FCA047C80A99C8658C56A4FDABFA27159351FC04604964A6369F79ECC74B01C2D2989C51204C5EF22896EB01AEAE3B35B4F63A39565CD452F1CE297A391C301FCA692195D6CB554CBF52F8D6B884A15413CD567B8F6B314BB5A0A4A7BB7CA7681B503DFDC03D761FFF1D66A0E4CAF3351CAC84C64A89A4CE9309E4992D5FBE8625A157525B2741F09036F767BFAFB468A5BE55FBB31590020E843F0EAED0C73C02F4BB418AA5CAB2FF1930858DC17CEE1B6CC81CD0BAD3DE659C4EA15A1D453713B842F240C7916223A71A6501FF1BF167AFC6BE213886926DA6C95E69248D8632E0D9E0BCDA3FE2F158B3966426C1D0686D65349501E9D37BC6886D7243A8009E080E4B0AEABFC00CD762E6A7F759645A4CFFAD2E6AC5433C36B84ABA103E9534C76495B41AF2849AD6BF91EC5005886C247ADDD45F36B478A57D3858CABD7B2158AC9594D032560B304232A45B02C91BCE680CE94A913EB78234E4666DD9C15B79C69DF3A2B929C4AE87F5C0D4D4574094E2E2DC36E2C37A15F9fKt6kxInQLQrrfx12D4AeNhGF/t/6CeITCWmj18w5s0=","Width":"620px","Height":"530px","Title":"Style Builder"},"InsertExternalVideo":{"SerializedParameters":"02CCA0A38D62725CA6B0EFE6EDC549BB63B6D8C674DC89574DA290ADFF4990ED677C524BFFD8EA7608F2BBC71E56F5081616A4EFB63AD39DE3ABD0D8C5A59657E63AE65F44DB802701C3DCA8EC3C34D0DD8118FA7BAA218ED2A575692850619DA8C1598BEC3E17B2E2ADECA0B3B6AE776F10AB25C89347E6385BAED5186B51617CB967894A7398CEB1561D43F40FC03754BA279AE4068D4E200123A32125A8D0C7A7091256BE542F7ADBF272B4CA4812CCCD1E0322123FF5C692742121BAB4C6220BABEF41CA5A62B6181563C9930307762853B809EB1004AE02B905D8B00E9F4C7D96B556BAD33E7E25B179AC439E4B94786FE3CD5D3013C1078EB3609242AF752261BA7D62FDAD6DAAA4FAAE5C022917775219F15746C8356107DC897F9565D60A2FDCC4C23B67B44D8E7F8BBF9FE9DD982B91B4B4DB365F85522589A532CD79FBDDB91BC0459D4EF36E996E17CB9CFAB72ED146E310AC9370D529264A11FFFA649E2C1155EFDC329A05118D3BFAC3ED8B16CD803F1D82C858645DA1B890CD40910E60174FC5B4A9177830F501A021455D5C081C4EC0903601D0E7CDC26FAB6632841F25D166A7DEFB067929464EAAA82C1ED500AC3EE3832D865299D51FBE74C836162589B49C9ECE212624EFAC9779E5C618881ADCF29BF0DF79DE7C82733921112EB7187C6427F18169205E905F92F690B18BA6AD770346B676BF4BAAB38676FDA2371559B01051AFAD7BFC2E4F2F0EA770A04A0F910CAFB9D7079C8326E4DB50FCF58F5A999647FA0FD08EB0A4DAC7D183B64B62DAA33BFF7CC16CB2D4D9C2BA05707CEA39C204FF055F2560D0DA5F11E9B12D84CB6C0A4B79787EEFB09749781729B7E923C65855159FEE139BB1079B4C24184C938FB12825BBB91BABAF5273CDA67DB979C21430E4E5584960FA7CF18E0698B5A0597D55B1955E4639541F7C11D63774E0879F2588C61F26D5AA8CB2A1D6B6FD221201E4474D152BA0B740182D6A02BA90D7807AD8D8FC26C0EB0DC3E1AAD0723A13244DC025EFE05EpyXVROpJoLeWWC/F/oYO7z0Q/mu1N0ATomYXOTISWeE=","Width":"770px","Height":"610px","Title":"Insert External Video"},"InsertSelectDialog":{"SerializedParameters":"D322E35571439B0F8ED2F2F4066284B67C02316E7D98F0E0C93FAFE1E7C3BFDEBB0E49B354FD3BA3185A5DEFE628A4EA78478D20BFF126EA7F3F24FBFB8C8F4FBCE7167249BA70ACD4F53B11A8216268B954811C035D0C9664EE8CB28CEEDF2E84C969C1BF11CBC69B7AE835EEC7320F0C7AE5E24FFDAAEDD35207E847EF86EFC96CB6436CA3A486A70863F7464195ABF91B10DB91D07A7D79886076A2EC8EF0A336478BCCCC8ABD74FC867A503D57B05D784A03FE1C504964153EFD4B3401BA7F2958E02D17E29FCB7722D2D523071BC24EA6C01C8401DF85E9C017F8F4E792AF5EC47CE2EAB9008161B162EDDD20358FD42493C49C886E62E65016078F3D10927A33F56297B4BF662D922ABAD47F5154418FA5A4E014B737BFF38DF350B78392721775DB0FCC78FEEFC93155FC5C33122C1F4B38E5795FAE4D6455228D165AC8B2C125CEA52ADAC14A1D1D048DBD7463D337B0D67A330C0BFE55BB735441DF67BCD90C29E1513DBB57168D63A89F3DD5FEA89E2E3B32415DF97188E3E388D5FACC2F5D36C545513E5E9EE28DBE046F390305C8DC608591829D60B079D860DD1FB5B71DE995578367AB417A905F6D53A8FD0E3666D804F8C3B4232F58E5E897DB6EFDC9CF559471E9A5F032CE1693FA6F528DEA2601299BB7B1E91246B939F8B4A6A2B3B436994EA5DB4FB3C8A1F0870392779CB408F37BDC9862774F015BB4A6EB4111A7DFD6E9EFDBDE76848E351ED310579ABAB279BFC6CF9BEEE186AE5895CE32AB3BD9705CE75FA4A07384674E294925C5BD8FAD0B88152D02D91CC298949B4751D17D85B9FF49C9C6850E6D1A3A05478666B7BD87C50A2821F3AE4B9E6F36191423520EDD58ECD908F54BD6BEEB4E8417623ED637B22B053BCAAB15923397FC1231D8E47ADDBF3958297B9D026F5DEAB323D09C8083A7D483AC6E7110F53E2845241456FC7A9CF9205447C39097AE94A618BEF987D8971EC86900D3BB85C098692EFF1FA49C30C32431507DABD3412F292E9D20327274BF75B29175F1qKXEoqZ3rmmn/QZ2vyL2EERIyj2no+S91UB821kUbc4=","Width":"527px","Height":"410px","Title":"Insert Select"},"FindReplaceSettings":{"SerializedParameters":"F6379CBA647D1130E46F11282AA9ED379FDABB2E2ADA777BECA7ED5A962A1B916C28CFD32F4E35F92724611F4E56EBB04A22DD33EEA88D4589A799FB8C6D60D495945B91469515F38A12C0C7541E6370CE7A4FE0D48FC77070FE4AD80E1717AEAB1072D27DB0B8B77A9DD33CA469F25B581A6540D980DC35DB01A065D3A74F11DBB8BD8736FFBD4EB26D89E64DEB753EEAA2EE72087D5F393018D2B9E59CB291AE980A6DD087374732F83BE6B159A88C4A2E285A70030EAE50CD20DB1DE13FB2B6B075D224C20DC4FA9314C2F27CA22AD609D610E11170B252A2CC5AFD5BB0CEDA0E147492E64E4062EBDA9CE8399D646F94CA3C1E2197AEF453F9BF07548393BBAF5AB5F5654B4DDE9285EDC3D40A0DBB91E2849115B371126299E32B8FD4039DC17EFE5245051198738B7F43F1A9ADEE8898ACF21D9CDEB17A7C5377CA09614454D2F55096B52D13878DFA4C7362ECF81D7D5B1BDE1D5E1DCD8EF1A7E3AB3ECB8BF6C54A2962F68B2095958C89C87C5615C7632CAB95CD1E57AE6A24A52D760FB838627DEF9DCCD77413521D4C6A4B50EB29323D4B4261B2CD68298A1989A6877ABB10CF6BE274B088BC9F9AF756FEA1EFC5568FE26B1AFE271018F786F2914482E6284A06A06A2F834ED91669055E820FF7FB3E412F7663B51E1A9982494D97DB630D0624C93F58BBB8D160483D392409E17E43D70DCAB1B632F08708325C9F6A3EA09311643F268EC342166ADA2DA46571ED65D449FE38CCBB62EF1FF99F030E53368B91F74531C36F1C4313A7E052EBE4314B00A6A5087365520034698779FBCEE79FB9F0483DBA4A05D03A5F78D6C25B0D0DBE473B009AD03F23B43E14B0F6C6018EF60FC964F6434F6A315B29D3D17FA59E7AFB6E339E710E8411DAD526E683B75A82B9A0ACE950352B2872B7DA761B18B431F86841273129408DE9264EEE5C55C04B3A81E77927BAEBC30F0AC7B737F74465BBF39BFFD8E9E70A0DF71F917882BC926AC3F972591A9BE6434BD3062C8AB1AF09F05825A003D73468C135C9214890C472334AB30C7C9E816220c7Igli7dwX1bIVrRnPacWquwJ4CZnoyBiki/hqF3aHE=","Width":"","Height":"","Title":"FindReplaceSettings","Modal":false,"VisibleTitlebar":false},"MobileLinkManager":{"SerializedParameters":"3093494928B2E312018D464C8E51A38A283C6919D7E5F2466338040681072F3A9F66C6F4F9D1811EDA2977D9699B7824C428A8AEA2473A2999E54AF8E93C642DEA571F6BC45E81E4D2C09BD6CC1B42BDA9813E49559801B3E392C4B634FBBBE5C434D42089B686331EB71744230C5B2CAD0A24BDCBB2CF6C40D229251AF1D2A6DC4944DBC3D4CD12995771BD9EBC0B1DE30C1E4B7F6D514D91DC9701E69243A5F4A2B3BB92B8DD40CAA7701DC5143CD01A6513A21C7A9703C862AD99A3BED68B557D9C008819387F7F66E917A96F9170650B26BD2EDEA31BB1834C14BC7524B8832CED655CAB804A117D20985C56F836CF1E08CE696901BE0802266FCB8ADA0F4B97899449A266582318130C104317804EB12A497B05413E2E199688A56AEA6558803444BED496E38F99E38B1D9914A6FAC50F7005697E8EE1458C6CE4F658683A7638482BE6A0102B15E93DAADE50D45F4C169E9CD4DD1D1649FADCB7AEE11C15C07733FB8E2498036075F7927F3DE547FABA5D194A07853AF8774A2AF5F22FE886F5D5245B387537201A568D70B0DF56F9E38ACC789D38F0DD396E9C4B49D981615BCF84C996C472FE94A2B021E32E92043196F7FECC022309A6B38EFB54A20AE411AC258D69D920C69B66F90D9FCF9B5FFE448C3BDDF65A028BE534A660A5DCCB0C185A3289B79461F12F5E4F14E7EBC50B06A60C1FD94571D4466C1B72BF85BCAAF5A7B62DC9DA51F9B77689EBD5C3D8542F5793610EEB480CB3ED6299B5C753D274A6E6CC24B981E957CABAF466E38E80B4997F4816CEF3E0CA3EF5EE103A7922A46586ECF466B94F765DA90001186F1DAD95739FF9F629D89863E8462A3D2190030E0A5399666D608EEF3BE3AF64A5F1760BFC1C4EBFB3A40742A4E7CDD4E8B8AF7D0F0CC1C53EAB6E46CAE0A1EEB69E5BC64AD343A1D71B93E90EC9E6C726D9C32CA54B0599C367763D4AEEE21F48C58455F8FE7CDFBE8222587799D3DDCA102FCCC5548996E71D34BC60DA871A0B8BDF01471C23B1F9262F61905A82vGIM3/jpK3WtQxfHU7h1lT5KLOqKqih2OfGtB/mqxz8=","Width":"","Height":"","Title":"MobileLinkManager","Modal":false,"VisibleTitlebar":false},"MobileImageManager":{"SerializedParameters":"FB93E9AD586D9CE1C45C46B1299C2A4AACE93A4784729697B3AC1395D888743A4996F9E3E88AD437E05CDF6BF2F8A0D52C71F8617ABA009DC9782DB3BFD444AF9A6390E1F8F0E6DD1DA55CFFF64980C1DB0E6069000085EB5AD31367EC79DD2D41E93A194CE7B72F59A68AA5A17E2909973840ACEC25F4517547D43F11DDD753057BCA100C0EC8D706307A91E51AFE8C883076171108823621256570F8C5B481FAD50CD182AA16269FC8DD676ED5E9A218062149E5100CEEC1412BAC5BEC9C75033CA9F7E7C55C7BC2A7D039AB8B82FB375A0851C863E174ACCDC1F9F460C3F01A0DD837BE3FA1293ADA9E9A99B7AA621AA5F612F9F1D40EC8AEF506AE851E80E427F8AEBDFBD3D10C7892E758EAF409E4E8D972CE7EC480EDBDBDABB0F6C005690295FA94AD04EC58A356205558074105A4A7DB216514ECFA86BF1C18CFB8C4C3F0BEE18DEEABAD1497CF8B35F0FB80E61A4634B9DF6ABFEECA9FD03B9939B4234B91838C7347BF3E942003B3819837723EBA1CEF0A3228D0D3A10079E3948FCAAB778FF6A29170A3778A6E98AF3B095DE7C641B359C221E41B4F2D2C2DA7629113E9DFCF35307DB0EF8A15DBB30E1C7E6E8736EF674EF58BF7189A4BB36499C33C25472B893BA0A11DE9E1D9C7C2A75BBDBDD4212D81CA79FBA912C25437EF893E5526AD80749CCCDEE3AEC7CCAD7609069099A2B80D95B7EF8E6D945BEB3C7A81EAFB50188498D351C61B596A7A1F4B9F3A2BCC27C26117F543EC084BB2F83C2C73649C154E3CC8FBA1573BD6CC66F9F320D512CFD47E3620B73EB6FE1BF1E87FFB50562BC674E06F25042789C3834EB6E825F4303CC89AFA5066B1992154427C7651FDD3308B8021F024DAB7240FA33A030DF7948D6AE1B30B51CEBC4C743B2800D70A08712861F6AFA8991CFCB07577C076586FA3BA7666DAFB065A9FC5A14DA8332E2F3EA4B9B37FDD37EC59A098551BBEA6857CDDBD442DAFC4EADF989B2B3D931262742E12449A0E27A2DA0C47BDF2F361B7E5D6674391F25A33D33FAAADE39C143DDDF47985FED78D7EC5580E6FE7205AAF73765A5848E3C1A5C5700C6A21D325EEAA3E684E2FA5DF2EDE50A7968BF536FD1A0C9681A2B114961838F623B09319B1BD3FEE70EF6F471B583D55BEB0722AE6C0A3124A2BF51FA47436BD1E3487B92E0B3ECC20E415BDABFD36707F0004278C358E9BD6B8860FA608F1335C0829CE85D1846F29230BB9AE30099CFE19816173B0C83F52E5179FE3A575EAC1F1F5258794CC02BC3405B426D0A76693512E1911D4E2BA16B9A79C33145C4E1EED100A0DC70B91460A9ED528FF1DD2252FF509C311D31DEBDD19D7A2DF12C8E937BA28A20072AAB4BE40E0E98BC428787A151FD1C4575436972DB5597AAF97982565E5A9AFBED8C90BBCF04CA6FED377CFC5837FD33BFCA92C6052439B96766FF6D8B589010538BF26291B1874D2AD527B2FD346B5330E075F112B8E60F5554EE1911A287A577FB832E19C447B57148497A3A4F1B99809B5B4EF1930A46FE6654F696ABAE33C7E9CA2FC21BC26BB0BEEBFE561D431AA39BCADDD3031C8BC9121F5ACEFFD96410A77E6233FCC35301358DD2BB8E712BD075E61BEEDFF818E159AB183E36E4ED888FBEDC840A90D51FB1A72C840535419D5E26D41F1B73A260302780AF62C6A58E90F190A698F7D83EEEE200B18170A9870D4DDE17DEAE8006AAF1855B7E42A1479DC30C52163B55EEAA35401269A31CED03E098BBBBEED4F463C136EBA25FD012676D75D5B8AE3221AE727A5EB05BBDB45965E5A865D7552C9iaiA28MysFHo9SDoA/w8Ejpf6Fd47X6Rday2BlFhw=","Width":"","Height":"","Title":"MobileImageManager","Modal":false,"VisibleTitlebar":false},"InsertTable":{"SerializedParameters":"BFBC75C41BF794008E3E957A0F4E78DCF3AC74D7160BB31E9BC5E76DF34B515FE5343633F153982B878864B49C9621EB5512394C7BDCE8958CD8B7C77620664CA67E6F8A9B2A93353AFC7C62991BC4D07035B5F0A8D17A910C46126FCEB6667E09A444DDA7219909CBB2AA9E3CDF0A86B2CAD41823B6E773985E6E1D88D2F1E24630129E73D6F74E1A251FA700EE68B0CA59C885A997E5E37D762B5328EB4F841D7FB14AD1CA91F8C367B4B24388F7502EBFA5E6C27927660493D6CEEC6DF0CBFBD62E8097A6F2CC2F05FD4117731AF6AF86FDFC410C12CF2EE7BE31080F087FD854EC564D4658E0A4D43F34C3DEE10845FD8AE29B8E56C6A625179DB6ACDB172EF640CAF720956F372374266FFA83D7EC64FA607EC8E0F1820AB87812FA72BF832ABD1F31B6B71EC5116AAFBB0DB11E6DBF229306A83264C9AD4722D6C4EDED28ED0D5B22A744C6A5CBD40C10B20B05444FFCF2A05B52528AED9BBA96330E927FD0A4CAE85A1DB38BC967A714475E1D93596E81B7EC9B7A88A2EF2DB3F239DAE8C46CBAEBD2E16D5A7789CED86446F71AD9B3AB442BD9DFA87FDBC62A1ED1EC1CFFBB89E6D39FBE444EBDAD9EDF16224BABEC8299D09314FF4526D5893C6A1E0CFC8BFE36A4061AD04A881BC1950668D844F309A2B143376982E576FD5C693455E0F89F6248AF8280D75280F9C24323D923E6A9ABAEAA6864EDDF6132D7F92C60C702F9D8D602D457D8CA28E2277CA109EFCD51192535342F4B634F8029FE11B9D05C254D43884BAACCFA83F0C65B34A204656D565FF117D4382D6742A300EEFAD04CE74FBF474128D95C953898CD49A1849DC31E212889A0D5F415F1C778A096A56847F80F92A603F5250A1F8397861DD4DB0D92F97C06B17C8ABB1E9D12D1458422A64CB87DE49203F0CB54700E4A8AAF3BE4864F42FE94D1C79A4395F80355CFA7229E2C73D4DD36560155501A6FB495A8693029B3ABDEFD097D958345D9908A87D2B7E06C2C0DC07534C013319A8335625BBC53DE547A1E1B9E3862F536tfRXGdrwv5XY5S1OLU5SoY+CXWUe0PiytYuprbeHFK4=","Width":"","Height":"","Title":"InsertTable","Modal":false,"VisibleTitlebar":false},"MobileTableProperties":{"SerializedParameters":"B4694B97BDDC8D0ACC6862C35DF856807326598E5AB8B793DB61F93D11F3C3F7EEE57C6C7143E39DB6060FB7B8659701A689829C34E5EB1AE810B528739C9B8E5282EEF47E8091C0D8DE159040F4AAFDE51780F694DDFBDE28C90CF9C1382A56F8D1209E5C49A9C42B297D2FF01C95EF21EBE81DCAEBAAC12C1A984E8AEBD7744BD6E04CE93C6D3354F1875755B2A3EE85E368459AD89DFA5D5972F04E737403E08FAF6B1B2F3C77E5AB1C964303C94531CC2A5131D5AAC6FCFAF341460BE6385CB17CE1AD36F5EC5759B5AD310273F500214DA07C93A72079283DF7A4A240EA165B8554B7272B7A1F6F4ACBF4C63AD08B695798AE7DA9EE64848ADF1F3C6C232C9DDC14511716C09F4587D55A49DF517921DCE2D40DC9F876157119930F9786CB5F09E51957B962EFBF122DFC4D640C56A3A54F3849381B42CDA79CFE478CCA7E37253801FDECD3865E9FB8C3FADA2CA22BBDE803099E7EB34D0B7D334226A19DAE94782A8665F87441789704C6EA889AD1BF3CCEDA5D7E3DE84B99657F94DC92A002C47D4E6773031AB51A6ED44155A35CA1D09026F3A285930F2CCA741E7ACB01895F5D0AE10C34FAD56459BC2F24E76ADC7CE6857FF91C69FF57D5F7B4FBB2B0A8531A0F76C687AF573E75CCA4B73A19947DFAC82B3D195CE69A40C55F527C2900A09E49304B7ACF1ACECF468B5D49F4FF086D7FFE9A7D1293D2A2B2428332A0187C4E219831941C8CC3F24804194F24778D8B5BBC86AECDAE372156E346B41AB90E05C2C637DA8D6B5903E7E4BE4897F45CA3E2C818A4AC8CFB4A2314EACD9F290E82C5A789A79CA1A7431E447D95410FEBB6008D535B0485E1F07C0926F0B63B59F3C3EF71D78F4B5D920774E6DE70F2DE7698767219925124994CCC74D9891EF42E16C26AEC01F809F1A95ED68535CA1DD818C41582B58759777FE082DE01F44A6BF889B585669FA8A851CB1C8A00A08E2AE45B1CAEE5E676BBEE623D1C263F24C1101EAFAC7B12ED3A748C9CD3946E66613CC8FC9C301F1462D12C76F7AD9B1E46B50E4ADEA092C01516D3EAa5LQ/ff6llR7+kyk4riFC6Fu/9S6XpolkuGiLDzFW/g=","Width":"","Height":"","Title":"MobileTableProperties","Modal":false,"VisibleTitlebar":false},"MobileImageProperties":{"SerializedParameters":"697B37F951E31932378DFC67FFA6339BF0F405DAD6B9B78310CCFE59D3628DB9C9AAAAE6557C40C96E179DCF1E777CF1F089DD6B9E48A148D5CD1E2AAF9EB65B98D4BB6D0A39B4D421BC1279E12026096ED168CB1295C77E5AF21E57715DF4181A07197DCEC5010694C0E045A115B9B3D28FB5291358693EAFDDE876C237FAD09E5931E062FE101D5F5D0889B2C7B883ECE314C2F6DCADB898EF304BF985E93B9622C6411B3ADA9CEC2DDEAB273E3A146F84B54579156C8D61B657751C6F913EC136F06B91697F09187901B35A584D64D934807CC937243F50D24EB6CCA9A9DCDEA5FF49DC4ACA2D7982D453FCE2AE10E394455810A9F36E7186CDFF075A739A8FCC973318D549A54D283B93E69C19771319D0C5507D9D20ABC2CD244C745ACA9467E44A95701C0B2FF2B45AD87CFB190550348A343FBF348157C21EC5E6499EF2FF2C6D334E79899D2B9014A08DA7967B48DFF3254B2164351CEA49DB4587A535A1DEB397D741A5181DC4E70B20A0BEBE60187DAA2C8D6065A5DD4A0CCA82F869B6D78CA9545EE99F3F9843FDF1EAC12A50C0C984E222805A49B4E5C4F1E7BAEB0EA1C8BAF373FEFB4699FEFBA413D1BDF8C79AF31204395FA01BEDE1B898448A43606DC3EB3FB865E2531F1A9156F75EC77958242435AFA003A6BACB7C088E0B09EEA877AAB8A77163CC171D2634F21E3FE1966CFEA7AD3433A3861A37556BB1BB82ECD8F4236CBE1E09BBD2811D1C71643439F20B00FC56B25B6C93DAEE4FA8AF6C976B836805A3B1CD53A8609291B25328872EF0D0E89A8BAD3838F2078E528D1D069736CB9E1AB53E816680A1FFBFE0C79E019B0877E7A5ECC24B70600BA034E00ADD06EE7DAB2BAE33059CC6679724E8735EA1DAE8C421DA3CB84B75B43A43EE2BFCF298B9CAE48654E3C7AD7628C346429BBFE6458BF78B5A64366E9C52068A6B4EE693C9818698EEBEAF883D2EC5BD478DA09F508D17D042394D7B5BBCEFC9136ED80E3617B160E5067321824A139E021F34AFA66D3887AB15E0AA3794EF6450A8FB395CA2301F819B8800E51rfCgVvHpy6dQ/wCIiBSIcUxLiDCIyK2vh8zjLxu3+4=","Width":"","Height":"","Title":"MobileImageProperties","Modal":false,"VisibleTitlebar":false},"SizeMargins":{"SerializedParameters":"440219FD3ACA4447AD79407F519018AE2B5D0AF15F6A7237F4B17A2305AD817A222AC16FA3DC4C118C3520D2FC7EEEFBA06E93A266FC86C9583C359AF1DFBF15D180B3BE8A62BE136DCF21132899D3BB22EEC0BA9FC2765455A8F0884BBD5DDD1DEAB3311E51C9DE9C1D1E55542628F3ABD541BFC084C6D37DFDC815D552B680117715CBA87C99915F5D26FC1F949A9AE1E3429D09F33A5353650BFE1944D1E4B933709CCF573E590FE82E95A6320E7C1747A8C01C982086FEFCFDA2C89B8F567C837E46CC27C5EDC60175425F2218AADA30A04D0E36DE7EBD0085A2FC0D3F9924CBE7E535DA498FB6FBA101A05165833791B5EB3D8D3F3B5AFD9DF0E49896E1104526C4E1551B7F6367BC355E713DBE6AF7DBE48E16BABC15364BF79916908E9C8A1614841D1ED119AEA78BD66950E30EFD438114D9B98A02D0A0343BB13CE7877E6E506F84502253450B5B14889666E48471FA2763EDE569C17F53415342D4E6A7B0996836EDA38D20A37DB1A6A45B42F709EE1334E44648AD58CD1F94FDAA1C30C70484897015D0D9574EEF80691605E4EE043D03AE7779085EDFA52D9ADF04D99397910EBF90B67C8D39CDEBA9CEBBD1CF14916A7F76FC8231E2D142D128D8559146EC317A265B595F7C0BCC0C139A3E8E85B823900E219E03831C946FA44B008327AC25A705EDC14B9D7209F36BA62ACA0C656FBB5CBEEDDD78C46384E7F22ABD6095A8FE9B5C07D7DEE5BF2ED41074C83A8343F2D757467D2D3E697383B07B388D36BA67E6AF4C1FE08ECDBBF823E1D9B03AA34CDB520A611E4CC2ED4D2FA298ED3C665B6E18D0683E14DD4BA9527C5098A58FDEB0C5ABB5FCDF143BAE2D9518033A9C8805793AD3D50763D9AA977024C10D486635BB59C835A12EFFBD62A4E429FA303B5968DA1883B487465BF1E82E890A48BF7B6411C14E8B67E02AF0B24FB927416883A882BEF38EE7BC8C5D7A2A67847305F0CA1D9D765A4C7C46E4B5B157DA9C2905D6B749C19A7CEC9D48053166C6468DBD23AB01140D372067p5i+AmWM0vXUwTgAQAtRWGjsc5jetRhqyL4DTl6bXoc=","Width":"","Height":"","Title":"SizeMargins","Modal":false,"VisibleTitlebar":false},"Border":{"SerializedParameters":"C3F1E9DCF3B23B87DD5131BA1E7EC4A854E637BA90D95FCDA417EE0FD1975627EA26BFC2DA048460C6BEA1E4D048C3A098DBED31B8CFBD11E8B48A051B1198EDC5E0AB5F8C605DF9835014ACAE2D87327D58FDCBBE828405714EB66D67EC5D7D4D61F568B80795BC0FDC765DC89B80082B29736BBE67913D45ABADE8FEEEF25EA26225D9D6D7DB6DDCBBF057BABC178C0A11DB2D9EE053AD071F891064A4EC7D1584EB332986B6FA5FEB19C6030070456397DA154DDF25F55F205D3BF3B23B26059EE1A88842766B56CEA17631146A2A770BCFD91EB3371B74A466C901DB21BBBAD108B2A15D37D5BF51EDF22D82C28969BB8B15407292D7D9199297EA430E70A96E604DA9D0323A4C519EE9EFC2AC77E47335D3473A4FB5227134EDE4C0CC935B5D88D77856A6132649208C413A70C2A2551A424F0E87876F5B7CE3FFFF767DC5D26463F0448C8D7122E01C0366796EFD5D0F1B0254A13570ADD9DCD3451724755FBC5BDF24E527CD4F2D6ACB501954071C8953B34EE83F907C6F0B448D343800AFFBE35850AF7AD9DEB846C276758607BA5C370054CFF1B2C8BCD3D022D79BC718EAAFA734AC12C8AA31C45B5D418DFEA5F8248615646057F2AA5B7790BF57235314FF2A1D11987AE581D47203A8FBA801E5DB2A7940C7C8CD1F5F81B9675453441557C4BE79E9878ED540FF265695F05905FB76D9BFB2C0BEA310804D7DFF59FFA53ECAAE50A20445973974E9267297F6B6965085D0F8DDA3E9FB427F911236B07294A2B7C37F95595D1792FD8239EC5919A8B2F190904DDFA6A4F2BC27FFE906F76BCE87E0C96E0DB126004592F594C50825C5FF3B39B6A4915CCA70EA8D792A6C9FAB5817B2C31787F9EB17BAC64458049AD2D9CFA9F3CABB2BA856A8ABB1638D9455617AA8D06D0A5BBC6BC4EA32CE521526EBFB4E0D4BDB8FE3F0FFBF670B16FB10A50A4D229C5C3CDDE3F387E04B4B337B310EDAA3F12A35D3ED7D54917064E7F1A56EA3CC00055B2F93A506U6utq4UYiL+M6zjBcvEhQbEoMfr9KXdF2eYSWUQmWPc=","Width":"","Height":"","Title":"Border","Modal":false,"VisibleTitlebar":false}},"_dialogUniqueID":"1a8f20de-0759-4e84-b833-9e3c05601760","_renderMode":1,"clientStateFieldID":"ctl15_ctl01_fckContent_dialogOpener_ClientState","enableTelerikManagers":true,"handlerUrl":"../Modules/CMS/Telerik.Web.UI.DialogHandler.aspx","skin":"Web20"}, null, {"container":"ctl15_ctl01_fckContent_dialogOpener_Window"}, $get("ctl15_ctl01_fckContent_dialogOpener"));
+});
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadEditor, {"_localization":{"addcustomcolor":"Add Custom Color...","addcustomhexcolor":"Add Hex Color...","addcustomwordsuccess":"successfully added to dictionary","addtodictionary":"Add to dictionary","askwordcleaning":"The content you are trying to paste has MS Word formatting.\r\nWould you like to clean it?","cancelbutton":"Cancel","canceltable":"Cancel","cellproperties":"Cell Properties","cellwarning":"Please, select a cell to set its properties!","changewordstring":"Change Manually","class":"CSS Class","clearclass":"Clear Class","clearallhtmltags":"All HTML Tags","clearcssformatting":"Cascading Style Sheets","clearfonttags":"Font Tags","clearformatting":"Clear Formatting","clearspantags":"Span Tags","clearstyle":"Clear Style","clearwordformatting":"Microsoft Word Formatting","correctspelling":"Spelling Changes","createlink":"Create Link","dialogtoolbar":"Dialogs","dropdowntoolbar":"Dropdowns","exceededhtmllength":"The added HTML code exceeded the character limit","exceededtextlength":"The added text exceeded the character limit","settoiframeforfullhtmlerror":"Error! Set EditorContentAreaMode to Iframe if you want to edit full page HTML!","formelementsaresupportedbyiframeerror":"Error! Form elements are only supported when the content area is set to Iframe!","getallsheetscalledwithnodocumenterror":"RadEditor._getAllSheets called with no document object provided!","enhancededittoolbar":"Enhanced Edit","fileopen":"Open file..","filesaveas":"Save as...","formbutton":"Button","formcheckbox":"Checkbox","formform":"Form","formhidden":"Hidden","formpassword":"Password","formradio":"Radio button","formreset":"Reset","formselect":"Select","formsubmit":"Submit","formtext":"Textbox","formtextarea":"Textarea","htmlmode":"HTML Mode","ignoreallstring":"Ignore All","ignorestring":"Ignore","imagemapwarning":"Please, select an image to set its image map properties!","indenthtml":"Indent HTML","inserttoolbar":"Insert","maintoolbar":"Main Toolbar","morethanoncemessage":"This word occurs more than once in the text. Would you like to replace all instances?","movecommand":"Move","nospellingmistakes":"No mistakes found.","nosuggestions":"(no suggestions)","promptcolor":"Please, provide the custom color HEX value:","radeditordesignmode":"Design","radeditorhtmlmode":"HTML","radeditorpreviewmode":"Preview","reducetheconentlength":"Please, reduce the content of the field","resizecommand":"Resize Object","sethtml":"Set HTML","showtoolbartooltip":"Show toolbar","spellcheckcomplete":"The Spell Check is complete!","spellcheckend":"Finish spellchecking","spellingchange":"Spelling Change","spellinginprogress":"Spell checking in progress...","spellingmode":"Spell checking mode. Misspelled words are highlighted in yellow.","table":"Table","tabletoolbar":"Table","tablewarning":"Please, select a table to set its properties!","toolbarcaption":"RadEditor Toolbar","toolnotsupportedbynetscape":"This tool is not supported by Mozilla/Netscape browsers.","typing":"Typing...","undodisabledmessage":"You cannot undo further while in spellcheck mode. Please finish spellchecking first.","updatebutton":"Update","usectrlc":"Please use Ctrl+C to Copy (Cmd+C on Mac)","usectrlv":"Please use Ctrl+V to Paste (Cmd+V on Mac)","usectrlx":"Please use Ctrl+X to Cut (Cmd+X on Mac)","radeditorgroupboxtitle":"Title","radeditorgroupboxcontent":"Content...","mobileaddcustomcolor":"Add Custom Color","mobilecurrentcolor":"Current Color","clear":"Clear","aboutdialog":"About RadEditor","absoluteposition":"Set Absolute Position","ajaxspellcheck":"AJAX Spellchecker","alignmentselector":"Alignment selector","applyclass":"Apply CSS Class","backcolor":"Background Color","bold":"Bold","tableborder":"Table Border","cellborder":"Cell Border","imageborder":"Image Border","colorpicker":"ColorPicker","csdialog":"Compliance Check","converttolower":"Convert to lower case","converttoupper":"Convert to upper case","copy":"Copy","cut":"Cut","content":"Content","clipboard":"Clipboard","decreasesize":"Decrease Size","deletecell":"Delete Cell","deletecolumn":"Delete Column","deleterow":"Delete Row","deletetable":"Delete Table","documentmanager":"Document Manager","editing":"Editing","enter":"Enter Pressed","findandreplace":"Find And Replace","flashmanager":"Flash Manager","font":"Font","fontname":"Font Name","fontsize":"Size","forecolor":"Foreground Color","formatblock":"Paragraph Style","formatsets":"Format Sets","formatcodeblock":"Format Code Block","formatpainter":"Format Painter","formatpainterapply":"Apply Format","formatpaintercopy":"Copy Format","formatpainterclear":"Clear Format","formatstripper":"Format Stripper","help":"Help","home":"Home","imageeditor":"Image Editor","imagemanager":"Image Manager","imagesizemargins":"Size and Margins","insertselectdialog":"Insert Select","imagemapdialog":"Image Map Editor","increasesize":"Increase Size","indent":"Indent","insert":"Insert","insertanchor":"Insert Anchor","insertcolumnleft":"Insert Column to the Left","insertcolumnright":"Insert Column to the Right","insertcustomlink":"Custom Links","insertdate":"Insert Date","insertemaillink":"Insert Email Link","insertformbutton":"Insert Button","insertformcheckbox":"Insert Checkbox","insertformelement":"Insert Form Element","insertformform":"Insert Form","insertformhidden":"Insert Hidden","insertformpassword":"Insert Password","insertformradio":"Insert Radio","insertformreset":"Insert Reset","insertformselect":"Insert Select","insertformsubmit":"Insert Submit","insertformtext":"Insert Textbox","insertformtextarea":"Insert Textarea","insertgroupbox":"Insert Groupbox","inserthorizontalrule":"Horizontal Rule","insertorderedlist":"Numbered List","insertparagraph":"New Paragraph","insertrowabove":"Insert Row Above","insertrowbelow":"Insert Row Below","insertsnippet":"Insert Code Snippet","insertsymbol":"Insert Symbol","inserttable":"Insert Table","inserttime":"Insert Time","insertunorderedlist":"Bullet List","italic":"Italic","justifycenter":"Align Center","justifyfull":"Justify","justifyleft":"Align Left","justifynone":"Remove alignment","justifyright":"Align Right","linkmanager":"Hyperlink Manager","insertlink":"Insert Link","links":"Links","media":"Media","mediamanager":"Media Manager","mergecolumns":"Merge Cells Horizontally","mergerows":"Merge Cells Vertically","modulemanager":"Module Manager","outdent":"Outdent","pageproperties":"Page Properties","paragraph":"Paragraph","paste":"Paste","pasteashtml":"Paste As Html","pastehtml":"Paste Html","pastemarkdown":"Paste Markdown","pastefromword":"Paste from Word","pastefromwordnofontsnosizes":"Paste from Word, strip font","pasteplaintext":"Paste Plain Text","pastestrip":"Paste Options","preferences":"Preferences","print":"Print","proofing":"Proofing","realfontsize":"Real font size","redo":"Redo","repeatlastcommand":"Repeat Last Command","review":"Review","selectall":"Select All","setcellproperties":"Cell Properties","setimageproperties":"Properties...","insertimage":"Insert Image","setlinkproperties":"Properties...","settableproperties":"Table Properties","silverlightmanager":"Silverlight Manager","sizemargins":"Size and Margins","spellcheck":"Spellchecker","splitcell":"Split Cell Vertically","splitcellhorizontal":"Split Cell Horizontally","styles":"Styles","strikethrough":"Strikethrough","stripall":"Strip All Formatting","stripcss":"Strip Css Formatting","stripfont":"Strip Font Elements","stripspan":"Strip Span Elements","stripword":"Strip Word Formatting","stylebuilder":"Style Builder","insertexternalvideo":"Insert External Video","subscript":"Subscript","superscript":"SuperScript","tables":"Tables","tablewizard":"Table Wizard","templatemanager":"Template Manager","toggledocking":"Dock all Floating Toolbars/Modules","togglescreenmode":"Toggle Full Screen Mode","toggletableborder":"Show/Hide Border","togglefloatingtoolbar":"Toggle Floating Toolbar","underline":"Underline","undo":"Undo","unlink":"Remove Link","view":"View","xhtmlvalidator":"XHTML Validator","zoom":"Zoom","mobileedit":"Edit","editcontent":"Edit Content","toggleeditmode":"Toggle Edit Mode","inserttabledialog":"Insert Table","inserttableitems":"Insert","deletetableitems":"Delete","mergesplitcells":"Merge and Split Cells","find_notfound":"The search string was not found.","find_notsupported":"The find function is not supported by this browser!","find_allreplaced":"{0} occurrences in the text have been replaced!"},"_renderMode":1,"clientStateFieldID":"ctl15_ctl01_fckContent_ClientState","contentAreaCssFile":"/WebResource.axd?d=Kv_Yi2AqxBcM9_SRkrI0UgOEr7CFN6yvcoDbXnpSM0L803lVJ7puWzAwOaezlgbnd9i-qfnJXSzr44EK9WkC_AacukFh5f7anjhJoMA_akzQMbvr8XBE9Lum9du0ofzSJGiMjFEs0qAhqDNsXGAZLxoJODE7nxCIUo00C-ziCRo1\u0026t=637144971000000000","contextMenusJSON":[{"tagName":"TABLE","tools":[{"name":"ToggleTableBorder","text":"Show/Hide Border"},{"name":"SetTableProperties","text":"Table Properties"},{"name":"DeleteTable","text":"Delete Table"}]},{"tagName":"TD","tools":[{"name":"InsertRowAbove","text":"Insert Row Above"},{"name":"InsertRowBelow","text":"Insert Row Below"},{"name":"DeleteRow","text":"Delete Row"},{"name":"InsertColumnLeft","text":"Insert Column to the Left"},{"name":"InsertColumnRight","text":"Insert Column to the Right"},{"name":"DeleteColumn","text":"Delete Column"},{"name":"MergeColumns","text":"Merge Cells Horizontally"},{"name":"MergeRows","text":"Merge Cells Vertically"},{"name":"SplitCellHorizontal","text":"Split Cell Horizontally"},{"name":"SplitCell","text":"Split Cell Vertically"},{"name":"DeleteCell","text":"Delete Cell"},{"name":"SetCellProperties","text":"Cell Properties"},{"name":"SetTableProperties","text":"Table Properties"}]},{"tagName":"IMG","tools":[{"name":"SetImageProperties","text":"Properties..."},{"name":"ImageMapDialog","text":"Image Map Editor"}]},{"tagName":"A","tools":[{"name":"SetLinkProperties","text":"Properties..."},{"name":"OpenLink","text":"OpenLink"},{"name":"Unlink","text":"Remove Link"}]},{"tagName":"SELECT","tools":[{"name":"InsertFormSelect","text":"Insert Select"}]},{"tools":[{"name":"Cut","text":"Cut"},{"name":"Copy","text":"Copy"},{"name":"Paste","text":"Paste"},{"name":"PasteFromWord","text":"Paste from Word"},{"name":"PastePlainText","text":"Paste Plain Text"},{"name":"PasteAsHtml","text":"Paste As Html"},{"name":"PasteHtml","text":"Paste Html"}]}],"enableUndoRedo":false,"headerToolsJSON":[],"headerToolsToolAdapterType":"Telerik.Web.UI.Editor.HeaderToolsToolAdapter","language":"vi-VN","modulesJSON":[],"mozillaFlashOverlayImage":"/WebResource.axd?d=EN2AkJ0TCojRQ-RId6S4JMUhcucHzvOMBjOiH7cOQQtmVX9bdXBAqTrj6Zd9uM3LTEi2f2Sy_hgaenfTGb3-_AIOmwyHcC-Qerj1v5hLGGKGcPaEnJQsLPv3y8MI_d2x9CUDMeu5J8Q5ARgpCiI2KbW4ACYfaR7AW1lAqXA5MxQ1\u0026t=637144971000000000","skin":"Web20","toolAdapterType":"Telerik.Web.UI.Editor.DefaultToolAdapter","toolJSON":[{"tools":[{"attributes":{"rendermode":"Classic"},"name":"Bold"},{"attributes":{"rendermode":"Classic"},"name":"Italic"},{"attributes":{"rendermode":"Classic"},"name":"JustifyLeft"},{"attributes":{"rendermode":"Classic"},"name":"JustifyRight"},{"attributes":{"rendermode":"Classic"},"name":"JustifyCenter"},{"attributes":{"rendermode":"Classic"},"name":"JustifyFull"}]}],"useRadContextMenu":false}, null, {"dialogOpener":"ctl15_ctl01_fckContent_dialogOpener"}, $get("ctl15_ctl01_fckContent"));
+});
+
+document.getElementById('ctl15_ctl01_RequiredFieldValidator2').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl15_ctl01_RequiredFieldValidator2'));
+}
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadWindow, {"_dockMode":false,"behaviors":36,"clientStateFieldID":"ctl15_ctl01_rwUserLogin_ClientState","formID":"form1","iconUrl":"","minimizeIconUrl":"","modal":true,"name":"rwUserLogin","skin":"Web20","visibleStatusbar":false}, {"close":RadCheckUserWatchClose}, null, $get("ctl15_ctl01_rwUserLogin"));
+});
+//]]>
+</script>
+</form>
+
+</body>
+</html>

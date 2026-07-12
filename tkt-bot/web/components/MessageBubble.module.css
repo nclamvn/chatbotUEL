@@ -1,0 +1,88 @@
+.msg {
+  max-width: 88%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.msg.user {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.msg.bot {
+  align-self: flex-start;
+}
+
+.bubble {
+  padding: 11px 14px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.user .bubble {
+  background: var(--user);
+  color: var(--user-ink);
+  border-bottom-right-radius: 5px;
+}
+
+.bot .bubble {
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-bottom-left-radius: 5px;
+  box-shadow: var(--shadow);
+}
+
+.bot .bubble p + p,
+.bot .bubble div + div,
+.bot .bubble p + ul,
+.bot .bubble ul + p {
+  margin-top: 8px;
+}
+
+.bot .bubble ul {
+  padding-left: 18px;
+}
+
+.cursor {
+  color: var(--accent);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 2px;
+}
+
+.fu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.fu button {
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent-ink);
+  background: var(--accent-soft);
+  border: none;
+  border-radius: 999px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+@media (min-width: 900px) {
+  .msg {
+    max-width: min(88%, 620px);
+  }
+}

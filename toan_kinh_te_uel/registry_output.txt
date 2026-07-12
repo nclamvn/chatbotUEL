@@ -1,0 +1,387 @@
+════════════════════════════════════════════════════════════════
+REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
+════════════════════════════════════════════════════════════════
+
+▸ CN Phân tích dữ liệu  (chuyen_nganh)
+    loai            : chuyen_nganh [✓A]
+    ten_day_du      : —
+    truc_thuoc      : Ngành Toán kinh tế [✓C]
+    chuc_vu         : —
+    hoc_ham_hoc_vi  : —
+    chuyen_mon      : —
+    nam_thanh_lap_bo_mon: —
+    nam_len_khoa    : —
+    nam_mo_nganh    : —
+    nam_thanh_lap   : —
+    so_giang_vien_co_huu: —
+    co_cau_hoc_vi   : —
+    bo_mon_truc_thuoc: —
+    dinh_huong_nghien_cuu: —
+    triet_ly_giao_duc: —
+    tam_nhin        : —
+    dia_chi         : —
+    email           : —
+    dien_thoai      : —
+    website         : —
+    ma_truong       : —
+    ma_tuyen_sinh   : 7310108_419 [✓B]
+    tin_chi         : —
+    so_hoc_ky       : —
+    chuyen_nganh_2025: —
+    diem_thpt_2025_A00_A01: 26.43 [✓C]
+    diem_thpt_2025_D01_D07_X25_X26: 25.63 [✓C]
+    diem_dgnl_2025  : 927 [✓C]
+    diem_utxtt_2025 : —
+    chi_tieu_2025   : —
+    hoc_phi_tieng_viet_2025_2026: —
+    hoc_phi_tieng_anh_2025_2026: —
+
+▸ CN Toán ứng dụng trong Kinh tế, Quản trị và Tài chính  (chuyen_nganh)
+    loai            : chuyen_nganh [✓A]
+    ten_day_du      : —
+    truc_thuoc      : Ngành Toán kinh tế [✓C]
+    chuc_vu         : —
+    hoc_ham_hoc_vi  : —
+    chuyen_mon      : —
+    nam_thanh_lap_bo_mon: —
+    nam_len_khoa    : —
+    nam_mo_nganh    : —
+    nam_thanh_lap   : —
+    so_giang_vien_co_huu: —
+    co_cau_hoc_vi   : —
+    bo_mon_truc_thuoc: —
+    dinh_huong_nghien_cuu: —
+    triet_ly_giao_duc: —
+    tam_nhin        : —
+    dia_chi         : —
+    email           : —
+    dien_thoai      : —
+    website         : —
+    ma_truong       : —
+    ma_tuyen_sinh   : 7310108_413 [✓B]
+    tin_chi         : —
+    so_hoc_ky       : —
+    chuyen_nganh_2025: —
+    diem_thpt_2025_A00_A01: 25.75 [✓C]
+    diem_thpt_2025_D01_D07_X25_X26: 25.00 [✓C]
+    diem_dgnl_2025  : 892 [✓C]
+    diem_utxtt_2025 : —
+    chi_tieu_2025   : —
+    hoc_phi_tieng_viet_2025_2026: —
+    hoc_phi_tieng_anh_2025_2026: —
+
+▸ CN Toán ứng dụng trong Kinh tế, Quản trị và Tài chính (Tiếng Anh)  (chuyen_nganh)
+    loai            : chuyen_nganh [✓B]
+    ten_day_du      : —
+    truc_thuoc      : Ngành Toán kinh tế [✓C]
+    chuc_vu         : —
+    hoc_ham_hoc_vi  : —
+    chuyen_mon      : —
+    nam_thanh_lap_bo_mon: —
+    nam_len_khoa    : —
+    nam_mo_nganh    : —
+    nam_thanh_lap   : —
+    so_giang_vien_co_huu: —
+    co_cau_hoc_vi   : —
+    bo_mon_truc_thuoc: —
+    dinh_huong_nghien_cuu: —
+    triet_ly_giao_duc: —
+    tam_nhin        : —
+    dia_chi         : —
+    email           : —
+    dien_thoai      : —
+    website         : —
+    ma_truong       : —
+    ma_tuyen_sinh   : 7310108_413E [✓B]
+    tin_chi         : —
+    so_hoc_ky       : —
+    chuyen_nganh_2025: —
+    diem_thpt_2025_A00_A01: 24.03 [✓C]
+    diem_thpt_2025_D01_D07_X25_X26: 23.58 [✓C]
+    diem_dgnl_2025  : 813 [✓C]
+    diem_utxtt_2025 : 90.00/90 (cao nhất toàn trường, phương thức ƯTXTT học sinh giỏi, tài năng) [✓A]
+    chi_tieu_2025   : —
+    hoc_phi_tieng_viet_2025_2026: —
+    hoc_phi_tieng_anh_2025_2026: —
+
+▸ Khoa Toán Kinh tế  (don_vi)
+    loai            : don_vi [✓A]
+    ten_day_du      : Khoa Toán Kinh tế [✓A]
+    truc_thuoc      : Trường Đại học Kinh tế - Luật (ĐHQG-HCM) [✓A]
+    chuc_vu         : —
+    hoc_ham_hoc_vi  : —
+    chuyen_mon      : —
+    nam_thanh_lap_bo_mon: 2008 [✓A]
+    nam_len_khoa    : 2019 [✓A]
+    nam_mo_nganh    : 2018 [✓A]
+    nam_thanh_lap   : —
+    so_giang_vien_co_huu: DISPUTED{ 14 [A·maths.uel.edu.vn] | 15 [A·maths.uel.edu.vn] }
+    co_cau_hoc_vi   : DISPUTED{ 03 PGS.TS, 08 TS, 03 ThS [A·maths.uel.edu.vn] | 03 PGS.TS, 08 TS, 04 ThS [A·maths.uel.edu.vn] }
+    bo_mon_truc_thuoc: Bộ môn Toán Kinh tế; Bộ môn Phân tích dữ liệu [✓A]
+    dinh_huong_nghien_cuu: Thống kê Ứng dụng; Phân tích định lượng trong Kinh tế, Tài chính [✓A]
+    triet_ly_giao_duc: Kiến tạo tri thức, khơi nguồn sáng tạo [✓A]
+    tam_nhin        : Đơn vị đào tạo, NCKH và tư vấn có uy tín của Việt Nam và khu vực trong lĩnh vực Toán Ứng dụng, Khoa học Dữ liệu trong Kinh tế, Kinh doanh và Quản lý [✓A]
+    dia_chi         : Phòng A.205BIS, số 669 Đỗ Mười, khu phố 13, Phường Linh Xuân, TP.HCM [✓A]
+    email           : khoatkt@uel.edu.vn [✓A]
+    dien_thoai      : (028) 3724 4555 (6601) [✓A]
+    website         : —
+    ma_truong       : —
+    ma_tuyen_sinh   : —
+    tin_chi         : —
+    so_hoc_ky       : —
+    chuyen_nganh_2025: —
+    diem_thpt_2025_A00_A01: —
+    diem_thpt_2025_D01_D07_X25_X26: —
+    diem_dgnl_2025  : —
+    diem_utxtt_2025 : —
+    chi_tieu_2025   : —
+    hoc_phi_tieng_viet_2025_2026: —
+    hoc_phi_tieng_anh_2025_2026: —
+
+▸ Lê Thanh Hoa  (nhan_su)
+    loai            : nhan_su [✓A]
+    ten_day_du      : —
+    truc_thuoc      : —
+    chuc_vu         : Trưởng Bộ môn Phân tích dữ liệu [✓A]
+    hoc_ham_hoc_vi  : TS [✓A]
+    chuyen_mon      : —
+    nam_thanh_lap_bo_mon: —
+    nam_len_khoa    : —
+    nam_mo_nganh    : —
+    nam_thanh_lap   : —
+    so_giang_vien_co_huu: —
+    co_cau_hoc_vi   : —
+    bo_mon_truc_thuoc: —
+    dinh_huong_nghien_cuu: —
+    triet_ly_giao_duc: —
+    tam_nhin        : —
+    dia_chi         : —
+    email           : —
+    dien_thoai      : —
+    website         : —
+    ma_truong       : —
+    ma_tuyen_sinh   : —
+    tin_chi         : —
+    so_hoc_ky       : —
+    chuyen_nganh_2025: —
+    diem_thpt_2025_A00_A01: —
+    diem_thpt_2025_D01_D07_X25_X26: —
+    diem_dgnl_2025  : —
+    diem_utxtt_2025 : —
+    chi_tieu_2025   : —
+    hoc_phi_tieng_viet_2025_2026: —
+    hoc_phi_tieng_anh_2025_2026: —
+
+▸ Lê Thị Thanh An  (nhan_su)
+    loai            : nhan_su [✓A]
+    ten_day_du      : —
+    truc_thuoc      : —
+    chuc_vu         : Trưởng Bộ môn Toán Kinh tế [✓A]
+    hoc_ham_hoc_vi  : TS [✓A]
+    chuyen_mon      : —
+    nam_thanh_lap_bo_mon: —
+    nam_len_khoa    : —
+    nam_mo_nganh    : —
+    nam_thanh_lap   : —
+    so_giang_vien_co_huu: —
+    co_cau_hoc_vi   : —
+    bo_mon_truc_thuoc: —
+    dinh_huong_nghien_cuu: —
+    triet_ly_giao_duc: —
+    tam_nhin        : —
+    dia_chi         : —
+    email           : —
+    dien_thoai      : —
+    website         : —
+    ma_truong       : —
+    ma_tuyen_sinh   : —
+    tin_chi         : —
+    so_hoc_ky       : —
+    chuyen_nganh_2025: —
+    diem_thpt_2025_A00_A01: —
+    diem_thpt_2025_D01_D07_X25_X26: —
+    diem_dgnl_2025  : —
+    diem_utxtt_2025 : —
+    chi_tieu_2025   : —
+    hoc_phi_tieng_viet_2025_2026: —
+    hoc_phi_tieng_anh_2025_2026: —
+
+▸ Nguyễn Phúc Sơn  (nhan_su)
+    loai            : nhan_su [✓A]
+    ten_day_du      : —
+    truc_thuoc      : —
+    chuc_vu         : Phó trưởng Khoa [✓A]
+    hoc_ham_hoc_vi  : TS [✓A]
+    chuyen_mon      : —
+    nam_thanh_lap_bo_mon: —
+    nam_len_khoa    : —
+    nam_mo_nganh    : —
+    nam_thanh_lap   : —
+    so_giang_vien_co_huu: —
+    co_cau_hoc_vi   : —
+    bo_mon_truc_thuoc: —
+    dinh_huong_nghien_cuu: —
+    triet_ly_giao_duc: —
+    tam_nhin        : —
+    dia_chi         : —
+    email           : —
+    dien_thoai      : —
+    website         : —
+    ma_truong       : —
+    ma_tuyen_sinh   : —
+    tin_chi         : —
+    so_hoc_ky       : —
+    chuyen_nganh_2025: —
+    diem_thpt_2025_A00_A01: —
+    diem_thpt_2025_D01_D07_X25_X26: —
+    diem_dgnl_2025  : —
+    diem_utxtt_2025 : —
+    chi_tieu_2025   : —
+    hoc_phi_tieng_viet_2025_2026: —
+    hoc_phi_tieng_anh_2025_2026: —
+
+▸ Ngành Toán kinh tế  (nganh)
+    loai            : nganh [✓A]
+    ten_day_du      : Ngành Toán kinh tế (Toán Ứng dụng trong Kinh tế, Quản trị và Tài chính) [✓A]
+    truc_thuoc      : Khoa Toán Kinh tế [✓A]
+    chuc_vu         : —
+    hoc_ham_hoc_vi  : —
+    chuyen_mon      : —
+    nam_thanh_lap_bo_mon: —
+    nam_len_khoa    : —
+    nam_mo_nganh    : —
+    nam_thanh_lap   : —
+    so_giang_vien_co_huu: —
+    co_cau_hoc_vi   : —
+    bo_mon_truc_thuoc: —
+    dinh_huong_nghien_cuu: —
+    triet_ly_giao_duc: —
+    tam_nhin        : —
+    dia_chi         : —
+    email           : —
+    dien_thoai      : —
+    website         : —
+    ma_truong       : —
+    ma_tuyen_sinh   : 7310108 [✓B]
+    tin_chi         : 130 [✓C]
+    so_hoc_ky       : 10 [✓A]
+    chuyen_nganh_2025: Toán ứng dụng trong Kinh tế, Quản trị và Tài chính; Toán ứng dụng trong Kinh tế, Quản trị và Tài chính (tiếng Anh); Phân tích dữ liệu [✓B]
+    diem_thpt_2025_A00_A01: —
+    diem_thpt_2025_D01_D07_X25_X26: —
+    diem_dgnl_2025  : —
+    diem_utxtt_2025 : —
+    chi_tieu_2025   : —
+    hoc_phi_tieng_viet_2025_2026: —
+    hoc_phi_tieng_anh_2025_2026: —
+
+▸ Phạm Hoàng Uyên  (nhan_su)
+    loai            : nhan_su [✓A]
+    ten_day_du      : —
+    truc_thuoc      : —
+    chuc_vu         : Trưởng Khoa [✓A]
+    hoc_ham_hoc_vi  : DISPUTED{ PGS.TS [A·maths.uel.edu.vn] | TS [A·maths.uel.edu.vn] }
+    chuyen_mon      : Toán ứng dụng [✓A]
+    nam_thanh_lap_bo_mon: —
+    nam_len_khoa    : —
+    nam_mo_nganh    : —
+    nam_thanh_lap   : —
+    so_giang_vien_co_huu: —
+    co_cau_hoc_vi   : —
+    bo_mon_truc_thuoc: —
+    dinh_huong_nghien_cuu: —
+    triet_ly_giao_duc: —
+    tam_nhin        : —
+    dia_chi         : —
+    email           : —
+    dien_thoai      : —
+    website         : —
+    ma_truong       : —
+    ma_tuyen_sinh   : —
+    tin_chi         : —
+    so_hoc_ky       : —
+    chuyen_nganh_2025: —
+    diem_thpt_2025_A00_A01: —
+    diem_thpt_2025_D01_D07_X25_X26: —
+    diem_dgnl_2025  : —
+    diem_utxtt_2025 : —
+    chi_tieu_2025   : —
+    hoc_phi_tieng_viet_2025_2026: —
+    hoc_phi_tieng_anh_2025_2026: —
+
+▸ Trường Đại học Kinh tế - Luật  (truong)
+    loai            : truong [✓C]
+    ten_day_du      : Trường Đại học Kinh tế - Luật [✓A]
+    truc_thuoc      : Đại học Quốc gia TP.HCM (ĐHQG-HCM) [✓A]
+    chuc_vu         : —
+    hoc_ham_hoc_vi  : —
+    chuyen_mon      : —
+    nam_thanh_lap_bo_mon: —
+    nam_len_khoa    : —
+    nam_mo_nganh    : —
+    nam_thanh_lap   : 2010 (Quyết định số 377/QĐ-TTg ngày 24/3/2010) [✓C]
+    so_giang_vien_co_huu: —
+    co_cau_hoc_vi   : —
+    bo_mon_truc_thuoc: —
+    dinh_huong_nghien_cuu: —
+    triet_ly_giao_duc: —
+    tam_nhin        : —
+    dia_chi         : DISPUTED{ 669 đường Đỗ Mười, KP 6, P. Linh Xuân, TP. Thủ Đức, TP.HCM [B·plo.vn (bản đăng tuoitre.vn)] | Số 669 Quốc lộ 1, Khu phố 3, Phường Linh Xuân, TP. Thủ Đức, TP.HCM [C·diemthi.tuyensinh247.com] }
+    email           : —
+    dien_thoai      : —
+    website         : —
+    ma_truong       : QSK [✓C]
+    ma_tuyen_sinh   : —
+    tin_chi         : —
+    so_hoc_ky       : —
+    chuyen_nganh_2025: —
+    diem_thpt_2025_A00_A01: —
+    diem_thpt_2025_D01_D07_X25_X26: —
+    diem_dgnl_2025  : —
+    diem_utxtt_2025 : —
+    chi_tieu_2025   : 2.700 [✓C]
+    hoc_phi_tieng_viet_2025_2026: 31,5 triệu đồng (năm thứ nhất) [✓C]
+    hoc_phi_tieng_anh_2025_2026: 65 triệu đồng (năm thứ nhất) [✓C]
+
+▸ Trần Nguyễn Hoàng Sang  (nhan_su)
+    loai            : nhan_su [✓A]
+    ten_day_du      : —
+    truc_thuoc      : —
+    chuc_vu         : Thư ký Khoa [✓A]
+    hoc_ham_hoc_vi  : DISPUTED{ CN [A·maths.uel.edu.vn] | ThS [A·maths.uel.edu.vn] }
+    chuyen_mon      : —
+    nam_thanh_lap_bo_mon: —
+    nam_len_khoa    : —
+    nam_mo_nganh    : —
+    nam_thanh_lap   : —
+    so_giang_vien_co_huu: —
+    co_cau_hoc_vi   : —
+    bo_mon_truc_thuoc: —
+    dinh_huong_nghien_cuu: —
+    triet_ly_giao_duc: —
+    tam_nhin        : —
+    dia_chi         : —
+    email           : —
+    dien_thoai      : —
+    website         : —
+    ma_truong       : —
+    ma_tuyen_sinh   : —
+    tin_chi         : —
+    so_hoc_ky       : —
+    chuyen_nganh_2025: —
+    diem_thpt_2025_A00_A01: —
+    diem_thpt_2025_D01_D07_X25_X26: —
+    diem_dgnl_2025  : —
+    diem_utxtt_2025 : —
+    chi_tieu_2025   : —
+    hoc_phi_tieng_viet_2025_2026: —
+    hoc_phi_tieng_anh_2025_2026: —
+
+Phân bố theo loai (n=11 / universe≈22 · coverage 50.0%):
+    chuyen_nganh: 3
+    don_vi: 1
+    nganh: 1
+    nhan_su: 5
+    truong: 1
+
+build digest = fe71ad1060bf2c78  · idempotent OK · auditor OK
+VALIDATION PASSED · 0 gate bites
