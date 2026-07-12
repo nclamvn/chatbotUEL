@@ -36,15 +36,18 @@ schema:
     - chi_tieu_2025
     - hoc_phi_tieng_viet_2025_2026
     - hoc_phi_tieng_anh_2025_2026
+    - ghi_chu
+    - tien_than
+    - lich_tuyen_sinh_2026
 
 rollup_field: loai
 
 universe:
-  estimate: 22
+  estimate: 23
   basis: >-
     Tập thực thể lõi phục vụ cổng hỏi đáp của Khoa: 1 khoa, 1 trường chủ quản, 1 ngành,
-    3 chuyên ngành tuyển sinh 2025 và toàn bộ 16 nhân sự theo danh sách trang Nhân sự
-    của Khoa. Đợt 1 phủ 5 nhân sự lãnh đạo chủ chốt; 11 giảng viên còn lại thuộc Phase 2.
+    3 chuyên ngành tuyển sinh 2025, 16 nhân sự theo trang Nhân sự cộng Phó trưởng Khoa
+    chỉ xuất hiện ở trang Sơ đồ tổ chức (tổng 17 người). Đợt 2 (12/07/2026 chiều) phủ đủ 16 nhân sự theo trang Nhân sự của Khoa.
 
 refresh_days:
   default: 180

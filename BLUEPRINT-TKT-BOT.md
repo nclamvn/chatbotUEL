@@ -115,6 +115,8 @@ Human gõ APPROVED kèm câu trả lời nào muốn sửa. Sau đó Chủ thầ
 
 ## 9. Decisions Log
 
+**2026-07-12 · Registry v1.1 nạp xong (Chủ nhà tinh lọc đợt 2, Human duyệt).** 110 claims (từ 71), 23 thực thể (từ 11, phủ trọn 17 nhân sự kể cả ghi chú nghỉ hưu Lê Hồng Nhật), thêm tien_than và lich_tuyen_sinh_2026. Vẫn tham chiếu đúng 14 snapshot cũ, 5 ô disputed không đổi, ô so_giang_vien_co_huu giữ đúng 2 claims. Digest mới 80d798d543cc693f, idempotent OK (2 lần chạy cùng digest), cells 805 (23×35). Hằng số acceptance TIP-01 đổi 71→110, 11→23 theo chỉ thị Chủ thầu. Retrieval thêm: year check tổng quát theo tên field, rule lich_tuyen_sinh và tien_than, person-name lookup cho 17 nhân sự, ghi_chu vào role lookup. Bằng chứng: pytest 36/36, smoke 12/12, style eval 30 câu sạch, hai câu hỏi mới trả grounded kèm citation qua /chat.
+
 **2026-07-12 · Amendment TIP-02 (Chủ nhà chốt sau kiểm tra bàn giao).** Corpus tầng 2 ingest đúng 14 snapshot được claims tham chiếu, không phải 13 như bản draft. Lý do lệch: đếm trước khi rà lại tham chiếu. File placeholder lỗi fetch và bản chụp thừa bị loại ngay ở bước liệt kê nguồn. Assert bổ sung: file dưới 1 KB hoặc không xuất hiện trong bất kỳ capture.snapshot nào thì ingest bỏ qua và log tên. Không đổi kiến trúc, ràng buộc acceptance giữ nguyên 71 claims và 11 entities.
 
 **2026-07-12 · Ghi chú câu hỏi (2).** Nếu duyệt key riêng thì đặt spend limit ngay từ ngày đầu và bật usage alert, vì mùa tư vấn tuyển sinh lưu lượng tăng đột ngột theo ngày công bố điểm.

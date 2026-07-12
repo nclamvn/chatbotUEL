@@ -25,9 +25,9 @@ Dựng skeleton hai service api (FastAPI, Python 3.12) và web (Next.js 15, Type
 - Không gọi LLM ở TIP này.
 
 ## ACCEPTANCE CRITERIA
-- Given claims.jsonl 71 dòng, When chạy load_data.py hai lần, Then registry_cells giống hệt nhau giữa hai lần và đủ 11 entity.
+- Given claims.jsonl 110 dòng, When chạy load_data.py hai lần, Then registry_cells giống hệt nhau giữa hai lần và đủ 23 entity. (Hằng số cập nhật theo Registry v1.1, 12/07/2026; bản gốc 71/11.)
 - Given ô so_giang_vien_co_huu của Khoa Toán Kinh tế, When query registry_cells, Then status là disputed và claim_ids chứa đúng hai claim.
-- Given docker compose up, When gọi GET /health, Then trả 200 kèm claims_loaded=71.
+- Given docker compose up, When gọi GET /health, Then trả 200 kèm claims_loaded=110 (Registry v1.1).
 
 ## CONSTRAINTS
 - Không sửa nội dung claims.jsonl, file là read-only đầu vào.

@@ -35,6 +35,9 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     chi_tieu_2025   : —
     hoc_phi_tieng_viet_2025_2026: —
     hoc_phi_tieng_anh_2025_2026: —
+    ghi_chu         : —
+    tien_than       : —
+    lich_tuyen_sinh_2026: —
 
 ▸ CN Toán ứng dụng trong Kinh tế, Quản trị và Tài chính  (chuyen_nganh)
     loai            : chuyen_nganh [✓A]
@@ -69,6 +72,9 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     chi_tieu_2025   : —
     hoc_phi_tieng_viet_2025_2026: —
     hoc_phi_tieng_anh_2025_2026: —
+    ghi_chu         : —
+    tien_than       : —
+    lich_tuyen_sinh_2026: —
 
 ▸ CN Toán ứng dụng trong Kinh tế, Quản trị và Tài chính (Tiếng Anh)  (chuyen_nganh)
     loai            : chuyen_nganh [✓B]
@@ -103,6 +109,83 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     chi_tieu_2025   : —
     hoc_phi_tieng_viet_2025_2026: —
     hoc_phi_tieng_anh_2025_2026: —
+    ghi_chu         : —
+    tien_than       : —
+    lich_tuyen_sinh_2026: —
+
+▸ Huỳnh Tố Uyên  (nhan_su)
+    loai            : nhan_su [✓A]
+    ten_day_du      : —
+    truc_thuoc      : —
+    chuc_vu         : —
+    hoc_ham_hoc_vi  : TS [✓A]
+    chuyen_mon      : Toán ứng dụng [✓A]
+    nam_thanh_lap_bo_mon: —
+    nam_len_khoa    : —
+    nam_mo_nganh    : —
+    nam_thanh_lap   : —
+    so_giang_vien_co_huu: —
+    co_cau_hoc_vi   : —
+    bo_mon_truc_thuoc: —
+    dinh_huong_nghien_cuu: —
+    triet_ly_giao_duc: —
+    tam_nhin        : —
+    dia_chi         : —
+    email           : —
+    dien_thoai      : —
+    website         : —
+    ma_truong       : —
+    ma_tuyen_sinh   : —
+    tin_chi         : —
+    so_hoc_ky       : —
+    chuyen_nganh_2025: —
+    diem_thpt_2025_A00_A01: —
+    diem_thpt_2025_D01_D07_X25_X26: —
+    diem_dgnl_2025  : —
+    diem_utxtt_2025 : —
+    chi_tieu_2025   : —
+    hoc_phi_tieng_viet_2025_2026: —
+    hoc_phi_tieng_anh_2025_2026: —
+    ghi_chu         : —
+    tien_than       : —
+    lich_tuyen_sinh_2026: —
+
+▸ Hà Văn Hiếu  (nhan_su)
+    loai            : nhan_su [✓A]
+    ten_day_du      : —
+    truc_thuoc      : —
+    chuc_vu         : —
+    hoc_ham_hoc_vi  : TS [✓A]
+    chuyen_mon      : Toán ứng dụng [✓A]
+    nam_thanh_lap_bo_mon: —
+    nam_len_khoa    : —
+    nam_mo_nganh    : —
+    nam_thanh_lap   : —
+    so_giang_vien_co_huu: —
+    co_cau_hoc_vi   : —
+    bo_mon_truc_thuoc: —
+    dinh_huong_nghien_cuu: —
+    triet_ly_giao_duc: —
+    tam_nhin        : —
+    dia_chi         : —
+    email           : —
+    dien_thoai      : —
+    website         : —
+    ma_truong       : —
+    ma_tuyen_sinh   : —
+    tin_chi         : —
+    so_hoc_ky       : —
+    chuyen_nganh_2025: —
+    diem_thpt_2025_A00_A01: —
+    diem_thpt_2025_D01_D07_X25_X26: —
+    diem_dgnl_2025  : —
+    diem_utxtt_2025 : —
+    chi_tieu_2025   : —
+    hoc_phi_tieng_viet_2025_2026: —
+    hoc_phi_tieng_anh_2025_2026: —
+    ghi_chu         : —
+    tien_than       : —
+    lich_tuyen_sinh_2026: —
 
 ▸ Khoa Toán Kinh tế  (don_vi)
     loai            : don_vi [✓A]
@@ -137,6 +220,120 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     chi_tieu_2025   : —
     hoc_phi_tieng_viet_2025_2026: —
     hoc_phi_tieng_anh_2025_2026: —
+    ghi_chu         : —
+    tien_than       : —
+    lich_tuyen_sinh_2026: —
+
+▸ Lê Anh Vũ  (nhan_su)
+    loai            : nhan_su [✓A]
+    ten_day_du      : —
+    truc_thuoc      : —
+    chuc_vu         : —
+    hoc_ham_hoc_vi  : PGS.TS [✓A]
+    chuyen_mon      : Toán học [✓A]
+    nam_thanh_lap_bo_mon: —
+    nam_len_khoa    : —
+    nam_mo_nganh    : —
+    nam_thanh_lap   : —
+    so_giang_vien_co_huu: —
+    co_cau_hoc_vi   : —
+    bo_mon_truc_thuoc: —
+    dinh_huong_nghien_cuu: —
+    triet_ly_giao_duc: —
+    tam_nhin        : —
+    dia_chi         : —
+    email           : —
+    dien_thoai      : —
+    website         : —
+    ma_truong       : —
+    ma_tuyen_sinh   : —
+    tin_chi         : —
+    so_hoc_ky       : —
+    chuyen_nganh_2025: —
+    diem_thpt_2025_A00_A01: —
+    diem_thpt_2025_D01_D07_X25_X26: —
+    diem_dgnl_2025  : —
+    diem_utxtt_2025 : —
+    chi_tieu_2025   : —
+    hoc_phi_tieng_viet_2025_2026: —
+    hoc_phi_tieng_anh_2025_2026: —
+    ghi_chu         : —
+    tien_than       : —
+    lich_tuyen_sinh_2026: —
+
+▸ Lê Hồng Nhật  (nhan_su)
+    loai            : nhan_su [✓A]
+    ten_day_du      : —
+    truc_thuoc      : —
+    chuc_vu         : —
+    hoc_ham_hoc_vi  : TS [✓A]
+    chuyen_mon      : Toán ứng dụng, Kinh tế học [✓A]
+    nam_thanh_lap_bo_mon: —
+    nam_len_khoa    : —
+    nam_mo_nganh    : —
+    nam_thanh_lap   : —
+    so_giang_vien_co_huu: —
+    co_cau_hoc_vi   : —
+    bo_mon_truc_thuoc: —
+    dinh_huong_nghien_cuu: —
+    triet_ly_giao_duc: —
+    tam_nhin        : —
+    dia_chi         : —
+    email           : —
+    dien_thoai      : —
+    website         : —
+    ma_truong       : —
+    ma_tuyen_sinh   : —
+    tin_chi         : —
+    so_hoc_ky       : —
+    chuyen_nganh_2025: —
+    diem_thpt_2025_A00_A01: —
+    diem_thpt_2025_D01_D07_X25_X26: —
+    diem_dgnl_2025  : —
+    diem_utxtt_2025 : —
+    chi_tieu_2025   : —
+    hoc_phi_tieng_viet_2025_2026: —
+    hoc_phi_tieng_anh_2025_2026: —
+    ghi_chu         : Nghỉ hưu từ tháng 11/2019 [✓A]
+    tien_than       : —
+    lich_tuyen_sinh_2026: —
+
+▸ Lê Phương  (nhan_su)
+    loai            : nhan_su [✓A]
+    ten_day_du      : —
+    truc_thuoc      : —
+    chuc_vu         : —
+    hoc_ham_hoc_vi  : PGS.TS [✓A]
+    chuyen_mon      : Toán ứng dụng [✓A]
+    nam_thanh_lap_bo_mon: —
+    nam_len_khoa    : —
+    nam_mo_nganh    : —
+    nam_thanh_lap   : —
+    so_giang_vien_co_huu: —
+    co_cau_hoc_vi   : —
+    bo_mon_truc_thuoc: —
+    dinh_huong_nghien_cuu: —
+    triet_ly_giao_duc: —
+    tam_nhin        : —
+    dia_chi         : —
+    email           : —
+    dien_thoai      : —
+    website         : —
+    ma_truong       : —
+    ma_tuyen_sinh   : —
+    tin_chi         : —
+    so_hoc_ky       : —
+    chuyen_nganh_2025: —
+    diem_thpt_2025_A00_A01: —
+    diem_thpt_2025_D01_D07_X25_X26: —
+    diem_dgnl_2025  : —
+    diem_utxtt_2025 : —
+    chi_tieu_2025   : —
+    hoc_phi_tieng_viet_2025_2026: —
+    hoc_phi_tieng_anh_2025_2026: —
+    ghi_chu         : —
+    tien_than       : —
+    lich_tuyen_sinh_2026: —
 
 ▸ Lê Thanh Hoa  (nhan_su)
     loai            : nhan_su [✓A]
@@ -171,6 +368,9 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     chi_tieu_2025   : —
     hoc_phi_tieng_viet_2025_2026: —
     hoc_phi_tieng_anh_2025_2026: —
+    ghi_chu         : —
+    tien_than       : —
+    lich_tuyen_sinh_2026: —
 
 ▸ Lê Thị Thanh An  (nhan_su)
     loai            : nhan_su [✓A]
@@ -205,6 +405,46 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     chi_tieu_2025   : —
     hoc_phi_tieng_viet_2025_2026: —
     hoc_phi_tieng_anh_2025_2026: —
+    ghi_chu         : —
+    tien_than       : —
+    lich_tuyen_sinh_2026: —
+
+▸ Nguyễn Ngọc Huy  (nhan_su)
+    loai            : nhan_su [✓A]
+    ten_day_du      : —
+    truc_thuoc      : —
+    chuc_vu         : —
+    hoc_ham_hoc_vi  : TS [✓A]
+    chuyen_mon      : Toán ứng dụng [✓A]
+    nam_thanh_lap_bo_mon: —
+    nam_len_khoa    : —
+    nam_mo_nganh    : —
+    nam_thanh_lap   : —
+    so_giang_vien_co_huu: —
+    co_cau_hoc_vi   : —
+    bo_mon_truc_thuoc: —
+    dinh_huong_nghien_cuu: —
+    triet_ly_giao_duc: —
+    tam_nhin        : —
+    dia_chi         : —
+    email           : —
+    dien_thoai      : —
+    website         : —
+    ma_truong       : —
+    ma_tuyen_sinh   : —
+    tin_chi         : —
+    so_hoc_ky       : —
+    chuyen_nganh_2025: —
+    diem_thpt_2025_A00_A01: —
+    diem_thpt_2025_D01_D07_X25_X26: —
+    diem_dgnl_2025  : —
+    diem_utxtt_2025 : —
+    chi_tieu_2025   : —
+    hoc_phi_tieng_viet_2025_2026: —
+    hoc_phi_tieng_anh_2025_2026: —
+    ghi_chu         : —
+    tien_than       : —
+    lich_tuyen_sinh_2026: —
 
 ▸ Nguyễn Phúc Sơn  (nhan_su)
     loai            : nhan_su [✓A]
@@ -239,6 +479,46 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     chi_tieu_2025   : —
     hoc_phi_tieng_viet_2025_2026: —
     hoc_phi_tieng_anh_2025_2026: —
+    ghi_chu         : —
+    tien_than       : —
+    lich_tuyen_sinh_2026: —
+
+▸ Nguyễn Đình Uông  (nhan_su)
+    loai            : nhan_su [✓A]
+    ten_day_du      : —
+    truc_thuoc      : —
+    chuc_vu         : —
+    hoc_ham_hoc_vi  : ThS [✓A]
+    chuyen_mon      : Toán ứng dụng [✓A]
+    nam_thanh_lap_bo_mon: —
+    nam_len_khoa    : —
+    nam_mo_nganh    : —
+    nam_thanh_lap   : —
+    so_giang_vien_co_huu: —
+    co_cau_hoc_vi   : —
+    bo_mon_truc_thuoc: —
+    dinh_huong_nghien_cuu: —
+    triet_ly_giao_duc: —
+    tam_nhin        : —
+    dia_chi         : —
+    email           : —
+    dien_thoai      : —
+    website         : —
+    ma_truong       : —
+    ma_tuyen_sinh   : —
+    tin_chi         : —
+    so_hoc_ky       : —
+    chuyen_nganh_2025: —
+    diem_thpt_2025_A00_A01: —
+    diem_thpt_2025_D01_D07_X25_X26: —
+    diem_dgnl_2025  : —
+    diem_utxtt_2025 : —
+    chi_tieu_2025   : —
+    hoc_phi_tieng_viet_2025_2026: —
+    hoc_phi_tieng_anh_2025_2026: —
+    ghi_chu         : —
+    tien_than       : —
+    lich_tuyen_sinh_2026: —
 
 ▸ Ngành Toán kinh tế  (nganh)
     loai            : nganh [✓A]
@@ -273,6 +553,9 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     chi_tieu_2025   : —
     hoc_phi_tieng_viet_2025_2026: —
     hoc_phi_tieng_anh_2025_2026: —
+    ghi_chu         : —
+    tien_than       : —
+    lich_tuyen_sinh_2026: —
 
 ▸ Phạm Hoàng Uyên  (nhan_su)
     loai            : nhan_su [✓A]
@@ -307,6 +590,120 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     chi_tieu_2025   : —
     hoc_phi_tieng_viet_2025_2026: —
     hoc_phi_tieng_anh_2025_2026: —
+    ghi_chu         : —
+    tien_than       : —
+    lich_tuyen_sinh_2026: —
+
+▸ Phạm Thị Thu Cúc  (nhan_su)
+    loai            : nhan_su [✓A]
+    ten_day_du      : —
+    truc_thuoc      : —
+    chuc_vu         : —
+    hoc_ham_hoc_vi  : ThS [✓A]
+    chuyen_mon      : Toán ứng dụng [✓A]
+    nam_thanh_lap_bo_mon: —
+    nam_len_khoa    : —
+    nam_mo_nganh    : —
+    nam_thanh_lap   : —
+    so_giang_vien_co_huu: —
+    co_cau_hoc_vi   : —
+    bo_mon_truc_thuoc: —
+    dinh_huong_nghien_cuu: —
+    triet_ly_giao_duc: —
+    tam_nhin        : —
+    dia_chi         : —
+    email           : —
+    dien_thoai      : —
+    website         : —
+    ma_truong       : —
+    ma_tuyen_sinh   : —
+    tin_chi         : —
+    so_hoc_ky       : —
+    chuyen_nganh_2025: —
+    diem_thpt_2025_A00_A01: —
+    diem_thpt_2025_D01_D07_X25_X26: —
+    diem_dgnl_2025  : —
+    diem_utxtt_2025 : —
+    chi_tieu_2025   : —
+    hoc_phi_tieng_viet_2025_2026: —
+    hoc_phi_tieng_anh_2025_2026: —
+    ghi_chu         : —
+    tien_than       : —
+    lich_tuyen_sinh_2026: —
+
+▸ Phạm Văn Chững  (nhan_su)
+    loai            : nhan_su [✓A]
+    ten_day_du      : —
+    truc_thuoc      : —
+    chuc_vu         : —
+    hoc_ham_hoc_vi  : TS [✓A]
+    chuyen_mon      : Toán học [✓A]
+    nam_thanh_lap_bo_mon: —
+    nam_len_khoa    : —
+    nam_mo_nganh    : —
+    nam_thanh_lap   : —
+    so_giang_vien_co_huu: —
+    co_cau_hoc_vi   : —
+    bo_mon_truc_thuoc: —
+    dinh_huong_nghien_cuu: —
+    triet_ly_giao_duc: —
+    tam_nhin        : —
+    dia_chi         : —
+    email           : —
+    dien_thoai      : —
+    website         : —
+    ma_truong       : —
+    ma_tuyen_sinh   : —
+    tin_chi         : —
+    so_hoc_ky       : —
+    chuyen_nganh_2025: —
+    diem_thpt_2025_A00_A01: —
+    diem_thpt_2025_D01_D07_X25_X26: —
+    diem_dgnl_2025  : —
+    diem_utxtt_2025 : —
+    chi_tieu_2025   : —
+    hoc_phi_tieng_viet_2025_2026: —
+    hoc_phi_tieng_anh_2025_2026: —
+    ghi_chu         : —
+    tien_than       : —
+    lich_tuyen_sinh_2026: —
+
+▸ Trương Quang Nhật  (nhan_su)
+    loai            : nhan_su [✓A]
+    ten_day_du      : —
+    truc_thuoc      : —
+    chuc_vu         : —
+    hoc_ham_hoc_vi  : ThS [✓A]
+    chuyen_mon      : Toán ứng dụng [✓A]
+    nam_thanh_lap_bo_mon: —
+    nam_len_khoa    : —
+    nam_mo_nganh    : —
+    nam_thanh_lap   : —
+    so_giang_vien_co_huu: —
+    co_cau_hoc_vi   : —
+    bo_mon_truc_thuoc: —
+    dinh_huong_nghien_cuu: —
+    triet_ly_giao_duc: —
+    tam_nhin        : —
+    dia_chi         : —
+    email           : —
+    dien_thoai      : —
+    website         : —
+    ma_truong       : —
+    ma_tuyen_sinh   : —
+    tin_chi         : —
+    so_hoc_ky       : —
+    chuyen_nganh_2025: —
+    diem_thpt_2025_A00_A01: —
+    diem_thpt_2025_D01_D07_X25_X26: —
+    diem_dgnl_2025  : —
+    diem_utxtt_2025 : —
+    chi_tieu_2025   : —
+    hoc_phi_tieng_viet_2025_2026: —
+    hoc_phi_tieng_anh_2025_2026: —
+    ghi_chu         : —
+    tien_than       : —
+    lich_tuyen_sinh_2026: —
 
 ▸ Trường Đại học Kinh tế - Luật  (truong)
     loai            : truong [✓C]
@@ -341,6 +738,9 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     chi_tieu_2025   : 2.700 [✓C]
     hoc_phi_tieng_viet_2025_2026: 31,5 triệu đồng (năm thứ nhất) [✓C]
     hoc_phi_tieng_anh_2025_2026: 65 triệu đồng (năm thứ nhất) [✓C]
+    ghi_chu         : —
+    tien_than       : Khoa Kinh tế trực thuộc ĐHQG-HCM, thành lập theo QĐ 441/QĐ-ĐHQG-TCCB ngày 06/11/2000 [✓C]
+    lich_tuyen_sinh_2026: Nhận hồ sơ minh chứng xét tuyển ĐHCQ 2026 (Phương thức 1 và 2): 08g00 ngày 13/5/2026 đến hết 20/6/2026 [✓C]
 
 ▸ Trần Nguyễn Hoàng Sang  (nhan_su)
     loai            : nhan_su [✓A]
@@ -375,13 +775,90 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     chi_tieu_2025   : —
     hoc_phi_tieng_viet_2025_2026: —
     hoc_phi_tieng_anh_2025_2026: —
+    ghi_chu         : —
+    tien_than       : —
+    lich_tuyen_sinh_2026: —
 
-Phân bố theo loai (n=11 / universe≈22 · coverage 50.0%):
+▸ Võ Thị Lệ Uyển  (nhan_su)
+    loai            : nhan_su [✓A]
+    ten_day_du      : —
+    truc_thuoc      : —
+    chuc_vu         : —
+    hoc_ham_hoc_vi  : ThS [✓A]
+    chuyen_mon      : Toán ứng dụng [✓A]
+    nam_thanh_lap_bo_mon: —
+    nam_len_khoa    : —
+    nam_mo_nganh    : —
+    nam_thanh_lap   : —
+    so_giang_vien_co_huu: —
+    co_cau_hoc_vi   : —
+    bo_mon_truc_thuoc: —
+    dinh_huong_nghien_cuu: —
+    triet_ly_giao_duc: —
+    tam_nhin        : —
+    dia_chi         : —
+    email           : —
+    dien_thoai      : —
+    website         : —
+    ma_truong       : —
+    ma_tuyen_sinh   : —
+    tin_chi         : —
+    so_hoc_ky       : —
+    chuyen_nganh_2025: —
+    diem_thpt_2025_A00_A01: —
+    diem_thpt_2025_D01_D07_X25_X26: —
+    diem_dgnl_2025  : —
+    diem_utxtt_2025 : —
+    chi_tieu_2025   : —
+    hoc_phi_tieng_viet_2025_2026: —
+    hoc_phi_tieng_anh_2025_2026: —
+    ghi_chu         : —
+    tien_than       : —
+    lich_tuyen_sinh_2026: —
+
+▸ Đoàn Hồng Chương  (nhan_su)
+    loai            : nhan_su [✓A]
+    ten_day_du      : —
+    truc_thuoc      : —
+    chuc_vu         : —
+    hoc_ham_hoc_vi  : TS [✓A]
+    chuyen_mon      : Toán ứng dụng [✓A]
+    nam_thanh_lap_bo_mon: —
+    nam_len_khoa    : —
+    nam_mo_nganh    : —
+    nam_thanh_lap   : —
+    so_giang_vien_co_huu: —
+    co_cau_hoc_vi   : —
+    bo_mon_truc_thuoc: —
+    dinh_huong_nghien_cuu: —
+    triet_ly_giao_duc: —
+    tam_nhin        : —
+    dia_chi         : —
+    email           : —
+    dien_thoai      : —
+    website         : —
+    ma_truong       : —
+    ma_tuyen_sinh   : —
+    tin_chi         : —
+    so_hoc_ky       : —
+    chuyen_nganh_2025: —
+    diem_thpt_2025_A00_A01: —
+    diem_thpt_2025_D01_D07_X25_X26: —
+    diem_dgnl_2025  : —
+    diem_utxtt_2025 : —
+    chi_tieu_2025   : —
+    hoc_phi_tieng_viet_2025_2026: —
+    hoc_phi_tieng_anh_2025_2026: —
+    ghi_chu         : —
+    tien_than       : —
+    lich_tuyen_sinh_2026: —
+
+Phân bố theo loai (n=23 / universe≈23 · coverage 100.0%):
     chuyen_nganh: 3
     don_vi: 1
     nganh: 1
-    nhan_su: 5
+    nhan_su: 17
     truong: 1
 
-build digest = fe71ad1060bf2c78  · idempotent OK · auditor OK
+build digest = 2bba1a7e6bb8448c  · idempotent OK · auditor OK
 VALIDATION PASSED · 0 gate bites

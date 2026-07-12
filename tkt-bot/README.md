@@ -1,7 +1,7 @@
 # TKT-BOT · Cổng hỏi đáp Khoa Toán Kinh tế UEL
 
-Chatbot tuyển sinh grounded trên 71 claims đã kiểm chứng của domain refinery
-`toan_kinh_te_uel`. Mọi con số và tên riêng truy vết được về evidence_span,
+Chatbot tuyển sinh grounded trên 110 claims đã kiểm chứng của domain refinery
+`toan_kinh_te_uel` (Registry v1.1, 23 thực thể). Mọi con số và tên riêng truy vết được về evidence_span,
 bốn trạng thái trả lời: grounded, disputed, honest-null, oos.
 
 ## Chạy một lệnh

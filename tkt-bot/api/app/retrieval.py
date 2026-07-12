@@ -50,12 +50,15 @@ CN_ENTITIES = [
     "CN Phân tích dữ liệu",
 ]
 
-# (regex trên câu đã norm, danh sách field, year_bound: field gắn năm 2025)
+# (regex trên câu đã norm, danh sách field, year_bound: field gắn năm trong tên)
 FIELD_RULES = [
     (r"diem chuan|diem trung tuyen|nguong dau vao|muc trung tuyen|bao nhieu diem|lay bao nhieu",
      "diem", True),
     (r"hoc phi", "hoc_phi", True),
     (r"chi tieu", ["chi_tieu_2025"], True),
+    (r"lich tuyen sinh|lich nhan ho so|nhan ho so|nop ho so|lich xet tuyen|bao gio (nop|nhan|xet)",
+     ["lich_tuyen_sinh_2026"], True),
+    (r"tien than|truoc day la truong nao|xuat than tu dau", ["tien_than", "nam_thanh_lap"], False),
     (r"ma tuyen sinh|ma nganh|ma xet tuyen", ["ma_tuyen_sinh"], False),
     (r"ma truong", ["ma_truong"], False),
     (r"bao nhieu tin chi|so tin chi|tin chi", ["tin_chi"], False),
@@ -114,13 +117,12 @@ def _detect_hoc_phi_fields(q: str) -> list[str]:
 
 
 def _year_mismatch(q: str, fields) -> bool:
-    """Field gắn năm 2025: câu hỏi nêu năm khác thì không được trả ô 2025."""
+    """Field gắn năm trong tên: câu hỏi nêu năm không có trong tên field
+    thì không được trả ô đó (vd hỏi 2026 mà field chỉ có dữ liệu 2025)."""
     years = set(re.findall(r"\b(20\d\d)\b", q))
     if not years:
         return False
-    ok = {"2025"}
-    if any(f.startswith("hoc_phi") for f in (fields if isinstance(fields, list) else [])):
-        ok.add("2026")  # năm học 2025-2026
+    ok = {y for f in fields for y in re.findall(r"20\d\d", f)}
     return not (years & ok)
 
 
@@ -158,7 +160,7 @@ def _role_lookup(q: str) -> list[dict]:
             person = row["entity"]
             cur.execute(
                 """SELECT * FROM registry_cells WHERE entity=%s
-                   AND field IN ('chuc_vu','hoc_ham_hoc_vi','chuyen_mon')
+                   AND field IN ('chuc_vu','hoc_ham_hoc_vi','chuyen_mon','ghi_chu')
                    AND status != 'null'""", (person,))
             for cell in cur.fetchall():
                 cur.execute("SELECT * FROM claims WHERE claim_id = ANY(%s)",
@@ -168,12 +170,34 @@ def _role_lookup(q: str) -> list[dict]:
     return out
 
 
+PERSON_FIELDS = ("chuc_vu", "hoc_ham_hoc_vi", "chuyen_mon", "ghi_chu",
+                 "dinh_huong_nghien_cuu")
+
+
+@lru_cache(maxsize=1)
+def _person_entities() -> tuple:
+    """Danh sách entity loại nhan_su, hỏi được bằng tên (Registry v1.1)."""
+    with connect() as conn, conn.cursor() as cur:
+        cur.execute("""SELECT entity FROM registry_cells
+                       WHERE field='loai' AND value_json::text LIKE '%nhan_su%'""")
+        return tuple(r["entity"] for r in cur.fetchall())
+
+
+def _person_lookup(q: str) -> list[dict]:
+    hits = [p for p in _person_entities() if norm(p) in q]
+    return _fetch_cells([(p, f) for p in hits for f in PERSON_FIELDS])
+
+
 def structured_lookup(question: str) -> list[dict]:
     q = norm(question)
 
     role_cells = _role_lookup(q)
     if role_cells:
         return role_cells
+
+    person_cells = _person_lookup(q)
+    if person_cells:
+        return person_cells
 
     fields = None
     for pattern, f, year_bound in FIELD_RULES:
@@ -222,6 +246,7 @@ def _bm25_index():
 
 def invalidate_bm25_cache() -> None:
     _bm25_index.cache_clear()
+    _person_entities.cache_clear()
 
 
 def hybrid_search(question: str, k: int = TOP_K) -> list[dict]:
