@@ -6,7 +6,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-tkt}
       POSTGRES_DB: tktbot
     ports:
-      - "5433:5432"
+      - "${DB_HOST_PORT:-5433}:5432"
     volumes:
       - tkt_pgdata:/var/lib/postgresql/data
     healthcheck:
@@ -22,6 +22,12 @@ services:
       ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
       COMPOSER_MODEL: ${COMPOSER_MODEL:-claude-sonnet-4-6}
       EMBEDDINGS: ${EMBEDDINGS:-hash}
+      SITE_ADDRESS: ${SITE_ADDRESS:-}
+      CORS_ORIGINS: ${CORS_ORIGINS:-}
+      MAX_QUESTION_LEN: ${MAX_QUESTION_LEN:-500}
+      MODE: ${MODE:-template}
+      ADMIN_USER: ${ADMIN_USER:-}
+      ADMIN_PASS: ${ADMIN_PASS:-}
     ports:
       - "8000:8000"
     depends_on:
@@ -29,7 +35,13 @@ services:
         condition: service_healthy
 
   web:
-    build: ./web
+    build:
+      context: ./web
+      args:
+        NEXT_PUBLIC_STAGING: ${NEXT_PUBLIC_STAGING:-1}
+    environment:
+      STAGING_USER: ${STAGING_USER:-}
+      STAGING_PASS: ${STAGING_PASS:-}
     ports:
       - "3002:3000"
     depends_on:

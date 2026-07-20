@@ -1,0 +1,49 @@
+.wrap {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--paper);
+}
+
+.card {
+  max-width: 420px;
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  text-align: center;
+}
+
+.title {
+  margin: 0 0 8px;
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--ink);
+}
+
+.body {
+  margin: 0 0 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.button {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  background: var(--accent);
+  color: var(--user-ink);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 999px;
+}
+
+.button:hover {
+  background: var(--accent-ink);
+}

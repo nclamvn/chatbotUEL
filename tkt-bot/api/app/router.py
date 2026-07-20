@@ -5,7 +5,7 @@ Một lệnh gọi nhỏ few-shot trả JSON. Không có API key thì dùng heur
 import json
 import re
 
-from .config import ANTHROPIC_API_KEY, ROUTER_MODEL
+from .config import ANTHROPIC_API_KEY, LLM_ENABLED, ROUTER_MODEL
 from .retrieval import norm
 
 INTENTS = ("factual", "interpretive", "oos", "smalltalk")
@@ -42,7 +42,7 @@ def _heuristic(question: str) -> str:
 
 
 def classify(question: str) -> str:
-    if not ANTHROPIC_API_KEY:
+    if not LLM_ENABLED:
         return _heuristic(question)
     try:
         import anthropic
@@ -60,11 +60,12 @@ def classify(question: str) -> str:
                     f"Ví dụ:\n{examples}"),
             messages=[{"role": "user", "content": question}],
         )
-        from . import telemetry
+        from . import log, telemetry
         telemetry.incr_counter("llm_calls_router")
         telemetry.incr_counter("llm_tokens_in_router", msg.usage.input_tokens)
         telemetry.incr_counter("llm_tokens_out_router", msg.usage.output_tokens)
-        print(f"[router] model={msg.model} in={msg.usage.input_tokens} out={msg.usage.output_tokens}")
+        log.event("router", "llm", model=msg.model,
+                  tokens_in=msg.usage.input_tokens, tokens_out=msg.usage.output_tokens)
         intent = json.loads(msg.content[0].text.strip()).get("intent", "")
         return intent if intent in INTENTS else _heuristic(question)
     except Exception:

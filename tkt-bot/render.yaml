@@ -1,0 +1,60 @@
+# TIP-13 · Staging v0 blueprint cho Render (template-only).
+# Đây là scaffold: chỉnh name/region/plan theo tài khoản, đối chiếu render.com/docs
+# vì build-arg cho Docker có thể cần đặt trong Build settings của dashboard.
+#
+# NGUYÊN TẮC BẮT BUỘC:
+# - ANTHROPIC_API_KEY để trống. Staging là template-only, KHÔNG bật LLM kể cả khi
+#   key về giữa chừng. Đổi MODE là việc của TIP-08 với đầy đủ bằng chứng.
+# - Đặt ADMIN_PASS / STAGING_PASS là secret trong dashboard (sync:false), không commit.
+# - Chưa gắn domain UEL, dùng subdomain onrender.com mặc định tới khi Khoa xác nhận.
+
+databases:
+  - name: tkt-db
+    databaseName: tktbot
+    user: tkt
+    postgresMajorVersion: "16"
+    plan: free # nâng khi cần; free giới hạn dung lượng + tự ngủ
+    # pgvector: chạy `CREATE EXTENSION vector;` một lần (ensure_schema đã có IF NOT EXISTS)
+
+services:
+  # ── API (FastAPI, fallback template) ──────────────────────────────
+  - type: web
+    name: tkt-api
+    runtime: docker
+    dockerfilePath: ./api/Dockerfile
+    dockerContext: ./api
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase: { name: tkt-db, property: connectionString }
+      - key: MODE
+        value: template
+      - key: EMBEDDINGS
+        value: hash # e5 bật cùng TIP-08, không ở v0
+      - key: ANTHROPIC_API_KEY
+        value: "" # rỗng = template-only, KHÔNG đổi ở staging
+      - key: MAX_QUESTION_LEN
+        value: "500"
+      - key: CORS_ORIGINS
+        sync: false # điền URL web (https://tkt-web-xxx.onrender.com) sau khi có
+      - key: ADMIN_USER
+        sync: false
+      - key: ADMIN_PASS
+        sync: false
+
+  # ── WEB (Next.js standalone) ──────────────────────────────────────
+  - type: web
+    name: tkt-web
+    runtime: docker
+    dockerfilePath: ./web/Dockerfile
+    dockerContext: ./web
+    plan: free
+    envVars:
+      - key: STAGING_USER # gate mời, basic auth
+        sync: false
+      - key: STAGING_PASS
+        sync: false
+    # BUILD ARGS (đặt trong Build settings của dashboard cho Docker):
+    #   API_PROXY_URL     = URL của tkt-api (Next rewrite /api -> api)
+    #   NEXT_PUBLIC_STAGING = 1  (bật banner + noindex; =0 khi lên production)

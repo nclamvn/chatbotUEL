@@ -1,5 +1,10 @@
 import ChatSurface from "@/components/ChatSurface";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 export default function Home() {
-  return <ChatSurface />;
+  return (
+    <ErrorBoundary>
+      <ChatSurface />
+    </ErrorBoundary>
+  );
 }

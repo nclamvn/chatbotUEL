@@ -235,8 +235,23 @@ def structured_lookup(question: str) -> list[dict]:
 
 # ── hybrid semantic: BM25 + pgvector + RRF ───────────────────────────
 
-@lru_cache(maxsize=1)
-def _bm25_index():
+def _chunks_version() -> str:
+    """Vân tay của bảng chunks cộng registry_version. Thêm, bớt hay đổi tên
+    một chunk là chuỗi này đổi, cache BM25 tự chết (không còn phụ thuộc lệnh
+    invalidate thủ công, vốn là bug hẹn giờ khi API server chạy dài)."""
+    with connect() as conn, conn.cursor() as cur:
+        cur.execute(
+            "SELECT count(*) AS n, coalesce(md5(string_agg(chunk_id, ',' "
+            "ORDER BY chunk_id)), '') AS h FROM chunks")
+        row = cur.fetchone()
+        cur.execute("SELECT value FROM meta WHERE key = 'registry_version'")
+        rv = cur.fetchone()
+    return f"{rv['value'] if rv else ''}:{row['n']}:{row['h']}"
+
+
+@lru_cache(maxsize=4)
+def _bm25_index(version: str):
+    # version chỉ đóng vai khóa cache, thân hàm đọc lại chunks tươi mỗi lần key đổi
     with connect() as conn, conn.cursor() as cur:
         cur.execute("SELECT chunk_id, text, url, snapshot, fetched_at, tier FROM chunks ORDER BY chunk_id")
         rows = cur.fetchall()
@@ -250,7 +265,7 @@ def invalidate_bm25_cache() -> None:
 
 
 def hybrid_search(question: str, k: int = TOP_K) -> list[dict]:
-    bm25, rows = _bm25_index()
+    bm25, rows = _bm25_index(_chunks_version())
     if bm25 is None:
         return []
     q_tokens = tokens(question)

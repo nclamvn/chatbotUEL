@@ -70,14 +70,15 @@ def cache_put(question: str, answer: dict) -> None:
 
 
 def log_event(session_id: str | None, question: str, status: str,
-              citations: list, thumbs: str | None = None) -> None:
+              citations: list, thumbs: str | None = None,
+              comment: str | None = None) -> None:
     with connect() as conn, conn.cursor() as cur:
         cur.execute(
             """INSERT INTO telemetry_events
-               (session_hash, question, normalized, status, citations, thumbs)
-               VALUES (%s, %s, %s, %s, %s, %s)""",
+               (session_hash, question, normalized, status, citations, thumbs, comment)
+               VALUES (%s, %s, %s, %s, %s, %s, %s)""",
             (session_hash(session_id), question, norm(question), status,
-             json.dumps(citations, ensure_ascii=False), thumbs))
+             json.dumps(citations, ensure_ascii=False), thumbs, comment))
         conn.commit()
 
 

@@ -1,43 +1,25 @@
 .chip {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   font-size: 11px;
-  font-weight: 600;
-  color: var(--muted);
-  background: var(--card);
-  border: 1px solid var(--hairline);
-  border-radius: 999px;
-  padding: 4px 10px 4px 5px;
+  font-weight: 500;
+  border: 1px solid var(--line-2);
+  border-radius: 3px;
+  padding: 6px 12px 6px 7px;
+  color: var(--ink-2);
+  background: #fff;
   cursor: pointer;
-  transition: border-color 0.15s, color 0.15s;
+  transition: border-color 0.15s, background 0.15s;
   -webkit-tap-highlight-color: transparent;
 }
 
-.chip:active,
+.chip:hover {
+  border-color: var(--uel);
+  background: var(--uel-wash);
+}
+
 .chip:focus-visible {
-  border-color: var(--accent);
-}
-
-.tier {
-  width: 17px;
-  height: 17px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: #fff;
-  font-size: 9.5px;
-  font-weight: 700;
-}
-
-.tierA {
-  background: var(--tierA);
-}
-
-.tierB {
-  background: var(--tierB);
-}
-
-.tierC {
-  background: var(--tierC);
+  outline: 2px solid var(--uel);
+  outline-offset: 2px;
 }

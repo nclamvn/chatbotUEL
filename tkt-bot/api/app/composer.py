@@ -8,7 +8,8 @@ Mọi citation được server dựng lại từ DB, không tin metadata do LLM 
 """
 import json
 
-from .config import ANTHROPIC_API_KEY, COMPOSER_MODEL, CONTACT_EMAIL, CONTACT_PHONE
+from .config import (ANTHROPIC_API_KEY, COMPOSER_MODEL, CONTACT_EMAIL,
+                     CONTACT_PHONE, LLM_ENABLED)
 from .constitution import system_prompt
 
 FIELD_LABELS = {
@@ -177,11 +178,12 @@ def compose_llm(question: str, intent: str, retrieved: dict, feedback: str = Non
         model=COMPOSER_MODEL, max_tokens=1200,
         system=system_prompt(),
         messages=[{"role": "user", "content": user}])
-    from . import telemetry
+    from . import log, telemetry
     telemetry.incr_counter("llm_calls_composer")
     telemetry.incr_counter("llm_tokens_in_composer", msg.usage.input_tokens)
     telemetry.incr_counter("llm_tokens_out_composer", msg.usage.output_tokens)
-    print(f"[composer] model={msg.model} in={msg.usage.input_tokens} out={msg.usage.output_tokens}")
+    log.event("composer", "llm", model=msg.model,
+              tokens_in=msg.usage.input_tokens, tokens_out=msg.usage.output_tokens)
     text = msg.content[0].text.strip()
     if text.startswith("```"):
         text = text.strip("`").removeprefix("json").strip()
@@ -191,9 +193,10 @@ def compose_llm(question: str, intent: str, retrieved: dict, feedback: str = Non
 def compose(question: str, intent: str, retrieved: dict, feedback: str = None) -> tuple[dict, dict]:
     """Trả về (raw contract từ composer, lookup để dựng citation)."""
     _, lookup = build_context(retrieved)
-    if ANTHROPIC_API_KEY:
+    if LLM_ENABLED:
         try:
             return compose_llm(question, intent, retrieved, feedback), lookup
         except Exception as e:
-            print(f"[composer] LLM lỗi, dùng fallback: {e}")
+            from . import log
+            log.event("composer", "llm_error_fallback", error=str(e))
     return compose_fallback(question, intent, retrieved), lookup

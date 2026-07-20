@@ -1,6 +1,7 @@
 "use client";
 
 import type { Citation } from "@/lib/types";
+import TierBadge from "./TierBadge";
 import styles from "./CitationChip.module.css";
 
 export default function CitationChip({
@@ -12,9 +13,7 @@ export default function CitationChip({
 }) {
   return (
     <button className={styles.chip} onClick={() => onOpen(citation)}>
-      <span className={`${styles.tier} ${styles[`tier${citation.tier}`]}`}>
-        {citation.tier}
-      </span>
+      <TierBadge tier={citation.tier} size="sm" />
       {citation.source}
     </button>
   );

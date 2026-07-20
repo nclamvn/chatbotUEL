@@ -1,47 +1,29 @@
-/* Token lấy nguyên từ mockup đã duyệt. Đổi token là đổi khế ước. */
+/* Design System "UEL Edition" · Amendment REQ-08 v2 (A1).
+   Token lấy nguyên từ mockup-tkt-uel-edition.html (chuẩn duy nhất).
+   Đổi token là đổi khế ước. Dark mode Phase 2, chưa có ở đây. */
 :root {
-  --paper: #fbfaf7;
-  --ink: #181a1f;
-  --muted: #6b6f78;
-  --hairline: #e6e3db;
-  --accent: #144e8c;
-  --accent-ink: #0e3a6a;
-  --accent-soft: #eaf1fa;
-  --card: #ffffff;
-  --user: #144e8c;
-  --user-ink: #f4f8fe;
-  --warn-bg: #fdf7e7;
-  --warn-line: #e7d9ab;
-  --warn-ink: #7a611c;
-  --null-bg: #f3f2ee;
-  --null-ink: #565a62;
-  --tierA: #144e8c;
-  --tierB: #4d5a6b;
-  --tierC: #8a8f98;
-  --radius: 16px;
-  --shadow: 0 1px 2px rgba(20, 30, 50, 0.06), 0 8px 28px rgba(20, 30, 50, 0.08);
-  /* token layout cho desktop, không thuộc khế ước màu */
+  --paper: #fafbfc;
+  --paper-2: #f1f5f8;
+  --ink: #14202a;
+  --ink-2: #3f515f;
+  --muted: #7b8894;
+  --line: #dfe6ec;
+  --line-2: #cdd8e1;
+  --uel: #0090dc;
+  --uel-deep: #0b5c8d;
+  --uel-wash: #e8f5fc;
+  --amber: #b07a15;
+  --amber-wash: #fdf5e3;
+  --tierA: #0090dc;
+  --tierB: #4d6274;
+  --tierC: #9aa8b3;
+
+  --serif: var(--font-serif), Georgia, "Times New Roman", serif;
+  --sans: var(--font-sans), -apple-system, "Segoe UI", sans-serif;
+
+  /* token layout, không thuộc khế ước màu */
   --chat-max: 760px;
   --panel-w: 380px;
-}
-
-.dark {
-  --paper: #101318;
-  --ink: #e9eaee;
-  --muted: #9aa0ab;
-  --hairline: #242a33;
-  --accent: #6fa4dd;
-  --accent-ink: #a9c8ec;
-  --accent-soft: #182636;
-  --card: #171b22;
-  --user: #1c4d85;
-  --user-ink: #eaf2fc;
-  --warn-bg: #241f10;
-  --warn-line: #4a3f1c;
-  --warn-ink: #d9be6d;
-  --null-bg: #1a1e25;
-  --null-ink: #9aa0ab;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 28px rgba(0, 0, 0, 0.45);
 }
 
 * {
@@ -56,14 +38,33 @@ body {
 }
 
 body {
-  background: #d8d5cd;
+  background: var(--paper-2);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: stretch;
 }
 
-.dark body {
-  background: #05070a;
+/* TIP-13: dải banner thử nghiệm nội bộ */
+.staging-banner {
+  flex: 0 0 auto;
+  background: var(--uel-wash);
+  color: var(--uel-deep);
+  text-align: center;
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.4;
+  padding: 6px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+em {
+  font-family: var(--serif);
+  font-style: italic;
 }
 
 button {
@@ -77,10 +78,10 @@ button {
   }
 }
 
-/* scrollbar mảnh, ăn theo token cả hai theme */
+/* scrollbar mảnh */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--hairline) transparent;
+  scrollbar-color: var(--line-2) transparent;
 }
 
 *::-webkit-scrollbar {
@@ -93,7 +94,7 @@ button {
 }
 
 *::-webkit-scrollbar-thumb {
-  background: var(--hairline);
+  background: var(--line-2);
   border-radius: 999px;
 }
 

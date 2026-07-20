@@ -1,0 +1,288 @@
+{
+  "metrics": {
+    "n": 30,
+    "status_accuracy": 0.9,
+    "status_by_class": {
+      "disputed": "4/4",
+      "grounded": "16/18",
+      "null": "4/4",
+      "oos": "3/4"
+    },
+    "registry_hit_recall": 0.909,
+    "citation_coverage": 0.909,
+    "latency_p50_ms": 33.0,
+    "latency_p95_ms": 89.1
+  },
+  "per_case": [
+    {
+      "q": "Điểm chuẩn chuyên ngành Phân tích dữ liệu 2025 tổ hợp A00 là bao nhiêu?",
+      "expect": "grounded",
+      "pred": "grounded",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 111.7
+    },
+    {
+      "q": "Điểm chuẩn Phân tích dữ liệu 2025 tổ hợp D01?",
+      "expect": "grounded",
+      "pred": "grounded",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 89.0
+    },
+    {
+      "q": "Điểm đánh giá năng lực chuyên ngành Phân tích dữ liệu 2025?",
+      "expect": "grounded",
+      "pred": "null",
+      "status_ok": false,
+      "cell_recall": 0.0,
+      "cite_coverage": 0.0,
+      "ms": 39.4
+    },
+    {
+      "q": "Điểm chuẩn chuyên ngành Toán ứng dụng 2025 tổ hợp A00?",
+      "expect": "grounded",
+      "pred": "grounded",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 89.1
+    },
+    {
+      "q": "Điểm chuẩn chương trình tiếng Anh 2025 tổ hợp A00?",
+      "expect": "grounded",
+      "pred": "grounded",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 59.7
+    },
+    {
+      "q": "Điểm ưu tiên xét tuyển thẳng chương trình tiếng Anh 2025?",
+      "expect": "grounded",
+      "pred": "null",
+      "status_ok": false,
+      "cell_recall": 0.0,
+      "cite_coverage": 0.0,
+      "ms": 19.6
+    },
+    {
+      "q": "Học phí chương trình tiếng Việt năm 2025-2026 bao nhiêu?",
+      "expect": "grounded",
+      "pred": "grounded",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 35.7
+    },
+    {
+      "q": "Học phí chương trình tiếng Anh một năm bao nhiêu?",
+      "expect": "grounded",
+      "pred": "grounded",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 40.0
+    },
+    {
+      "q": "Chỉ tiêu tuyển sinh 2025 bao nhiêu?",
+      "expect": "grounded",
+      "pred": "grounded",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 32.8
+    },
+    {
+      "q": "Lịch nhận hồ sơ xét tuyển 2026 thế nào?",
+      "expect": "grounded",
+      "pred": "grounded",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 23.1
+    },
+    {
+      "q": "Mã trường của UEL là gì?",
+      "expect": "grounded",
+      "pred": "grounded",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 27.4
+    },
+    {
+      "q": "Mã tuyển sinh ngành Toán kinh tế?",
+      "expect": "grounded",
+      "pred": "grounded",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 34.7
+    },
+    {
+      "q": "Ngành Toán kinh tế bao nhiêu tín chỉ?",
+      "expect": "grounded",
+      "pred": "grounded",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 32.2
+    },
+    {
+      "q": "Chương trình Toán kinh tế học mấy học kỳ?",
+      "expect": "grounded",
+      "pred": "grounded",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 33.3
+    },
+    {
+      "q": "Địa chỉ văn phòng Khoa Toán Kinh tế ở đâu?",
+      "expect": "grounded",
+      "pred": "grounded",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 32.1
+    },
+    {
+      "q": "Email của Khoa Toán Kinh tế?",
+      "expect": "grounded",
+      "pred": "grounded",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 34.5
+    },
+    {
+      "q": "Ngành Toán kinh tế có những chuyên ngành nào?",
+      "expect": "grounded",
+      "pred": "grounded",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 33.2
+    },
+    {
+      "q": "Phó trưởng Khoa Toán Kinh tế là ai?",
+      "expect": "grounded",
+      "pred": "grounded",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 34.9
+    },
+    {
+      "q": "Khoa Toán Kinh tế có bao nhiêu giảng viên cơ hữu?",
+      "expect": "disputed",
+      "pred": "disputed",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 34.8
+    },
+    {
+      "q": "Cơ cấu học vị của Khoa Toán Kinh tế thế nào?",
+      "expect": "disputed",
+      "pred": "disputed",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 24.3
+    },
+    {
+      "q": "Địa chỉ Trường Đại học Kinh tế - Luật ở đâu?",
+      "expect": "disputed",
+      "pred": "disputed",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 34.4
+    },
+    {
+      "q": "Trưởng Khoa Toán Kinh tế là ai và học hàm gì?",
+      "expect": "disputed",
+      "pred": "disputed",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 34.5
+    },
+    {
+      "q": "Chỉ tiêu tuyển sinh năm 2026 là bao nhiêu?",
+      "expect": "null",
+      "pred": "null",
+      "status_ok": true,
+      "cell_recall": null,
+      "cite_coverage": null,
+      "ms": 26.1
+    },
+    {
+      "q": "Điểm chuẩn chuyên ngành Phân tích dữ liệu năm 2024?",
+      "expect": "null",
+      "pred": "null",
+      "status_ok": true,
+      "cell_recall": null,
+      "cite_coverage": null,
+      "ms": 26.5
+    },
+    {
+      "q": "Học phí năm học 2027-2028 bao nhiêu?",
+      "expect": "null",
+      "pred": "null",
+      "status_ok": true,
+      "cell_recall": null,
+      "cite_coverage": null,
+      "ms": 26.4
+    },
+    {
+      "q": "Điểm chuẩn chuyên ngành Toán ứng dụng năm 2023?",
+      "expect": "null",
+      "pred": "null",
+      "status_ok": true,
+      "cell_recall": null,
+      "cite_coverage": null,
+      "ms": 25.8
+    },
+    {
+      "q": "Nên đầu tư đồng coin nào để có lời?",
+      "expect": "oos",
+      "pred": "oos",
+      "status_ok": true,
+      "cell_recall": null,
+      "cite_coverage": null,
+      "ms": 4.9
+    },
+    {
+      "q": "Giải giúp mình bài tập tích phân này với.",
+      "expect": "oos",
+      "pred": "oos",
+      "status_ok": true,
+      "cell_recall": null,
+      "cite_coverage": null,
+      "ms": 5.0
+    },
+    {
+      "q": "Cho mình xin quan điểm chính trị về vấn đề này.",
+      "expect": "oos",
+      "pred": "oos",
+      "status_ok": true,
+      "cell_recall": null,
+      "cite_coverage": null,
+      "ms": 4.9
+    },
+    {
+      "q": "Dự đoán tỉ số trận bóng đá tối nay giúp mình?",
+      "expect": "oos",
+      "pred": "null",
+      "status_ok": false,
+      "cell_recall": null,
+      "cite_coverage": null,
+      "ms": 16.5
+    }
+  ]
+}

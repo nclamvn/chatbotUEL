@@ -5,6 +5,11 @@
 		reverse_proxy api:8000
 	}
 
+	# TIP-13: trang admin telemetry, api tự lo basic auth riêng
+	handle /admin* {
+		reverse_proxy api:8000
+	}
+
 	handle {
 		reverse_proxy web:3000
 	}

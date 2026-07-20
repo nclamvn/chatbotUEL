@@ -57,7 +57,8 @@ CREATE TABLE IF NOT EXISTS telemetry_events (
     normalized   TEXT NOT NULL,
     status       TEXT NOT NULL,
     citations    JSONB NOT NULL DEFAULT '[]',
-    thumbs       TEXT
+    thumbs       TEXT,
+    comment      TEXT
 );
 
 CREATE TABLE IF NOT EXISTS answer_cache (
@@ -66,6 +67,9 @@ CREATE TABLE IF NOT EXISTS answer_cache (
     answer           JSONB NOT NULL,
     created_at       TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+
+-- di trú idempotent cho DB đã tồn tại trước TIP-13
+ALTER TABLE telemetry_events ADD COLUMN IF NOT EXISTS comment TEXT;
 """
 
 

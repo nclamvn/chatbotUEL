@@ -1,0 +1,36 @@
+.badge {
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-family: var(--sans);
+  font-weight: 600;
+  line-height: 1;
+  flex: 0 0 auto;
+}
+
+/* sm: trong citation chip (16px) · lg: trong dossier src-line (26px) */
+.sm {
+  width: 16px;
+  height: 16px;
+  font-size: 9px;
+  border-radius: 2px;
+}
+
+.lg {
+  width: 26px;
+  height: 26px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+.tierA {
+  background: var(--tierA);
+}
+
+.tierB {
+  background: var(--tierB);
+}
+
+.tierC {
+  background: var(--tierC);
+}

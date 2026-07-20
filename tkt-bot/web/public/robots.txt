@@ -1,0 +1,3 @@
+# TIP-13 staging: chặn toàn bộ index, không sitemap.
+User-agent: *
+Disallow: /

@@ -21,7 +21,7 @@ def test_rewrite_on_emdash_then_pass(monkeypatch):
         ["Khoa Toán Kinh tế — đơn vị trẻ.", "Chào bạn, mình đây."])
     monkeypatch.setattr(pipeline, "compose", fake)
     monkeypatch.setattr(pipeline, "classify", lambda q: "smalltalk")
-    monkeypatch.setattr(pipeline, "ANTHROPIC_API_KEY", "test-key")
+    monkeypatch.setattr(pipeline, "LLM_ENABLED", True)
 
     answer, meta = pipeline.answer_pipeline("chào bạn")
     assert calls["n"] == 2
@@ -35,7 +35,7 @@ def test_fallback_after_two_failed_rewrites(monkeypatch):
     fake, calls = _fake_compose_factory([bad, bad, bad])
     monkeypatch.setattr(pipeline, "compose", fake)
     monkeypatch.setattr(pipeline, "classify", lambda q: "smalltalk")
-    monkeypatch.setattr(pipeline, "ANTHROPIC_API_KEY", "test-key")
+    monkeypatch.setattr(pipeline, "LLM_ENABLED", True)
 
     answer, meta = pipeline.answer_pipeline("chào bạn")
     assert calls["n"] == 3  # lần đầu + hai vòng viết lại

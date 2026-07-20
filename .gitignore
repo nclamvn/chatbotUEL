@@ -11,9 +11,13 @@ __pycache__/
 node_modules/
 .next/
 next-env.d.ts
+*.tsbuildinfo
 
 # sinh tự động bởi loader (tất định, dựng lại được)
 tkt-bot/api/data/registry.json
+
+# dữ liệu docker volume (phòng khi ai đó đổi sang bind mount)
+tkt_pgdata/
 
 # hệ điều hành
 .DS_Store

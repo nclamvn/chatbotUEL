@@ -2,11 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { Answer, ChatMessage, Citation } from "@/lib/types";
-import { streamChat } from "@/lib/api";
+import { streamChat, fetchClaimsCount } from "@/lib/api";
 import EvidenceSheet from "./EvidenceSheet";
 import InputBar from "./InputBar";
 import MessageBubble from "./MessageBubble";
-import ModeToggle from "./ModeToggle";
 import SeasonCards from "./SeasonCards";
 import styles from "./ChatSurface.module.css";
 
@@ -17,7 +16,14 @@ export default function ChatSurface() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [busy, setBusy] = useState(false);
   const [sheetCitation, setSheetCitation] = useState<Citation | null>(null);
+  const [claims, setClaims] = useState<number | null>(null);
   const chatRef = useRef<HTMLDivElement>(null);
+  const abortRef = useRef<AbortController | null>(null);
+
+  // Số dữ kiện đọc từ /health, không hardcode (A3). Lỗi thì ẩn số.
+  useEffect(() => {
+    fetchClaimsCount().then(setClaims).catch(() => {});
+  }, []);
 
   useEffect(() => {
     chatRef.current?.scrollTo({ top: chatRef.current.scrollHeight });
@@ -36,35 +42,50 @@ export default function ChatSurface() {
     const patch = (p: Partial<ChatMessage>) =>
       setMessages((m) => m.map((x) => (x.id === botId ? { ...x, ...p } : x)));
 
-    await streamChat(q, {
-      onPartial: (text) => patch({ text }),
-      onAnswer: (answer: Answer) =>
-        patch({ text: answer.answer_markdown, answer, pending: false }),
-      onError: (err) =>
-        patch({
-          text: err,
-          pending: false,
-          answer: { answer_markdown: err, status: "null", citations: [], followups: [] },
-        }),
-    });
+    const controller = new AbortController();
+    abortRef.current = controller;
+    await streamChat(
+      q,
+      {
+        onPartial: (text) => patch({ text }),
+        onAnswer: (answer: Answer) =>
+          patch({ text: answer.answer_markdown, answer, pending: false }),
+        onError: (err) =>
+          patch({
+            text: err,
+            pending: false,
+            answer: { answer_markdown: err, status: "null", citations: [], followups: [] },
+          }),
+      },
+      controller.signal,
+    );
+    // dừng giữa chừng cũng phải tắt con trỏ, giữ nguyên phần đã stream
+    patch({ pending: false });
+    abortRef.current = null;
     setBusy(false);
   };
+
+  const stop = () => abortRef.current?.abort();
 
   return (
     <div
       className={`${styles.phone} ${sheetCitation !== null ? styles.panelOpen : ""}`}
     >
       <header className={styles.header}>
-        <div className={styles.mark}>∑</div>
-        <div className={styles.hTitle}>
-          <div className={styles.eyebrow}>UEL · Cổng hỏi đáp</div>
-          <h1>Khoa Toán Kinh tế</h1>
-          <div className={styles.hStatus}>
-            <span className={styles.dot} />
-            Dữ liệu kiểm chứng · cập nhật 12/07/2026
-          </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          className={styles.logo}
+          src="/Logo-DH-Kinh-Te-Luat-UEL.webp"
+          alt="Logo Trường Đại học Kinh tế - Luật, ĐHQG-HCM"
+        />
+        <div className={styles.wordmark}>
+          <div className={styles.over}>Trường Đại học Kinh tế - Luật · ĐHQG-HCM</div>
+          <div className={styles.name}>Khoa Toán Kinh tế</div>
         </div>
-        <ModeToggle />
+        <div className={styles.verified}>
+          <span className={styles.vdot} />
+          {claims !== null ? `${claims} dữ kiện kiểm chứng` : "Dữ kiện kiểm chứng"}
+        </div>
       </header>
 
       <main className={styles.chat} ref={chatRef}>
@@ -79,10 +100,13 @@ export default function ChatSurface() {
             <SeasonCards onPick={send} />
           </div>
         )}
-        {messages.map((msg) => (
+        {messages.map((msg, i) => (
           <MessageBubble
             key={msg.id}
             msg={msg}
+            question={
+              i > 0 && messages[i - 1].role === "user" ? messages[i - 1].text : ""
+            }
             onOpenCitation={setSheetCitation}
             onPickFollowup={send}
           />
@@ -94,7 +118,7 @@ export default function ChatSurface() {
         quan trọng xin xác nhận với văn phòng Khoa.
       </div>
 
-      <InputBar onSend={send} disabled={busy} />
+      <InputBar onSend={send} disabled={busy} onStop={stop} />
 
       <EvidenceSheet citation={sheetCitation} onClose={() => setSheetCitation(null)} />
     </div>

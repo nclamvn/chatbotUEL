@@ -1,88 +1,91 @@
 .msg {
-  max-width: 88%;
   display: flex;
   flex-direction: column;
-  gap: 6px;
 }
 
-.msg.user {
-  align-self: flex-end;
-  align-items: flex-end;
-}
-
-.msg.bot {
-  align-self: flex-start;
-}
-
-.bubble {
-  padding: 11px 14px;
-  border-radius: var(--radius);
-  font-size: 14px;
-  line-height: 1.6;
-}
-
+/* ── câu hỏi user: đề từ serif, tiền tố "Hỏi —", kẻ hairline dưới (A3) ── */
 .user .bubble {
-  background: var(--user);
-  color: var(--user-ink);
-  border-bottom-right-radius: 5px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(19px, 2.4vw, 24px);
+  line-height: 1.35;
+  color: var(--ink);
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
 }
 
+.user .bubble::before {
+  content: "Hỏi — ";
+  color: var(--muted);
+  font-style: italic;
+  font-size: 0.72em;
+}
+
+/* ── câu trả lời bot: prose editorial ── */
 .bot .bubble {
-  background: var(--card);
-  border: 1px solid var(--hairline);
-  border-bottom-left-radius: 5px;
-  box-shadow: var(--shadow);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink-2);
 }
 
-.bot .bubble p + p,
-.bot .bubble div + div,
-.bot .bubble p + ul,
-.bot .bubble ul + p {
-  margin-top: 8px;
+.bot .bubble p {
+  max-width: 62ch;
+  margin-bottom: 12px;
+}
+
+.bot .bubble p:last-child {
+  margin-bottom: 0;
+}
+
+.bot .bubble strong,
+.bot .bubble b {
+  color: var(--ink);
+  font-weight: 600;
 }
 
 .bot .bubble ul {
-  padding-left: 18px;
+  margin: 10px 0 12px;
+  padding-left: 20px;
+}
+
+.bot .bubble li {
+  max-width: 62ch;
+  margin-bottom: 5px;
 }
 
 .cursor {
-  color: var(--accent);
-  animation: blink 1s step-end infinite;
+  color: var(--uel);
+  font-weight: 400;
 }
 
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-
+/* ── citation chips ── */
 .chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  padding: 0 2px;
+  gap: 8px;
+  margin-top: 20px;
 }
 
+/* ── followups ── */
 .fu {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
+  margin-top: 16px;
 }
 
 .fu button {
-  font-family: inherit;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--accent-ink);
-  background: var(--accent-soft);
-  border: none;
-  border-radius: 999px;
-  padding: 6px 12px;
+  border: 1px solid var(--line-2);
+  background: #fff;
+  color: var(--uel-deep);
+  border-radius: 3px;
+  padding: 7px 14px;
+  font-size: 12.5px;
   cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
 }
 
-@media (min-width: 900px) {
-  .msg {
-    max-width: min(88%, 620px);
-  }
+.fu button:hover {
+  border-color: var(--uel);
+  background: var(--uel-wash);
 }

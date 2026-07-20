@@ -2,7 +2,25 @@
 
 import React, { useEffect, useRef } from "react";
 import type { Citation } from "@/lib/types";
+import TierBadge from "./TierBadge";
 import styles from "./EvidenceSheet.module.css";
+
+// Vài claim tier-C (điểm chuẩn ts247) có evidence_span là nguyên khối HTML bảng
+// vì nguồn render điểm bằng <table>, gate verbatim khiến markup là chuỗi gốc duy
+// nhất. Ở đây chỉ gỡ thẻ để đọc được, ô bảng nối bằng " · ". Không đổi claim,
+// fix gốc (span sạch hoặc field evidence_display) thuộc refinery.
+function cleanEvidence(raw: string): string {
+  if (!/<[a-z/]/i.test(raw)) return raw; // không phải HTML thì giữ nguyên
+  return raw
+    .replace(/<\/(td|th|tr|p|div|li)>/gi, " · ")
+    .replace(/<[^>]+>/g, "")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/\s+/g, " ")
+    .replace(/(\s*·\s*)+/g, " · ")
+    .replace(/^[·\s]+|[·\s]+$/g, "")
+    .trim();
+}
 
 function highlightNumbers(text: string): React.ReactNode[] {
   return text
@@ -66,17 +84,18 @@ export default function EvidenceSheet({
               ×
             </button>
             <div className={styles.grab} />
+            <div className={styles.stamp}>Hồ sơ bằng chứng</div>
             <div className={styles.head}>
-              <span className={`${styles.tier} ${styles[`tier${citation.tier}`]}`}>
-                {citation.tier}
-              </span>
+              <TierBadge tier={citation.tier} size="lg" />
               <div>
                 <div className={styles.src}>{citation.source}</div>
                 <div className={styles.meta}>{fmtFetchedAt(citation.fetched_at)}</div>
               </div>
             </div>
             <div className={styles.evLabel}>Đoạn gốc nguyên văn (evidence_span)</div>
-            <p className={styles.evidence}>{highlightNumbers(citation.evidence_span)}</p>
+            <blockquote className={styles.evidence}>
+              {highlightNumbers(cleanEvidence(citation.evidence_span))}
+            </blockquote>
             <div className={styles.rows}>
               <div className={styles.row}>
                 <span>Mã dẫn nguồn</span>

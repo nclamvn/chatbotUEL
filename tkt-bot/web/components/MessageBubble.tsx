@@ -4,15 +4,18 @@ import type { ChatMessage, Citation } from "@/lib/types";
 import { renderMarkdown } from "@/lib/markdown";
 import CitationChip from "./CitationChip";
 import DisputedBlock from "./DisputedBlock";
+import FeedbackBar from "./FeedbackBar";
 import NullBlock from "./NullBlock";
 import styles from "./MessageBubble.module.css";
 
 export default function MessageBubble({
   msg,
+  question,
   onOpenCitation,
   onPickFollowup,
 }: {
   msg: ChatMessage;
+  question: string;
   onOpenCitation: (c: Citation) => void;
   onPickFollowup: (q: string) => void;
 }) {
@@ -53,6 +56,7 @@ export default function MessageBubble({
           ))}
         </div>
       )}
+      {a && !msg.pending && question && <FeedbackBar question={question} />}
     </div>
   );
 }

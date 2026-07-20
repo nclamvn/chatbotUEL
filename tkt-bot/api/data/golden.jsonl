@@ -1,0 +1,30 @@
+{"question": "Điểm chuẩn chuyên ngành Phân tích dữ liệu 2025 tổ hợp A00 là bao nhiêu?", "expect_status": "grounded", "expect_cells": [["CN Phân tích dữ liệu", "diem_thpt_2025_A00_A01"]], "notes": "grounded factual, tier C"}
+{"question": "Điểm chuẩn Phân tích dữ liệu 2025 tổ hợp D01?", "expect_status": "grounded", "expect_cells": [["CN Phân tích dữ liệu", "diem_thpt_2025_D01_D07_X25_X26"]], "notes": "grounded factual"}
+{"question": "Điểm đánh giá năng lực chuyên ngành Phân tích dữ liệu 2025?", "expect_status": "grounded", "expect_cells": [["CN Phân tích dữ liệu", "diem_dgnl_2025"]], "notes": "DGNL"}
+{"question": "Điểm chuẩn chuyên ngành Toán ứng dụng 2025 tổ hợp A00?", "expect_status": "grounded", "expect_cells": [["CN Toán ứng dụng trong Kinh tế, Quản trị và Tài chính", "diem_thpt_2025_A00_A01"]], "notes": "bản Việt, không phải Tiếng Anh"}
+{"question": "Điểm chuẩn chương trình tiếng Anh 2025 tổ hợp A00?", "expect_status": "grounded", "expect_cells": [["CN Toán ứng dụng trong Kinh tế, Quản trị và Tài chính (Tiếng Anh)", "diem_thpt_2025_A00_A01"]], "notes": "alias chuong trinh tieng anh"}
+{"question": "Điểm ưu tiên xét tuyển thẳng chương trình tiếng Anh 2025?", "expect_status": "grounded", "expect_cells": [["CN Toán ứng dụng trong Kinh tế, Quản trị và Tài chính (Tiếng Anh)", "diem_utxtt_2025"]], "notes": "UTXTT chỉ có ở bản Tiếng Anh"}
+{"question": "Học phí chương trình tiếng Việt năm 2025-2026 bao nhiêu?", "expect_status": "grounded", "expect_cells": [["Trường Đại học Kinh tế - Luật", "hoc_phi_tieng_viet_2025_2026"]], "notes": "ô học phí nằm ở entity Trường"}
+{"question": "Học phí chương trình tiếng Anh một năm bao nhiêu?", "expect_status": "grounded", "expect_cells": [["Trường Đại học Kinh tế - Luật", "hoc_phi_tieng_anh_2025_2026"]], "notes": "hồi quy bug entity khóa nhầm vào CN Tiếng Anh"}
+{"question": "Chỉ tiêu tuyển sinh 2025 bao nhiêu?", "expect_status": "grounded", "expect_cells": [["Trường Đại học Kinh tế - Luật", "chi_tieu_2025"]], "notes": "chi_tieu chỉ có 2025"}
+{"question": "Lịch nhận hồ sơ xét tuyển 2026 thế nào?", "expect_status": "grounded", "expect_cells": [["Trường Đại học Kinh tế - Luật", "lich_tuyen_sinh_2026"]], "notes": "field mới v1.1"}
+{"question": "Mã trường của UEL là gì?", "expect_status": "grounded", "expect_cells": [["Trường Đại học Kinh tế - Luật", "ma_truong"]], "notes": "entity alias uel"}
+{"question": "Mã tuyển sinh ngành Toán kinh tế?", "expect_status": "grounded", "expect_cells": [["Ngành Toán kinh tế", "ma_tuyen_sinh"]], "notes": "ma_tuyen_sinh"}
+{"question": "Ngành Toán kinh tế bao nhiêu tín chỉ?", "expect_status": "grounded", "expect_cells": [["Ngành Toán kinh tế", "tin_chi"]], "notes": "tin_chi"}
+{"question": "Chương trình Toán kinh tế học mấy học kỳ?", "expect_status": "grounded", "expect_cells": [["Ngành Toán kinh tế", "so_hoc_ky"]], "notes": "so_hoc_ky"}
+{"question": "Địa chỉ văn phòng Khoa Toán Kinh tế ở đâu?", "expect_status": "grounded", "expect_cells": [["Khoa Toán Kinh tế", "dia_chi"]], "notes": "dia_chi của Khoa (sourced), khác dia_chi Trường (disputed)"}
+{"question": "Email của Khoa Toán Kinh tế?", "expect_status": "grounded", "expect_cells": [["Khoa Toán Kinh tế", "email"]], "notes": "email"}
+{"question": "Ngành Toán kinh tế có những chuyên ngành nào?", "expect_status": "grounded", "expect_cells": [["Ngành Toán kinh tế", "chuyen_nganh_2025"]], "notes": "liệt kê chuyên ngành"}
+{"question": "Phó trưởng Khoa Toán Kinh tế là ai?", "expect_status": "grounded", "expect_cells": [["Nguyễn Phúc Sơn", "chuc_vu"]], "notes": "role lookup, học hàm không disputed"}
+{"question": "Khoa Toán Kinh tế có bao nhiêu giảng viên cơ hữu?", "expect_status": "disputed", "expect_cells": [["Khoa Toán Kinh tế", "so_giang_vien_co_huu"]], "notes": "disputed 14 vs 15"}
+{"question": "Cơ cấu học vị của Khoa Toán Kinh tế thế nào?", "expect_status": "disputed", "expect_cells": [["Khoa Toán Kinh tế", "co_cau_hoc_vi"]], "notes": "disputed 03 vs 04 ThS"}
+{"question": "Địa chỉ Trường Đại học Kinh tế - Luật ở đâu?", "expect_status": "disputed", "expect_cells": [["Trường Đại học Kinh tế - Luật", "dia_chi"]], "notes": "disputed hai định dạng địa chỉ Trường"}
+{"question": "Trưởng Khoa Toán Kinh tế là ai và học hàm gì?", "expect_status": "disputed", "expect_cells": [["Phạm Hoàng Uyên", "chuc_vu"], ["Phạm Hoàng Uyên", "hoc_ham_hoc_vi"]], "notes": "AMBIGUOUS: chuc_vu grounded nhưng hoc_ham disputed PGS.TS vs TS; Chủ thầu chốt status kỳ vọng"}
+{"question": "Chỉ tiêu tuyển sinh năm 2026 là bao nhiêu?", "expect_status": "null", "expect_cells": [], "notes": "honest-null: chi_tieu chỉ có 2025, year mismatch"}
+{"question": "Điểm chuẩn chuyên ngành Phân tích dữ liệu năm 2024?", "expect_status": "null", "expect_cells": [], "notes": "honest-null: year mismatch, chỉ có 2025"}
+{"question": "Học phí năm học 2027-2028 bao nhiêu?", "expect_status": "null", "expect_cells": [], "notes": "honest-null: year mismatch"}
+{"question": "Điểm chuẩn chuyên ngành Toán ứng dụng năm 2023?", "expect_status": "null", "expect_cells": [], "notes": "honest-null: year mismatch"}
+{"question": "Nên đầu tư đồng coin nào để có lời?", "expect_status": "oos", "expect_cells": [], "notes": "oos, heuristic bắt coin/đầu tư"}
+{"question": "Giải giúp mình bài tập tích phân này với.", "expect_status": "oos", "expect_cells": [], "notes": "oos, heuristic bắt bài tập"}
+{"question": "Cho mình xin quan điểm chính trị về vấn đề này.", "expect_status": "oos", "expect_cells": [], "notes": "oos, heuristic bắt chính trị"}
+{"question": "Dự đoán tỉ số trận bóng đá tối nay giúp mình?", "expect_status": "oos", "expect_cells": [], "notes": "oos KHÓ: heuristic fallback có thể trượt, test recall router; kỳ vọng cải thiện khi bật LLM router (TIP-08)"}
