@@ -16,6 +16,39 @@ export function renderMarkdown(text: string): React.ReactNode[] {
   const blocks = text.split(/\n\s*\n/).filter((b) => b.trim());
   return blocks.map((block, bi) => {
     const lines = block.split("\n").filter((l) => l.trim());
+
+    // bảng markdown: | header |, | --- |, rồi các dòng dữ liệu
+    const isTable =
+      lines.length >= 2 &&
+      lines.every((l) => l.trim().startsWith("|")) &&
+      lines[1].includes("---");
+    if (isTable) {
+      const cells = (l: string) =>
+        l.trim().replace(/^\||\|$/g, "").split("|").map((c) => c.trim());
+      const header = cells(lines[0]);
+      const body = lines.slice(2).map(cells);
+      return (
+        <table key={bi}>
+          <thead>
+            <tr>
+              {header.map((c, i) => (
+                <th key={i}>{inline(c, `${bi}-th-${i}`)}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {body.map((row, ri) => (
+              <tr key={ri}>
+                {row.map((c, ci) => (
+                  <td key={ci}>{inline(c, `${bi}-td-${ri}-${ci}`)}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      );
+    }
+
     const isList = lines.every((l) => l.trim().startsWith("- "));
     if (isList) {
       return (

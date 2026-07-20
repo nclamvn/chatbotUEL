@@ -133,6 +133,38 @@ def _fmt_value(v) -> str:
     return s
 
 
+# tên chuyên ngành gọn cho cột bảng (không phải tên riêng cần trace)
+def _short_entity(name: str) -> str:
+    s = name[3:] if name.startswith("CN ") else name
+    return s.replace(" trong Kinh tế, Quản trị và Tài chính", "").strip()
+
+
+# cột điểm theo phương thức, thứ tự chuẩn
+DIEM_COLS = [
+    ("diem_thpt_2025_A00_A01", "A00, A01"),
+    ("diem_thpt_2025_D01_D07_X25_X26", "D01, D07, X25, X26"),
+    ("diem_dgnl_2025", "ĐGNL"),
+    ("diem_utxtt_2025", "ƯTXTT"),
+]
+
+
+def _diem_table(diem_cells: list) -> str:
+    """Bảng điểm chuẩn kiểu ấn phẩm thay cho N câu lặp (A3, TIP-10 multi-cell)."""
+    fields = [(f, h) for f, h in DIEM_COLS if any(c["field"] == f for c in diem_cells)]
+    by, ents = {}, []
+    for c in diem_cells:
+        e = c["entity"]
+        if e not in by:
+            by[e] = {}
+            ents.append(e)
+        by[e][c["field"]] = _fmt_value(c["value_json"])
+    head = "| Chuyên ngành | " + " | ".join(h for _, h in fields) + " |"
+    sep = "| " + " | ".join(["---"] * (len(fields) + 1)) + " |"
+    rows = [f"| {_short_entity(e)} | " + " | ".join(by[e].get(f, "") for f, _ in fields) + " |"
+            for e in ents]
+    return "Điểm chuẩn 2025 theo chuyên ngành:\n\n" + "\n".join([head, sep, *rows])
+
+
 def compose_fallback(question: str, intent: str, retrieved: dict) -> dict:
     if intent == "oos":
         return {"answer_markdown": OOS_ANSWER, "status": "oos", "citation_ids": [],
@@ -146,21 +178,31 @@ def compose_fallback(question: str, intent: str, retrieved: dict) -> dict:
         return {"answer_markdown": NULL_ANSWER, "status": "null", "citation_ids": [],
                 "followups": DEFAULT_FOLLOWUPS}
 
-    lines, ids, any_disputed = [], [], False
+    diem = [c for c in cells if c["field"].startswith("diem_") and c["status"] != "disputed"]
+    use_table = len(diem) >= 2
+
+    blocks, ids, any_disputed = [], [], False
+    if use_table:
+        blocks.append(_diem_table(diem))
+        for c in diem:
+            ids.extend(x["claim_id"] for x in c["claims"])
+
     for cell in cells:
+        if use_table and cell in diem:
+            continue
         label = FIELD_LABELS.get(cell["field"], cell["field"])
         if cell["status"] == "disputed":
             any_disputed = True
             versions = ", còn ".join(
                 f"nguồn {c['source']} (tier {c['tier']}) ghi {_fmt_value(c['value'])}"
                 for c in cell["claims"])
-            lines.append(f"Về {label} của {cell['entity']}, hai bản ghi đang lệch nhau: {versions}."
-                         f" Mình hiển thị cả hai để bạn đối chiếu.")
+            blocks.append(f"Về {label} của {cell['entity']}, hai bản ghi đang lệch nhau: {versions}."
+                          f" Mình hiển thị cả hai để bạn đối chiếu.")
         else:
-            lines.append(f"{cell['entity']}: {label} là {_fmt_value(cell['value_json'])}.")
+            blocks.append(f"{cell['entity']}: {label} là {_fmt_value(cell['value_json'])}.")
         ids.extend(c["claim_id"] for c in cell["claims"])
 
-    return {"answer_markdown": "\n\n".join(lines),
+    return {"answer_markdown": "\n\n".join(blocks),
             "status": "disputed" if any_disputed else "grounded",
             "citation_ids": ids, "followups": DEFAULT_FOLLOWUPS}
 
