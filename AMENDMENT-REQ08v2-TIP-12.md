@@ -37,7 +37,7 @@ Fraunces (300/400/500, italic 400) cho display, câu hỏi của người dùng,
 | Câu trả lời bot | prose editorial, strong màu ink, bảng số kiểu ấn phẩm: viền đậm 2px trên đầu, số serif tabular |
 | Citation chip | nền trắng viền --line-2 bo 3px, badge tier 16px vuông bo 2px, chữ đủ tên nguồn |
 | Badge tier | component dùng chung duy nhất: display grid, place-items center, line-height 1, font sans; khai một chỗ, cấm khai rải theo ngữ cảnh |
-| Evidence sheet / panel | phong cách "Hồ sơ bằng chứng": nhãn con dấu --uel-deep góc trên, blockquote serif viền trái --uel, highlight bằng --uel-deep gạch chân --uel-wash, bảng dl hairline |
+| Evidence sheet / panel | phong cách "Hồ sơ bằng chứng": nhãn con dấu --uel-deep góc trên, blockquote serif viền trái --uel, highlight bằng --uel-deep gạch chân --uel-wash, bảng dl hairline. **Nguyên tắc (VERIFY 20/07): hồ sơ bằng chứng cho người đọc chỉ chứa thứ kiểm chứng được bằng MẮT và một cú BẤM; mọi định danh máy (claim_id) ở lại trong payload JSON + telemetry, không hiển thị.** Hình hài cuối bốn tầng: (1) nguồn + tier + ngày chụp · (2) đoạn gốc nguyên văn highlight số · (3) URL nguồn link sống · (4) giải thích tier A/B/C. |
 | Disputed | viền trái 2px --amber, nền gradient --amber-wash sang trong suốt 82%, tiêu đề tracking .2em |
 | Honest-null, oos | giữ cấu trúc cũ, đổi token, nút liên hệ viền --uel-deep |
 | Welcome screen | thêm dải chỉ số count-up (số đọc từ /health và registry meta, không hardcode) và bốn thẻ mùa restyle theo starters |
