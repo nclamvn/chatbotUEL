@@ -60,6 +60,11 @@ def p95(vals: list[float]) -> float:
 
 def run() -> tuple[dict, list[dict]]:
     golden = load_golden()
+    # cache theo registry_version không đổi khi CODE đổi; xóa để đo mã mới, không
+    # phục vụ câu trả lời cũ đã cache (bài học TIP-14).
+    with connect() as conn, conn.cursor() as cur:
+        cur.execute("TRUNCATE answer_cache")
+        conn.commit()
     per, lat = [], []
     for g in golden:
         t = time.perf_counter()
@@ -71,6 +76,7 @@ def run() -> tuple[dict, list[dict]]:
         got = structured_cells(g["question"])
         per.append({
             "q": g["question"],
+            "group": g.get("group", "core"),
             "expect": g["expect_status"],
             "pred": answer["status"],
             "status_ok": answer["status"] == g["expect_status"],
@@ -84,12 +90,18 @@ def run() -> tuple[dict, list[dict]]:
         by.setdefault(p["expect"], [0, 0])
         by[p["expect"]][0] += int(p["status_ok"])
         by[p["expect"]][1] += 1
+    grp: dict[str, list[int]] = {}
+    for p in per:
+        grp.setdefault(p["group"], [0, 0])
+        grp[p["group"]][0] += int(p["status_ok"])
+        grp[p["group"]][1] += 1
     recs = [p["cell_recall"] for p in per if p["cell_recall"] is not None]
     covs = [p["cite_coverage"] for p in per if p["cite_coverage"] is not None]
     metrics = {
         "n": len(per),
         "status_accuracy": round(sum(p["status_ok"] for p in per) / len(per), 3),
         "status_by_class": {k: f"{v[0]}/{v[1]}" for k, v in sorted(by.items())},
+        "status_by_group": {k: f"{v[0]}/{v[1]}" for k, v in sorted(grp.items())},
         "registry_hit_recall": round(statistics.mean(recs), 3) if recs else None,
         "citation_coverage": round(statistics.mean(covs), 3) if covs else None,
         "latency_p50_ms": round(statistics.median(lat), 1) if lat else 0.0,

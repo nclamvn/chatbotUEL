@@ -12,11 +12,18 @@ from functools import lru_cache
 
 from rank_bm25 import BM25Okapi
 
+from .constitution import ABBREVIATIONS
 from .db import connect
 from .embeddings import embed
 
 RRF_K = 60
 TOP_K = 8
+
+# TIP-14: ngưỡng edit distance chặt. Chọn 2 vì đủ chữa gõ nhầm/thiếu 1-2 ký tự
+# ("chuien"->"chuyen", "tuien"->"tuyen") nhưng không nới tới mức lẫn hai field gần
+# nhau ("diem"<->"dien", "hoc"<->"hop"). Nhập nhằng (nhiều ứng viên cùng min) thì
+# GIỮ NGUYÊN token, không đoán.
+FUZZY_MAX = 2
 
 
 def norm(s: str) -> str:
@@ -24,6 +31,18 @@ def norm(s: str) -> str:
     s = "".join(c for c in unicodedata.normalize("NFD", s)
                 if unicodedata.category(c) != "Mn")
     return re.sub(r"\s+", " ", s).strip()
+
+
+def _lev(a: str, b: str) -> int:
+    if abs(len(a) - len(b)) > FUZZY_MAX:
+        return FUZZY_MAX + 1
+    prev = list(range(len(b) + 1))
+    for i, ca in enumerate(a, 1):
+        cur = [i]
+        for j, cb in enumerate(b, 1):
+            cur.append(min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (ca != cb)))
+        prev = cur
+    return prev[-1]
 
 
 def tokens(s: str) -> list[str]:
@@ -188,8 +207,76 @@ def _person_lookup(q: str) -> list[dict]:
     return _fetch_cells([(p, f) for p in hits for f in PERSON_FIELDS])
 
 
+@lru_cache(maxsize=1)
+def _vocab() -> frozenset:
+    """Từ vựng đích cho fuzzy: từ trong FIELD_RULES + alias entity + giá trị viết
+    tắt + token tên người. Từ hợp lệ nằm sẵn đây nên không bị sửa nhầm."""
+    words = set()
+    for rule in FIELD_RULES:
+        # bỏ escape regex (\b, \d...) trước khi bóc từ, kẻo "\bemail\b" thành "bemailb"
+        pat = re.sub(r"\\[a-z]", " ", rule[0])
+        words |= {w for w in re.findall(r"[a-z]+", pat) if len(w) >= 3}
+    for alias, _ent in ENTITY_ALIASES:
+        words |= {w for w in alias.split() if len(w) >= 2}
+    for exp in ABBREVIATIONS.values():
+        words |= {w for w in exp.split() if len(w) >= 2}
+    for p in _person_entities():
+        words |= {w for w in norm(p).split() if len(w) >= 2}
+    # token hợp lệ mà _detect_* dùng nhưng không nằm trong FIELD_RULES/alias:
+    # qualifier ngôn ngữ + tổ hợp + phương thức. Có mặt ở đây để fuzzy không sửa nhầm.
+    words |= {"viet", "anh", "dgnl", "utxtt", "danh", "gia", "nang", "luc",
+              "uu", "tien", "xet", "chuong", "trinh"}
+    return frozenset(words)
+
+
+def _expand_abbrev(q: str) -> str:
+    out = []
+    for t in q.split():
+        out.extend(ABBREVIATIONS[t].split() if t in ABBREVIATIONS else [t])
+    return " ".join(out)
+
+
+def _fuzzy_fix(q: str) -> str:
+    """Sửa gõ nhầm token về từ vựng gần nhất (distance ≤ FUZZY_MAX, duy nhất).
+    Chỉ nhắm từ vựng ≥3 ký tự để không co token lạ về viết tắt 2 ký tự."""
+    vocab = _vocab()
+    out = []
+    for t in q.split():
+        if len(t) >= 4 and t not in vocab:
+            cands = [(w, _lev(t, w)) for w in vocab if len(w) >= 3]
+            cands = [(w, d) for w, d in cands if d <= FUZZY_MAX]
+            if cands:
+                md = min(d for _, d in cands)
+                best = [w for w, d in cands if d == md]
+                if len(best) == 1:
+                    out.append(best[0])
+                    continue
+        out.append(t)
+    return " ".join(out)
+
+
+def _repair_query(q: str) -> str:
+    return _fuzzy_fix(_expand_abbrev(q))
+
+
+def _unknown_acronym(q: str) -> str | None:
+    """Token viết tắt lạ (chuỗi phụ âm không nguyên âm, 2-5 ký tự) không giải được
+    = qualifier chưa rõ (vd 'cntt'). Có nó thì cấm đoán, trả honest-null."""
+    vocab = _vocab()
+    for t in q.split():
+        if t.isalpha() and 2 <= len(t) <= 5 and not (set(t) & set("aeiou")) \
+                and t not in vocab:
+            return t
+    return None
+
+
 def structured_lookup(question: str) -> list[dict]:
-    q = norm(question)
+    q1 = _expand_abbrev(norm(question))
+    # TIP-14 anti-guess: viết tắt lạ chưa giải được thì không đoán (chặn TRƯỚC fuzzy
+    # để 'cntt' không bị co về 'cn')
+    if _unknown_acronym(q1):
+        return []
+    q = _fuzzy_fix(q1)
 
     role_cells = _role_lookup(q)
     if role_cells:
@@ -262,6 +349,7 @@ def _bm25_index(version: str):
 def invalidate_bm25_cache() -> None:
     _bm25_index.cache_clear()
     _person_entities.cache_clear()
+    _vocab.cache_clear()
 
 
 def hybrid_search(question: str, k: int = TOP_K) -> list[dict]:
@@ -298,6 +386,9 @@ def hybrid_search(question: str, k: int = TOP_K) -> list[dict]:
 
 
 def retrieve(question: str) -> dict:
+    # viết tắt lạ (vd 'cntt'): đừng để chunk đoán bừa, honest-null cả hai đường
+    if _unknown_acronym(_expand_abbrev(norm(question))):
+        return {"cells": [], "chunks": []}
     cells = structured_lookup(question)
     chunks = hybrid_search(question)
     return {"cells": cells, "chunks": chunks}

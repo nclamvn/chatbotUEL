@@ -28,3 +28,15 @@
 {"question": "Giải giúp mình bài tập tích phân này với.", "expect_status": "oos", "expect_cells": [], "notes": "oos, heuristic bắt bài tập"}
 {"question": "Cho mình xin quan điểm chính trị về vấn đề này.", "expect_status": "oos", "expect_cells": [], "notes": "oos, heuristic bắt chính trị"}
 {"question": "Dự đoán tỉ số trận bóng đá tối nay giúp mình?", "expect_status": "oos", "expect_cells": [], "notes": "oos KHÓ: heuristic fallback có thể trượt, test recall router; kỳ vọng cải thiện khi bật LLM router (TIP-08)"}
+{"question": "diem chuan phan tich du lieu 2025", "expect_status": "grounded", "expect_cells": [["CN Phân tích dữ liệu", "diem_thpt_2025_A00_A01"]], "group": "typo", "notes": "không dấu hoàn toàn"}
+{"question": "thay Le Hong Nhat con day ko", "expect_status": "grounded", "expect_cells": [["Lê Hồng Nhật", "ghi_chu"]], "group": "typo", "notes": "tên người thiếu dấu + teencode"}
+{"question": "dia chi van phong khoa toan kinh te", "expect_status": "grounded", "expect_cells": [["Khoa Toán Kinh tế", "dia_chi"]], "group": "typo", "notes": "không dấu"}
+{"question": "email khoa toan kinh te", "expect_status": "grounded", "expect_cells": [["Khoa Toán Kinh tế", "email"]], "group": "typo", "notes": "không dấu"}
+{"question": "hoc fi tieng anh", "expect_status": "grounded", "expect_cells": [["Trường Đại học Kinh tế - Luật", "hoc_phi_tieng_anh_2025_2026"]], "group": "typo", "notes": "sai phụ âm fi->phi"}
+{"question": "hp tieng viet", "expect_status": "grounded", "expect_cells": [["Trường Đại học Kinh tế - Luật", "hoc_phi_tieng_viet_2025_2026"]], "group": "typo", "notes": "viết tắt hp->học phí"}
+{"question": "dc 2025 phan tich du lieu", "expect_status": "grounded", "expect_cells": [["CN Phân tích dữ liệu", "diem_thpt_2025_A00_A01"]], "group": "typo", "notes": "viết tắt đc->điểm chuẩn"}
+{"question": "gv co huu cua khoa", "expect_status": "disputed", "expect_cells": [["Khoa Toán Kinh tế", "so_giang_vien_co_huu"]], "group": "typo", "notes": "viết tắt gv->giảng viên, ô disputed"}
+{"question": "chuiên ngành nào của ngành toán kinh te", "expect_status": "grounded", "expect_cells": [["Ngành Toán kinh tế", "chuyen_nganh_2025"]], "group": "typo", "notes": "sai chuyên->chuiên"}
+{"question": "tkte co bao nhieu gv", "expect_status": "disputed", "expect_cells": [["Khoa Toán Kinh tế", "so_giang_vien_co_huu"]], "group": "typo", "notes": "tkte->toán kinh tế + gv"}
+{"question": "ma tuiển sinh nganh toan kinh te", "expect_status": "grounded", "expect_cells": [["Ngành Toán kinh tế", "ma_tuyen_sinh"]], "group": "typo", "notes": "sai tuyển->tuiển"}
+{"question": "hoc phi cntt", "expect_status": "null", "expect_cells": [], "group": "typo", "notes": "ANTI-GUESS: cntt là chuyên ngành không tồn tại, cấm đoán bừa học phí chung"}

@@ -11,6 +11,21 @@ SYNONYMS = {
     "trường": ["nhà trường"],
 }
 
+# TIP-14: bảng viết tắt và lỗi phụ âm phổ biến, khai dạng data (không rải trong
+# code). Key và value ở dạng ĐÃ FOLD không dấu, chữ thường (áp sau retrieval.norm).
+# Mở rộng token trước khi vào bảng regex field/alias hiện có.
+ABBREVIATIONS = {
+    "tkte": "toan kinh te",
+    "hp": "hoc phi",
+    "dc": "diem chuan",
+    "cn": "chuyen nganh",
+    "gv": "giang vien",
+    "sv": "sinh vien",
+    "pt": "phan tich",
+    "ptdl": "phan tich du lieu",
+    "fi": "phi",  # lỗi gõ f<->ph rất phổ biến (hoc fi = học phí)
+}
+
 STYLE_RULES = """Luật văn phong, tuân thủ tuyệt đối:
 1. Cấm ký tự em-dash và en-dash. Cần ngắt ý thì dùng dấu phẩy hoặc tách thành câu mới.
 2. Dấu chấm phẩy xuất hiện tối đa một lần trong toàn bộ câu trả lời và chỉ khi liệt kê phức tạp.
