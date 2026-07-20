@@ -40,7 +40,7 @@ def post(path: str, payload: dict) -> dict:
 
 def main() -> None:
     health = json.load(urllib.request.urlopen(f"{BASE}/health", timeout=10))
-    assert health["claims_loaded"] == 110, f"claims_loaded={health['claims_loaded']}"
+    assert health["claims_loaded"] == 121, f"claims_loaded={health['claims_loaded']}"
     print(f"health OK · claims={health['claims_loaded']} · registry={health['registry_version']}")
 
     failures, times = [], []

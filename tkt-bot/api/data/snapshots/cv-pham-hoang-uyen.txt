@@ -1,0 +1,574 @@
+ĐẠI HỌC QUỐC GIA TP.HCM
+TRƯỜNG ĐẠI HỌC KINH TẾ - LUẬT
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập - Tự do - Hạnh phúc
+LÝ LỊCH KHOA HỌC
+(Thông tin trong 5 năm gần nhất và có liên quan trực tiếp đến đề tài/dự án đăng ký)
+I. THÔNG TIN CHUNG
+1. Họ và tên: Phạm Hoàng Uyên
+2. Ngày sinh: 03/03/1976
+3. Nam/nữ: Nữ
+4. Nơi đang công tác:
+Phòng/Ban: Toán Kinh tế
+Chức vụ:
+5. Học vị: Tiến sĩ năm đạt:
+6. Học hàm: năm phong:
+7. Thông tin liên lạc
+TT Cơ quan Cá nhân
+1  Địa chỉ  Khu phố 3, Phường Linh Xuân, Thủ Đức, TP.HCM  243/2/11 Chu Văn An, Phường 12, Bình Thạnh, Tp Hồ
+Chí Minh
+2  Điện thoại/Fax  028 372 44 551  0908414092
+3  Email  phongdaotao@uel.edu.vn  uyenph@uel.edu.vn
+8. Trình độ ngoại ngữ:
+Nghe Nói Viết Đọc hiểu tài liệu
+Tốt Khá TB Tốt Khá TB Tốt Khá TB Tốt Khá TB
+1 Tiếng Anh X X X X
+9. Thời gian công tác:
+Thời gian Nơi công tác Chức vụ
+Từ Từ 09/1999 đến 12/2003 New Mexico State University (NMS) Học Cao học và Trợ Giảng
+Từ Từ 01/2004 đến 06/2010 New Mexico State University (NMS) Học Cao học và Trợ Giảng
+Từ Từ 08/2010 đến 12 /2010 Central Michigan University Cán bộ giảng dạy
+Từ Từ 09/2011 đến 9/2012 Trường Đại Học Khoa Học Tự Nhiên Cán bộ giảng dạy
+Từ Từ 01/2011 đến 06/ 2011 University of Notredame Cán bộ giảng dạy
+Từ Từ 10/2012 đến nay Trường Đại Học Kinh Tế Luật Cán bộ giảng dạy  - Trưởng
+Bộ môn
+Contributions to Statistical Analysis of
+TT Tên ngoại ngữ
+10. Quá trình đào tạo:
+Bậc đào tạo Thời gian Nơi đào tạo Chuyên ngành Tên luận án tốt nghiệp
+ Tiến sĩ  Từ 2004 đến 2010  NMSU  Toán (XSTK) Contributions to Statistical Analysis of
+Financial Risks
+ Thạc sỹ  Từ 2000 đến 2003  ĐH KHTN  Toán (Giải Tích) Chỉnh hoá phương trình bằng chuỗi số.
+ đại học  Từ 1995 đến 1999  ĐH KHTN  Toán (Giải Tích) Bài toán ngược trong lý thuyết nhiệt
+11. Môn học giảng dạy
+STT Môn học giảng dạy
+1 Econometric
+2 Lập trình thống kê
+3 Lý thuyết xác suất
+4 Probability and Statistics
+5 Thống kê Bayes
+6 Thống kê ứng dụng
+7 Toán Cao cấp
+12. Hướng nghiên cứu:
+STT Hướng nghiên cứu
+1 Các mô hình định lượng trong kinh tế, tài chính và quản trị
+2 Mô hình phụ thuộc Copula
+3 Thống kê Bayes
+II. NGHIÊN CỨU VÀ GIẢNG DẠY
+1. Đề tài/dự án:
+TT Tên đề tài/dự án Mã số và cấp
+quản lý
+Thời gian
+thực hiện Kinh phí Chủ nhiệm/
+Tham gia
+Ngày
+nghiệm thu Kết quả
+1  Ứng dụng của một số hàm biến dạng trong
+kinh tế và tài chính
+  C2016-34-
+03 12 tháng  120,000,000  Chủ nhiệm   14/06/2017 Tốt
+2  Mô hình FBayes và ứng dụng trong phân
+tích Tài chính
+  C2018-34-
+04 24 tháng  130,000,000  Chủ nhiệm   29/04/2020 Tốt
+3  Tiếp cận phương trình vi phân ngẫu nhiên
+thông qua Thống kê lượng tử
+  C2019-34-
+04 24 tháng  120,000,000  Thành viên   20/12/2021 khá
+4  Các lớp hàm distortion (dùng trong độ đo rủi
+ro sử dụng tích phân Choquet) tương ứng với
+thái độ chấp nhận rủi ro của người ra quyết
+định
+  CS/2014-03 12 tháng  20,000,000  Chủ nhiệm   13/04/2015 Khá
+5  Xây dựng bộ dữ liệu  cho các môn học
+Thống kê ứng dụng, Kinh tế lượng và Dự
+báo kinh tế dựa trên dữ liệu của Trung Tâm
+Nghiên Cứu Kinh tế và Tài Chính
+  CS/2015-14 12 tháng  50,000,000  Chủ nhiệm   28/04/2016 Khá
+6  Sử dụng thống kê BAYES dự báo giá chứng
+khoán   CS/2016-13 12 tháng  35,000,000  Thành viên   04/05/2017 Tốt
+7  Ứng dụng của Khoa học dữ liệu vào việc
+xây dựng thuật toán dự báo và mua bán
+chứng khoán
+  CS/2017-08 12 tháng  35,000,000  Thành viên   08/02/2018 Tốt
+8  Đánh giá câu hỏi trắc nghiệm và năng lực
+của thí sinh dựa trên mô hình IRT 3 tham số
+và thuật toán Gibbs Sampler
+  CS/2017-15 12 tháng  40,000,000  Thành viên   30/03/2018 Tốt
+1. Đề tài/dự án:
+TT Tên đề tài/dự án Mã số và cấp
+quản lý
+Thời gian
+thực hiện Kinh phí Chủ nhiệm/
+Tham gia
+Ngày
+nghiệm thu Kết quả
+9  Sử dụng mô hình sống còn trong đánh giá
+khả năng phá sản của doanh nghiệp vừa và
+nhỏ
+  CS/2019-04 12 tháng  35  Thành viên   29/04/2020 Tốt
+10  Sử dụng mô hình sống còn trong nghiên cứu
+rủi ro phá sản của một số doanh nghiệp vừa
+và nhỏ
+  CS/2019-04 12 tháng  35,000,000  Thành viên   29/04/2020 Tốt
+11  Các tác động của các Hiệp định thương mại
+tự do đến tăng trưởng kinh tế tại Việt Nam
+thông qua thương mại, dịch vụ và môi trường
+  B2021-34-
+03 24 tháng  500,000,000  Chủ nhiệm 
+12  Các yếu tố tác động đến hiệu quả quản lý
+các dự án Hợp tác quốc tế tại Trường ĐH
+Kinh tế - Luật
+  CS/2020-12 12 tháng  50,000,000  Thành viên 
+13  CÁC YẾU TỐ TÁC ĐỘNG ĐẾN HIỆU
+QUẢ QUẢN LÝ CÁC DỰ ÁN QUỐC TẾ
+TẠI TRƯỜNG ĐẠI HỌC KINH TẾ - LUẬT
+  CS/2020-12 11 tháng  50,000,000  Thành viên   01/03/2022 Khá
+14  MỘT SỐ MÔ HÌNH HỒI QUY CHO DỮ
+LIỆU BẢNG VÀ ỨNG DỤNG TRONG
+PHÂN TÍCH MỘT SỐ CHỈ TIÊU KINH TẾ
+VĨ MÔ
+  C2022-34-
+02 24 tháng  100,000,000  Thành viên 
+2. Hướng dẫn sinh viên, học viên cao học, nghiên cứu sinh:
+TT Tên SV, HVCH, NCS Tên luận án Năm tốt
+nghiệp
+Bậc đào
+tạo
+Sản phẩm của đề
+tài/dự án
+(chỉ ghi mã số)
+1 
+III. CÁC CÔNG TRÌNH  ĐÃ CÔNG BỐ
+1.1. Sách xuất bản quốc tế
+TT Tên sách
+Sản phẩm của đề
+tài/ dự án
+(chỉ ghi mã số)
+Nhà xuất bản Năm xuất bản Tác giả/
+đồng tác giả Bút danh
+1
+1.2. Sách xuất bản trong nước
+TT Tên sách
+Sản phẩm của đề
+tài/ dự án
+(chỉ ghi mã số)
+Nhà xuất bản Năm xuất bản Tác giả/
+đồng tác giả Bút danh
+1 Lý thuyết xác suất Đại Học Quốc Gia
+TPHCM 2015-2016 Chủ biên
+2 Kinh tế lượng ĐHQG Tp,HCM 2018-2019 Thành viên
+3 Lý thuyết Xác suất ĐHQG TPHCM 2020-2021 Chủ biên
+4 Lý Thuyết Xác Suất ĐHQG, TPHCM. 2018-2019 Chủ biên
+2. Bài báo
+2.1. Đăng trên tạp chí quốc tế
+TT Tên tác giả, tên bài viết, tên tạp chí và số của tạp chí,
+trang đăng bài viết, năm xuất bản
+Sản phẩm của đề tài/
+dự án
+(chỉ ghi mã số)
+Số hiệu ISSN
+(ghi rõ thuộc ISI hay không) Điểm IF
+1   Tiến sĩ Phạm Hoàng Uyên, Extraction dependence structure of
+distorted
+copulas via a measure of dependenceAnnals of Operations
+Research, 01/01/2017
+ C2016-34-03  0254, 5330 (Print) 1572, 9338
+(Online) 
+2. Bài báo
+2.1. Đăng trên tạp chí quốc tế
+TT Tên tác giả, tên bài viết, tên tạp chí và số của tạp chí,
+trang đăng bài viết, năm xuất bản
+Sản phẩm của đề tài/
+dự án
+(chỉ ghi mã số)
+Số hiệu ISSN
+(ghi rõ thuộc ISI hay không) Điểm IF
+2   Tiến sĩ Lê Thanh Hoa, Improvement on Monte Carlo
+estimation of HPD intervalsCommunications in Statistics -
+Simulation and Computation, 17/11/2018
+  Print ISSN: 0361-0918 Online
+ISSN: 1532-4141
+0.501
+(năm
+2017)
+3   Tiến sĩ Lê Thanh Hoa, Statistical Methods of Handling Noise
+in Data ProcessingAnnals of  Biometrics & Biostatistics,
+01/12/2017
+  2374-0116 
+4  Phó giáo sư Tiến sĩ Nguyễn Tiến Dũng, On a New Calibrated
+Mixture Model for a Density Forecast of the VN30 IndexStudies
+in Computational Intelligence, 01/01/2018
+  18609503, 1860949X 
+5  Phó giáo sư Tiến sĩ Nguyễn Tiến Dũng, A Calibration-Based
+Method in Computing Bayesian Posterior Distributions with
+Applications in Stock MarketStudies in Computational
+Intelligence, 01/01/2018
+  18609503, 1860949X 
+6   Tiến sĩ Phạm Hoàng Uyên, MULTI-AGENT
+REINFORCEMENT LEARNING APPROACH FOR
+HEDGING PORTFOLIO PROBLEMSOFT COMPUTING,
+19/04/2021
+  10.1007/s00500-021-05801-6 3.628
+7   Tiến sĩ Phạm Hoàng Uyên, ESTIMATING A PROBABILITY
+DISTRIBUTION CORRESPONDING TO THE NEGATION
+OF A PROPERTYSOFT COMPUTING, 05/04/2021
+  14327643 3.628
+8  ROENGCHAI TANSUCHAT , ON SOFT COMPUTING
+WITH RANDOM FUZZY SETS IN ECONOMETRICS AND
+MACHINE LEARNINGSOFT COMPUTING, 11/07/2020
+  10.1007/s00500-020-05154-6 3.628
+9  Jirakom Sỉisrisakulchai, ON STATISTICS OF RANDOM
+SETS FOR PARTIAL IDENTIFICATION OF
+ECONOMETRIC STRUCTURESINTERNATIONAL
+JOURNAL OF UNCERTAINTY , FUZZINESS AND
+KNOWLEDGE-BASED SYSTEM, 15/07/2020
+  10.1142/S0218488520400085 1.214
+10   Tiến sĩ Lê Thanh Hoa, A New Approach For Estimating
+Probability Density Function With Fuzzy DataCredible Asset
+Allocation, Optimal Transport Methods, and Related Topics,
+10/01/2022
+ B-2021-34-03  2198-4182 
+11   Tiến sĩ Phạm Hoàng Uyên, LASSO Regression and Its
+Application in Forecasting Macro Economic Indicators: A Study
+on Vietnam’s Exports.Studies in Computational Intelligence,
+Springer, Cham, 27/07/2021
+ C2019-34-04  1860-9503 
+12   Tiến sĩ Phạm Hoàng Uyên, Impact of Hong Kong-ASEAN
+Free Trade Agreement: an assessment from the trade creation
+and trade diversion perspectivesCogent Social Sciences,
+04/03/2024
+ B2021  23311886 
+13   Tiến sĩ Phạm Hoàng Uyên, Impacts of regional trade
+agreements on international tourism demand: Empirical in
+VietnamCogent Economics & Finance, 24/08/2023
+ B2021-34-03  2331 - 1983 
+14  sang vu, The Role of DIKWP Assets in Shaping Economic
+Systems and Implications for Intelligent Consultant System in
+Real Estate InvestmentIGI Global Journal Submission System,
+21/05/2024
+ B2021-34-03  000 
+2.2. Đăng trên tạp chí trong nước
+TT Tên tác giả, tên bài viết, tên tạp chí và số của tạp chí,
+trang đăng bài viết, năm xuất bản
+Sản phẩm của đề tài/
+dự án
+(chỉ ghi mã số)
+Số hiệu ISSN Ghi chú
+1   Tiến sĩ Phạm Hoàng Uyên, Các lớp hàm Distortion tương ứng
+với các thái độ chấp nhận rủi ro của người ra quyết địnhTạp chí
+Khoa học, Đại học Sài Gòn, 01/10/2015
+  1859 - 3208
+2   Tiến sĩ Đoàn Hồng Chương, Áp dụng mô hình IRT 3 tham số
+đo đo lường, phân tích độ khó, độ phân biệt, mức độ dự đoán
+câu hỏi trong đề thi trắc nghiệm khách quanKhoa Học -  ĐHSP
+HCM, 01/09/2016
+  1859 - 3100
+2.2. Đăng trên tạp chí trong nước
+TT Tên tác giả, tên bài viết, tên tạp chí và số của tạp chí,
+trang đăng bài viết, năm xuất bản
+Sản phẩm của đề tài/
+dự án
+(chỉ ghi mã số)
+Số hiệu ISSN Ghi chú
+3
+ Phó giáo sư Tiến sĩ Lê Anh Vũ, Áp dụng lấy mẫu Gibbs , o đo
+lường ,  đánh giá độ khó câu hỏi trong mô hình RaschKhoa Học
+-  ĐHSP HCM, 01/04/2017
+Đánh giá câu hỏi trắc
+nghiệm ,  năng lực của
+thí sinh dựa trên mô
+hình IRT 3 tham số ,
+thuật toán Gibbs
+Sampler
+ 1859 - 3100
+4   Tiến sĩ Phạm Hoàng Uyên, Sử dụng dữ liệu Thomson Reuters
+trong Giảng dạy các môn học thuộc khối ngành Kinh tếKhoa
+Học -  Đại học Sài Gòn, 01/04/2017
+  1859 - 3108
+5   Tiến sĩ Phạm Hoàng Uyên, Chọn mô hình tốt nhất trong Thống
+kê Bayes mờ và ứng dụng trong phân tích Tài chínhTạp chí Phát
+triển Khoa học và Công nghệ, 01/10/2017
+CS/2016-13  1859 - 0128
+6   Tiến sĩ Lê Thanh Hoa, Một phương pháp mới tìm khoảng mật
+độ hậu nghiệm cao nhất và ứng dụngTạp chí Phát triển Kinh tế,
+01/12/2017
+CS/2016-13  1859-1124
+7   Tiến sĩ Lê Thanh Hoa, Sử dụng Thống kê Bayes mờ trong dự
+báo tỷ giá và một số chỉ số kinh tếTạp chí Công nghệ Ngân
+hàng, 01/11/2017
+CS/2017-08  1859-3682
+8   Tiến sĩ Lê Thanh Hoa, Phân tích giá chứng khoán bằng dạng
+phương trình vi phân ngẫu nhiênTạp chí Tài chính, 01/03/2018 NV/2017-01  2615-8973
+9  Phó giáo sư Tiến sĩ Lê Anh Vũ, Using Gibbs Sampler to
+evaluate item di culty in Rasch modelTạp chí Khoa học, Đại học
+Sư Phạm Tp. HCM, 30/05/2017
+  1859-3100
+10   Lê Hồng Diễn, Bài toán phân nhóm khách hàng  mua săm tại
+siêu thị coop Xtra thủ đứcPhát triển KHCN ĐHQG Tp.HCM,
+17/04/2019
+  0
+11   Tiến sĩ Lê Thanh Hoa, Ứng dụng hàm sống sót trong ước
+lượng rủi ro phá sản của các doanh nghiệp nhỏ và vừaTạp chí
+Tài chính, 29/03/2020
+CS/2019-04  2615 - 8973
+12   Thạc sĩ Võ Thị Lệ Uyển, Ứng dụng phân tích chỉ số kinh tế vĩ
+mô thông qua mô hình GARCH và dữ liệu bảngTạp chí Tài
+chính, 02/03/2020
+CS/2018-06  2615 - 8973
+13   Tiến sĩ Nguyễn Phúc Sơn, Time series prediction: A
+combination of Long Short-Term Memory and structural time
+series modelsSCIENCE & TECHNOLOGY DEVELOPMENT
+JOURNAL - ECONOMICS - LAW AND MANAGEMENT,
+22/04/2020
+CS/2019-04  2588-1051
+14   Tiến sĩ Phạm Hoàng Uyên, ỨNG DỤNG CỦA MÔ HÌNH
+LASSO TRONG DỰ BÁO CHỈ SỐ KINH TẾ Tạp chí Tài
+chính, 30/05/2020
+  2615-8973
+15   Tiến sĩ Phạm Hoàng Uyên, Mô hình dữ liệu bảng trong phân
+tích lợi nhuận của một số doanh nghiệp nhỏ và vừa ở Việt
+NamTài chính, 10/05/2020
+  2615-8973
+16   Tiến sĩ Lê Thanh Hoa, The similarity about the probability
+distributions of variables in the Bayesian regression model and
+applicationScience & Technology Development Journal-
+Economics-Law and Management, 31/03/2021
+C2019-34-04  2588-1051
+17   Tiến sĩ Lê Thanh Hoa, Hồi quy phân vị dữ liệu chuỗi thời gian
+và ứng dụng trong mô hình giá chứng khoán của một số ngân
+hàng lớnTạp chí Phát triển Khoa học và Công nghệ, 16/05/2022
+B-2021-34-03  1859-0128
+18   Tiến sĩ Phạm Hoàng Uyên, KHÁM PHÁ CÁC YẾU TỐ BẤT
+ĐỘNG SẢN TÁC ĐỘNG ĐẾN QUYẾT ĐỊNH MUA VÀ ỨNG
+DỤNG THIẾT KẾ HỆ THỐNG THÔNG MINH HỖ TRỢ TƯ
+VẤN BẤT ĐỘNG SẢNTạp chí Khoa học - Trường Đại học
+Quốc tế Hồng Bàng , 16/12/2022
+  2615-9686
+19   Tiến sĩ Phạm Hoàng Uyên, The impact of Globalization on
+Ecological Footprint: A comparative study between India and
+VietnamSTDJELM, 15/02/2024
+b2021-34-03  2588-105
+20   Tiến sĩ Phạm Hoàng Uyên, Tác động của đa dạng hóa thu nhập
+và rủi ro đến hiệu quả tài chính: Bằng chứng thực nghiệm từ các
+ngân hàng thương mại Việt NamTạp chí Kinh tế và Dự báo,
+23/04/2024
+  ISSN: 1859 - 4972 eISSN: 2734-
+9365
+2.3. Đăng trên kỷ yếu Hội nghị Quốc tế
+TT Tên tác giả, tên bài viết, tên Hội nghị, thời gian tổ chức, nơi
+tố chức
+Sản phẩm của đề tài/
+dự án
+(chỉ ghi mã số)
+Số hiệu
+ ISBN Ghi chú
+1 Hien D. Tran, A New Measure of Monotone Dependence by
+Using Sobolev Norms for Copula. IUKM 2015, Nha Trang,
+Vietnam., 01/10/2015
+ 
+2 Sel Ly, The distortion risk measure using copulas. 1st
+International Conference on Applied Mathematics in
+Engineering and Reliability, May 4-6, 2016, Vietnam.,
+01/05/2016
+  978-1-138-02928-6
+3 Tiến sĩ Lê Thanh Hoa, Sử dụng Thống kê Bayes mờ trong dự
+báo tỷ giá và một số chỉ số Kinh tế. Hội thảo Khoa học Quốc tế:
+Những tư tưởng Kinh tế, Quản trị hiện đại và khả năng vận
+dụng khi Việt Nam tham gia AEC và TPP, 01/09/2016
+  978-604-73-4626-4
+4 Tiến sĩ Nguyễn Phúc Sơn, VieLens, An Interactive Search
+engine for LSC2019. ACM international conference on
+multimedia retrieval, 10/06/2019
+ 
+5 Phó giáo sư Tiến sĩ Nguyễn Tiến Dũng, On a new calibrated
+mixture model for a density forecast of the VN30 Index.
+International Econometric Conference of Vietnam
+ECONVN'2018., 15/01/2018
+ 
+6 Tiến sĩ Nguyễn Phúc Sơn, A calibration-based method in
+computing Bayesian posterior distributions with applications in
+stock market. International Conference of the Thailand
+Econometrics Society 2018., 28/12/2017
+ 
+7 Thạc sĩ Võ Thị Lệ Uyển, Mô hình hồi quy theo xu hướng hiện
+đại: Hồi quy LASSO và hồi quy ENET. International
+Symposium on Applied Science 2019, 18/10/2019
+ 
+8 Thạc sĩ Võ Thị Lệ Uyển, Hồi quy LASSO kết hợp với hồi quy
+RIDGE trong phân tích kinh tế. Hội thảo khoa học quốc tế dành
+cho các nhà khoa học trẻ khối kinh tế và kinh doanh, 06/12/2019
+ 
+9 Thạc sĩ Võ Thị Lệ Uyển, LASSO regression for forecasting
+Vietnam's rice exports.. International Conference 2020:
+SUSTAINABLE AGRICULTURAL DEVELOPMENT IN
+VIETNAM – EXPERIENCE OF ASIAN COUNTRIES
+(SDA VN), 16/07/2020
+ CS2018-06 
+10 Tiến sĩ Lê Thanh Hoa, Mô hình ARIMA trong dự báo giá chứng
+khoán
+của các doanh nghiệp nông nghiệp của Việt Nam. "Phát triển
+nông nghiệp bền vững - Kinh nghiệm các quốc gia Châu Á",
+16/07/2020
+ 
+11 Tiến sĩ Phạm Hoàng Uyên, COVID-19 PANDEMIC AND
+PERFOMANCE OF ECONOMIC SECTORS IN VIETNAM. 3
+International Conference on Contemporary Issues In
+ECONOMICS, MANAGEMENT AND BUSINESS,
+18/11/2020
+ Không  978-604-79-2605-3
+12 Tiến sĩ Phạm Hoàng Uyên, Lasso Regression and Its
+Application in Forecasting Macro Economic Indicators: A Study
+on Vietnam's Exports.. The Fourth International Econometric
+Conference of Vietnam.
+Theme: Prediction and Causality in Econometrics and Related
+Topics, 11/01/2021
+ 
+13 Tiến sĩ Lê Thanh Hoa, MÔ HÌNH MÔ MEN TỔNG QUÁT
+DẠNG SAI PHÂN VÀ ỨNG DỤNG TRONG PHÂN TÍCH
+CỦA MỘT SỐ QUỐC GIA ĐÔNG NAM Á. HỘI THẢO
+QUỐC TẾ DÀNH CHO
+CÁC NHÀ KHOA HỌC TRẺ KHỐI TRƯỜNG
+KINH TẾ VÀ KINH DOANH NĂM 2021, 21/12/2021
+ 
+14 Tiến sĩ Phạm Hoàng Uyên, Fair Bankruptcy Solutions Under
+Interval Uncertainty. ECONVN 2023, 10/01/2023 
+2.3. Đăng trên kỷ yếu Hội nghị Quốc tế
+TT Tên tác giả, tên bài viết, tên Hội nghị, thời gian tổ chức, nơi
+tố chức
+Sản phẩm của đề tài/
+dự án
+(chỉ ghi mã số)
+Số hiệu
+ ISBN Ghi chú
+15 Tiến sĩ Phạm Hoàng Uyên, PARTIAL LEAST
+SQUARES STRUCTURAL EQUATION
+MODELING (PLS-SEM)
+AND
+BUSINESS PERFORMANCE. The Third Conference on
+Analysis and Applied Mathematics (CAAM 3), 20/12/2022
+ 
+16 Vladik Kreinovich, Why Quantiles Are a Good Description of
+V olatility in Economics: A Pedagogical Explanation. In book:
+Credible Asset Allocation, Optimal Transport Methods, and
+Related Topics (TES 2022), of the book series: Studies in
+Systems, Decision and Control, Springer, 30/07/2022
+  ISBN: 978-3-030-97272-1
+eISBN: 978-3-030-97273-8
+2.4. Đăng trên kỷ yếu Hội nghị trong nước
+TT Tên tác giả, tên bài viết, tên Hội nghị, thời gian tổ chức, nơi
+tố chức
+Sản phẩm của đề tài/
+dự án
+(chỉ ghi mã số)
+Số hiệu
+ ISBN Ghi chú
+1 Tiến sĩ Phạm Hoàng Uyên, Tham luận về giảng dạy xác suất
+thống kê tại các trường trong khối ĐHQG TPHCM. Giảng dạy
+và nghiên cứu khoa học bộ môn Toán, 01/05/2015
+2 Tiến sĩ Phạm Hoàng Uyên, Các lớp hàm distortion tương ứng
+với thái độ chấp nhận rủi ro của người ra quyết định.. 15 năm
+hoạt động nghiên cứu khoa học, 01/10/2015
+3 Trần Duy Hiến, Đo lường rủi ro và phân tích độ nhạy sử dụng
+độ đo rủi ro biến dạng với Copula. Hội nghị Toàn quốc lần thứ
+IV về Ứng dụng Toán học, 25/12/2015
+4 Tiến sĩ Phạm Hoàng Uyên, Testing for mean using bayesian
+approach. Hội Nghị GD & NCKH Bộ môn TKT 2016,
+01/06/2016
+5 Tiến sĩ Phạm Hoàng Uyên, Thống kê Bayes trong dự báo giá
+chứng khoán Việt Nam. Hội nghị Toàn quốc lần thứ IV về Ứng
+dụng Toán học, 25/12/2015
+6 Tiến sĩ Lê Thanh Hoa, Sử dụng Khoảng biến động Giá chứng
+khoán dự báo Giá đóng cửa Bằng Thống kê Bayes mờ. Hội nghị
+Khoa học và Công nghệ Toàn quốc, 01/12/2016
+7 Tiến sĩ Lê Thị Thanh An, Giảng dạy chất lượng cao hướng tới
+giáo dục 4.0. Kiểm tra, đánh giá môn học chương trình chất
+lượng cao, 03/09/2019
+8 Thạc sĩ Võ Thị Lệ Uyển, Ứng dụng hồi quy LASSO trong phân
+tích kinh tế. Hội nghị Toán học miền Trung - Tây Nguyên lần
+thứ 3, 02/08/2019
+9 Tiến sĩ Phạm Hoàng Uyên, Mô hình nguy cơ trong nghiên cứu
+rủi ro phá sản. Hội nghị toán học miền trung - Tây Nguyên lần
+thứ 3, 02/08/2019
+10 Tiến sĩ Phạm Hoàng Uyên, Ngành Toán Kinh tế: Thiên thời -
+Địa lợi - Nhân hòa. Hội thảo khoa học Đào tạo ngành Toán Kinh
+tế trong bối cảnh hiện nay và các vấn đề liên quan, 01/06/2020
+11 Tiến sĩ Phạm Hoàng Uyên, DỰ BÁO CẦU LAO ĐỘNG
+TRONG MỘT SỐ NGÀNH KINH TẾ CỦA TỈNH BÌNH
+DƯƠNG. LÝ LUẬN VÀ THỰC TIỄN PHÁT TRIỂN THỊ
+TRƯỜNG LAO ĐỘNG Ở VIỆT NAM ĐẾN NĂM 2030
+TRONG XU THẾ CHUYỂN ĐỔI SỐ QUỐC GIA, 23/10/2020
+12 Tiến sĩ Phạm Hoàng Uyên, Sự phát triển ngành Toán Kinh Tế.
+CÔNG TÁC ĐÀO TẠO CỦA TRƯỜNG ĐẠI HỌC KINH TẾ
+LUẬT, 03/11/2020
+13 Thạc sĩ Võ Thị Lệ Uyển, Mô hình DGMM và ứng dụng trong
+phân
+tích các chỉ tiêu kinh tế vĩ mô của một số
+quốc gia Đông Nam Á. HỆ THỐNG THÔNG TIN TRONG
+KINH DOANH VÀ QUẢN LÝ, 18/12/2020
+978-604-922-922-0
+2.4. Đăng trên kỷ yếu Hội nghị trong nước
+TT Tên tác giả, tên bài viết, tên Hội nghị, thời gian tổ chức, nơi
+tố chức
+Sản phẩm của đề tài/
+dự án
+(chỉ ghi mã số)
+Số hiệu
+ ISBN Ghi chú
+14 Tiến sĩ Lê Thị Thanh An, Xây dựng và triển khai học phần Toán
+Tài chính theo đề án giáo dục 4.0. Hội nghị tổng kết đề án GD
+4.0 của trường ĐH Kinh tế - Luật, 23/11/2022
+15 Tiến sĩ Phạm Hoàng Uyên, Tổng quan về Phân tích dữ liệu trên
+đồ thị: Ứng dụng trong Tài chínhđịnh lượng. KHOA HỌC DỮ
+LIỆU VÀ MÔ HÌNH ĐỊNH LƯỢNG TRONG KINH TẾ TÀI
+CHÍNH CÙNG CÁC VẤN ĐỀ LIÊN QUAN, 28/04/2025
+978-604-79-4 901-4
+IV. CÁC GIẢI THƯỞNG
+1. Các giải thưởng Khoa học và Công nghệ
+TT Tên giải thưởng Nội dung giải thưởng Nơi cấp Năm cấp
+1
+2. Bằng phát minh, sáng chế (patent)
+TT Tên bằng
+Sản phẩm của đề tài/
+dự án
+(chỉ ghi mã số)
+Số hiệu Năm
+cấp Nơi cấp Tác giả/
+đồng tác giả
+1
+3. Bằng giải pháp hữu ích
+TT Tên giải pháp
+Sản phẩm của đề tài/
+dự án
+(chỉ ghi mã số)
+Số hiệu Năm
+cấp Nơi cấp Tác giả/
+đồng tác giả
+1
+4. Ứng dụng thực tiễn và thương mại hoá kết quả nghiên cứu
+TT Tên công nghệ/ giải  pháp hữu ích
+ đã chuyển giao
+Hình thức, quy mô, địa chỉ
+áp dụng
+Năm chuyển
+giao
+Sản phẩm của đề tài/
+dự án
+(chỉ ghi mã số)
+1
+V. THÔNG TIN KHÁC
+1. Tham gia các chương trình trong và ngoài nước
+TT Thời gian Tên chương trình Chức danh
+1
+2. Tham gia các Hiệp hội Khoa học, Ban biên tập các tạp chí Khoa học, Ban tổ chức các Hội nghị về KH&CN
+TT Thời gian Tên Hiệp hội/ Tạp chí/ Hội nghị Chức danh
+1
+3. Tham gia làm việc tại Trường  Đại học/ Viện/ Trung tâm nghiên cứu theo lời mời
+TT Thời gian Tên Trường Đại học/ Viện/ Trung tâm nghiên cứu Nội dung tham gia
+3. Tham gia làm việc tại Trường  Đại học/ Viện/ Trung tâm nghiên cứu theo lời mời
+TT Thời gian Tên Trường Đại học/ Viện/ Trung tâm nghiên cứu Nội dung tham gia
+1
+Ngày ... tháng ... năm ....
+Người khai
+(Họ tên và chữ ký)
+Phạm Hoàng Uyên

@@ -39,6 +39,13 @@ schema:
     - ghi_chu
     - tien_than
     - lich_tuyen_sinh_2026
+    - hoc_vi_nam_dat
+    - noi_dao_tao_tien_si
+    - chuyen_nganh_tien_si
+    - nam_ve_truong
+    - bo_mon
+    - hoc_bong_tien_phong_2026
+    - hoc_bong_vuot_troi_2026
 
 rollup_field: loai
 

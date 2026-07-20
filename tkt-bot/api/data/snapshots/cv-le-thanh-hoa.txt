@@ -1,0 +1,958 @@
+ĐẠI HỌC QUỐC GIA TP.HCM CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+TRƯỜNG ĐẠI HỌC KINH TẾ - LUẬT Độc lập - Tự do - Hạnh phúc
+KÊ KHAI HOẠT ĐỘNG NGHIÊN CỨU KHOA HỌC
+Năm học: ............ - .............
+I. THÔNG TIN CÁ NHÂN
+1. Họ và tên: Lê Thanh Hoa
+2. Ngày sinh: 29/06/1983
+3. Nam/nữ: Nữ
+4. Nơi đang công tác:
+Phòng/Ban: Toán Kinh tế
+Chức vụ:
+II. KẾT QUẢ NGHIÊN CỨU KHOA HỌC
+1. Đề tài đã hoàn thành
+TT Tên đề tài/dự án Cấp đề tài Tác giả Thành viên Ngày
+nghiệm thu
+Giờ NCKH
+(Cá nhân tính)
+Giờ NCKH
+(Đơn vị xác nhận)
+1  Các lớp hàm distortion
+(dùng trong độ đo rủi ro sử
+dụng tích phân Choquet)
+tương ứng với thái độ chấp
+nhận rủi ro của người ra
+quyết định
+ Cơ sở
+  Tiến sĩ
+Phạm Hoàng
+Uyên
+ Thành viên    13/04/2015
+2  Xây dựng bộ dữ liệu cho
+các môn học Thống kê ứng
+dụng, Kinh tế lượng và Dự
+báo kinh tế dựa trên dữ liệu
+của Trung Tâm Nghiên Cứu
+Kinh tế và Tài Chính
+ Cơ sở
+  Tiến sĩ
+Phạm Hoàng
+Uyên
+ Thành viên    28/04/2016
+3  Sử dụng thống kê BAYES
+dự báo giá chứng khoán  Cơ sở   Tiến sĩ Lê
+Thanh Hoa  Chủ nhiệm    04/05/2017
+4  Ứng dụng của một số hàm
+biến dạng trong kinh tế và
+tài chính
+ Cấp ĐHQG
+Loại C
+  Tiến sĩ
+Phạm Hoàng
+Uyên
+ Thành viên    14/06/2017
+5  Ứng dụng của Khoa học dữ
+liệu vào việc xây dựng thuật
+toán dự báo và mua bán
+chứng khoán
+ Cơ sở
+  Tiến sĩ
+Nguyễn
+Phúc Sơn
+ Thành viên    08/02/2018
+6  Đánh giá câu hỏi trắc
+nghiệm và năng lực của thí
+sinh dựa trên mô hình IRT 3
+tham số và thuật toán Gibbs
+Sampler
+ Cơ sở
+ Phó giáo sư
+Tiến sĩ Lê
+Anh Vũ
+ Thành viên    30/03/2018
+7  Mô hình FBayes và ứng
+dụng trong phân tích Tài
+chính
+ Cấp ĐHQG
+Loại C
+  Tiến sĩ
+Phạm Hoàng
+Uyên
+ Thành viên    29/04/2020
+8  Sử dụng mô hình sống còn
+trong đánh giá khả năng phá
+sản của doanh nghiệp vừa
+và nhỏ
+ Cơ sở
+  Tiến sĩ
+Nguyễn
+Phúc Sơn
+ Thành viên    29/04/2020
+9  Sử dụng mô hình sống còn
+trong nghiên cứu rủi ro phá
+sản của một số doanh
+nghiệp vừa và nhỏ
+ Cơ sở
+  Tiến sĩ
+Nguyễn
+Phúc Sơn
+ Thành viên    29/04/2020
+1. Đề tài đã hoàn thành
+TT Tên đề tài/dự án Cấp đề tài Tác giả Thành viên Ngày
+nghiệm thu
+Giờ NCKH
+(Cá nhân tính)
+Giờ NCKH
+(Đơn vị xác nhận)
+10  Mô hình Garch tiến hành
+cho dữ liệu bảng trong kinh
+tế
+ Cơ sở   Thạc sĩ Võ
+Thị Lệ Uyển  Thành viên    29/05/2020
+11  Tiếp cận phương trình vi
+phân ngẫu nhiên thông qua
+Thống kê lượng tử
+ Cấp ĐHQG
+Loại C
+  Tiến sĩ Lê
+Thanh Hoa  Chủ nhiệm    20/12/2021
+2. Đề tài chưa hoàn thành
+TT Tên đề tài/dự án Cấp đề tài Tác giả Thành viên Ngày
+nghiệm thu
+Giờ NCKH
+(Cá nhân tính)
+Giờ NCKH
+(Đơn vị xác nhận)
+1  Các tác động của các Hiệp
+định thương mại tự do đến
+tăng trưởng kinh tế tại Việt
+Nam thông qua thương mại,
+dịch vụ và môi trường
+ Cấp ĐHQG
+loại B
+  Tiến sĩ
+Phạm Hoàng
+Uyên
+ Thành viên 
+2  MỘT SỐ MÔ HÌNH HỒI
+QUY CHO DỮ LIỆU
+BẢNG VÀ ỨNG DỤNG
+TRONG PHÂN TÍCH
+MỘT SỐ CHỈ TIÊU KINH
+TẾ VĨ MÔ
+ Cấp ĐHQG
+Loại C
+  Thạc sĩ Võ
+Thị Lệ Uyển  Thành viên 
+3. Các bài báo đăng trên tạp chí quốc tế
+TT Tên bài báo Tên tạp chí
+Phân loại
+ tạp chí
+ quốc tế
+Các tác giả Thời gian
+công bố
+Giờ NCKH
+(Cá nhân tính)
+Giờ NCKH
+(Đơn vị xác nhận)
+1 Improvement on Monte
+Carlo estimation of HPD
+intervals
+Communications in
+Statistics - Simulation and
+Computation
+SCI,
+expended
+Tiến sĩ Lê
+Thanh Hoa,
+Tiến sĩ Phạm
+Hoàng Uyên
+17/11/2018
+2 Statistical Methods of
+Handling Noise in Data
+Processing
+Annals of Biometrics &
+Biostatistics Khác
+Tiến sĩ Lê
+Thanh Hoa,
+Tiến sĩ Phạm
+Hoàng Uyên
+01/12/2017
+3 The Extended Kullback -
+Leibler Divergence
+Measure in the Unknown
+Probability Density
+Function Cases and
+Applications
+Int. J. of Intelligent
+Information and Database
+Systems
+Tạp chí
+Scopus
+Q4
+Tiến sĩ Lê
+Thanh Hoa 20/05/2021
+4 A New Approach For
+Estimating Probability
+Density Function With
+Fuzzy Data
+Credible Asset Allocation,
+Optimal Transport
+Methods, and Related
+Topics
+Tạp chí
+Scopus
+chưa
+được xếp
+hạng
+Tiến sĩ Lê
+Thanh Hoa,
+Tiến sĩ Phạm
+Hoàng Uyên
+10/01/2022
+5
+LASSO Regression and
+Its Application in
+Forecasting Macro
+Economic Indicators: A
+Study on Vietnam’s
+Exports.
+Studies in Computational
+Intelligence, Springer,
+Cham
+Tạp chí
+Scopus
+chưa
+được xếp
+hạng
+Tiến sĩ Phạm
+Hoàng
+Uyên, Tiến
+sĩ Lê Thanh
+Hoa, Thạc sĩ
+Võ Thị Lệ
+Uyển,Phó
+giáo sư Tiến
+sĩ Trịnh
+Quốc Trung
+27/07/2021
+6 The fuzzy Kullback–
+Leibler divergence for
+estimating parameters of
+the probability
+distribution in fuzzy
+data: an application to
+classifying Vietnamese
+Herb Leaves
+Scientific Reports
+Tạp chí
+Scopus
+Q1
+Tiến sĩ Lê
+Thanh Hoa 04/09/2023
+3. Các bài báo đăng trên tạp chí quốc tế
+TT Tên bài báo Tên tạp chí
+Phân loại
+ tạp chí
+ quốc tế
+Các tác giả Thời gian
+công bố
+Giờ NCKH
+(Cá nhân tính)
+Giờ NCKH
+(Đơn vị xác nhận)
+7
+Impact of Hong Kong-
+ASEAN Free Trade
+Agreement: an
+assessment from the
+trade creation and trade
+diversion perspectives
+Cogent Social Sciences
+Tạp chí
+Scopus
+Q2
+Tiến sĩ Phạm
+Hoàng
+Uyên, Thạc
+sĩ Võ Thị Lệ
+Uyển, Thạc
+sĩ Trịnh
+Minh Quý,
+Tiến sĩ Lê
+Thanh Hoa
+04/03/2024
+4. Các bài báo đăng trên tạp chí trong nước
+TT Tên bài báo Tên tạp chí
+Phân loại
+ tạp chí
+ quốc tế
+Các tác giả Thời gian
+công bố
+Giờ NCKH
+(Cá nhân tính)
+Giờ NCKH
+(Đơn vị xác nhận)
+1
+Chọn mô hình tốt nhất
+trong Thống kê Bayes
+mờ và ứng dụng trong
+phân tích Tài chính
+Tạp chí Phát triển Khoa
+học và Công nghệ ISSN 0,5
+Tiến sĩ Phạm
+Hoàng
+Uyên, Tiến
+sĩ Lê Thanh
+Hoa, Thạc sĩ
+Nguyễn
+Đình Thiên
+01/10/2017
+2
+Một phương pháp mới
+tìm khoảng mật độ hậu
+nghiệm cao nhất và ứng
+dụng
+Tạp chí Phát triển Kinh tế ISSN 1
+Tiến sĩ Lê
+Thanh Hoa,
+Tiến sĩ Phạm
+Hoàng
+Uyên, Thạc
+sĩ Nguyễn
+Đình Thiên
+01/12/2017
+3
+Sử dụng Thống kê Bayes
+mờ trong dự báo tỷ giá
+và một số chỉ số kinh tế
+Tạp chí Công nghệ Ngân
+hàng ISSN 0,5
+Tiến sĩ Lê
+Thanh Hoa,
+Tiến sĩ Phạm
+Hoàng
+Uyên, Tiến
+sĩ Nguyễn
+Phúc Sơn
+01/11/2017
+4 Phân tích giá chứng
+khoán bằng dạng phương
+trình vi phân ngẫu nhiên
+Tạp chí Tài chính ISSN 0,5
+Tiến sĩ Lê
+Thanh Hoa,
+Tiến sĩ Phạm
+Hoàng Uyên
+01/03/2018
+5 Ước lượng VaR và CVaR
+dạng hỗn hợp các phân
+phối xác suất thông qua
+mô phỏng Monte Carlo
+và ứng dụng trong phân
+tích giá chứng khoán
+Việt Nam
+TẠP CHÍ NGHIÊN CỨU
+KINH TẾ VÀ KINH
+DOANH CHÂU Á
+ISSN 1 Tiến sĩ Lê
+Thanh Hoa 31/12/2018
+6
+Using Gibbs Sampler to
+evaluate item di cultyin
+Rasch model
+Tạp chí Khoa học, Đại học
+Sư Phạm Tp. HCM
+ISSN
+0,75
+Phó giáo sư
+Tiến sĩ Lê
+Anh Vũ,
+Tiến sĩ Lê
+Thanh Hoa,
+Tiến sĩ Phạm
+Hoàng
+Uyên, Tiến
+sĩ Đoàn
+Hồng
+Chương
+30/05/2017
+4. Các bài báo đăng trên tạp chí trong nước
+TT Tên bài báo Tên tạp chí
+Phân loại
+ tạp chí
+ quốc tế
+Các tác giả Thời gian
+công bố
+Giờ NCKH
+(Cá nhân tính)
+Giờ NCKH
+(Đơn vị xác nhận)
+7
+Ứng dụng hàm sống sót
+trong ước lượng rủi ro
+phá sản của các doanh
+nghiệp nhỏ và vừa
+Tạp chí Tài chính ISSN 0,5
+Tiến sĩ Lê
+Thanh Hoa,
+Thạc sĩ Võ
+Thị Lệ
+Uyển, Tiến
+sĩ Phạm
+Hoàng Uyên
+29/03/2020
+8
+Ứng dụng phân tích chỉ
+số kinh tế vĩ mô thông
+qua mô hình GARCH và
+dữ liệu bảng
+Tạp chí Tài chính ISSN 0,5
+Thạc sĩ Võ
+Thị Lệ
+Uyển, Tiến
+sĩ Lê Thanh
+Hoa, Tiến sĩ
+Phạm Hoàng
+Uyên
+02/03/2020
+9 Thống kê Bayes và ứng
+dụng trong dự báo giã
+mã chứng khoán của các
+ngân hàng - công ty tài
+chính của Việt Nam
+Tạp chí Nghiên cứu Kinh
+tế và Kinh doanh Châu Á
+(Journal of Asian Business
+and Economic Studies –
+JABES)
+ISSN 1
+Nguyễn Phát
+Đạt, Tiến sĩ
+Lê Thanh
+Hoa
+09/10/2020
+10 Tính ổn định của mô
+hình hồi quy trong mô
+hình hóa giá chứng
+khoán Việt Nam
+Tạp chí Tài chính ISSN
+0,25
+Nguyễn Phát
+Đạt, Tiến sĩ
+Lê Thanh
+Hoa
+28/08/2020
+11 The similarity about the
+probability distributions
+of variables in the
+Bayesian regression
+model and application
+Science & Technology
+Development Journal-
+Economics-Law and
+Management
+ISSN
+0,75
+Tiến sĩ Lê
+Thanh Hoa,
+Tiến sĩ Phạm
+Hoàng Uyên
+31/03/2021
+12
+Hồi quy phân vị dữ liệu
+chuỗi thời gian và ứng
+dụng trong mô hình giá
+chứng khoán của một số
+ngân hàng lớn
+Tạp chí Phát triển Khoa
+học và Công nghệ
+ISSN
+0,75
+Tiến sĩ Lê
+Thanh Hoa,
+Thạc sĩ Võ
+Thị Lệ
+Uyển, Tiến
+sĩ Phạm
+Hoàng
+Uyên,
+Nguyễn Phát
+Đạt
+16/05/2022
+5. Các bài đăng trên kỷ yếu hội thảo, hội nghị
+TT Tên bài kỷ yếu Tên hội thảo Phân loại
+HT Các tác giả Thời gian
+công bố
+Giờ NCKH
+(Cá nhân tính)
+Giờ NCKH
+(Đơn vị xác nhận)
+1
+So sánh các học kỳ học
+từ góc độ của người học
+Tọa đàm: Đánh giá
+hiệu quả và đề xuất
+giải pháp hoàn thiện
+trong tổ chức học kỳ
+hè tại Trường Đại học
+Kinh tế - Luật
+Hội thảo
+trong nước
+ Tiến sĩ Lê Thanh
+Hoa 18/11/2014
+2
+Cần đảm bảo "chất
+lượng thực sự" cho sinh
+viên chất lượng cao với
+học phí cao
+Tọa đàm: Thực trạng
+tổ chức đào tạo Cử
+nhân chất lượng cao
+với học phí tương
+ứng tại trường Đại
+học Kinh tế - Luật
+qua một năm triển
+khai
+Hội thảo
+trong nước
+ Tiến sĩ Lê Thanh
+Hoa 15/12/2014
+3 Cần tránh hai sai lầm về
+thống kê trong nghiên
+cứu khoa học
+15 năm hoạt động
+nghiên cứu khoa học
+Hội thảo
+trong nước
+ Tiến sĩ Lê Thanh
+Hoa 01/10/2015
+5. Các bài đăng trên kỷ yếu hội thảo, hội nghị
+TT Tên bài kỷ yếu Tên hội thảo Phân loại
+HT Các tác giả Thời gian
+công bố
+Giờ NCKH
+(Cá nhân tính)
+Giờ NCKH
+(Đơn vị xác nhận)
+4 Vai trò của giảng viên
+và Sinh viên trong việc
+nâng cao chất lượng đào
+tạo
+HT Nâng cao chất
+lượng đào tạo, Phòng
+KĐ&ĐBCL UEL
+Hội thảo
+trong nước
+Phó giáo sư Tiến
+sĩ Đỗ Phú Trần
+Tình, Tiến sĩ Lê
+Thanh Hoa, Tiến
+sĩ Nguyễn Văn
+Nên
+01/11/2015
+5 Một phương pháp thống
+kê mới dự báo sự biến
+động của thị trường
+Hội nghị Khoa học
+trẻ
+Hội thảo
+trong nước
+ Tiến sĩ Lê Thanh
+Hoa 27/11/2015
+6 Một phương pháp thống
+kê mới dự báo sự biến
+động của thị trường
+Hội nghị Khoa học
+trẻ
+Hội thảo
+trong nước
+ Tiến sĩ Lê Thanh
+Hoa 27/11/2015
+7 Thống kê Bayes trong
+dự báo giá chứng khoán
+Việt Nam
+Hội nghị Toàn quốc
+lần thứ IV về Ứng
+dụng Toán học
+Hội thảo
+trong nước
+ Tiến sĩ Phạm
+Hoàng Uyên,
+Thạc sĩ Nguyễn
+Đình Thiên, Tiến
+sĩ Lê Thanh Hoa
+25/12/2015
+8 Một cách dự báo khoảng
+biến động giá chứng
+khoán bằng thống kê
+Bayes với tiếp cận mờ
+Hội thảo về Nghiên
+cứu và Giảng dạy Bộ
+môn Toán
+Hội thảo
+trong nước
+ Tiến sĩ Lê Thanh
+Hoa, Thạc sĩ
+Nguyễn Đình
+Thiên
+18/06/2016
+9
+Sử dụng Thống kê
+Bayes mờ trong dự báo
+tỷ giá và một số chỉ số
+Kinh tế
+Hội thảo Khoa học
+Quốc tế: Những tư
+tưởng Kinh tế, Quản
+trị hiện đại và khả
+năng vận dụng khi
+Việt Nam tham gia
+AEC và TPP
+Hội thảo
+quốc tế
+ Tiến sĩ Lê Thanh
+Hoa, Tiến sĩ
+Phạm Hoàng
+Uyên
+01/09/2016
+10
+Sử dụng Thống kê
+Bayes mờ trong dự báo
+tỷ giá và một số chỉ số
+Kinh tế
+Hội thảo Khoa học
+Quốc tế: Những tư
+tưởng Kinh tế, Quản
+trị hiện đại và khả
+năng vận dụng khi
+Việt Nam tham gia
+AEC và TPP
+Hội thảo
+quốc tế
+ Tiến sĩ Lê Thanh
+Hoa, Phạm
+Hoàng Uyên
+01/09/2016
+11 Sử dụng Khoảng biến
+động Giá chứng khoán
+dự báo Giá đóng cửa
+Bằng Thống kê Bayes
+mờ
+Hội nghị Khoa học
+và Công nghệ Toàn
+quốc
+Hội thảo
+trong nước
+ Tiến sĩ Lê Thanh
+Hoa, Nguyễn
+Đình Thiên, Tiến
+sĩ Phạm Hoàng
+Uyên
+01/12/2016
+12 P-value: a controversial
+problems and
+application offinancial
+analysis
+ASIA PACIFIC
+CONFERENCE ON
+ECONOMIC
+DYNAMICS 2
+Hội thảo
+quốc tế
+ Tiến sĩ Lê Thanh
+Hoa, Nguyễn Vũ
+Thanh,Phạm
+Hoàng Uyên
+01/12/2016
+13
+Mô hình nguy cơ trong
+nghiên cứu rủi ro phá
+sản
+Hội nghị toán học
+miền trung - Tây
+Nguyên lần thứ 3
+Hội thảo
+trong nước
+ Tiến sĩ Phạm
+Hoàng Uyên,
+Thạc sĩ Lê Văn
+Hinh, Tiến sĩ Lê
+Thanh Hoa, Tiến
+sĩ Nguyễn Phúc
+Sơn
+02/08/2019
+14
+Giảng dạy chất lượng
+cao hướng tới giáo dục
+4.0
+Kiểm tra, đánh giá
+môn học chương
+trình chất lượng cao
+Hội thảo
+trong nước
+ Tiến sĩ Lê Thị
+Thanh An, Thạc
+sĩ Trần Nguyễn
+Hoàng Sang,
+Tiến sĩ Hà Văn
+Hiếu, Tiến sĩ Lê
+Thanh Hoa, Tiến
+sĩ Phạm Hoàng
+Uyên
+03/09/2019
+5. Các bài đăng trên kỷ yếu hội thảo, hội nghị
+TT Tên bài kỷ yếu Tên hội thảo Phân loại
+HT Các tác giả Thời gian
+công bố
+Giờ NCKH
+(Cá nhân tính)
+Giờ NCKH
+(Đơn vị xác nhận)
+15 Mô hình ARIMA trong
+phân tích dữ liệu kinh tế
+theo chuỗi thời gian, sử
+dụng phần mềm R
+Hội thảo khoa học
+Công nghệ thông tin
+và Toán học ứng
+dụng - lần thứ nhất
+Hội thảo
+trong nước
+ Tiến sĩ Lê Thanh
+Hoa, Thạc sĩ Võ
+Thị Lệ Uyển
+27/12/2019
+16 Mô hình ARIMA trong
+dự báo giá chứng khoán
+của các doanh nghiệp
+nông nghiệp của Việt
+Nam
+"Phát triển nông
+nghiệp bền vững -
+Kinh nghiệm các
+quốc gia Châu Á"
+Hội thảo
+quốc tế
+ Tiến sĩ Lê Thanh
+Hoa, Tiến sĩ
+Phạm Hoàng
+Uyên,Phạm Thế
+Bảo
+16/07/2020
+17 Dự báo lao động các
+quốc gia Đông Nam Á
+có thu nhập trung bình
+thấp theo mô hình dữ
+liệu chuỗi thời gian
+Lý luận và thực tiễn
+phát triển thị trường
+lao động ở Việt Nam
+đến năm 2030 trong
+xu thế chuyển đổi số
+quốc gia
+Hội thảo
+trong nước
+Phó giáo sư Tiến
+sĩ Nguyễn Tiến
+Dũng, Tiến sĩ Lê
+Thanh Hoa
+23/10/2020
+18 Mô hình DGMM và ứng
+dụng trong phân
+tích các chỉ tiêu kinh tế
+vĩ mô của một số
+quốc gia Đông Nam Á
+HỆ THỐNG THÔNG
+TIN TRONG KINH
+DOANH VÀ QUẢN
+LÝ
+Hội thảo
+trong nước
+ Thạc sĩ Võ Thị
+Lệ Uyển, Tiến sĩ
+Lê Thanh Hoa,
+Tiến sĩ Phạm
+Hoàng Uyên,
+Tiến sĩ Phạm Văn
+Chững
+18/12/2020
+19
+Lasso Regression and
+Its Application in
+Forecasting Macro
+Economic Indicators: A
+Study on Vietnam's
+Exports.
+The Fourth
+International
+Econometric
+Conference of
+Vietnam.Theme:
+Prediction and
+Causality in
+Econometrics and
+Related Topics
+Hội thảo
+quốc tế
+ Tiến sĩ Phạm
+Hoàng Uyên,
+Thạc sĩ Võ Thị
+Lệ Uyển, Tiến sĩ
+Lê Thanh
+Hoa,Phó giáo sư
+Tiến sĩ Trịnh
+Quốc Trung
+11/01/2021
+20 MÔ HÌNH MÔ MEN
+TỔNG QUÁT DẠNG
+SAI PHÂN VÀ ỨNG
+DỤNG TRONG PHÂN
+TÍCH CỦA MỘT SỐ
+QUỐC GIA ĐÔNG
+NAM Á
+HỘI THẢO QUỐC
+TẾ DÀNH CHOCÁC
+NHÀ KHOA HỌC
+TRẺ KHỐI
+TRƯỜNGKINH TẾ
+VÀ KINH DOANH
+NĂM 2021
+Hội thảo
+quốc tế
+ Tiến sĩ Lê Thanh
+Hoa, Thạc sĩ Võ
+Thị Lệ Uyển,
+Tiến sĩ Phạm
+Hoàng Uyên
+21/12/2021
+21 Thực trạng đầu tư cho
+giáo dục đại học của
+Việt Nam và thế giới, cơ
+hội và thách thức trong
+bối cảnh tự chủ
+Nguồn lực đầu tư cho
+GDĐH trong bối
+cảnh tự chủ
+Hội thảo
+trong nước
+ Tiến sĩ Lê Thanh
+Hoa 12/05/2023
+22 Cơ hội và thách thức đối
+với các doanh nghiệp
+khởi nghiệp đổi mới
+sáng tạo trong bối cảnh
+chuyển đổi số
+Thúc đẩy DN khởi
+nghiệp đổi mới sáng
+tạo trong bối cảnh
+chuyển đổi số
+Hội thảo
+trong nước
+ Tiến sĩ Lê Thanh
+Hoa 31/07/2023
+6. Sách
+TT Tên sách Phân loại sách Các tác giả Thời gian
+xuất bản
+Giờ NCKH
+(Cá nhân tính)
+Giờ NCKH
+(Đơn vị xác nhận)
+1 Kinh tế lượng Giáo trình  Tiến sĩ Lê Hồng
+Nhật 25/03/2019
+2 Thống kê Ứng dụng Giáo trình  Tiến sĩ Phạm Văn
+Chững 03/10/2016
+3 Lý thuyết Xác suất Giáo trình  Tiến sĩ Phạm
+Hoàng Uyên 23/12/2020
+7. Hướng dẫn sinh viên NCKH
+Tác động của suy thoái kinh tế
+7. Hướng dẫn sinh viên NCKH
+TT Tên đề tài Xếp giải Tên người hướng dẫn Giờ NCKH
+(Cá nhân tính)
+Giờ NCKH
+(Đơn vị xác nhận)
+1 Tác động của suy thoái kinh tế
+đối với xuất nhập khẩu tại các
+quốc gia Đông Nam Á
+ Tiến sĩ Lê Thanh Hoa
+2 Lập mô hình dự đoán rủi ro tài
+chính các doanh nghiệp Việt Nam
+bằng máy học
+ Tiến sĩ Lê Thanh Hoa
+3 Mô hình xu thế và ứng dụng
+trong dữ liệu tài chính  Tiến sĩ Lê Thanh Hoa
+4 Mô hình phân vị với dữ liệu
+chuỗi thời gian và ứng dụng
+trong tài chính
+ Tiến sĩ Lê Thanh Hoa
+5 Copula và ứng dụng trong tài
+chính  Tiến sĩ Lê Thanh Hoa
+6 Dự đoán biến động doanh thu của
+Vinwonders Nha Trang dựa vào
+yếu tố khách hàng bằng phương
+pháp nghiên cứu định lượng và
+mô hình hồi quy logistic
+ Tiến sĩ Lê Thanh Hoa
+7 Stock price prediction using the
+Arima model  Tiến sĩ Lê Thanh Hoa
+8 Dự đoán giá gỗ theo thời gian,
+ứng dụng mô hình Kinh tế lượng  Tiến sĩ Lê Thanh Hoa
+8. Hướng dẫn sinh viên - học viên thực hiện khóa luận, luận văn, luận án
+TT Tên đề tài Tên học viên Tên người
+hướng dẫn
+Loại hướng
+dẫn
+Thời gian
+ bảo vệ
+Giờ NCKH
+(Cá nhân tính)
+Giờ NCKH
+(Đơn vị xác nhận)
+1
+9. Hoạt động seminar/ tình huống
+TT Tên báo cáo Tên chương trình báo
+cáo Các tác giả Thời gian Giờ NCKH
+(Cá nhân tính)
+Giờ NCKH
+(Đơn vị xác nhận)
+1 Độ phân kỳ Kullback-Leibler mở rộng
+và ứng dụng Semina Cấp Trường Tiến sĩ Lê
+Thanh Hoa 25/11/2022
+2 Thống Kê Bayes Nâng Cao (HK7) Semina cấp Khoa Tiến sĩ Lê
+Thanh Hoa 12/06/2020
+3 VaR, TVaR, maximum entropy và một
+số ứng dụng trong tài chính Semina cấp trường Tiến sĩ Lê
+Thanh Hoa 29/11/2019
+4 Lập Trình Thống Kê (HK5) Semina cấp Khoa Tiến sĩ Lê
+Thanh Hoa 08/05/2020
+5 Thống Kê Bayes (HK5) Semina cấp Khoa Tiến sĩ Lê
+Thanh Hoa 10/04/2020
+10. Hoạt động chuyển giao công nghệ
+TT Tên hoạt động Nội dung Các tác giả Thời gian Giờ NCKH
+(Cá nhân tính)
+Giờ NCKH
+(Đơn vị xác nhận)
+1
+11. Hoạt động phản biện xã hội
+TT Tên chủ đề phản biện
+xã hội Nội dung Các tác giả Thời gian Giờ NCKH
+(Cá nhân tính)
+Giờ NCKH
+(Đơn vị xác nhận)
+1
+12. Hoạt động khác
+12. Hoạt động khác
+TT Tên hoạt động Nội dung Các tác giả Thời gian Giờ NCKH
+(Cá nhân tính)
+Giờ NCKH
+(Đơn vị xác nhân)
+1
+TỔNG GIỜ NCKH (Giờ làm việc)
+Giờ thực hiện Đề tài: (mục 1 + 2)
+Giờ thực hiện công bố khoa học: (mục 3 + 4 + 5 + 6)
+Giờ thực hiện các hoạt động khác: (mục 7 + 8 + 9 + 10 + 11 + 12)
+Tổng điểm NCKH: ........
+Ngày ... tháng ... năm .... Người khai
+Trưởng đơn vị (Họ tên và chữ ký)
+(Họ tên và chữ ký)
+Lê Thanh Hoa

@@ -90,15 +90,21 @@ def main() -> None:
         if name not in referenced:
             skipped.append(f"{name} (không được claim nào tham chiếu)")
             continue
+        # v1.2: sidecar .txt và PDF nhị phân là evidence cho registry (span gate),
+        # KHÔNG chunk hóa ở vòng này. Chunk hóa CV/công bố để dành TIP-09 chính thức.
+        if not name.endswith(".html"):
+            skipped.append(f"{name} (sidecar/nhị phân, evidence cho registry, chunk hóa để dành TIP-09)")
+            continue
         selected.append(name)
 
     for s in skipped:
         print(f"[ingest] SKIP {s}")
-    missing_ref = referenced - set(selected)
+    # chỉ HTML mới phải có mặt để chunk; .txt/.pdf tham chiếu là evidence, không tính thiếu
+    missing_ref = {r for r in referenced if r.endswith(".html")} - set(selected)
     if missing_ref:
-        print(f"[ingest] FAIL: snapshot được claims tham chiếu nhưng thiếu trên đĩa: {sorted(missing_ref)}")
+        print(f"[ingest] FAIL: snapshot HTML được claims tham chiếu nhưng thiếu trên đĩa: {sorted(missing_ref)}")
         sys.exit(1)
-    print(f"[ingest] nguồn ingest: {len(selected)} snapshot (kỳ vọng 14 theo Amendment 2026-07-12)")
+    print(f"[ingest] nguồn ingest: {len(selected)} snapshot HTML (sidecar CV để dành TIP-09)")
 
     rows = []
     for name in selected:

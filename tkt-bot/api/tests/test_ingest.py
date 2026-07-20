@@ -42,7 +42,8 @@ def test_missing_fetched_at_fails_loud(tmp_path):
 
 
 def test_skip_rules_and_source_count(tmp_path):
-    """File dưới 1 KB và file không được tham chiếu bị loại kèm log, tổng nguồn 14."""
+    """File dưới 1 KB và file không được tham chiếu bị loại kèm log, tổng nguồn 15
+    (14 cũ + tuyensinh-hoc-bong-2026.html; sidecar CV .txt/.pdf để dành TIP-09)."""
     dd = tmp_path / "data"
     dd.mkdir()
     shutil.copytree(os.path.join(DATA_DIR, "snapshots"), dd / "snapshots")
@@ -52,4 +53,4 @@ def test_skip_rules_and_source_count(tmp_path):
     out = proc.stdout + proc.stderr
     assert "SKIP tuyensinh-nganh-la-gi.html (dưới 1 KB" in out
     assert "SKIP maths-cao-hoc.html (không được claim nào tham chiếu)" in out
-    assert "nguồn ingest: 14 snapshot" in out
+    assert "nguồn ingest: 15 snapshot" in out
