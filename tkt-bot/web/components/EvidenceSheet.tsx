@@ -103,7 +103,14 @@ export default function EvidenceSheet({
               </div>
               <div className={styles.row}>
                 <span>URL nguồn</span>
-                <span>{citation.url}</span>
+                <a
+                  className={styles.link}
+                  href={citation.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {citation.url}
+                </a>
               </div>
             </div>
             <p className={styles.note}>

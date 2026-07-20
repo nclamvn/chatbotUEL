@@ -128,6 +128,27 @@
   overflow-wrap: anywhere;
 }
 
+/* URL nguồn: link sống mở tab mới */
+.link {
+  font-weight: 500;
+  text-align: right;
+  max-width: 62%;
+  overflow-wrap: anywhere;
+  color: var(--uel-deep);
+  text-decoration: none;
+  border-bottom: 1px solid var(--uel-wash);
+  transition: border-color 0.15s;
+}
+
+.link:hover {
+  border-bottom-color: var(--uel);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--uel);
+  outline-offset: 2px;
+}
+
 .note {
   font-size: 11px;
   color: var(--muted);
