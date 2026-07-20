@@ -95,6 +95,7 @@ FIELD_RULES = [
     (r"dinh huong nghien cuu|huong nghien cuu", ["dinh_huong_nghien_cuu"], False),
     (r"chuyen nganh nao|nhung chuyen nganh|cac chuyen nganh|chuyen nganh gi",
      ["chuyen_nganh_2025"], False),
+    (r"hoc bong", ["hoc_bong_tien_phong_2026", "hoc_bong_vuot_troi_2026"], True),
     (r"truc thuoc|thuoc truong nao|thuoc don vi nao", ["truc_thuoc"], False),
 ]
 
@@ -190,7 +191,19 @@ def _role_lookup(q: str) -> list[dict]:
 
 
 PERSON_FIELDS = ("chuc_vu", "hoc_ham_hoc_vi", "chuyen_mon", "ghi_chu",
-                 "dinh_huong_nghien_cuu")
+                 "dinh_huong_nghien_cuu", "noi_dao_tao_tien_si",
+                 "chuyen_nganh_tien_si", "nam_ve_truong", "hoc_vi_nam_dat", "bo_mon")
+
+# TIP-18: câu hỏi nhắm đúng khía cạnh CV thì trả đúng field đó, không dump cả người
+# (tránh kéo ô disputed như hoc_ham của cô Uyên vào câu hỏi về học vấn).
+PERSON_TOPIC = [
+    (r"hoc.*o dau|dao tao.*o dau|tot nghiep.*o dau|du hoc|tien si.*o dau|nuoc nao|hoc tien si|lam tien si",
+     ["noi_dao_tao_tien_si", "chuyen_nganh_tien_si"]),
+    (r"chuyen nganh tien si|nganh tien si|tien si nganh gi", ["chuyen_nganh_tien_si", "noi_dao_tao_tien_si"]),
+    (r"ve truong nam nao|ve khoa nam nao|ve uel|nam nao ve|nam.*ve truong", ["nam_ve_truong"]),
+    (r"bo mon nao|thuoc bo mon", ["bo_mon"]),
+    (r"hoc vi|hoc ham|bang cap", ["hoc_ham_hoc_vi", "hoc_vi_nam_dat"]),
+]
 
 
 @lru_cache(maxsize=1)
@@ -204,7 +217,10 @@ def _person_entities() -> tuple:
 
 def _person_lookup(q: str) -> list[dict]:
     hits = [p for p in _person_entities() if norm(p) in q]
-    return _fetch_cells([(p, f) for p in hits for f in PERSON_FIELDS])
+    if not hits:
+        return []
+    fields = next((fs for pat, fs in PERSON_TOPIC if re.search(pat, q)), None)
+    return _fetch_cells([(p, f) for p in hits for f in (fields or PERSON_FIELDS)])
 
 
 @lru_cache(maxsize=1)
@@ -225,7 +241,7 @@ def _vocab() -> frozenset:
     # token hợp lệ mà _detect_* dùng nhưng không nằm trong FIELD_RULES/alias:
     # qualifier ngôn ngữ + tổ hợp + phương thức. Có mặt ở đây để fuzzy không sửa nhầm.
     words |= {"viet", "anh", "dgnl", "utxtt", "danh", "gia", "nang", "luc",
-              "uu", "tien", "xet", "chuong", "trinh"}
+              "uu", "tien", "xet", "chuong", "trinh", "thac", "cao", "sau", "dai"}
     return frozenset(words)
 
 
@@ -299,6 +315,12 @@ def structured_lookup(question: str) -> list[dict]:
                 return []
             break
     if fields is None:
+        return []
+
+    # TIP-18 bẫy: học bổng dữ liệu chỉ có bậc đại học; hỏi thạc sĩ/cao học/NCS thì
+    # không đoán bừa học bổng đại học, trả honest-null. Soi q1 (trước fuzzy) để
+    # 'thac si' không bị fuzzy nghiền mất.
+    if fields[0].startswith("hoc_bong") and re.search(r"thac si|cao hoc|sau dai hoc|nghien cuu sinh", q1):
         return []
 
     def _defaults() -> list[str]:

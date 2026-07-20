@@ -10,7 +10,7 @@ import json
 
 from .config import (ANTHROPIC_API_KEY, COMPOSER_MODEL, CONTACT_EMAIL,
                      CONTACT_PHONE, LLM_ENABLED)
-from .constitution import system_prompt
+from .constitution import TABLE_MIN, system_prompt
 
 FIELD_LABELS = {
     "diem_thpt_2025_A00_A01": "điểm chuẩn THPT 2025 tổ hợp A00, A01",
@@ -46,6 +46,14 @@ FIELD_LABELS = {
     "triet_ly_giao_duc": "triết lý giáo dục",
     "tam_nhin": "tầm nhìn",
     "ten_day_du": "tên đầy đủ",
+    # v1.2 / TIP-18
+    "hoc_bong_tien_phong_2026": "học bổng Tiên phong 2026",
+    "hoc_bong_vuot_troi_2026": "học bổng Vượt trội 2026",
+    "noi_dao_tao_tien_si": "nơi đào tạo tiến sĩ",
+    "chuyen_nganh_tien_si": "chuyên ngành tiến sĩ",
+    "nam_ve_truong": "năm về trường",
+    "hoc_vi_nam_dat": "học vị và năm đạt",
+    "bo_mon": "bộ môn công tác",
 }
 
 OOS_ANSWER = (f"Câu này nằm ngoài phạm vi mình hỗ trợ. Mình chỉ trả lời về tuyển sinh"
@@ -179,7 +187,8 @@ def compose_fallback(question: str, intent: str, retrieved: dict) -> dict:
                 "followups": DEFAULT_FOLLOWUPS}
 
     diem = [c for c in cells if c["field"].startswith("diem_") and c["status"] != "disputed"]
-    use_table = len(diem) >= 2
+    # D-B: chỉ dựng bảng khi đủ ma trận (TABLE_MIN ô cùng nhóm), không theo quán tính
+    use_table = len(diem) >= TABLE_MIN
 
     blocks, ids, any_disputed = [], [], False
     if use_table:

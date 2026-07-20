@@ -40,3 +40,9 @@
 {"question": "tkte co bao nhieu gv", "expect_status": "disputed", "expect_cells": [["Khoa Toán Kinh tế", "so_giang_vien_co_huu"]], "group": "typo", "notes": "tkte->toán kinh tế + gv"}
 {"question": "ma tuiển sinh nganh toan kinh te", "expect_status": "grounded", "expect_cells": [["Ngành Toán kinh tế", "ma_tuyen_sinh"]], "group": "typo", "notes": "sai tuyển->tuiển"}
 {"question": "hoc phi cntt", "expect_status": "null", "expect_cells": [], "group": "typo", "notes": "ANTI-GUESS: cntt là chuyên ngành không tồn tại, cấm đoán bừa học phí chung"}
+{"question": "Khoa có học bổng gì cho tân sinh viên?", "expect_status": "grounded", "expect_cells": [["Trường Đại học Kinh tế - Luật", "hoc_bong_tien_phong_2026"]], "group": "tip18", "notes": "học bổng reachable qua field rule"}
+{"question": "Học bổng Tiên phong 2026 là gì?", "expect_status": "grounded", "expect_cells": [["Trường Đại học Kinh tế - Luật", "hoc_bong_tien_phong_2026"]], "group": "tip18", "notes": "học bổng tiên phong"}
+{"question": "Cô Phạm Hoàng Uyên học tiến sĩ ở đâu?", "expect_status": "grounded", "expect_cells": [["Phạm Hoàng Uyên", "noi_dao_tao_tien_si"]], "group": "tip18", "notes": "CV education, không kéo hoc_ham disputed vào"}
+{"question": "Cô Lê Thị Thanh An về trường năm nào?", "expect_status": "grounded", "expect_cells": [["Lê Thị Thanh An", "nam_ve_truong"]], "group": "tip18", "notes": "CV năm về trường"}
+{"question": "Chuyên ngành tiến sĩ của Phạm Hoàng Uyên là gì?", "expect_status": "grounded", "expect_cells": [["Phạm Hoàng Uyên", "chuyen_nganh_tien_si"]], "group": "tip18", "notes": "CV chuyên ngành tiến sĩ"}
+{"question": "Có học bổng thạc sĩ 2026 không?", "expect_status": "null", "expect_cells": [], "group": "tip18", "notes": "BẪY: học bổng chỉ bậc đại học, thạc sĩ -> honest-null"}

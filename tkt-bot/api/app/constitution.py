@@ -26,6 +26,11 @@ ABBREVIATIONS = {
     "fi": "phi",  # lỗi gõ f<->ph rất phổ biến (hoc fi = học phí)
 }
 
+# D-B: bảng phục vụ SO SÁNH hai chiều, prose phục vụ THÔNG BÁO. Chỉ dựng bảng khi
+# dữ liệu là ma trận thật (>= 2 hàng x 2 cột số, tức >= 4 ô cùng nhóm). Một cặp
+# giá trị (vd học phí Việt/Anh) giữ prose: một câu kèm hai citation nhanh hơn bảng.
+TABLE_MIN = 4
+
 STYLE_RULES = """Luật văn phong, tuân thủ tuyệt đối:
 1. Cấm ký tự em-dash và en-dash. Cần ngắt ý thì dùng dấu phẩy hoặc tách thành câu mới.
 2. Dấu chấm phẩy xuất hiện tối đa một lần trong toàn bộ câu trả lời và chỉ khi liệt kê phức tạp.

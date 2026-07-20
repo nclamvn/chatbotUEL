@@ -1,21 +1,22 @@
 {
   "metrics": {
-    "n": 42,
-    "status_accuracy": 0.905,
+    "n": 48,
+    "status_accuracy": 0.917,
     "status_by_class": {
       "disputed": "6/6",
-      "grounded": "24/27",
-      "null": "5/5",
+      "grounded": "29/32",
+      "null": "6/6",
       "oos": "3/4"
     },
     "status_by_group": {
       "core": "27/30",
+      "tip18": "6/6",
       "typo": "11/12"
     },
-    "registry_hit_recall": 0.909,
-    "citation_coverage": 0.909,
-    "latency_p50_ms": 29.5,
-    "latency_p95_ms": 37.9
+    "registry_hit_recall": 0.921,
+    "citation_coverage": 0.921,
+    "latency_p50_ms": 28.1,
+    "latency_p95_ms": 33.2
   },
   "per_case": [
     {
@@ -26,7 +27,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 92.1
+      "ms": 82.0
     },
     {
       "q": "Điểm chuẩn Phân tích dữ liệu 2025 tổ hợp D01?",
@@ -36,7 +37,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 39.3
+      "ms": 33.2
     },
     {
       "q": "Điểm đánh giá năng lực chuyên ngành Phân tích dữ liệu 2025?",
@@ -46,7 +47,7 @@
       "status_ok": false,
       "cell_recall": 0.0,
       "cite_coverage": 0.0,
-      "ms": 29.1
+      "ms": 27.3
     },
     {
       "q": "Điểm chuẩn chuyên ngành Toán ứng dụng 2025 tổ hợp A00?",
@@ -56,7 +57,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 37.9
+      "ms": 29.9
     },
     {
       "q": "Điểm chuẩn chương trình tiếng Anh 2025 tổ hợp A00?",
@@ -66,7 +67,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 35.0
+      "ms": 30.5
     },
     {
       "q": "Điểm ưu tiên xét tuyển thẳng chương trình tiếng Anh 2025?",
@@ -76,7 +77,7 @@
       "status_ok": false,
       "cell_recall": 0.0,
       "cite_coverage": 0.0,
-      "ms": 16.9
+      "ms": 16.5
     },
     {
       "q": "Học phí chương trình tiếng Việt năm 2025-2026 bao nhiêu?",
@@ -86,7 +87,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 30.2
+      "ms": 30.4
     },
     {
       "q": "Học phí chương trình tiếng Anh một năm bao nhiêu?",
@@ -96,7 +97,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 34.5
+      "ms": 34.2
     },
     {
       "q": "Chỉ tiêu tuyển sinh 2025 bao nhiêu?",
@@ -106,7 +107,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 32.2
+      "ms": 30.4
     },
     {
       "q": "Lịch nhận hồ sơ xét tuyển 2026 thế nào?",
@@ -116,7 +117,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 21.4
+      "ms": 21.2
     },
     {
       "q": "Mã trường của UEL là gì?",
@@ -126,7 +127,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 20.0
+      "ms": 20.2
     },
     {
       "q": "Mã tuyển sinh ngành Toán kinh tế?",
@@ -136,7 +137,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 29.4
+      "ms": 29.2
     },
     {
       "q": "Ngành Toán kinh tế bao nhiêu tín chỉ?",
@@ -146,7 +147,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 29.8
+      "ms": 30.2
     },
     {
       "q": "Chương trình Toán kinh tế học mấy học kỳ?",
@@ -156,7 +157,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 28.7
+      "ms": 29.7
     },
     {
       "q": "Địa chỉ văn phòng Khoa Toán Kinh tế ở đâu?",
@@ -166,7 +167,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 29.7
+      "ms": 32.5
     },
     {
       "q": "Email của Khoa Toán Kinh tế?",
@@ -176,7 +177,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 29.0
+      "ms": 31.9
     },
     {
       "q": "Ngành Toán kinh tế có những chuyên ngành nào?",
@@ -186,7 +187,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 30.1
+      "ms": 32.1
     },
     {
       "q": "Phó trưởng Khoa Toán Kinh tế là ai?",
@@ -196,7 +197,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 29.6
+      "ms": 31.9
     },
     {
       "q": "Khoa Toán Kinh tế có bao nhiêu giảng viên cơ hữu?",
@@ -206,7 +207,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 30.6
+      "ms": 29.6
     },
     {
       "q": "Cơ cấu học vị của Khoa Toán Kinh tế thế nào?",
@@ -216,7 +217,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 21.0
+      "ms": 20.5
     },
     {
       "q": "Địa chỉ Trường Đại học Kinh tế - Luật ở đâu?",
@@ -226,7 +227,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 36.5
+      "ms": 31.0
     },
     {
       "q": "Trưởng Khoa Toán Kinh tế là ai và học hàm gì?",
@@ -236,7 +237,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 36.1
+      "ms": 29.9
     },
     {
       "q": "Chỉ tiêu tuyển sinh năm 2026 là bao nhiêu?",
@@ -246,7 +247,7 @@
       "status_ok": true,
       "cell_recall": null,
       "cite_coverage": null,
-      "ms": 30.0
+      "ms": 25.3
     },
     {
       "q": "Điểm chuẩn chuyên ngành Phân tích dữ liệu năm 2024?",
@@ -256,7 +257,7 @@
       "status_ok": true,
       "cell_recall": null,
       "cite_coverage": null,
-      "ms": 32.7
+      "ms": 24.8
     },
     {
       "q": "Học phí năm học 2027-2028 bao nhiêu?",
@@ -266,7 +267,7 @@
       "status_ok": true,
       "cell_recall": null,
       "cite_coverage": null,
-      "ms": 31.9
+      "ms": 24.5
     },
     {
       "q": "Điểm chuẩn chuyên ngành Toán ứng dụng năm 2023?",
@@ -276,7 +277,7 @@
       "status_ok": true,
       "cell_recall": null,
       "cite_coverage": null,
-      "ms": 28.7
+      "ms": 24.9
     },
     {
       "q": "Nên đầu tư đồng coin nào để có lời?",
@@ -286,7 +287,7 @@
       "status_ok": true,
       "cell_recall": null,
       "cite_coverage": null,
-      "ms": 5.4
+      "ms": 4.4
     },
     {
       "q": "Giải giúp mình bài tập tích phân này với.",
@@ -296,7 +297,7 @@
       "status_ok": true,
       "cell_recall": null,
       "cite_coverage": null,
-      "ms": 5.7
+      "ms": 4.3
     },
     {
       "q": "Cho mình xin quan điểm chính trị về vấn đề này.",
@@ -306,7 +307,7 @@
       "status_ok": true,
       "cell_recall": null,
       "cite_coverage": null,
-      "ms": 4.9
+      "ms": 4.2
     },
     {
       "q": "Dự đoán tỉ số trận bóng đá tối nay giúp mình?",
@@ -316,7 +317,7 @@
       "status_ok": false,
       "cell_recall": null,
       "cite_coverage": null,
-      "ms": 20.2
+      "ms": 16.4
     },
     {
       "q": "diem chuan phan tich du lieu 2025",
@@ -326,7 +327,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 37.4
+      "ms": 28.9
     },
     {
       "q": "thay Le Hong Nhat con day ko",
@@ -336,7 +337,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 22.1
+      "ms": 21.7
     },
     {
       "q": "dia chi van phong khoa toan kinh te",
@@ -346,7 +347,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 29.9
+      "ms": 29.4
     },
     {
       "q": "email khoa toan kinh te",
@@ -356,7 +357,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 29.8
+      "ms": 29.1
     },
     {
       "q": "hoc fi tieng anh",
@@ -366,7 +367,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 20.7
+      "ms": 19.8
     },
     {
       "q": "hp tieng viet",
@@ -376,7 +377,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 20.9
+      "ms": 20.2
     },
     {
       "q": "dc 2025 phan tich du lieu",
@@ -386,7 +387,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 22.8
+      "ms": 21.2
     },
     {
       "q": "gv co huu cua khoa",
@@ -396,7 +397,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 21.3
+      "ms": 20.3
     },
     {
       "q": "chuiên ngành nào của ngành toán kinh te",
@@ -406,7 +407,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 20.6
+      "ms": 20.8
     },
     {
       "q": "tkte co bao nhieu gv",
@@ -416,7 +417,7 @@
       "status_ok": true,
       "cell_recall": 1.0,
       "cite_coverage": 1.0,
-      "ms": 30.0
+      "ms": 29.0
     },
     {
       "q": "ma tuiển sinh nganh toan kinh te",
@@ -426,7 +427,7 @@
       "status_ok": false,
       "cell_recall": 0.0,
       "cite_coverage": 0.0,
-      "ms": 15.9
+      "ms": 16.0
     },
     {
       "q": "hoc phi cntt",
@@ -436,7 +437,67 @@
       "status_ok": true,
       "cell_recall": null,
       "cite_coverage": null,
-      "ms": 13.4
+      "ms": 13.2
+    },
+    {
+      "q": "Khoa có học bổng gì cho tân sinh viên?",
+      "group": "tip18",
+      "expect": "grounded",
+      "pred": "grounded",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 21.1
+    },
+    {
+      "q": "Học bổng Tiên phong 2026 là gì?",
+      "group": "tip18",
+      "expect": "grounded",
+      "pred": "grounded",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 23.6
+    },
+    {
+      "q": "Cô Phạm Hoàng Uyên học tiến sĩ ở đâu?",
+      "group": "tip18",
+      "expect": "grounded",
+      "pred": "grounded",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 32.3
+    },
+    {
+      "q": "Cô Lê Thị Thanh An về trường năm nào?",
+      "group": "tip18",
+      "expect": "grounded",
+      "pred": "grounded",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 32.4
+    },
+    {
+      "q": "Chuyên ngành tiến sĩ của Phạm Hoàng Uyên là gì?",
+      "group": "tip18",
+      "expect": "grounded",
+      "pred": "grounded",
+      "status_ok": true,
+      "cell_recall": 1.0,
+      "cite_coverage": 1.0,
+      "ms": 32.3
+    },
+    {
+      "q": "Có học bổng thạc sĩ 2026 không?",
+      "group": "tip18",
+      "expect": "null",
+      "pred": "null",
+      "status_ok": true,
+      "cell_recall": null,
+      "cite_coverage": null,
+      "ms": 18.0
     }
   ]
 }
