@@ -98,10 +98,6 @@ export default function EvidenceSheet({
             </blockquote>
             <div className={styles.rows}>
               <div className={styles.row}>
-                <span>Mã dẫn nguồn</span>
-                <span>{citation.claim_id}</span>
-              </div>
-              <div className={styles.row}>
                 <span>URL nguồn</span>
                 <a
                   className={styles.link}
