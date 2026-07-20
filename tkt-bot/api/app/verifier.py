@@ -77,7 +77,8 @@ def _metadata_strings(lookup: dict) -> set:
     return {s for s in out if s}
 
 
-def trace_check(answer_markdown: str, lookup: dict, question: str) -> list[dict]:
+def trace_check(answer_markdown: str, lookup: dict, question: str,
+                allow_names: list = None) -> list[dict]:
     violations = []
     masked = answer_markdown
     for s in sorted(_metadata_strings(lookup), key=len, reverse=True):
@@ -93,17 +94,23 @@ def trace_check(answer_markdown: str, lookup: dict, question: str) -> list[dict]
 
     ctx_norm = norm(_name_text(lookup))
     ans_norm = norm(answer_markdown)
+    # tên bot chủ động nêu để hỏi-lại đúng người (TIP-19): được phép dù không có
+    # citation — đây là câu làm rõ, không phải fact về một người cụ thể
+    allow_norm = {norm(n) for n in (allow_names or [])}
     for name in known_entity_names():
         n = norm(name)
-        if n in ans_norm and n not in ctx_norm and n not in _TEMPLATE_TEXT:
+        if (n in ans_norm and n not in ctx_norm and n not in _TEMPLATE_TEXT
+                and n not in allow_norm):
             violations.append({
                 "code": "UNTRACED_NAME", "severity": "hard",
                 "detail": f"tên riêng \"{name}\" không nằm trong context được cấp"})
     return violations
 
 
-def verify(answer_markdown: str, lookup: dict, question: str) -> dict:
-    violations = trace_check(answer_markdown, lookup, question) + lint(answer_markdown)
+def verify(answer_markdown: str, lookup: dict, question: str,
+           allow_names: list = None) -> dict:
+    violations = (trace_check(answer_markdown, lookup, question, allow_names)
+                  + lint(answer_markdown))
     hard = hard_violations(violations)
     feedback = "\n".join(f"- [{v['code']}] {v['detail']}" +
                          (f" · gợi ý: {v['suggestion']}" if v.get("suggestion") else "")

@@ -215,8 +215,68 @@ def _person_entities() -> tuple:
         return tuple(r["entity"] for r in cur.fetchall())
 
 
+# TIP-19: người dùng thật gọi nhân sự bằng tên riêng ("cô Uyên", "thầy Sơn"), không
+# đủ họ tên. Tên riêng = từ cuối (tiếng Việt). Chỉ soi khi có kính ngữ đứng NGAY
+# trước để tránh trùng từ thường ("an", "hoa", "vũ"). Tên riêng DUY NHẤT thì resolve;
+# TRÙNG (Uyên×3, Nhật×2 sau khi bỏ dấu) thì nhập nhằng -> không đoán.
+_TITLE = r"(?:co|thay|giang vien|giao vien)"
+
+
+@lru_cache(maxsize=1)
+def _given_name_map() -> dict:
+    """tên riêng (norm, từ cuối) -> tuple entity nhân sự mang tên đó."""
+    m: dict[str, list[str]] = {}
+    for p in _person_entities():
+        toks = norm(p).split()
+        if toks:
+            m.setdefault(toks[-1], []).append(p)
+    return {k: tuple(v) for k, v in m.items()}
+
+
+def _given_name_hits(q: str) -> tuple[list[str], bool]:
+    """(entity resolve chắc chắn, có_nhập_nhằng). Nhập nhằng = tên riêng có kính
+    ngữ nhưng ứng nhiều người."""
+    gmap = _given_name_map()
+    hits, ambiguous = [], False
+    for m in re.finditer(_TITLE + r"\s+(\w+)", q):
+        ents = gmap.get(m.group(1))
+        if not ents:
+            continue
+        if len(ents) == 1:
+            hits.append(ents[0])
+        else:
+            ambiguous = True
+    return hits, ambiguous
+
+
+def _person_ambiguous(q: str) -> bool:
+    """Câu chỉ nêu tên riêng TRÙNG (vd "cô Uyên") mà không đủ họ tên và không có
+    nhân sự nào khớp: cấm đoán để khỏi rơi xuống rule 'ở đâu' trả nhầm địa chỉ."""
+    _, ambiguous = _given_name_hits(q)
+    return ambiguous and not any(norm(p) in q for p in _person_entities())
+
+
+def ambiguous_persons(question: str) -> list[str]:
+    """Danh sách ứng viên khi câu nhập nhằng tên riêng (vd 'cô Uyên' -> 3 người),
+    giữ thứ tự, bỏ trùng. Rỗng nếu không nhập nhằng. Dùng cho câu hỏi-lại."""
+    q = _fuzzy_fix(_expand_abbrev(norm(question)))
+    if not _person_ambiguous(q):
+        return []
+    gmap = _given_name_map()
+    seen, out = set(), []
+    for m in re.finditer(_TITLE + r"\s+(\w+)", q):
+        for e in gmap.get(m.group(1), ()) if len(gmap.get(m.group(1), ())) > 1 else ():
+            if e not in seen:
+                seen.add(e)
+                out.append(e)
+    return out
+
+
 def _person_lookup(q: str) -> list[dict]:
     hits = [p for p in _person_entities() if norm(p) in q]
+    for p in _given_name_hits(q)[0]:
+        if p not in hits:
+            hits.append(p)
     if not hits:
         return []
     fields = next((fs for pat, fs in PERSON_TOPIC if re.search(pat, q)), None)
@@ -241,7 +301,9 @@ def _vocab() -> frozenset:
     # token hợp lệ mà _detect_* dùng nhưng không nằm trong FIELD_RULES/alias:
     # qualifier ngôn ngữ + tổ hợp + phương thức. Có mặt ở đây để fuzzy không sửa nhầm.
     words |= {"viet", "anh", "dgnl", "utxtt", "danh", "gia", "nang", "luc",
-              "uu", "tien", "xet", "chuong", "trinh", "thac", "cao", "sau", "dai"}
+              "uu", "tien", "xet", "chuong", "trinh", "thac", "cao", "sau", "dai",
+              # TIP-19: kính ngữ, có mặt để fuzzy không nghiền ("thay"->"thac")
+              "thay", "giang", "vien", "giao"}
     return frozenset(words)
 
 
@@ -301,6 +363,10 @@ def structured_lookup(question: str) -> list[dict]:
     person_cells = _person_lookup(q)
     if person_cells:
         return person_cells
+    # TIP-19: "cô Uyên" (3 người) không đủ họ tên -> honest-null, khỏi rơi xuống
+    # rule 'ở đâu' bên dưới trả nhầm địa chỉ Khoa.
+    if _person_ambiguous(q):
+        return []
 
     fields = None
     for pattern, f, year_bound in FIELD_RULES:
@@ -371,6 +437,7 @@ def _bm25_index(version: str):
 def invalidate_bm25_cache() -> None:
     _bm25_index.cache_clear()
     _person_entities.cache_clear()
+    _given_name_map.cache_clear()
     _vocab.cache_clear()
 
 
@@ -412,5 +479,10 @@ def retrieve(question: str) -> dict:
     if _unknown_acronym(_expand_abbrev(norm(question))):
         return {"cells": [], "chunks": []}
     cells = structured_lookup(question)
-    chunks = hybrid_search(question)
-    return {"cells": cells, "chunks": chunks}
+    # TIP-19: tên riêng trùng (vd 'cô Uyên') -> hỏi lại đúng người; clear chunks để
+    # tất định (không để chunk CV của một người lọt thành câu trả lời) + đính ứng viên
+    if not cells:
+        amb = ambiguous_persons(question)
+        if amb:
+            return {"cells": [], "chunks": [], "ambiguous_persons": amb}
+    return {"cells": cells, "chunks": hybrid_search(question)}

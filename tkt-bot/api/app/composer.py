@@ -183,6 +183,17 @@ def compose_fallback(question: str, intent: str, retrieved: dict) -> dict:
 
     cells = retrieved.get("cells", [])
     if not cells:
+        # TIP-19: tên riêng trùng (vd "cô Uyên") -> hỏi lại đúng người thay vì null chung
+        amb = retrieved.get("ambiguous_persons")
+        if amb:
+            names = " / ".join(amb)
+            msg = (f"Mình chưa rõ bạn hỏi ai vì Khoa có mấy người trùng tên gọi này:"
+                   f" {names}. Bạn cho mình biết cụ thể là ai để mình trả đúng nhé?")
+            # clarify_names: whitelist cho verifier (tên do bot nêu để hỏi lại, không
+            # phải fact cần citation) — finalize dựng dict mới nên không lọt ra client
+            return {"answer_markdown": msg, "status": "null", "citation_ids": [],
+                    "followups": [f"{n} là ai?" for n in amb[:3]],
+                    "clarify_names": list(amb)}
         return {"answer_markdown": NULL_ANSWER, "status": "null", "citation_ids": [],
                 "followups": DEFAULT_FOLLOWUPS}
 

@@ -73,7 +73,17 @@
 
 @media (max-width: 620px) {
   .verified { display: none; }
-  .logo { height: 40px; }
+  .logo { height: 38px; }
+  .header { gap: 12px; }
+  /* eyebrow dài (38 ký tự) không đủ chỗ với tracking 0.2em -> siết lại cho gọn
+     một dòng; balance để nếu vẫn tràn thì bẻ cân đối, không gãy giữa cụm */
+  .over {
+    font-size: 9px;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+    text-wrap: balance;
+  }
+  .name { font-size: 17px; }
 }
 
 /* ── chat viewport ── */

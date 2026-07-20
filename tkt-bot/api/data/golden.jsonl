@@ -46,3 +46,7 @@
 {"question": "Cô Lê Thị Thanh An về trường năm nào?", "expect_status": "grounded", "expect_cells": [["Lê Thị Thanh An", "nam_ve_truong"]], "group": "tip18", "notes": "CV năm về trường"}
 {"question": "Chuyên ngành tiến sĩ của Phạm Hoàng Uyên là gì?", "expect_status": "grounded", "expect_cells": [["Phạm Hoàng Uyên", "chuyen_nganh_tien_si"]], "group": "tip18", "notes": "CV chuyên ngành tiến sĩ"}
 {"question": "Có học bổng thạc sĩ 2026 không?", "expect_status": "null", "expect_cells": [], "group": "tip18", "notes": "BẪY: học bổng chỉ bậc đại học, thạc sĩ -> honest-null"}
+{"question": "thầy Sơn là ai?", "expect_status": "grounded", "expect_cells": [["Nguyễn Phúc Sơn", "chuc_vu"]], "group": "v19", "notes": "tên riêng duy nhất + kính ngữ -> resolve"}
+{"question": "cô An dạy môn gì?", "expect_status": "grounded", "expect_cells": [["Lê Thị Thanh An", "chuc_vu"]], "group": "v19", "notes": "tên riêng duy nhất -> resolve CV"}
+{"question": "Cô Uyên học ở đâu?", "expect_status": "null", "expect_cells": [], "group": "v19", "notes": "Uyên trùng 3 người -> honest-null, KHÔNG trả nhầm địa chỉ"}
+{"question": "thầy Nhật còn dạy không?", "expect_status": "null", "expect_cells": [], "group": "v19", "notes": "Nhật trùng 2 người -> nhập nhằng"}

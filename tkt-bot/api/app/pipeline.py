@@ -38,7 +38,8 @@ def answer_pipeline(question: str) -> tuple[dict, dict]:
     meta = {"intent": intent, "rewrites": 0, "style_fallback": False}
     log.event("composer", "composed", status=raw.get("status"))
 
-    check = verify(raw.get("answer_markdown", ""), lookup, question)
+    check = verify(raw.get("answer_markdown", ""), lookup, question,
+                   raw.get("clarify_names"))
     log.event("verifier", "verified", ok=check["ok"],
               violations=len(check["violations"]))
     while not check["ok"] and meta["rewrites"] < MAX_REWRITES and LLM_ENABLED:
@@ -46,7 +47,8 @@ def answer_pipeline(question: str) -> tuple[dict, dict]:
         log.event("pipeline", "rewrite", round=meta["rewrites"],
                   feedback=check["feedback"])
         raw, lookup = compose(question, intent, retrieved, feedback=check["feedback"])
-        check = verify(raw.get("answer_markdown", ""), lookup, question)
+        check = verify(raw.get("answer_markdown", ""), lookup, question,
+                       raw.get("clarify_names"))
         log.event("verifier", "verified", ok=check["ok"],
                   violations=len(check["violations"]), round=meta["rewrites"])
 
