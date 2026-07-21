@@ -3,24 +3,8 @@
 import React, { useEffect, useRef } from "react";
 import type { Citation } from "@/lib/types";
 import TierBadge from "./TierBadge";
+import { cleanEvidence } from "@/lib/cleanEvidence";
 import styles from "./EvidenceSheet.module.css";
-
-// Vài claim tier-C (điểm chuẩn ts247) có evidence_span là nguyên khối HTML bảng
-// vì nguồn render điểm bằng <table>, gate verbatim khiến markup là chuỗi gốc duy
-// nhất. Ở đây chỉ gỡ thẻ để đọc được, ô bảng nối bằng " · ". Không đổi claim,
-// fix gốc (span sạch hoặc field evidence_display) thuộc refinery.
-function cleanEvidence(raw: string): string {
-  if (!/<[a-z/]/i.test(raw)) return raw; // không phải HTML thì giữ nguyên
-  return raw
-    .replace(/<\/(td|th|tr|p|div|li)>/gi, " · ")
-    .replace(/<[^>]+>/g, "")
-    .replace(/&nbsp;/gi, " ")
-    .replace(/&amp;/gi, "&")
-    .replace(/\s+/g, " ")
-    .replace(/(\s*·\s*)+/g, " · ")
-    .replace(/^[·\s]+|[·\s]+$/g, "")
-    .trim();
-}
 
 function highlightNumbers(text: string): React.ReactNode[] {
   return text
