@@ -1,5 +1,8 @@
 # Tổng kết năng lực & dữ liệu — TKT-BOT (Chatbot Khoa Toán Kinh tế UEL)
 
+> **Tài liệu gốc của dự án · Phiên bản 1.0** — phê chuẩn 21/07/2026.
+> Ba đời sống: (1) kịch bản demo (mục 4.3 + 5 + 8), (2) phụ lục kỹ thuật đính kèm email Khoa, (3) khung bản chào nhân bản (mục 2–7, đổi tên & số).
+>
 > Chốt ngày **21/07/2026**, sau commit `d40d118` (registry v1.3).
 > Trạng thái: **đóng băng ổn định** — bản build tốt nhất dự án từng có, chờ 3 cửa (Render / email Khoa / API key) mà chỉ Human mở được.
 > Số liệu dưới đây **rút sống** từ registry + code + hệ đang chạy, không viết từ trí nhớ.
@@ -41,9 +44,11 @@ Chatbot hỏi–đáp về Khoa Toán Kinh tế UEL, **grounded từng con số 
 ### 3.2 Độ tin cậy nguồn (tier)
 | Tier | Số | Ý nghĩa |
 |---|---|---|
-| A | 98 | Nguồn chính hãng `*.uel.edu.vn` — **92/92 tier-A đều first-party** |
+| A | 98 | Nguồn chính hãng — **98/98 đều first-party** `*.uel.edu.vn` (maths 91 · tuyensinh 6 · uel 1). Không claim tier-A nào trỏ ngoài UEL. |
 | B | 7 | Nguồn thứ ba mạnh, có snapshot + span |
 | C | 34 | Nguồn tham khảo (điểm chuẩn ts247, báo chí), có snapshot + span |
+
+> *Ghi chú hai trục đo, để không lẫn:* con số **98/98** đo trục **first-party** (nguồn có phải tên miền UEL không). Nếu đo theo trục **loại snapshot**, 98 claim tier-A gồm **83 tựa trang web `.html` + 15 tựa sidecar CV `.txt`** (lý lịch KH đăng trên site Khoa) — cả hai đều first-party. (Số 41 ở mục 3 là số *file* snapshot; nhiều claim dùng chung một file, nên claim-count > file-count.)
 
 **Mọi claim (kể cả A) đều mang snapshot + `evidence_span` verbatim** — 139/139, hai đường kiểm (engine fail-loud + verifier độc lập) cùng xác nhận 0 span-not-found.
 
@@ -149,4 +154,4 @@ App có **27 FIELD_RULES** cho tra cứu có cấu trúc (deterministic), phủ 
 Sản phẩm đã thôi cần thêm code. Nó chỉ còn cần được **nhìn thấy**.
 
 ---
-*Báo cáo sinh từ trạng thái thực `d40d118` · registry digest `a3ea65c1` · health `claims_loaded=139`.*
+*Tài liệu gốc v1.0 · sinh từ trạng thái thực: registry commit `d40d118` · digest `a3ea65c1` · `claims_loaded=139` · tier-A 98/98 first-party.*
