@@ -71,10 +71,11 @@ CN_ENTITIES = [
 
 # (regex trên câu đã norm, danh sách field, year_bound: field gắn năm trong tên)
 FIELD_RULES = [
-    (r"diem chuan|diem trung tuyen|nguong dau vao|muc trung tuyen|bao nhieu diem|lay bao nhieu",
+    (r"diem chuan|diem trung tuyen|nguong dau vao|muc trung tuyen|bao nhieu diem|lay bao nhieu"
+     r"|diem sat|\bsat\b|xet sat|chung chi quoc te|\b149\b|danh sach 149|uu tien xet tuyen|utxtt",
      "diem", True),
     (r"hoc phi", "hoc_phi", True),
-    (r"chi tieu", ["chi_tieu_2025"], True),
+    (r"chi tieu", ["chi_tieu_2025", "chi_tieu_2026"], True),
     (r"lich tuyen sinh|lich nhan ho so|nhan ho so|nop ho so|lich xet tuyen|bao gio (nop|nhan|xet)",
      ["lich_tuyen_sinh_2026"], True),
     (r"tien than|truoc day la truong nao|xuat than tu dau", ["tien_than", "nam_thanh_lap"], False),
@@ -119,8 +120,17 @@ def _detect_entities(q: str) -> list[str]:
 def _detect_diem_fields(q: str) -> list[str]:
     if re.search(r"dgnl|danh gia nang luc", q):
         return ["diem_dgnl_2025"]
-    if re.search(r"utxtt|uu tien xet tuyen", q):
+    if re.search(r"diem sat|\bsat\b|xet sat|chung chi quoc te", q):
+        return ["diem_sat_2025"]  # registry chỉ có SAT, chưa tách ACT/A-Level -> nhãn ghi rõ ngưỡng SAT
+    if re.search(r"\b149\b|danh sach 149|149 truong", q):
+        return ["diem_utxt149_2025"]
+    # "ưu tiên xét tuyển thẳng" (thủ khoa trường chuyên/năng khiếu) -> ƯTXTT rõ ràng
+    if re.search(r"utxtt|xet tuyen thang|uu tien xet tuyen thang|thu khoa|nang khieu", q):
         return ["diem_utxtt_2025"]
+    # "ưu tiên xét tuyển" trần = nhập nhằng HAI ĐÁP ÁN ĐỀU ĐÚNG (ƯTXTT vs danh sách 149):
+    # không đoán, trả CẢ HAI ô, mỗi ô một citation (khác cntt = không đáp án nào chắc -> hỏi lại)
+    if re.search(r"uu tien xet tuyen", q):
+        return ["diem_utxtt_2025", "diem_utxt149_2025"]
     if re.search(r"\ba00\b|\ba01\b", q):
         return ["diem_thpt_2025_A00_A01"]
     if re.search(r"\bd01\b|\bd07\b|\bx25\b|\bx26\b", q):
@@ -136,14 +146,15 @@ def _detect_hoc_phi_fields(q: str) -> list[str]:
     return ["hoc_phi_tieng_viet_2025_2026", "hoc_phi_tieng_anh_2025_2026"]
 
 
-def _year_mismatch(q: str, fields) -> bool:
-    """Field gắn năm trong tên: câu hỏi nêu năm không có trong tên field
-    thì không được trả ô đó (vd hỏi 2026 mà field chỉ có dữ liệu 2025)."""
+def _year_filter(q: str, fields):
+    """Field gắn năm trong tên: câu hỏi nêu năm thì CHỈ giữ field khớp năm đó
+    (vd 'chỉ tiêu 2026' -> chi_tieu_2026, không kéo chi_tieu_2025 trả nhầm năm).
+    Câu không nêu năm -> giữ nguyên. Không field nào khớp -> [] (honest-null,
+    vd hỏi 2026 mà chỉ có dữ liệu 2025)."""
     years = set(re.findall(r"\b(20\d\d)\b", q))
     if not years:
-        return False
-    ok = {y for f in fields for y in re.findall(r"20\d\d", f)}
-    return not (years & ok)
+        return list(fields)
+    return [f for f in fields if years & set(re.findall(r"20\d\d", f))]
 
 
 def _fetch_cells(entity_fields: list[tuple[str, str]]) -> list[dict]:
@@ -377,8 +388,10 @@ def structured_lookup(question: str) -> list[dict]:
                 fields = _detect_hoc_phi_fields(q)
             else:
                 fields = f
-            if year_bound and _year_mismatch(q, fields):
-                return []
+            if year_bound:
+                fields = _year_filter(q, fields)
+                if not fields:
+                    return []
             break
     if fields is None:
         return []
@@ -390,7 +403,8 @@ def structured_lookup(question: str) -> list[dict]:
         return []
 
     def _defaults() -> list[str]:
-        if fields[0].startswith(("diem_", "ma_tuyen")):
+        # chi_tieu_2026 chỉ công bố ở cấp chuyên-ngành (khác chi_tieu_2025 cấp Trường)
+        if fields[0].startswith(("diem_", "ma_tuyen")) or fields[0] == "chi_tieu_2026":
             return list(CN_ENTITIES)
         return ["Khoa Toán Kinh tế", "Ngành Toán kinh tế",
                 "Trường Đại học Kinh tế - Luật"]

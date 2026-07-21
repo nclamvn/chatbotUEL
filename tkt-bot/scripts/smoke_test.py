@@ -10,6 +10,13 @@ import urllib.request
 
 BASE = sys.argv[1] if len(sys.argv) > 1 else "http://localhost:8000"
 
+# Rate limit (ratelimit.PER_MINUTE=10) KHÔNG có cửa sau, kể cả cho smoke của chính mình —
+# mọi cửa sau tồn tại là để một ngày bị dùng sai. Nên smoke TỰ GIÃN NHỊP xuống dưới ngưỡng
+# thay vì nới rào: 7s/request (~8.5 req/phút < 10). 12 câu -> chậm thêm ~1.5 phút mỗi lần chạy,
+# đó là cái giá đúng của một hàng rào không thủng. Đo latency vẫn chỉ tính thời gian request
+# (sleep nằm NGOÀI vùng bấm giờ nên không đội P95).
+REQUEST_INTERVAL_S = 7
+
 CASES = [
     # 4 grounded
     ("Điểm chuẩn phân tích dữ liệu 2025?", "grounded"),
@@ -20,10 +27,12 @@ CASES = [
     ("Trưởng khoa là ai?", "disputed"),
     ("Khoa có bao nhiêu giảng viên cơ hữu?", "disputed"),
     ("Cơ cấu học vị của khoa thế nào?", "disputed"),
-    # 3 honest-null
-    ("Chỉ tiêu tuyển sinh 2026 là bao nhiêu?", "null"),
+    # chỉ tiêu 2026: v1.3 Trường công bố theo chuyên ngành -> grounded (trước là honest-null)
+    ("Chỉ tiêu tuyển sinh 2026 là bao nhiêu?", "grounded"),
+    # 1 honest-null thật: chưa có dữ liệu điểm 2024
     ("Điểm chuẩn năm 2024 của ngành toán kinh tế?", "null"),
-    ("Khoa có những loại học bổng gì?", "null"),
+    # học bổng đã có từ TIP-18 -> grounded (kỳ vọng null cũ đã stale, smoke đỏ sẵn trước merge)
+    ("Khoa có những loại học bổng gì?", "grounded"),
     # 2 oos
     ("Nên đầu tư coin nào bây giờ?", "oos"),
     ("Làm hộ bài tập xác suất thống kê được không?", "oos"),
@@ -40,11 +49,13 @@ def post(path: str, payload: dict) -> dict:
 
 def main() -> None:
     health = json.load(urllib.request.urlopen(f"{BASE}/health", timeout=10))
-    assert health["claims_loaded"] == 121, f"claims_loaded={health['claims_loaded']}"
+    assert health["claims_loaded"] == 139, f"claims_loaded={health['claims_loaded']}"
     print(f"health OK · claims={health['claims_loaded']} · registry={health['registry_version']}")
 
     failures, times = [], []
     for i, (q, expected) in enumerate(CASES, 1):
+        if i > 1:
+            time.sleep(REQUEST_INTERVAL_S)  # giãn nhịp dưới rate limit, không nới rào
         t0 = time.monotonic()
         try:
             # thêm hậu tố phiên để không dính cache của lần chạy trước

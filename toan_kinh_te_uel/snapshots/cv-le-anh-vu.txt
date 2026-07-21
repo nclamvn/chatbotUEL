@@ -1,0 +1,478 @@
+LÝ LỊCH KHOA HỌC
+ĐẠI HỌC QUỐC GIA TP.HCM
+TRƯỜNG ĐẠI HỌC KINH TẾ - LUẬT
+I. THÔNG TIN CHUNG
+1. Họ và tên: Lê Anh Vũ
+2. Ngày sinh: 05/11/1958
+3. Nam/nữ: Nam
+4. Nơi đang công tác:
+6. Học hàm: Phó giáo sư
+5. Học vị: Tiến sĩ
+Chức vụ:
+TT Cơ quan Cá nhân
+1  Địa chỉ  Khu phố 3, Phường Linh Xuân, Thủ Đức, TP.HCM  Căn B110 Chung cư Trần Quốc Thảo, Phường 09,
+Quận 3, Tp Hồ Chí Minh
+2  Điện thoại/Fax  028 372 44 551  0913900689
+3  Email  phongdaotao@uel.edu.vn  vula@uel.edu.vn
+7. Thông tin liên lạc
+(Thông tin trong 5 năm gần nhất và có liên quan trực tiếp đến đề tài/dự án đăng ký)
+năm đạt:
+năm phong:
+Phòng/Ban: Khoa Toán Kinh tế
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập - Tự do - Hạnh phúc
+Nghe Nói Viết Đọc hiểu tài liệu
+Tốt Khá TB Tốt Khá TB Tốt Khá TB Tốt Khá TB
+8. Trình độ ngoại ngữ:
+1 Tiếng Anh X X X X 
+9. Thời gian công tác:
+Thời gian Nơi công tác Chức vụ
+ 
+10. Quá trình đào tạo:
+Bậc đào tạo Thời gian Nơi đào tạo Chuyên ngành Tên luận án tốt nghiệp
+ 
+11. Môn học giảng dạy
+STT Môn học giảng dạy
+TT Tên ngoại ngữ
+11. Môn học giảng dạy
+STT Môn học giảng dạy
+1 Toán Cao cấp, Lý thuyết xác suất
+12. Hướng nghiên cứu:
+STT Hướng nghiên cứu
+1 Lie Theory, Theory of Matrices, Computer Algebra and Applications
+II. NGHIÊN CỨU VÀ GIẢNG DẠY
+1. Đề tài/dự án:
+TT Tên đề tài/dự án Mã số và cấp
+quản lý
+Thời gian
+thực hiện Kinh phí Chủ nhiệm/
+Tham gia
+Ngày
+nghiệm thu Kết quả
+1  Lý thuyết Lie và ứng dụng phân tích tiến bộ
+kỹ thuật trong Kinh tế
+  C2019-34-
+07 24 tháng  120,000,000  Chủ nhiệm 
+2  Áp dụng Lý thuyết Ma trận vào bài toán
+phânloại Đại số Lie   CS/2020-08 12 tháng  40,000,000  Thành viên 
+3  Lý thuyết Lie và ứng dụng phân tích tiến bộ
+kỹ thuật trong Kinh tế
+  C2019-34-
+07 24 tháng  120,000,000  Chủ nhiệm   29/04/2021 xuất sắc
+4  Lý thuyết Lie và ứng dụng phân tích tiến bộ
+kỹ thuật trong kinh tế
+  C2019-34-
+07 0 tháng  120,000,000  Chủ nhiệm   29/04/2021 Xuất sắc
+2. Hướng dẫn sinh viên, học viên cao học, nghiên cứu sinh:
+TT Tên SV, HVCH, NCS Tên luận án Năm tốt
+nghiệp
+Bậc đào
+tạo
+Sản phẩm của đề
+tài/dự án
+(chỉ ghi mã số)
+1 
+III. CÁC CÔNG TRÌNH  ĐÃ CÔNG BỐ
+1.1. Sách xuất bản quốc tế
+TT Tên sách
+Sản phẩm của đề
+tài/ dự án
+(chỉ ghi mã số)
+Nhà xuất bản Năm xuất bản
+Tác giả/
+đồng tác giả
+Bút danh
+1 
+1.2. Sách xuất bản trong nước
+TT Tên sách
+Sản phẩm của đề
+tài/ dự án
+(chỉ ghi mã số)
+Nhà xuất bản Năm xuất bản
+Tác giả/
+đồng tác giả
+Bút danh
+1 Giáo Trình Toán Cao Cấp NXB Đại học quốc
+gia TP. HCM 2016-2017 Chủ biên 
+2.1. Đăng trên tạp chí quốc tế
+TT
+Tên tác giả, tên bài viết, tên tạp chí và số của tạp chí,
+trang đăng bài viết, năm xuất bản
+Sản phẩm của đề tài/
+dự án
+(chỉ ghi mã số)
+Số hiệu ISSN
+(ghi rõ thuộc ISI hay không)
+Điểm IF
+2. Bài báo
+1  Cao Trần Tứ Hải, Cohomology Of Some Families Of Lie
+Algebras And Quadratic Lie AlgebrasEast - West Journal of
+Mathematics, 31/05/2019
+  1513-489X 
+2  Phó giáo sư Tiến sĩ Lê Anh Vũ, Applying matrix theory to
+classify real solvable Lie algebras having 2-dimensional derived
+idealsLinear Algebra and its Applications, 03/12/2019
+ C2019-34-07  00243795 0.977
+3  Phó giáo sư Tiến sĩ Lê Anh Vũ, Some Applications of Lie
+Groups in Theory of Technical ProgressEast-West Journal of
+Mathematics, 05/01/2021
+  ISSN1513-489X 
+2.1. Đăng trên tạp chí quốc tế
+TT
+Tên tác giả, tên bài viết, tên tạp chí và số của tạp chí,
+trang đăng bài viết, năm xuất bản
+Sản phẩm của đề tài/
+dự án
+(chỉ ghi mã số)
+Số hiệu ISSN
+(ghi rõ thuộc ISI hay không)
+Điểm IF
+2. Bài báo
+4  Nguyễn Thị Mộng Tuyền, Foliations Formed by Generic
+Coadjoint Orbits of a Class of Real Seven-Dimensional
+Solvable Lie GroupsGeometry and Symmetry in Physics,
+17/12/2021
+  1312-5192 
+5  Nguyễn Thị Cẩm Tú, Representations of Real Solvable Lie
+Algebras Having 2-dimensional Derived IdealAsian-European
+Journal of Mathematics, 21/02/2022
+  1793-5571 
+6  Phó giáo sư Tiến sĩ Lê Anh Vũ, On the problem of classifying
+solvable Lie algebras having small codimensional derived
+algebrasCommunications in Algebra, 12/03/2022
+  0092-7872 
+7  Đinh Trung Hòa, The matrix Heinz mean and related
+divergenceHacettepe Journal of Mathematics & Statistics,
+01/02/2022
+  2651-477X 
+8   Tiến sĩ Hà Văn Hiếu, Classification of Solvable Lie Groups
+Whose Non-Trivial Coadjoint Orbits Are of Codimension
+1Communications of the Korean Mathematical Society,
+31/10/2022
+  1225-1763 
+2.2. Đăng trên tạp chí trong nước
+TT
+Tên tác giả, tên bài viết, tên tạp chí và số của tạp chí,
+trang đăng bài viết, năm xuất bản
+Sản phẩm của đề tài/
+dự án
+(chỉ ghi mã số)
+Số hiệu ISSN
+ Ghi chú
+1  Phó giáo sư Tiến sĩ Lê Anh Vũ, Quỹ đạo đối phụ hợp của một
+lớp nhóm Lie giải được 7 chiềuTạp chí Khoa học trường Đại
+học Cần Thơ, 18/08/2022
+  1859-2333 
+2.3. Đăng trên kỷ yếu Hội nghị Quốc tế
+TT Tên tác giả, tên bài viết, tên Hội nghị, thời gian tổ chức, nơi
+tố chức
+Sản phẩm của đề tài/
+dự án
+(chỉ ghi mã số)
+Số hiệu
+ ISBN
+Ghi chú
+1 Phó giáo sư Tiến sĩ Lê Anh Vũ, Apply Kirillov's Method of
+Orbits and Connes' Method  in Non-Commutative Differential
+Geometry to a Class of Solvable Real Lie Groups. The 2017
+International Conference on Algebra and Geometry
+(ICAG2017), 01/06/2017
+  978-616-443-003-7 
+2 Phó giáo sư Tiến sĩ Lê Anh Vũ, Classification of on real
+Solvable Lie Agrebras with Derived Ideal Having Demension 1
+or Codemension 1. Intenatinal Conference in mathematics and
+Application-ICMA MU 2016, 01/12/2016
+  987-616-279-953-2 
+3 Phó giáo sư Tiến sĩ Lê Anh Vũ, Classification of Real Solvable
+Lie Algebras Having 2-dimensional Derived Ideal. International
+Conference on Algebras and Geometry, 14/12/2018
+ 
+4 Phó giáo sư Tiến sĩ Lê Anh Vũ, Apply Matrix Congruence To
+Classify Real Solvable Lie Algebras Having 1-codimensional or
+2-codimensional Derived Ideal. International Conference in
+Mathematics and Applications, 16/12/2018
+ 
+5 Phó giáo sư Tiến sĩ Lê Anh Vũ, Classification of Real Solvable
+Lie Algebras Having 2-dimensional or 2-codimensional Derived
+Ideal. The International Symposium on Applied Science 2019,
+19/10/2019
+ 
+6 Phó giáo sư Tiến sĩ Lê Anh Vũ, Some applications of lie groups
+in theory of technical progress. The International Symposium on
+Applied Science 2019
+, 19/10/2019
+ 
+7 Phó giáo sư Tiến sĩ Lê Anh Vũ, On the Problem of Classifying
+Real Solvable Lie Algebras Having 2-dimensional or 2-
+codimensional Derived Ideal. Vietnam-USA joint mathematical
+meeting, 10/06/2019
+ 
+2.3. Đăng trên kỷ yếu Hội nghị Quốc tế
+TT Tên tác giả, tên bài viết, tên Hội nghị, thời gian tổ chức, nơi
+tố chức
+Sản phẩm của đề tài/
+dự án
+(chỉ ghi mã số)
+Số hiệu
+ ISBN
+Ghi chú
+8 Phó giáo sư Tiến sĩ Lê Anh Vũ, Applications of Lie Groups in
+Technical Progress on
+Economic Growth: the case of Vietnam. The international
+conference on Mathematics and Mathematics Education,
+25/07/2020
+ C2019-34-07 
+9 Thạc sĩ Nguyễn Anh Tuấn, Classifying 7-dimensional Real
+Solvable Lie Algebras With 5-dimensional Nỉadicals.
+International Conference on Mathematics and Mathematics
+Education, 25/07/2020
+ 
+10 Thạc sĩ Nguyễn Anh Tuấn, Testing Isomorphism for Lie
+Algebras by Means Triangular Decomposition. International
+Conference on Mathematics and Mathematics Education,
+25/07/2020
+ 
+11 Phó giáo sư Tiến sĩ Lê Anh Vũ, Lie Algebras, Lie Groups: Some
+New Results about their Classification and Representation..
+International Workshop on Matrix Analysis and Its Applications,
+04/07/2022
+ 
+12 Phó giáo sư Tiến sĩ Lê Anh Vũ, Representation of Real Solvable
+Lie Algebras Having 2-dimensional Derived Ideal and
+Geometry of Coadjoint Orbits of Corresponding Lie Groups.
+The International Symposium on Applied Science 2022 (ISAS
+2022), 15/10/2022
+ 
+13 Nguyễn Thị Mộng Tuyền, Foliation formed by generic coadjoint
+orbits of a class of 7-dimensional solvable Lie groups. The
+International Symposium on Applied Science 2022 (ISAS
+2022), 15/10/2022
+ 
+2.4. Đăng trên kỷ yếu Hội nghị trong nước
+TT Tên tác giả, tên bài viết, tên Hội nghị, thời gian tổ chức, nơi
+tố chức
+Sản phẩm của đề tài/
+dự án
+(chỉ ghi mã số)
+Số hiệu
+ ISBN
+Ghi chú
+1 Phó giáo sư Tiến sĩ Lê Anh Vũ, Dạy - Học Toán là dạy và học tư
+duy. Hội thảo khoa học - KHTN lần thứ 2- Trường Cao đẳng sư
+phạm Nha Trang, 01/01/2011
+ 
+2 Phó giáo sư Tiến sĩ Lê Anh Vũ, A New Characteristic of
+Heisenberg Lie Algebras and The Classification of Real
+Solvable Lie Algebras Having One-dimensional or One-
+codimensional Derived Ideals. Hội nghị Đại số - Hình học - Tô
+pô toàn quốc, 21/12/2014
+ 
+3 Phó giáo sư Tiến sĩ Lê Anh Vũ, Số Betti của đại số Lie toàn
+phương kỳ dị chéo hóa được. Hội nghị Đại số - Hình học - Tô
+pô toàn quốc, 21/12/2014
+ 
+4 Tiến sĩ Phạm Văn Chững, Ứng dụng của hồi quy phân vị nghiên
+cứu sự phụ thuộc của các cổ phiếu trong thị trường chứng khoán
+Việt Nam. Phương pháp Kinh tế lượng và thống kê trong phân
+tích định lượng Kinh tế - Tài chính, 01/01/2014
+ 
+5 Phó giáo sư Tiến sĩ Lê Anh Vũ, Classification of Real Solvable
+Lie Algebras Having Derived Ideal of Low Dimension or
+Codimension. Hội Nghị Khoa học Ứng dụng lần thứ 14,
+01/10/2015
+ 
+6 Phó giáo sư Tiến sĩ Lê Anh Vũ, Giảng dạy Thống kê Toán học
+và Ứng dụng tại trường Đại học Kinh tế - Luật – Thực trạng và
+một số giải pháp gắn giảng dạy với việc hướng dẫn sinh viên tập
+dượt nghiên cứu các vấn đề thực tiễn. Hội thảo về Nội dung và
+Phương pháp giảng dạy Thống kê Toán học (Tại Cần Thơ 4 -
+5/12/2015), 01/12/2015
+ 
+7 Phó giáo sư Tiến sĩ Lê Anh Vũ, Hợp tác Quốc tế, Chuyên đề
+ngắn hạn và Seminar - Ba mũi giáp công trong công tác Bồi
+dưỡng xây dựng đội ngũ và NCKH của Bộ môn Toán Kinh tế
+giai đoạn 2011-2015. Hội thảo về tổng kết 15 năm công tác
+NCKH của UEL, 01/11/2015
+ 
+2.4. Đăng trên kỷ yếu Hội nghị trong nước
+TT Tên tác giả, tên bài viết, tên Hội nghị, thời gian tổ chức, nơi
+tố chức
+Sản phẩm của đề tài/
+dự án
+(chỉ ghi mã số)
+Số hiệu
+ ISBN
+Ghi chú
+8 Phó giáo sư Tiến sĩ Lê Anh Vũ, Một số giải pháp thiết thực
+nhằm gán kết hoạt động giảng dạy Toán với việc hướng dẫn sinh
+viên tập dượt nghiên cứu khoa học. Hội thảo về tổng kết 15 năm
+chất lượng đào tạo của UEL, 01/11/2015
+ 
+9 Phó giáo sư Tiến sĩ Lê Anh Vũ, The Connes' C*-algebra of the
+Foliations Formed by the Generic Co-adjoint Orbits of a Class
+of Solvable Real Lie Groups. Hội thảo Khoa học Bộ môn Toán
+Kinh tế năm 2016 tại UEL ngày 18/6/2016, 16/08/2016
+ 
+10 Phó giáo sư Tiến sĩ Lê Anh Vũ, Classification of Real Solvable
+Lie Algebras Having Small Dimensional or Codimensional
+Derived Ideal. Hội nghị toàn quốc về Đại số, Hình học và Tô
+pô, 01/10/2016
+ 
+11 Phó giáo sư Tiến sĩ Lê Anh Vũ, K-theory for the Leaf Space
+Foliations by the Generic Co-adjoint Orbits
+of a Class of Solvable Real Lie Groups and Their Connes' C*-
+algebras. Hội nghị Khoa học Khoa Toán - Tin, Trường ĐH Sư
+Phạm TPHCM, 22/08/2018
+ 
+12 Cao Trần Tứ Hải, A Subclass of 8-dimensional Solvable
+Quadratic Lie Superalgebras. Hội nghị Khoa học Khoa Toán -
+Tin, Trường ĐH Sư Phạm TPHCM, 22/08/2018
+ 
+13 Tiến sĩ Nguyễn Anh Tuấn, Topology of Foliations: Differential
+Geometry and Its K-theory. Hội nghị Khoa học Khoa Toán -
+Tin, Trường ĐH Sư Phạm TPHCM, 22/08/2018
+ 
+14 Phó giáo sư Tiến sĩ Lê Anh Vũ, Classification of Real Solvable
+Lie Algebras Having 2-dimensional or 2-codimensional Derived
+Ideal. Đại hội Toán học Việt Nam lần thứ IX năm 2018,
+09/11/2018
+ 
+15 Dương Quang Hòa, On the n-dimensional Real Solvable Lie
+Algebras Having 2-dimensional or 2-codimensional Derived
+Ideal. Đại hội Toán học Việt Nam lần thứ IX năm 2018,
+09/11/2018
+ 
+16 Tiến sĩ Nguyễn Anh Tuấn, Đại số Lie 7-chiều có căn lũy linh 5-
+chiều. Đại hội Toán học Việt Nam lần thứ IX năm 2018,
+09/11/2018
+ 
+17 Phó giáo sư Tiến sĩ Lê Anh Vũ, Giảng dạy chất lượng cao là
+phải “đánh thức” được tiềm năng tư duy của người học nhằm
+biến quá trình đào tạo thành quá trình tự đào tạo. Hội thảo về
+giảng dạy hệ chất lượng cao của UEL, 04/10/2019
+ 
+18 Cao Trần Tứ Hải, The second cohomology of quadratic lie
+algebras
+And quadratic lie superalgebras. Hội nghị Đại sô - Hình học và
+Tô pô toàn quốc năm 2019, 14/12/2019
+ 
+19 Thạc sĩ Nguyễn Anh Tuấn, Classifying 7-dimensional real
+solvable Lie algebras with codimension two nilradicals. Hội
+nghị Đại số - Hình học và Tô pô toàn quốc năm 2019,
+14/12/2019
+ 
+20 Phó giáo sư Tiến sĩ Lê Anh Vũ, Classification of real solvable
+lie algebras having low codimensional derived ideal. Hội nghị
+Đại số - Hình học và Tô pô toàn quốc năm 2019, 14/12/2019
+ 
+21 Phó giáo sư Tiến sĩ Lê Anh Vũ, On Technical Progresses of the
+Lie Type and Estimation of the GDP Function of Vietnam. Hình
+học, Tô pô, Lượng tử và Ứng dụng, 20/11/2020
+C2019-34-07 
+22 Dương Quang Hòa , Overview of Classification Problem of MD
+-groups and MD-algebras.. Hình học, Tô pô, Lượng tử và Ứng
+dụng, 20/11/2020
+ 
+23 Tiến sĩ Hà Văn Hiếu, Vector spaces of Matrices of fixed rank
+and MD-algebras. Hình học, Tô pô, Lượng tử và Ứng dụng,
+20/11/2020
+ 
+24 Nguyễn Thị Cẩm Tú, Faithful representation of real solvable Lie
+algebras having low-dimensional derived ideal. Hội nghị toàn
+quốc về Đại số - Lý thuyết số - Hình học- Tôpô 2021,
+21/10/2021
+ 
+2.4. Đăng trên kỷ yếu Hội nghị trong nước
+TT Tên tác giả, tên bài viết, tên Hội nghị, thời gian tổ chức, nơi
+tố chức
+Sản phẩm của đề tài/
+dự án
+(chỉ ghi mã số)
+Số hiệu
+ ISBN
+Ghi chú
+25 Tiến sĩ Nguyễn Anh Tuấn, 7-dimensional solvable Lie algebras
+with 5-dimensional nilradicals. Hội nghị toàn quốc về Đại số -
+Lý thuyết số - Hình học - Tôpô 2021, 21/10/2021
+ 
+26 Nguyễn Thị Mộng Tuyền, Foliations formed by K-orbits of
+connected, simply connected Lie groups corresponding to a
+class of solvable Lie algebras of dimension 7. Hội nghị toàn
+quốc về Đại số - Lý thuyết số - Hình học - Tôpô 2021,
+21/10/2021
+ 
+27 Phó giáo sư Tiến sĩ Lê Anh Vũ, On the Classification of
+Solvable Lie Algebras Having Small Codimensional Derived
+Algebras. Hội nghị toàn quốc về Đại số - Lý thuyết số - Hình
+học - Tôpô 2021, 21/10/2021
+ 
+28 Phan Ngọc Yến, New divergence ralated matrix Heinz mean.
+Hội nghị toàn quốc về Đại số - Lý thuyết số - Hình học - Tôpô
+2021, 21/10/2021
+ 
+29 Tiến sĩ Hà Văn Hiếu, Classification of Simply Connected Real
+Lie groups whose nontrivial Coadjoint orbits are of codimension
+2. Hội nghị toàn quốc về Đại số - Lý thuyết số - Hình học -
+Tôpô 2021, 21/10/2021
+ 
+30 Phó giáo sư Tiến sĩ Lê Anh Vũ, On Technical Progresses of The
+Lie Type And Estimation of The GDP Function of Vietnam. Hội
+Nghị Khoa học Tự nhiên Đồng bằng Sông Cửu Long lần thứ hai
+(NSMD 2022), 20/08/2022
+ 
+31 Phó giáo sư Tiến sĩ Lê Anh Vũ, The Classification of Real
+Solvable Lie Algebras Whose Derived Algebras Have
+Codimension 1 or 2. Hội nghị Toán học Miền Trung - Tây
+Nguyên lần thứ IV , 25/08/2022
+ 
+IV. CÁC GIẢI THƯỞNG
+1. Các giải thưởng Khoa học và Công nghệ
+TT Tên giải thưởng Nội dung giải thưởng Nơi cấp Năm cấp
+1 
+2. Bằng phát minh, sáng chế (patent)
+TT Tên bằng
+Sản phẩm của đề tài/
+dự án
+(chỉ ghi mã số)
+Số hiệu Năm
+cấp Nơi cấp
+Tác giả/
+đồng tác giả
+1 
+3. Bằng giải pháp hữu ích
+TT Tên giải pháp
+Sản phẩm của đề tài/
+dự án
+(chỉ ghi mã số)
+Số hiệu Năm
+cấp Nơi cấp
+Tác giả/
+đồng tác giả
+1 
+4. Ứng dụng thực tiễn và thương mại hoá kết quả nghiên cứu
+TT
+Tên công nghệ/ giải  pháp hữu ích
+ đã chuyển giao
+Hình thức, quy mô, địa chỉ
+áp dụng
+Năm chuyển
+giao
+Sản phẩm của đề tài/
+dự án
+(chỉ ghi mã số)
+1 
+V. THÔNG TIN KHÁC
+ 
+1. Tham gia các chương trình trong và ngoài nước
+TT Thời gian Tên chương trình Chức danh
+1 
+2. Tham gia các Hiệp hội Khoa học, Ban biên tập các tạp chí Khoa học, Ban tổ chức các Hội nghị về KH&CN
+TT Thời gian Tên Hiệp hội/ Tạp chí/ Hội nghị Chức danh
+1 
+3. Tham gia làm việc tại Trường  Đại học/ Viện/ Trung tâm nghiên cứu theo lời mời
+TT Thời gian Tên Trường Đại học/ Viện/ Trung tâm nghiên cứu Nội dung tham gia
+1 
+Ngày ... tháng ... năm ....
+Người khai
+(Họ tên và chữ ký)
+Lê Anh Vũ

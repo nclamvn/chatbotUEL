@@ -46,6 +46,10 @@ schema:
     - bo_mon
     - hoc_bong_tien_phong_2026
     - hoc_bong_vuot_troi_2026
+    - phuong_thuc_xet_tuyen_2026
+    - chi_tieu_2026
+    - diem_sat_2025
+    - diem_utxt149_2025
 
 rollup_field: loai
 

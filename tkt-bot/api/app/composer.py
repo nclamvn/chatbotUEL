@@ -18,6 +18,10 @@ FIELD_LABELS = {
     "diem_dgnl_2025": "điểm chuẩn đánh giá năng lực 2025",
     "diem_utxtt_2025": "điểm ưu tiên xét tuyển thẳng 2025",
     "chi_tieu_2025": "chỉ tiêu 2025",
+    "chi_tieu_2026": "chỉ tiêu 2026",
+    "phuong_thuc_xet_tuyen_2026": "phương thức xét tuyển 2026",
+    "diem_sat_2025": "điểm chuẩn SAT 2025",
+    "diem_utxt149_2025": "điểm ưu tiên xét tuyển (phương thức 149) 2025",
     "hoc_phi_tieng_viet_2025_2026": "học phí chương trình tiếng Việt năm học 2025-2026",
     "hoc_phi_tieng_anh_2025_2026": "học phí chương trình tiếng Anh năm học 2025-2026",
     "ma_tuyen_sinh": "mã tuyển sinh",
@@ -153,6 +157,8 @@ DIEM_COLS = [
     ("diem_thpt_2025_D01_D07_X25_X26", "D01, D07, X25, X26"),
     ("diem_dgnl_2025", "ĐGNL"),
     ("diem_utxtt_2025", "ƯTXTT"),
+    ("diem_sat_2025", "SAT"),
+    ("diem_utxt149_2025", "ƯTXT 149"),
 ]
 
 

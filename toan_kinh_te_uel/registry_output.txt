@@ -31,7 +31,7 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     diem_thpt_2025_A00_A01: 26.43 [✓C]
     diem_thpt_2025_D01_D07_X25_X26: 25.63 [✓C]
     diem_dgnl_2025  : 927 [✓C]
-    diem_utxtt_2025 : —
+    diem_utxtt_2025 : 84.33/90 [✓C]
     chi_tieu_2025   : —
     hoc_phi_tieng_viet_2025_2026: —
     hoc_phi_tieng_anh_2025_2026: —
@@ -45,6 +45,10 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     bo_mon          : —
     hoc_bong_tien_phong_2026: —
     hoc_bong_vuot_troi_2026: —
+    phuong_thuc_xet_tuyen_2026: —
+    chi_tieu_2026   : 65 [✓C]
+    diem_sat_2025   : 1310 [✓C]
+    diem_utxt149_2025: 83.41/90 [✓C]
 
 ▸ CN Toán ứng dụng trong Kinh tế, Quản trị và Tài chính  (chuyen_nganh)
     loai            : chuyen_nganh [✓A]
@@ -75,7 +79,7 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     diem_thpt_2025_A00_A01: 25.75 [✓C]
     diem_thpt_2025_D01_D07_X25_X26: 25.00 [✓C]
     diem_dgnl_2025  : 892 [✓C]
-    diem_utxtt_2025 : —
+    diem_utxtt_2025 : 82.65/90 [✓C]
     chi_tieu_2025   : —
     hoc_phi_tieng_viet_2025_2026: —
     hoc_phi_tieng_anh_2025_2026: —
@@ -89,6 +93,10 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     bo_mon          : —
     hoc_bong_tien_phong_2026: —
     hoc_bong_vuot_troi_2026: —
+    phuong_thuc_xet_tuyen_2026: —
+    chi_tieu_2026   : 65 [✓C]
+    diem_sat_2025   : 1440 [✓C]
+    diem_utxt149_2025: 81.9/90 [✓C]
 
 ▸ CN Toán ứng dụng trong Kinh tế, Quản trị và Tài chính (Tiếng Anh)  (chuyen_nganh)
     loai            : chuyen_nganh [✓B]
@@ -133,6 +141,10 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     bo_mon          : —
     hoc_bong_tien_phong_2026: —
     hoc_bong_vuot_troi_2026: —
+    phuong_thuc_xet_tuyen_2026: —
+    chi_tieu_2026   : 40 [✓C]
+    diem_sat_2025   : 1420 [✓C]
+    diem_utxt149_2025: 81.17/90 [✓C]
 
 ▸ Huỳnh Tố Uyên  (nhan_su)
     loai            : nhan_su [✓A]
@@ -152,7 +164,7 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     triet_ly_giao_duc: —
     tam_nhin        : —
     dia_chi         : —
-    email           : —
+    email           : uyenht@uel.edu.vn [✓A]
     dien_thoai      : —
     website         : —
     ma_truong       : —
@@ -177,6 +189,10 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     bo_mon          : —
     hoc_bong_tien_phong_2026: —
     hoc_bong_vuot_troi_2026: —
+    phuong_thuc_xet_tuyen_2026: —
+    chi_tieu_2026   : —
+    diem_sat_2025   : —
+    diem_utxt149_2025: —
 
 ▸ Hà Văn Hiếu  (nhan_su)
     loai            : nhan_su [✓A]
@@ -196,7 +212,7 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     triet_ly_giao_duc: —
     tam_nhin        : —
     dia_chi         : —
-    email           : —
+    email           : hieuhv@uel.edu.vn [✓A]
     dien_thoai      : —
     website         : —
     ma_truong       : —
@@ -221,6 +237,10 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     bo_mon          : —
     hoc_bong_tien_phong_2026: —
     hoc_bong_vuot_troi_2026: —
+    phuong_thuc_xet_tuyen_2026: —
+    chi_tieu_2026   : —
+    diem_sat_2025   : —
+    diem_utxt149_2025: —
 
 ▸ Khoa Toán Kinh tế  (don_vi)
     loai            : don_vi [✓A]
@@ -265,6 +285,10 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     bo_mon          : —
     hoc_bong_tien_phong_2026: —
     hoc_bong_vuot_troi_2026: —
+    phuong_thuc_xet_tuyen_2026: —
+    chi_tieu_2026   : —
+    diem_sat_2025   : —
+    diem_utxt149_2025: —
 
 ▸ Lê Anh Vũ  (nhan_su)
     loai            : nhan_su [✓A]
@@ -284,7 +308,7 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     triet_ly_giao_duc: —
     tam_nhin        : —
     dia_chi         : —
-    email           : —
+    email           : vula@uel.edu.vn [✓A]
     dien_thoai      : —
     website         : —
     ma_truong       : —
@@ -309,6 +333,10 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     bo_mon          : —
     hoc_bong_tien_phong_2026: —
     hoc_bong_vuot_troi_2026: —
+    phuong_thuc_xet_tuyen_2026: —
+    chi_tieu_2026   : —
+    diem_sat_2025   : —
+    diem_utxt149_2025: —
 
 ▸ Lê Hồng Nhật  (nhan_su)
     loai            : nhan_su [✓A]
@@ -353,6 +381,10 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     bo_mon          : —
     hoc_bong_tien_phong_2026: —
     hoc_bong_vuot_troi_2026: —
+    phuong_thuc_xet_tuyen_2026: —
+    chi_tieu_2026   : —
+    diem_sat_2025   : —
+    diem_utxt149_2025: —
 
 ▸ Lê Phương  (nhan_su)
     loai            : nhan_su [✓A]
@@ -397,6 +429,10 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     bo_mon          : Bộ môn Phân tích dữ liệu, Khoa Toán Kinh tế [✓A]
     hoc_bong_tien_phong_2026: —
     hoc_bong_vuot_troi_2026: —
+    phuong_thuc_xet_tuyen_2026: —
+    chi_tieu_2026   : —
+    diem_sat_2025   : —
+    diem_utxt149_2025: —
 
 ▸ Lê Thanh Hoa  (nhan_su)
     loai            : nhan_su [✓A]
@@ -441,6 +477,10 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     bo_mon          : —
     hoc_bong_tien_phong_2026: —
     hoc_bong_vuot_troi_2026: —
+    phuong_thuc_xet_tuyen_2026: —
+    chi_tieu_2026   : —
+    diem_sat_2025   : —
+    diem_utxt149_2025: —
 
 ▸ Lê Thị Thanh An  (nhan_su)
     loai            : nhan_su [✓A]
@@ -485,6 +525,10 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     bo_mon          : —
     hoc_bong_tien_phong_2026: —
     hoc_bong_vuot_troi_2026: —
+    phuong_thuc_xet_tuyen_2026: —
+    chi_tieu_2026   : —
+    diem_sat_2025   : —
+    diem_utxt149_2025: —
 
 ▸ Nguyễn Ngọc Huy  (nhan_su)
     loai            : nhan_su [✓A]
@@ -529,6 +573,10 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     bo_mon          : —
     hoc_bong_tien_phong_2026: —
     hoc_bong_vuot_troi_2026: —
+    phuong_thuc_xet_tuyen_2026: —
+    chi_tieu_2026   : —
+    diem_sat_2025   : —
+    diem_utxt149_2025: —
 
 ▸ Nguyễn Phúc Sơn  (nhan_su)
     loai            : nhan_su [✓A]
@@ -573,6 +621,10 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     bo_mon          : —
     hoc_bong_tien_phong_2026: —
     hoc_bong_vuot_troi_2026: —
+    phuong_thuc_xet_tuyen_2026: —
+    chi_tieu_2026   : —
+    diem_sat_2025   : —
+    diem_utxt149_2025: —
 
 ▸ Nguyễn Đình Uông  (nhan_su)
     loai            : nhan_su [✓A]
@@ -617,6 +669,10 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     bo_mon          : —
     hoc_bong_tien_phong_2026: —
     hoc_bong_vuot_troi_2026: —
+    phuong_thuc_xet_tuyen_2026: —
+    chi_tieu_2026   : —
+    diem_sat_2025   : —
+    diem_utxt149_2025: —
 
 ▸ Ngành Toán kinh tế  (nganh)
     loai            : nganh [✓A]
@@ -661,6 +717,10 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     bo_mon          : —
     hoc_bong_tien_phong_2026: —
     hoc_bong_vuot_troi_2026: —
+    phuong_thuc_xet_tuyen_2026: —
+    chi_tieu_2026   : —
+    diem_sat_2025   : —
+    diem_utxt149_2025: —
 
 ▸ Phạm Hoàng Uyên  (nhan_su)
     loai            : nhan_su [✓A]
@@ -705,6 +765,10 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     bo_mon          : —
     hoc_bong_tien_phong_2026: —
     hoc_bong_vuot_troi_2026: —
+    phuong_thuc_xet_tuyen_2026: —
+    chi_tieu_2026   : —
+    diem_sat_2025   : —
+    diem_utxt149_2025: —
 
 ▸ Phạm Thị Thu Cúc  (nhan_su)
     loai            : nhan_su [✓A]
@@ -724,7 +788,7 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     triet_ly_giao_duc: —
     tam_nhin        : —
     dia_chi         : —
-    email           : —
+    email           : cucptt@uel.edu.vn [✓A]
     dien_thoai      : —
     website         : —
     ma_truong       : —
@@ -749,6 +813,10 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     bo_mon          : —
     hoc_bong_tien_phong_2026: —
     hoc_bong_vuot_troi_2026: —
+    phuong_thuc_xet_tuyen_2026: —
+    chi_tieu_2026   : —
+    diem_sat_2025   : —
+    diem_utxt149_2025: —
 
 ▸ Phạm Văn Chững  (nhan_su)
     loai            : nhan_su [✓A]
@@ -768,7 +836,7 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     triet_ly_giao_duc: —
     tam_nhin        : —
     dia_chi         : —
-    email           : —
+    email           : chungpv@uel.edu.vn [✓A]
     dien_thoai      : —
     website         : —
     ma_truong       : —
@@ -793,6 +861,10 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     bo_mon          : —
     hoc_bong_tien_phong_2026: —
     hoc_bong_vuot_troi_2026: —
+    phuong_thuc_xet_tuyen_2026: —
+    chi_tieu_2026   : —
+    diem_sat_2025   : —
+    diem_utxt149_2025: —
 
 ▸ Trương Quang Nhật  (nhan_su)
     loai            : nhan_su [✓A]
@@ -837,6 +909,10 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     bo_mon          : —
     hoc_bong_tien_phong_2026: —
     hoc_bong_vuot_troi_2026: —
+    phuong_thuc_xet_tuyen_2026: —
+    chi_tieu_2026   : —
+    diem_sat_2025   : —
+    diem_utxt149_2025: —
 
 ▸ Trường Đại học Kinh tế - Luật  (truong)
     loai            : truong [✓C]
@@ -881,6 +957,10 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     bo_mon          : —
     hoc_bong_tien_phong_2026: Học bổng Tiên phong 2026: trao thủ khoa đầu vào theo từng nhóm phương thức (THPT, ĐGNL, chứng chỉ quốc tế), xét tự động, cấn trừ học phí, công bố dự kiến 17/08/2026, trao tại Lễ Khai giảng dự kiến 21/08/2026 [✓A]
     hoc_bong_vuot_troi_2026: Học bổng Vượt trội 2026: 05 tân sinh viên điểm trúng tuyển cao nhất theo điểm quy đổi thang 100 (không gồm người đã nhận Tiên phong), xét tự động, cấn trừ học phí [✓A]
+    phuong_thuc_xet_tuyen_2026: PT1: xét tuyển thẳng và ưu tiên xét tuyển thẳng theo quy chế Bộ GD&ĐT (tối đa 5%); PT2: xét tuyển tổng hợp (điểm ĐGNL, điểm thi tốt nghiệp THPT, học bạ và các tiêu chí kết hợp) [✓C]
+    chi_tieu_2026   : —
+    diem_sat_2025   : —
+    diem_utxt149_2025: —
 
 ▸ Trần Nguyễn Hoàng Sang  (nhan_su)
     loai            : nhan_su [✓A]
@@ -925,6 +1005,10 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     bo_mon          : —
     hoc_bong_tien_phong_2026: —
     hoc_bong_vuot_troi_2026: —
+    phuong_thuc_xet_tuyen_2026: —
+    chi_tieu_2026   : —
+    diem_sat_2025   : —
+    diem_utxt149_2025: —
 
 ▸ Võ Thị Lệ Uyển  (nhan_su)
     loai            : nhan_su [✓A]
@@ -944,7 +1028,7 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     triet_ly_giao_duc: —
     tam_nhin        : —
     dia_chi         : —
-    email           : —
+    email           : uyenvtl@uel.edu.vn [✓A]
     dien_thoai      : —
     website         : —
     ma_truong       : —
@@ -969,6 +1053,10 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     bo_mon          : —
     hoc_bong_tien_phong_2026: —
     hoc_bong_vuot_troi_2026: —
+    phuong_thuc_xet_tuyen_2026: —
+    chi_tieu_2026   : —
+    diem_sat_2025   : —
+    diem_utxt149_2025: —
 
 ▸ Đoàn Hồng Chương  (nhan_su)
     loai            : nhan_su [✓A]
@@ -1013,6 +1101,10 @@ REFINERY · domain=toan_kinh_te_uel · thực thể Khoa Toán Kinh tế UEL
     bo_mon          : —
     hoc_bong_tien_phong_2026: —
     hoc_bong_vuot_troi_2026: —
+    phuong_thuc_xet_tuyen_2026: —
+    chi_tieu_2026   : —
+    diem_sat_2025   : —
+    diem_utxt149_2025: —
 
 Phân bố theo loai (n=23 / universe≈23 · coverage 100.0%):
     chuyen_nganh: 3
@@ -1021,5 +1113,5 @@ Phân bố theo loai (n=23 / universe≈23 · coverage 100.0%):
     nhan_su: 17
     truong: 1
 
-build digest = 1f6f8ce69e719f1b  · idempotent OK · auditor OK
+build digest = a3ea65c19bacccfa  · idempotent OK · auditor OK
 VALIDATION PASSED · 0 gate bites
