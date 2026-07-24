@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { Answer, ChatMessage, Citation } from "@/lib/types";
+import type { Answer, ChatMessage, Citation, ResponseMode } from "@/lib/types";
 import { streamChat, fetchClaimsCount } from "@/lib/api";
 import EvidenceSheet from "./EvidenceSheet";
 import InputBar from "./InputBar";
 import MessageBubble from "./MessageBubble";
+import ModeToggle from "./ModeToggle";
 import SeasonCards from "./SeasonCards";
 import styles from "./ChatSurface.module.css";
 
@@ -15,6 +16,7 @@ const mid = () => `m${nextId++}`;
 export default function ChatSurface() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [busy, setBusy] = useState(false);
+  const [responseMode, setResponseMode] = useState<ResponseMode>("mock");
   const [sheetCitation, setSheetCitation] = useState<Citation | null>(null);
   const [claims, setClaims] = useState<number | null>(null);
   const chatRef = useRef<HTMLDivElement>(null);
@@ -46,6 +48,7 @@ export default function ChatSurface() {
     abortRef.current = controller;
     await streamChat(
       q,
+      responseMode,
       {
         onPartial: (text) => patch({ text }),
         onAnswer: (answer: Answer) =>
@@ -82,9 +85,16 @@ export default function ChatSurface() {
           <div className={styles.over}>Trường Đại học Kinh tế - Luật · ĐHQG-HCM</div>
           <div className={styles.name}>Khoa Toán Kinh tế</div>
         </div>
-        <div className={styles.verified}>
-          <span className={styles.vdot} />
-          {claims !== null ? `${claims} dữ kiện kiểm chứng` : "Dữ kiện kiểm chứng"}
+        <div className={styles.controls}>
+          <ModeToggle
+            value={responseMode}
+            onChange={setResponseMode}
+            disabled={busy}
+          />
+          <div className={styles.verified}>
+            <span className={styles.vdot} />
+            {claims !== null ? `${claims} dữ kiện kiểm chứng` : "Dữ kiện kiểm chứng"}
+          </div>
         </div>
       </header>
 

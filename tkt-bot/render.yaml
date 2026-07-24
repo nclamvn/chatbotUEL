@@ -3,7 +3,7 @@
 # vì build-arg cho Docker có thể cần đặt trong Build settings của dashboard.
 #
 # NGUYÊN TẮC BẮT BUỘC:
-# - ANTHROPIC_API_KEY để trống. Staging là template-only, KHÔNG bật LLM kể cả khi
+# - Các API key để trống. Staging là template-only, KHÔNG bật LLM kể cả khi
 #   key về giữa chừng. Đổi MODE là việc của TIP-08 với đầy đủ bằng chứng.
 # - Đặt ADMIN_PASS / STAGING_PASS là secret trong dashboard (sync:false), không commit.
 # - Chưa gắn domain UEL, dùng subdomain onrender.com mặc định tới khi Khoa xác nhận.
@@ -33,6 +33,8 @@ services:
       - key: EMBEDDINGS
         value: hash # e5 bật cùng TIP-08, không ở v0
       - key: ANTHROPIC_API_KEY
+        value: "" # rỗng = template-only, KHÔNG đổi ở staging
+      - key: OPENAI_API_KEY
         value: "" # rỗng = template-only, KHÔNG đổi ở staging
       - key: MAX_QUESTION_LEN
         value: "500"

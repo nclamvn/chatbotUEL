@@ -19,8 +19,10 @@ services:
     build: ./api
     environment:
       DATABASE_URL: postgresql://tkt:${POSTGRES_PASSWORD:-tkt}@db:5432/tktbot
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
       ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
-      COMPOSER_MODEL: ${COMPOSER_MODEL:-claude-sonnet-4-6}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-5-mini}
+      ANTHROPIC_MODEL: ${ANTHROPIC_MODEL:-claude-sonnet-4-6}
       EMBEDDINGS: ${EMBEDDINGS:-hash}
       SITE_ADDRESS: ${SITE_ADDRESS:-}
       CORS_ORIGINS: ${CORS_ORIGINS:-}

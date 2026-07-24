@@ -1,15 +1,15 @@
 """Composer: dựng câu trả lời theo JSON contract từ context retrieval.
 
-Hai đường:
-- LLM: Claude API (COMPOSER_MODEL), system prompt là Domain Constitution.
-- Fallback deterministic: không LLM, template an toàn từ ô registry. Dùng khi
-  thiếu API key, khi LLM lỗi, hoặc khi verifier bác quá hai vòng (REQ-06).
+Ba đường:
+- OpenAI API là provider chính.
+- Anthropic API là provider dự phòng.
+- Fallback deterministic: template an toàn khi cả hai provider không dùng được
+  hoặc khi verifier bác quá hai vòng (REQ-06).
 Mọi citation được server dựng lại từ DB, không tin metadata do LLM sinh.
 """
 import json
 
-from .config import (ANTHROPIC_API_KEY, COMPOSER_MODEL, CONTACT_EMAIL,
-                     CONTACT_PHONE, LLM_ENABLED)
+from .config import CONTACT_EMAIL, CONTACT_PHONE, LLM_ENABLED
 from .constitution import TABLE_MIN, system_prompt
 
 FIELD_LABELS = {
@@ -236,35 +236,35 @@ def compose_fallback(question: str, intent: str, retrieved: dict) -> dict:
 # ── đường LLM ────────────────────────────────────────────────────────
 
 def compose_llm(question: str, intent: str, retrieved: dict, feedback: str = None) -> dict:
-    import anthropic
+    from .llm import generate_json
+
+    def valid_contract(value: dict) -> bool:
+        return (isinstance(value.get("answer_markdown"), str)
+                and value.get("status") in ("grounded", "disputed", "null", "oos")
+                and isinstance(value.get("citation_ids"), list))
+
     context, _ = build_context(retrieved)
     user = f"CONTEXT:\n{context or '(trống, không có dữ liệu)'}\n\nINTENT: {intent}\nCÂU HỎI: {question}"
     if feedback:
         user += f"\n\nLẦN TRƯỚC BỊ BÁC, VIẾT LẠI THEO GÓP Ý SAU:\n{feedback}"
-    client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
-    msg = client.messages.create(
-        model=COMPOSER_MODEL, max_tokens=1200,
-        system=system_prompt(),
-        messages=[{"role": "user", "content": user}])
-    from . import log, telemetry
-    telemetry.incr_counter("llm_calls_composer")
-    telemetry.incr_counter("llm_tokens_in_composer", msg.usage.input_tokens)
-    telemetry.incr_counter("llm_tokens_out_composer", msg.usage.output_tokens)
-    log.event("composer", "llm", model=msg.model,
-              tokens_in=msg.usage.input_tokens, tokens_out=msg.usage.output_tokens)
-    text = msg.content[0].text.strip()
-    if text.startswith("```"):
-        text = text.strip("`").removeprefix("json").strip()
-    return json.loads(text)
+    data, result = generate_json(
+        system=system_prompt(), user=user, max_tokens=1200, purpose="composer",
+        validate=valid_contract)
+    data["_provider"] = result.provider
+    return data
 
 
-def compose(question: str, intent: str, retrieved: dict, feedback: str = None) -> tuple[dict, dict]:
+def compose(question: str, intent: str, retrieved: dict, feedback: str = None,
+            use_llm: bool | None = None) -> tuple[dict, dict]:
     """Trả về (raw contract từ composer, lookup để dựng citation)."""
     _, lookup = build_context(retrieved)
-    if LLM_ENABLED:
+    llm_active = LLM_ENABLED if use_llm is None else (use_llm and LLM_ENABLED)
+    if llm_active:
         try:
             return compose_llm(question, intent, retrieved, feedback), lookup
         except Exception as e:
             from . import log
-            log.event("composer", "llm_error_fallback", error=str(e))
-    return compose_fallback(question, intent, retrieved), lookup
+            log.event("composer", "all_providers_failed", error=str(e))
+    raw = compose_fallback(question, intent, retrieved)
+    raw["_provider"] = "template"
+    return raw, lookup

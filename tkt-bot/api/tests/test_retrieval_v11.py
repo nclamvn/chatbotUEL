@@ -1,4 +1,4 @@
-"""Registry v1.1: 3 field mới và person-name lookup. Cần DB đã nạp v1.1."""
+"""Hồi quy structured lookup trên registry hiện hành. Cần DB đã nạp."""
 from app.retrieval import structured_lookup
 
 
@@ -25,6 +25,9 @@ def test_tien_than_truong():
     assert any(c["field"] == "tien_than" for c in cells), cells
 
 
-def test_chi_tieu_2026_still_null_path():
-    # hồi quy honest-null: chi_tieu chỉ có dữ liệu 2025
-    assert structured_lookup("chỉ tiêu 2026") == []
+def test_chi_tieu_2026_grounded_for_three_specializations():
+    # Registry v1.3 đã có chỉ tiêu 2026 do Trường công bố cho ba chuyên ngành.
+    cells = structured_lookup("chỉ tiêu 2026")
+    assert len(cells) == 3, cells
+    assert all(c["field"] == "chi_tieu_2026" and c["status"] != "null"
+               for c in cells), cells

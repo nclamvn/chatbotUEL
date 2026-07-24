@@ -1,4 +1,5 @@
 export type AnswerStatus = "grounded" | "disputed" | "null" | "oos";
+export type ResponseMode = "mock" | "api";
 
 export interface Citation {
   claim_id: string;

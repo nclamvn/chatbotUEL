@@ -42,11 +42,15 @@ export default function InputBar({
 
   return (
     <div className={styles.inputbar}>
-      <div className={styles.box}>
+      <div className={styles.box} aria-busy={disabled}>
         <input
           type="text"
           value={value}
-          placeholder="Hỏi về tuyển sinh, đào tạo, học vụ…"
+          placeholder={
+            disabled
+              ? "Đang kiểm tra nguồn và soạn câu trả lời…"
+              : "Hỏi về tuyển sinh, đào tạo, học vụ…"
+          }
           autoComplete="off"
           aria-label="Câu hỏi của bạn"
           disabled={disabled}

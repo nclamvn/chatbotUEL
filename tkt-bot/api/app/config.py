@@ -3,9 +3,12 @@ import os
 APP_VERSION = "0.1.0"
 DATA_DIR = os.environ.get("DATA_DIR", os.path.join(os.path.dirname(__file__), "..", "data"))
 DATABASE_URL = os.environ.get("DATABASE_URL", "postgresql://tkt:tkt@localhost:5433/tktbot")
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
-COMPOSER_MODEL = os.environ.get("COMPOSER_MODEL", "claude-sonnet-4-6")
-ROUTER_MODEL = os.environ.get("ROUTER_MODEL", "claude-haiku-4-5-20251001")
+OPENAI_MODEL = os.environ.get("OPENAI_MODEL", "gpt-5-mini")
+# COMPOSER_MODEL được giữ làm alias tương thích với cấu hình cũ.
+ANTHROPIC_MODEL = os.environ.get(
+    "ANTHROPIC_MODEL", os.environ.get("COMPOSER_MODEL", "claude-sonnet-4-6"))
 # hash: embedder tất định offline cho dev/test · e5: multilingual-e5-small qua fastembed
 EMBEDDINGS = os.environ.get("EMBEDDINGS", "hash")
 EMBEDDING_DIM = 384
@@ -39,9 +42,9 @@ CORS_ORIGINS = _derive_cors_origins()
 # bật LLM ở staging kể cả khi có key (đổi mode là việc của TIP-08 có bằng chứng).
 MODE = os.environ.get("MODE", "template")
 
-# Cờ AUTHORITATIVE: LLM chỉ chạy khi CÓ key VÀ mode khác template. MODE=template
-# khóa cứng đường LLM dù key có về giữa chừng (đúng constraint TIP-13).
-LLM_ENABLED = bool(ANTHROPIC_API_KEY) and MODE != "template"
+# Cờ AUTHORITATIVE: LLM chỉ chạy khi có ít nhất một provider VÀ mode khác
+# template. Thứ tự provider được cố định OpenAI -> Anthropic -> template.
+LLM_ENABLED = bool(OPENAI_API_KEY or ANTHROPIC_API_KEY) and MODE != "template"
 
 # Basic auth cho trang admin telemetry (tách riêng với gate mời của web)
 ADMIN_USER = os.environ.get("ADMIN_USER", "")

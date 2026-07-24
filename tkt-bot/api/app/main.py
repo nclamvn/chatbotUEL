@@ -12,7 +12,8 @@ from pydantic import BaseModel
 
 from . import log, telemetry
 from .config import (APP_VERSION, ADMIN_PASS, ADMIN_USER, CORS_ORIGINS,
-                     MAX_QUESTION_LEN, MODE)
+                     MAX_QUESTION_LEN, MODE, OPENAI_API_KEY,
+                     ANTHROPIC_API_KEY)
 from .db import connect
 from .models import Answer, ChatRequest
 from .pipeline import answer_pipeline
@@ -75,6 +76,10 @@ def health():
         "status": "ok",
         "version": APP_VERSION,
         "mode": MODE,  # TIP-13: template = fallback, không phải LLM
+        "providers": {
+            "primary": "openai" if OPENAI_API_KEY and MODE != "template" else None,
+            "fallback": "anthropic" if ANTHROPIC_API_KEY and MODE != "template" else None,
+        },
         "claims_loaded": n,
         "registry_version": row["value"] if row else None,
     }
@@ -84,7 +89,7 @@ def health():
 def chat(req: ChatRequest, rid: str = Depends(guard)) -> Answer:
     log.set_request_id(rid)  # context của endpoint sync, để pipeline log cùng rid
     enforce_length(req.message)
-    answer, _meta = answer_pipeline(req.message)
+    answer, _meta = answer_pipeline(req.message, use_llm=req.response_mode == "api")
     telemetry.log_event(req.session_id, req.message, answer["status"],
                         answer["citations"])
     return Answer(**answer)
@@ -116,6 +121,10 @@ def telemetry_stats():
             "cache_hits": telemetry.get_counter("cache_hits"),
             "rate_limited": telemetry.get_counter("rate_limited"),
             "llm_calls_composer": telemetry.get_counter("llm_calls_composer"),
+            "llm_calls_composer_openai": telemetry.get_counter("llm_calls_composer_openai"),
+            "llm_calls_composer_anthropic": telemetry.get_counter("llm_calls_composer_anthropic"),
+            "llm_fallback_openai_to_anthropic":
+                telemetry.get_counter("llm_fallback_openai_to_anthropic"),
             "llm_tokens_in_composer": telemetry.get_counter("llm_tokens_in_composer"),
             "llm_tokens_out_composer": telemetry.get_counter("llm_tokens_out_composer"),
             "llm_calls_router": telemetry.get_counter("llm_calls_router"),
@@ -166,12 +175,13 @@ async def chat_stream(req: ChatRequest, rid: str = Depends(guard)):
     style gate chạy trước khi render), nên stream ở đây là nhịp hiển thị."""
     log.set_request_id(rid)  # asyncio.to_thread copy context này xuống pipeline
     enforce_length(req.message)
-    answer, meta = await asyncio.to_thread(answer_pipeline, req.message)
+    answer, meta = await asyncio.to_thread(
+        answer_pipeline, req.message, req.response_mode == "api")
     await asyncio.to_thread(telemetry.log_event, req.session_id, req.message,
                             answer["status"], answer["citations"])
 
     async def gen():
-        yield f"event: meta\ndata: {json.dumps({'intent': meta['intent']})}\n\n"
+        yield f"event: meta\ndata: {json.dumps({'intent': meta['intent'], 'provider': meta['provider'], 'response_mode': meta['response_mode']})}\n\n"
         words = answer["answer_markdown"].split(" ")
         step = max(1, len(words) // 40)
         for i in range(0, len(words), step):

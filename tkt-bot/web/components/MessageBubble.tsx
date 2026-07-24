@@ -29,15 +29,34 @@ export default function MessageBubble({
 
   const a = msg.answer;
   const status = a?.status;
+  const waitingForFirstText = msg.pending && msg.text.length === 0;
   return (
     <div className={`${styles.msg} ${styles.bot}`}>
       <div className={styles.bubble}>
-        {status === "null" || status === "oos" ? (
-          <NullBlock kind={status}>{renderMarkdown(msg.text)}</NullBlock>
+        {waitingForFirstText ? (
+          <div className={styles.thinking} role="status" aria-live="polite">
+            <span className={styles.thinkingMark} aria-hidden="true">
+              <i />
+              <i />
+              <i />
+            </span>
+            <span>Đang đối chiếu dữ kiện</span>
+          </div>
         ) : (
-          renderMarkdown(msg.text)
+          <>
+            {status === "null" || status === "oos" ? (
+              <NullBlock kind={status}>{renderMarkdown(msg.text)}</NullBlock>
+            ) : (
+              renderMarkdown(msg.text)
+            )}
+            {msg.pending && (
+              <>
+                <span className={styles.cursor} aria-hidden="true">▍</span>
+                <span className={styles.srOnly} role="status">Đang tạo câu trả lời</span>
+              </>
+            )}
+          </>
         )}
-        {msg.pending && <span className={styles.cursor}>▍</span>}
         {status === "disputed" && a && <DisputedBlock citations={a.citations} />}
       </div>
       {a && a.citations.length > 0 && (
