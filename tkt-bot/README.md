@@ -1,15 +1,18 @@
 # TKT-BOT · Cổng hỏi đáp Khoa Toán Kinh tế UEL
 
-Chatbot tuyển sinh grounded trên 110 claims đã kiểm chứng của domain refinery
-`toan_kinh_te_uel` (Registry v1.1, 23 thực thể). Mọi con số và tên riêng truy vết được về evidence_span,
+Chatbot tuyển sinh grounded trên 139 claims đã kiểm chứng của domain refinery
+`toan_kinh_te_uel` (Registry v1.3). Mọi con số và tên riêng truy vết được về evidence_span,
 bốn trạng thái trả lời: grounded, disputed, honest-null, oos.
 
-## Chạy một lệnh
+## Khởi chạy bản bàn giao
 
 ```bash
-cp .env.example .env    # điền OPENAI_API_KEY và ANTHROPIC_API_KEY cho demo
+cp .env.example .env
 docker compose up -d --build
 ```
+
+Khi chưa cấu hình key, giữ `MODE=template`. Ứng dụng khởi động ở chế độ
+**Demo**, dùng câu trả lời deterministic và không gọi dịch vụ AI bên ngoài.
 
 - Cổng chính (Caddy): http://localhost:8080 (đổi qua `HTTP_PORT`)
 - API trực tiếp: http://localhost:8000 · web trực tiếp: http://localhost:3002
@@ -20,6 +23,24 @@ docker compose up -d --build
 Loader và ingest chạy tự động khi container api khởi động, idempotent,
 chạy lại bao nhiêu lần cũng cho cùng registry (digest in ra log).
 
+## Cấu hình API do Trường quản lý
+
+Không có API key cá nhân nào trong repository. Quản trị viên của Trường thực hiện:
+
+1. Tạo key riêng cho dự án trong tài khoản do Trường quản lý.
+2. Đặt `OPENAI_API_KEY` và, nếu cần fallback, `ANTHROPIC_API_KEY` trong secret
+   manager của nền tảng triển khai. Không commit file `.env`.
+3. Đặt hạn mức chi tiêu và cảnh báo usage ở từng nhà cung cấp.
+4. Đổi `MODE=llm`, sau đó recreate API:
+
+```bash
+docker compose up -d --force-recreate api
+curl http://localhost:8000/health
+```
+
+Kết quả health phải hiển thị `primary: openai` và, khi có key Claude,
+`fallback: anthropic`. Nếu chưa có key hợp lệ, giữ `MODE=template`.
+
 ## Smoke test
 
 ```bash
@@ -27,13 +48,13 @@ python3 scripts/smoke_test.py               # mặc định localhost:8000
 python3 scripts/smoke_test.py http://host:8000
 ```
 
-12 câu phủ bốn trạng thái (4 grounded, 3 disputed, 3 null, 2 oos), assert
+12 câu phủ bốn trạng thái (6 grounded, 3 disputed, 1 null, 2 oos), assert
 status đúng và P95 dưới 6 giây khi chưa cache.
 
 ## Unit test
 
 ```bash
-docker compose run --rm api python -m pytest tests/
+docker compose run --rm -e MODE=template api python -m pytest tests/
 ```
 
 ## Cấu trúc
@@ -41,7 +62,7 @@ docker compose run --rm api python -m pytest tests/
 Xem BLUEPRINT-TKT-BOT.md (khế ước) và TIP-PACK-TKT-BOT.md. Tóm tắt:
 
 - `api/` FastAPI: retrieval ba đường (registry lookup, BM25, pgvector RRF),
-  composer Claude API kèm fallback deterministic, verifier hai tầng
+  composer OpenAI chính, Claude fallback và template deterministic, verifier hai tầng
   (trace số/tên riêng + style_lint), telemetry và cache 24h theo registry version.
 - `web/` Next.js 15 App Router, token thị giác lấy nguyên từ mockup đã duyệt,
   SSE streaming sau khi style gate duyệt xong.
