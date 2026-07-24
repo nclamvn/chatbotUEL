@@ -1,4 +1,4 @@
-import type { Answer } from "./types";
+import type { Answer, ResponseMode } from "./types";
 
 // Đường dẫn tương đối: dev đi qua rewrites của Next, production đi qua Caddy.
 // Bài học hạ tầng: không hardcode URL tuyệt đối trong standalone build.
@@ -41,6 +41,7 @@ export async function fetchClaimsCount(): Promise<number | null> {
 
 export async function streamChat(
   message: string,
+  responseMode: ResponseMode,
   h: StreamHandlers,
   signal?: AbortSignal,
 ): Promise<void> {
@@ -49,7 +50,7 @@ export async function streamChat(
     res = await fetch(`${API_BASE}/chat/stream`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message }),
+      body: JSON.stringify({ message, response_mode: responseMode }),
       signal,
     });
   } catch (e) {

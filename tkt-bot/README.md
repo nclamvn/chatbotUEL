@@ -7,13 +7,15 @@ bốn trạng thái trả lời: grounded, disputed, honest-null, oos.
 ## Chạy một lệnh
 
 ```bash
-cp .env.example .env    # điền ANTHROPIC_API_KEY nếu chạy đường LLM
+cp .env.example .env    # điền OPENAI_API_KEY và ANTHROPIC_API_KEY cho demo
 docker compose up -d --build
 ```
 
 - Cổng chính (Caddy): http://localhost:8080 (đổi qua `HTTP_PORT`)
 - API trực tiếp: http://localhost:8000 · web trực tiếp: http://localhost:3002
 - Postgres (pgvector): host port 5433
+- Toggle trên masthead mặc định ở **Demo** (template ổn định, không gọi API).
+  Chỉ chế độ **AI trực tiếp** mới gọi OpenAI và tự động fallback sang Claude.
 
 Loader và ingest chạy tự động khi container api khởi động, idempotent,
 chạy lại bao nhiêu lần cũng cho cùng registry (digest in ra log).
@@ -50,7 +52,10 @@ Xem BLUEPRINT-TKT-BOT.md (khế ước) và TIP-PACK-TKT-BOT.md. Tóm tắt:
 
 - Đổi env thì `docker compose up -d --force-recreate <service>`.
 - Dữ liệu Postgres nằm trong volume `tkt_pgdata`, restart không mất.
-- Bot chưa có ANTHROPIC_API_KEY vẫn chạy được ở chế độ fallback deterministic
+- OpenAI là provider chính; nếu lỗi mạng, rate limit, model không khả dụng hoặc
+  trả JSON sai contract, bot tự động thử Claude. Nếu cả hai thất bại, bot vẫn
+  chạy bằng fallback deterministic.
+- Bot chưa có API key vẫn chạy được ở chế độ fallback deterministic
   (đủ bốn trạng thái, câu chữ template). Có key thì composer viết tự nhiên hơn
   và vòng viết lại của style gate hoạt động đầy đủ.
 - Điều kiện go-live: xác nhận dữ liệu nhân sự với văn phòng Khoa

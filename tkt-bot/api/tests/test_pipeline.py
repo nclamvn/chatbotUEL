@@ -6,7 +6,7 @@ import app.pipeline as pipeline
 def _fake_compose_factory(answers):
     calls = {"n": 0, "feedbacks": []}
 
-    def fake_compose(question, intent, retrieved, feedback=None):
+    def fake_compose(question, intent, retrieved, feedback=None, use_llm=None):
         calls["feedbacks"].append(feedback)
         raw = {"answer_markdown": answers[min(calls["n"], len(answers) - 1)],
                "status": "grounded", "citation_ids": [], "followups": []}
@@ -20,7 +20,7 @@ def test_rewrite_on_emdash_then_pass(monkeypatch):
     fake, calls = _fake_compose_factory(
         ["Khoa Toán Kinh tế — đơn vị trẻ.", "Chào bạn, mình đây."])
     monkeypatch.setattr(pipeline, "compose", fake)
-    monkeypatch.setattr(pipeline, "classify", lambda q: "smalltalk")
+    monkeypatch.setattr(pipeline, "classify", lambda q, use_llm=None: "smalltalk")
     monkeypatch.setattr(pipeline, "LLM_ENABLED", True)
 
     answer, meta = pipeline.answer_pipeline("chào bạn")
@@ -34,7 +34,7 @@ def test_fallback_after_two_failed_rewrites(monkeypatch):
     bad = "Toán, và kinh tế — hay; đẹp; vui."
     fake, calls = _fake_compose_factory([bad, bad, bad])
     monkeypatch.setattr(pipeline, "compose", fake)
-    monkeypatch.setattr(pipeline, "classify", lambda q: "smalltalk")
+    monkeypatch.setattr(pipeline, "classify", lambda q, use_llm=None: "smalltalk")
     monkeypatch.setattr(pipeline, "LLM_ENABLED", True)
 
     answer, meta = pipeline.answer_pipeline("chào bạn")

@@ -1,11 +1,60 @@
 .mode {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 1px solid var(--hairline);
-  background: var(--card);
-  color: var(--ink);
-  font-size: 15px;
-  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  border-radius: 4px;
+  border: 1px solid var(--line-2);
+  background: var(--paper);
   flex: 0 0 auto;
+}
+
+.mode button {
+  min-height: 28px;
+  border: 0;
+  border-radius: 2px;
+  padding: 0 10px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+}
+
+.mode button:hover:not(:disabled),
+.mode button:focus-visible {
+  color: var(--uel-deep);
+  outline: none;
+}
+
+.mode button:focus-visible {
+  box-shadow: inset 0 0 0 1px var(--uel);
+}
+
+.mode button:disabled {
+  cursor: wait;
+}
+
+.mode .active {
+  background: #fff;
+  color: var(--uel-deep);
+  box-shadow: 0 1px 4px rgba(23, 48, 66, 0.12);
+}
+
+.mode .activeApi {
+  background: var(--uel-deep);
+  color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 75, 124, 0.2);
+}
+
+.liveDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.72;
 }

@@ -56,6 +56,13 @@
   flex: 0 0 auto;
 }
 
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 0 0 auto;
+}
+
 .vdot {
   width: 7px;
   height: 7px;
@@ -84,6 +91,11 @@
     text-wrap: balance;
   }
   .name { font-size: 17px; }
+  .header { flex-wrap: wrap; }
+  .controls {
+    width: 100%;
+    justify-content: flex-end;
+  }
 }
 
 /* ── chat viewport ── */

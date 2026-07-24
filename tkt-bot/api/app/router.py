@@ -2,10 +2,9 @@
 Một lệnh gọi nhỏ few-shot trả JSON. Không có API key thì dùng heuristic offline
 (cùng nhãn, phục vụ dev/test), đường nào cũng trả về một trong bốn intent.
 """
-import json
 import re
 
-from .config import ANTHROPIC_API_KEY, LLM_ENABLED, ROUTER_MODEL
+from .config import LLM_ENABLED
 from .retrieval import norm
 
 INTENTS = ("factual", "interpretive", "oos", "smalltalk")
@@ -41,16 +40,15 @@ def _heuristic(question: str) -> str:
     return "interpretive"
 
 
-def classify(question: str) -> str:
-    if not LLM_ENABLED:
+def classify(question: str, use_llm: bool | None = None) -> str:
+    llm_active = LLM_ENABLED if use_llm is None else (use_llm and LLM_ENABLED)
+    if not llm_active:
         return _heuristic(question)
     try:
-        import anthropic
-        client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+        from .llm import generate_json
+
         examples = "\n".join(f'- "{q}" -> {i}' for q, i in FEW_SHOT)
-        msg = client.messages.create(
-            model=ROUTER_MODEL,
-            max_tokens=50,
+        data, _ = generate_json(
             system=("Phân loại câu hỏi gửi tới bot tuyển sinh Khoa Toán Kinh tế UEL. "
                     "Trả về JSON duy nhất {\"intent\": \"factual|interpretive|oos|smalltalk\"}.\n"
                     "factual: hỏi con số, tên riêng, thông tin tra cứu được.\n"
@@ -58,15 +56,11 @@ def classify(question: str) -> str:
                     "oos: ngoài phạm vi tuyển sinh và thông tin Khoa.\n"
                     "smalltalk: chào hỏi, cảm ơn, xã giao.\n"
                     f"Ví dụ:\n{examples}"),
-            messages=[{"role": "user", "content": question}],
+            user=question,
+            max_tokens=50,
+            purpose="router",
+            validate=lambda value: value.get("intent") in INTENTS,
         )
-        from . import log, telemetry
-        telemetry.incr_counter("llm_calls_router")
-        telemetry.incr_counter("llm_tokens_in_router", msg.usage.input_tokens)
-        telemetry.incr_counter("llm_tokens_out_router", msg.usage.output_tokens)
-        log.event("router", "llm", model=msg.model,
-                  tokens_in=msg.usage.input_tokens, tokens_out=msg.usage.output_tokens)
-        intent = json.loads(msg.content[0].text.strip()).get("intent", "")
-        return intent if intent in INTENTS else _heuristic(question)
+        return data["intent"]
     except Exception:
         return _heuristic(question)

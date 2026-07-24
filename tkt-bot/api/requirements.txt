@@ -4,6 +4,7 @@ psycopg[binary]==3.2.*
 pydantic==2.*
 pyyaml==6.*
 anthropic==0.40.*
+openai>=1.54,<3
 rank-bm25==0.2.*
 beautifulsoup4==4.12.*
 lxml==5.*

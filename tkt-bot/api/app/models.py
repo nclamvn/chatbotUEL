@@ -58,3 +58,5 @@ class Answer(BaseModel):
 class ChatRequest(BaseModel):
     message: str
     session_id: Optional[str] = None
+    # mock là mặc định an toàn/ổn định cho demo; api mới gọi provider thật.
+    response_mode: Literal["mock", "api"] = "mock"

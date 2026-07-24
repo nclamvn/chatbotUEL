@@ -18,8 +18,8 @@ def session_hash(session_id: str | None) -> str:
     return hashlib.sha256((session_id or "anon").encode()).hexdigest()[:16]
 
 
-def cache_key(question: str) -> str:
-    return hashlib.sha256(norm(question).encode()).hexdigest()[:32]
+def cache_key(question: str, namespace: str = "default") -> str:
+    return hashlib.sha256(f"{namespace}:{norm(question)}".encode()).hexdigest()[:32]
 
 
 def registry_version(conn) -> str:
@@ -45,18 +45,18 @@ def get_counter(name: str) -> int:
     return int(row["value"]) if row else 0
 
 
-def cache_get(question: str) -> dict | None:
+def cache_get(question: str, namespace: str = "default") -> dict | None:
     with connect() as conn, conn.cursor() as cur:
         cur.execute(
             """SELECT answer FROM answer_cache
                WHERE cache_key = %s AND registry_version = %s
                  AND created_at > now() - make_interval(hours => %s)""",
-            (cache_key(question), registry_version(conn), CACHE_TTL_HOURS))
+            (cache_key(question, namespace), registry_version(conn), CACHE_TTL_HOURS))
         row = cur.fetchone()
     return row["answer"] if row else None
 
 
-def cache_put(question: str, answer: dict) -> None:
+def cache_put(question: str, answer: dict, namespace: str = "default") -> None:
     with connect() as conn, conn.cursor() as cur:
         cur.execute(
             """INSERT INTO answer_cache (cache_key, registry_version, answer)
@@ -64,7 +64,7 @@ def cache_put(question: str, answer: dict) -> None:
                ON CONFLICT (cache_key) DO UPDATE
                  SET registry_version = EXCLUDED.registry_version,
                      answer = EXCLUDED.answer, created_at = now()""",
-            (cache_key(question), registry_version(conn),
+            (cache_key(question, namespace), registry_version(conn),
              json.dumps(answer, ensure_ascii=False)))
         conn.commit()
 
